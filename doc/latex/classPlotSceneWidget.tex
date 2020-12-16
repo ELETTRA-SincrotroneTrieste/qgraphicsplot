@@ -1,0 +1,2379 @@
+\doxysection{Plot\+Scene\+Widget Class Reference}
+\label{classPlotSceneWidget}\index{PlotSceneWidget@{PlotSceneWidget}}
+
+
+{\ttfamily \#include $<$plotscenewidget.\+h$>$}
+
+Inheritance diagram for Plot\+Scene\+Widget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPlotSceneWidget}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ Axis} \{ \newline
+\textbf{ x\+Bottom}, 
+\textbf{ y\+Left}, 
+\textbf{ x\+Top}, 
+\textbf{ y\+Right}, 
+\newline
+\textbf{ User} = 100
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ set\+X\+Scale\+Enabled} (bool en)
+\item 
+void \textbf{ set\+Y\+Scale\+Enabled} (bool en)
+\item 
+void \textbf{ set\+Scale\+Scene\+On\+Resize\+Enabled} (bool en)
+\begin{DoxyCompactList}\small\item\em Changes the scale\+Scene\+On\+Resize\+Enabled property value. \end{DoxyCompactList}\item 
+void \textbf{ set\+Mouse\+Zoom\+Enabled} (bool en)
+\begin{DoxyCompactList}\small\item\em Enables the zoom with the mouse, when the Ctrl key and the left mouse button are pressed. \end{DoxyCompactList}\item 
+bool \textbf{ scale\+Scene\+On\+Resize\+Enabled} () const
+\begin{DoxyCompactList}\small\item\em returns the boolean value of the scale\+Scene\+On\+Resize\+Enabled property. \end{DoxyCompactList}\item 
+void \textbf{ set\+Scene\+Rect\+To\+Widget\+Geometry} (bool en)
+\begin{DoxyCompactList}\small\item\em This property sets the scene rect of the view equal to the widget geometry. \end{DoxyCompactList}\item 
+void \textbf{ set\+Scale\+Scene\+On\+Mouse\+Scroll} (bool en)
+\begin{DoxyCompactList}\small\item\em enable or disable the scene scaling feature when the wheel mouse is scrolled \end{DoxyCompactList}\item 
+void \textbf{ set\+Dont\+Save\+Painter\+State} (bool dont)
+\item 
+void \textbf{ set\+Dont\+Adjust\+For\+Antialiasing} (bool dont)
+\item 
+void \textbf{ set\+Smooth\+Pixmap\+Transform} (bool enable)
+\item 
+void \textbf{ set\+Cache\+Background} (bool cache)
+\item 
+void \textbf{ set\+Modified\+Paint\+Event} (bool mod)
+\item 
+void \textbf{ reset\+Transform\+Matrix} ()
+\item 
+void \textbf{ set\+Manual\+Scene\+Update} (bool manual)
+\begin{DoxyCompactList}\small\item\em This is an important optimization that acts on the Q\+Graphics\+View\+::\+Viewport\+Update\+Mode that comes into relevance when you have several items that must be fastly drawn. \end{DoxyCompactList}\item 
+void \textbf{ set\+Refresh\+Period} (int period)
+\begin{DoxyCompactList}\small\item\em sets the refresh period of the internal timer used to refresh the scene when manual\+Scene\+Update is turned on. \end{DoxyCompactList}\item 
+void \textbf{ execute\+Property\+Dialog} ()
+\item 
+virtual void \textbf{ append\+Data} (const Q\+String \&curve\+Name, double x, double y)
+\item 
+virtual void \textbf{ append\+Data} (const Q\+String \&curve\+Name, const Q\+Vector$<$ double $>$ \&x\+Data, const Q\+Vector$<$ double $>$ \&y\+Data)
+\item 
+virtual void \textbf{ set\+Data} (const Q\+String \&curve\+Name, const Q\+Vector$<$ double $>$ \&x\+Data, const Q\+Vector$<$ double $>$ \&y\+Data)
+\item 
+virtual void \textbf{ set\+Data} (const Q\+String \&curve\+Name, const Q\+Vector$<$ double $>$ \&y\+Data)
+\item 
+void \textbf{ set\+Plot\+Area\+Top\+Left\+Percentage} (double width\+Percent, double height\+Percent)
+\begin{DoxyCompactList}\small\item\em sets the top left point of the rectangle occupied by the plot inside the scene. \end{DoxyCompactList}\item 
+void \textbf{ set\+Plot\+Area\+Percentage} (double width\+Percent, double height\+Percent)
+\begin{DoxyCompactList}\small\item\em set the plot area rectangle size, in terms of percentage with respect to the scene rect area. \end{DoxyCompactList}\item 
+void \textbf{ set\+Plot\+Area\+Percentage\+Width} (double width\+Percent)
+\begin{DoxyCompactList}\small\item\em the same as set\+Plot\+Area\+Top\+Left\+Percentage, sets only width \end{DoxyCompactList}\item 
+void \textbf{ set\+Plot\+Area\+Percentage\+Height} (double height\+Percent)
+\begin{DoxyCompactList}\small\item\em the same as set\+Plot\+Area\+Top\+Left\+Percentage, sets only height \end{DoxyCompactList}\item 
+void \textbf{ set\+Plot\+Area\+Top\+Left\+X\+Percentage} (double x\+Percent)
+\begin{DoxyCompactList}\small\item\em the same as set\+Plot\+Area\+Top\+Left\+Percentage, sets only top left x coordinate percentage \end{DoxyCompactList}\item 
+void \textbf{ set\+Plot\+Area\+Top\+Left\+Y\+Percentage} (double y\+Percent)
+\begin{DoxyCompactList}\small\item\em the same as set\+Plot\+Area\+Top\+Left\+Percentage, sets only top left y coordinate percentage \end{DoxyCompactList}\item 
+void \textbf{ set\+Origin\+Pos\+Percentage} (\textbf{ Scale\+Item} $\ast$scale\+It, double percent)
+\begin{DoxyCompactList}\small\item\em sets the position of the origin of the given scale item to the specified percent value, in percentage terms from 0 to 1.\+0 \end{DoxyCompactList}\item 
+void \textbf{ set\+Default\+X\+Axis\+Origin\+Pos\+Percentage} (double percent)
+\begin{DoxyCompactList}\small\item\em Changes the position of the default x axis. \end{DoxyCompactList}\item 
+void \textbf{ set\+Default\+Y\+Axis\+Origin\+Pos\+Percentage} (double percent)
+\begin{DoxyCompactList}\small\item\em Changes the position of the default y axis. \end{DoxyCompactList}\item 
+void \textbf{ set\+Painter\+Anti\+Alias} (bool en)
+\begin{DoxyCompactList}\small\item\em sets the Q\+Graphics\+Item flag Q\+Painter\+::\+Antialiasing on the view \end{DoxyCompactList}\item 
+void \textbf{ set\+Painter\+H\+Q\+G\+L\+Anti\+Alias} (bool en)
+\begin{DoxyCompactList}\small\item\em sets the Q\+Graphics\+Item flag Q\+Painter\+::\+High\+Quality\+Antialiasing on the view \end{DoxyCompactList}\item 
+void \textbf{ set\+Scroll\+Bars\+Enabled} (bool en)
+\item 
+void \textbf{ set\+Legend\+Visible} (bool visible)
+\item 
+void \textbf{ set\+X\+Axis\+Lower\+Bound} (double xlb)
+\begin{DoxyCompactList}\small\item\em Shortcut to access the x axis and set the bound. \end{DoxyCompactList}\item 
+void \textbf{ set\+Y\+Axis\+Lower\+Bound} (double ylb)
+\begin{DoxyCompactList}\small\item\em Shortcut to access the y axis and set the bound. \end{DoxyCompactList}\item 
+void \textbf{ set\+X\+Axis\+Upper\+Bound} (double xub)
+\begin{DoxyCompactList}\small\item\em Shortcut to access the x axis and set the bound. \end{DoxyCompactList}\item 
+void \textbf{ set\+Y\+Axis\+Upper\+Bound} (double yub)
+\begin{DoxyCompactList}\small\item\em Shortcut to access the y axis and set the bound. \end{DoxyCompactList}\item 
+void \textbf{ set\+X\+Axis\+Autoscale\+Enabled} (bool en)
+\begin{DoxyCompactList}\small\item\em Shortcut to enable/disable the autoscale on the x axis. \end{DoxyCompactList}\item 
+void \textbf{ set\+Y\+Axis\+Autoscale\+Enabled} (bool en)
+\begin{DoxyCompactList}\small\item\em Shortcut to enable/disable the autoscale on the x axis. \end{DoxyCompactList}\item 
+void \textbf{ set\+X\+Axis\+Labels\+Outside\+Canvas} (bool outside)
+\begin{DoxyCompactList}\small\item\em Tells the plot to draw the axis labels outside the area where the curves are drawn. \end{DoxyCompactList}\item 
+void \textbf{ set\+Y\+Axis\+Labels\+Outside\+Canvas} (bool outside)
+\begin{DoxyCompactList}\small\item\em Tells the plot to draw the axis labels outside the area where the curves are drawn. \end{DoxyCompactList}\item 
+void \textbf{ set\+Background\+Color} (const Q\+Color \&) const
+\item 
+void \textbf{ scale} (qreal sx, qreal sy)
+\item 
+void \textbf{ fit\+In} ()
+\item 
+void \textbf{ save\+Data} ()
+\item 
+virtual Q\+Menu $\ast$ \textbf{ create\+Context\+Menu} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ clicked} (const Q\+PointF \&pos)
+\begin{DoxyCompactList}\small\item\em the plot was clicked at the position pos \end{DoxyCompactList}\item 
+void \textbf{ plot\+Rect\+Changed} (const Q\+RectF \&new\+Rect)
+\begin{DoxyCompactList}\small\item\em The plot rectangle has changed. \end{DoxyCompactList}\item 
+void \textbf{ plot\+Area\+Changed} (const Q\+SizeF \&new\+Size)
+\begin{DoxyCompactList}\small\item\em notifies that the plot area has changed \end{DoxyCompactList}\item 
+void \textbf{ curve\+About\+To\+Be\+Removed} (\textbf{ Scene\+Curve} $\ast$c)
+\begin{DoxyCompactList}\small\item\em this signal is emitted when a curve is removed from the plot \end{DoxyCompactList}\item 
+void \textbf{ curve\+Added} (\textbf{ Scene\+Curve} $\ast$curve)
+\begin{DoxyCompactList}\small\item\em This signal notifies that the curve has been added to the plot. \end{DoxyCompactList}\item 
+void \textbf{ view\+Scale\+Changed} (double dx, double dy)
+\begin{DoxyCompactList}\small\item\em Notifies that the scale factors have changed. \end{DoxyCompactList}\item 
+void \textbf{ view\+Scale\+Changed} (double \textbf{ scale})
+\begin{DoxyCompactList}\small\item\em Notifies that the scale factors have changed. The operations performed by the \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} and its zoomer scale the view by the same factor in order to keep the aspect ratio. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Plot\+Scene\+Widget} (Q\+Widget $\ast$parent=0, bool use\+Open\+Gl=false)
+\begin{DoxyCompactList}\small\item\em \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} is a Q\+Graphics\+View with a Q\+Graphics\+Scene where Q\+Graphics\+Item items can be placed and displayed. In particular, \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} is a {\itshape plot} where {\itshape curves} can be drawn. \end{DoxyCompactList}\item 
+\textbf{ Plot\+Scene\+Widget} (Q\+Widget $\ast$parent, bool init\+Default\+Axes, bool use\+Open\+Gl=false)
+\item 
+bool \textbf{ x\+Scale\+Enabled} () const
+\item 
+bool \textbf{ y\+Scale\+Enabled} () const
+\item 
+bool \textbf{ scale\+Scene\+On\+Mouse\+Scroll} () const
+\item 
+bool \textbf{ scene\+Rect\+To\+Widget\+Geometry} () const
+\item 
+bool \textbf{ mouse\+Zoom\+Enabled} () const
+\begin{DoxyCompactList}\small\item\em returns the mouse zoom enable state \end{DoxyCompactList}\item 
+bool \textbf{ modified\+Paint\+Event} () const
+\item 
+bool \textbf{ smooth\+Pixmap\+Transform} () const
+\item 
+bool \textbf{ legend\+Visible} () const
+\item 
+virtual void \textbf{ bounds\+Changed} ()
+\item 
+void \textbf{ install\+Plot\+Geometry\+Change\+Listener} (\textbf{ Plot\+Geometry\+Event\+Listener} $\ast$l)
+\item 
+void \textbf{ remove\+Plot\+Geometry\+Change\+Listener} (\textbf{ Plot\+Geometry\+Event\+Listener} $\ast$l)
+\item 
+void \textbf{ install\+Mouse\+Event\+Listener} (\textbf{ Mouse\+Event\+Listener} $\ast$l)
+\item 
+void \textbf{ remove\+Mouse\+Event\+Listener} (\textbf{ Mouse\+Event\+Listener} $\ast$l)
+\item 
+Q\+Color \textbf{ background\+Color} () const
+\item 
+Q\+List$<$ \textbf{ Point} $\ast$ $>$ \textbf{ get\+Points} () const
+\item 
+\textbf{ Scale\+Item} $\ast$ \textbf{ x\+Scale\+Item} () const
+\begin{DoxyCompactList}\small\item\em shortcut to retrieve the x scale item (\doxyref{Scale\+Item\+::x\+Bottom}{p.}{classScaleItem_a2014770ca14c8e22d594ba7b3f3b379ba4066d14e8b43358b42fd06fb7c02ea0e}) which is always created by default. \end{DoxyCompactList}\item 
+\textbf{ Scale\+Item} $\ast$ \textbf{ y\+Scale\+Item} () const
+\begin{DoxyCompactList}\small\item\em shortcut to retrieve the y scale item (\doxyref{Scale\+Item\+::y\+Left}{p.}{classScaleItem_a2014770ca14c8e22d594ba7b3f3b379ba11483fca69b282ea76a2d47d16b45444}) which is always created by default. \end{DoxyCompactList}\item 
+\textbf{ Scale\+Item} $\ast$ \textbf{ scale\+Item} (\textbf{ Scale\+Item\+::\+Id} id) const
+\begin{DoxyCompactList}\small\item\em returns the \doxyref{Scale\+Item}{p.}{classScaleItem} associated to the argument. \end{DoxyCompactList}\item 
+\textbf{ Scale\+Item} $\ast$ \textbf{ associated\+Axis} (\textbf{ Scale\+Item\+::\+Id} other\+Axis\+Id) const
+\item 
+Q\+Pair$<$ double, double $>$ \textbf{ associated\+Origin\+Pos\+Percentage} (\textbf{ Scale\+Item\+::\+Id} x\+Axis\+Id, \textbf{ Scale\+Item\+::\+Id} y\+Axis\+Id, bool $\ast$ok) const
+\item 
+void \textbf{ add\+Configurable\+Objects} (const Q\+String \&title, Q\+Object $\ast$object)
+\begin{DoxyCompactList}\small\item\em add an object which is configurable through its Qt properties. \end{DoxyCompactList}\item 
+void \textbf{ remove\+Configurable\+Objects} (const Q\+String \&title)
+\begin{DoxyCompactList}\small\item\em removes an object which was previously added with add\+Configurable\+Objects with the given title. \end{DoxyCompactList}\item 
+void \textbf{ set\+Settings\+Key} (const Q\+String \&key)
+\begin{DoxyCompactList}\small\item\em a key to be used to retrieve the settings for the plot. \end{DoxyCompactList}\item 
+Q\+String \textbf{ settings\+Key} () const
+\item 
+void \textbf{ load\+Configuration\+Properties} ()
+\item 
+Q\+PointF \textbf{ inv\+Transform} (const Q\+PointF \&p\+Scene\+Coord)
+\begin{DoxyCompactList}\small\item\em transforms a Q\+PointF in scene coordinates into a Q\+PointF containing the x and y values in the x and y axis scale coordinates. \end{DoxyCompactList}\item 
+double \textbf{ inv\+Transform} (const double x\+Coord, \textbf{ Scale\+Item} $\ast$\textbf{ scale\+Item}) const
+\begin{DoxyCompactList}\small\item\em transforms a double in scene coordinates into a double in scale\+Item coordinates \end{DoxyCompactList}\item 
+double \textbf{ transform} (const double x, \textbf{ Scale\+Item} $\ast$\textbf{ scale\+Item}) const
+\begin{DoxyCompactList}\small\item\em transforms a value on the scale\+Item axis in axis coordinates into a value in scene coordinates inside the plot rect. \end{DoxyCompactList}\item 
+Q\+PointF \textbf{ inv\+Transform} (const Q\+PointF \&p\+Scene\+Coord, \textbf{ Scale\+Item} $\ast$\textbf{ x\+Scale\+Item}, \textbf{ Scale\+Item} $\ast$\textbf{ y\+Scale\+Item}) const
+\item 
+void \textbf{ add\+Curve} (\textbf{ Scene\+Curve} $\ast$curve)
+\item 
+\textbf{ Scene\+Curve} $\ast$ \textbf{ add\+Curve} (const Q\+String \&name)
+\begin{DoxyCompactList}\small\item\em Creates a new curve with the given name and automatically associates it to the x bottom axis and y left axis. \end{DoxyCompactList}\item 
+\textbf{ Scene\+Curve} $\ast$ \textbf{ add\+Curve} (const Q\+String \&name, \textbf{ Scale\+Item} $\ast$\textbf{ x\+Scale\+Item}, \textbf{ Scale\+Item} $\ast$\textbf{ y\+Scale\+Item})
+\begin{DoxyCompactList}\small\item\em Creates a new curve with the given name and attachs the curve to the specified x and y Scale\+Items (axes). \end{DoxyCompactList}\item 
+\textbf{ Scene\+Curve} $\ast$ \textbf{ find\+Curve} (const Q\+String \&name)
+\begin{DoxyCompactList}\small\item\em finds the curve with the provided name \end{DoxyCompactList}\item 
+Q\+List$<$ \textbf{ Scene\+Curve} $\ast$ $>$ \textbf{ get\+Curves} () const
+\begin{DoxyCompactList}\small\item\em returns a list of all curves belonging to this plot \end{DoxyCompactList}\item 
+\textbf{ Scene\+Curve} $\ast$ \textbf{ add\+Line\+Curve} (const Q\+String \&name, \textbf{ Scale\+Item} $\ast$\textbf{ x\+Scale\+Item}=N\+U\+LL, \textbf{ Scale\+Item} $\ast$\textbf{ y\+Scale\+Item}=N\+U\+LL)
+\begin{DoxyCompactList}\small\item\em adds and configures a curve with a \doxyref{Line\+Painter}{p.}{classLinePainter} \end{DoxyCompactList}\item 
+void \textbf{ curve\+About\+To\+Be\+Destroyed} (const Q\+String \&name, bool delete\+Curve=true)
+\item 
+Q\+List$<$ \textbf{ Scene\+Curve} $\ast$ $>$ \textbf{ curves\+For\+Axes} (\textbf{ Scale\+Item\+::\+Id} axis\+Id, \textbf{ Scale\+Item\+::\+Orientation} orientation) const
+\begin{DoxyCompactList}\small\item\em returns the list of curves that are attached to the provided axis\+Id with Orientation orientation \end{DoxyCompactList}\item 
+\textbf{ Axes\+Manager} $\ast$ \textbf{ axes\+Manager} () const
+\begin{DoxyCompactList}\small\item\em returns the reference to the \doxyref{Axes\+Manager}{p.}{classAxesManager}. \end{DoxyCompactList}\item 
+Q\+RectF \textbf{ plot\+Rect} () const
+\item 
+double \textbf{ plot\+Area\+Percentage\+Width} () const
+\item 
+double \textbf{ plot\+Area\+Percentage\+Height} () const
+\item 
+double \textbf{ plot\+Area\+Top\+Left\+X\+Percentage} () const
+\item 
+double \textbf{ plot\+Area\+Top\+Left\+Y\+Percentage} () const
+\item 
+double \textbf{ origin\+Pos\+Percentage} (\textbf{ Scale\+Item} $\ast$scale\+It) const
+\begin{DoxyCompactList}\small\item\em returns the origin position (in percentage between 0.\+0 and 1.\+0) of the scale item passed as parameter \end{DoxyCompactList}\item 
+double \textbf{ default\+X\+Axis\+Origin\+Pos\+Percentage} () const
+\begin{DoxyCompactList}\small\item\em returns the origin position (in percentage between 0.\+0 and 1.\+0) of the default x scale item (the one that the \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} always creates automatically) \end{DoxyCompactList}\item 
+double \textbf{ default\+Y\+Axis\+Origin\+Pos\+Percentage} () const
+\begin{DoxyCompactList}\small\item\em returns the origin position (in percentage between 0.\+0 and 1.\+0) of the default y scale item (the one that the \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} always creates automatically) \end{DoxyCompactList}\item 
+bool \textbf{ painter\+Anti\+Alias} () const
+\item 
+bool \textbf{ painter\+H\+Q\+G\+L\+Anti\+Alias} () const
+\item 
+bool \textbf{ dont\+Save\+Painter\+State} () const
+\item 
+bool \textbf{ dont\+Adjust\+For\+Antialiasing} () const
+\item 
+bool \textbf{ cache\+Background} () const
+\item 
+double \textbf{ x\+Axis\+Lower\+Bound} () const
+\begin{DoxyCompactList}\small\item\em shortcut to get the axis bound from the \doxyref{x\+Scale\+Item()}{p.}{classPlotSceneWidget_a77e8a809d26525e04325cc4595fd9f5d} \end{DoxyCompactList}\item 
+double \textbf{ y\+Axis\+Lower\+Bound} () const
+\begin{DoxyCompactList}\small\item\em shortcut to get the axis bound from the \doxyref{y\+Scale\+Item()}{p.}{classPlotSceneWidget_a94b9df3c5be0dea79f8f85e480a4145c} \end{DoxyCompactList}\item 
+double \textbf{ x\+Axis\+Upper\+Bound} () const
+\begin{DoxyCompactList}\small\item\em shortcut to get the axis bound from the \doxyref{x\+Scale\+Item()}{p.}{classPlotSceneWidget_a77e8a809d26525e04325cc4595fd9f5d} \end{DoxyCompactList}\item 
+double \textbf{ y\+Axis\+Upper\+Bound} () const
+\begin{DoxyCompactList}\small\item\em shortcut to get the axis bound from the \doxyref{y\+Scale\+Item()}{p.}{classPlotSceneWidget_a94b9df3c5be0dea79f8f85e480a4145c} \end{DoxyCompactList}\item 
+bool \textbf{ x\+Axis\+Autoscale\+Enabled} () const
+\begin{DoxyCompactList}\small\item\em shortcut to get the axis autoscale mode from the \doxyref{x\+Scale\+Item()}{p.}{classPlotSceneWidget_a77e8a809d26525e04325cc4595fd9f5d} \end{DoxyCompactList}\item 
+bool \textbf{ y\+Axis\+Autoscale\+Enabled} () const
+\begin{DoxyCompactList}\small\item\em shortcut to get the axis autoscale mode from the \doxyref{y\+Scale\+Item()}{p.}{classPlotSceneWidget_a94b9df3c5be0dea79f8f85e480a4145c} \end{DoxyCompactList}\item 
+bool \textbf{ x\+Axis\+Labels\+Outside\+Canvas} () const
+\begin{DoxyCompactList}\small\item\em Shortcut for \doxyref{Scale\+Item\+::axis\+Labels\+Outside\+Canvas}{p.}{classScaleItem_af57892925442842b8be5ccaf0a8a92e7}. \end{DoxyCompactList}\item 
+bool \textbf{ y\+Axis\+Labels\+Outside\+Canvas} () const
+\begin{DoxyCompactList}\small\item\em Shortcut for \doxyref{Scale\+Item\+::axis\+Labels\+Outside\+Canvas}{p.}{classScaleItem_af57892925442842b8be5ccaf0a8a92e7}. \end{DoxyCompactList}\item 
+int \textbf{ refresh\+Period} () const
+\begin{DoxyCompactList}\small\item\em returns the refresh period of the internal timer used to refresh the scene when manual\+Scene\+Update is turned on. \end{DoxyCompactList}\item 
+bool \textbf{ manual\+Scene\+Update} () const
+\begin{DoxyCompactList}\small\item\em returns the value of the manual\+Scene\+Update property \end{DoxyCompactList}\item 
+Q\+List$<$ \textbf{ Scene\+Curve} $\ast$ $>$ \textbf{ get\+Closest} (Q\+PointF \&closest\+Pos, int $\ast$closest\+Index, const Q\+PointF \&view\+Pos)
+\begin{DoxyCompactList}\small\item\em retrieve the list of curves that are closest to the view\+Pos point in view coordinates. The closest\+Pos point is the point, in scene coordinates, closest to the view\+Pos and belonging to the closest curves. The closest\+Index is the x axis index coordinate of the closest point. \end{DoxyCompactList}\item 
+bool \textbf{ in\+Zoom} () const
+\begin{DoxyCompactList}\small\item\em returns the zoom state \end{DoxyCompactList}\item 
+int \textbf{ zoom\+Level} () const
+\begin{DoxyCompactList}\small\item\em returns the zoom level of the zoomer. \end{DoxyCompactList}\item 
+bool \textbf{ scroll\+Bars\+Enabled} () const
+\item 
+\textbf{ Legend\+Item} $\ast$ \textbf{ legend\+Item} () const
+\item 
+\textbf{ Q\+Graphics\+Zoomer} $\ast$ \textbf{ zoomer} () const
+\item 
+\textbf{ Scale\+Item} $\ast$ \textbf{ add\+Axis} (\textbf{ Scale\+Item\+::\+Orientation} o, \textbf{ Scale\+Item\+::\+Id} id, \textbf{ Scale\+Item} $\ast$\textbf{ associated\+Axis})
+\item 
+void \textbf{ remove\+Axis} (\textbf{ Scale\+Item\+::\+Id} id)
+\item 
+void \textbf{ clear\+Axes} (bool all=false, \textbf{ Scale\+Item\+::\+Orientation} o=\textbf{ Scale\+Item\+::\+Vertical})
+\begin{DoxyCompactList}\small\item\em Removes the axes from the plot. \end{DoxyCompactList}\item 
+void \textbf{ clear} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ curve\+About\+To\+Be\+Destroyed} (Q\+Object $\ast$crv)
+\begin{DoxyCompactList}\small\item\em this is a protected slot connected to the destroyed() signal of a \doxyref{Scene\+Curve}{p.}{classSceneCurve} \end{DoxyCompactList}\item 
+void \textbf{ remove\+Axis} (Q\+Object $\ast$axis)
+\item 
+void \textbf{ scene\+Rect\+Changed} (const Q\+RectF \&)
+\item 
+void \textbf{ h\+Scroll\+Bar\+Value\+Changed} (int value)
+\begin{DoxyCompactList}\small\item\em notifies Plot\+Change\+Listeners that the scrollbar has changed its value \end{DoxyCompactList}\item 
+void \textbf{ v\+Scroll\+Bar\+Value\+Changed} (int value)
+\begin{DoxyCompactList}\small\item\em notifies Plot\+Change\+Listeners that the scrollbar has changed its value \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ show\+Event} (Q\+Show\+Event $\ast$\textbf{ event})
+\begin{DoxyCompactList}\small\item\em initializes the scene rect according to the viewport rect which is correctly initialized after the show event. \end{DoxyCompactList}\item 
+void \textbf{ mouse\+Move\+Event} (Q\+Mouse\+Event $\ast$\textbf{ event})
+\item 
+void \textbf{ wheel\+Event} (Q\+Wheel\+Event $\ast$\textbf{ event})
+\item 
+void \textbf{ context\+Menu\+Event} (Q\+Context\+Menu\+Event $\ast$\textbf{ event})
+\item 
+void \textbf{ mouse\+Press\+Event} (Q\+Mouse\+Event $\ast$\textbf{ event})
+\item 
+void \textbf{ mouse\+Release\+Event} (Q\+Mouse\+Event $\ast$\textbf{ event})
+\item 
+void \textbf{ mouse\+Double\+Click\+Event} (Q\+Mouse\+Event $\ast$)
+\item 
+void \textbf{ m\+Switch\+Axes\+Curves\+Foreground} ()
+\item 
+void \textbf{ recalculate\+Plot\+Rect} ()
+\begin{DoxyCompactList}\small\item\em Recalculates the plot rect and caches it. \end{DoxyCompactList}\item 
+void \textbf{ resize\+Event} (Q\+Resize\+Event $\ast$\textbf{ event})
+\item 
+virtual bool \textbf{ event} (Q\+Event $\ast$event)
+\item 
+void \textbf{ notify\+Plot\+Area\+Changed} ()
+\item 
+void \textbf{ paint\+Event} (Q\+Paint\+Event $\ast$\textbf{ event})
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ x\+Scale\+Enabled}
+\item 
+bool \textbf{ y\+Scale\+Enabled}
+\item 
+bool \textbf{ mouse\+Zoom\+Enabled}
+\item 
+bool \textbf{ scale\+Scene\+On\+Resize\+Enabled}
+\item 
+double \textbf{ plot\+Area\+Percentage\+Width}
+\item 
+double \textbf{ plot\+Area\+Percentage\+Height}
+\item 
+double \textbf{ plot\+Area\+Top\+Left\+X\+Percentage}
+\item 
+double \textbf{ plot\+Area\+Top\+Left\+Y\+Percentage}
+\item 
+bool \textbf{ painter\+Anti\+Alias}
+\item 
+bool \textbf{ painter\+H\+Q\+G\+L\+Anti\+Alias}
+\item 
+bool \textbf{ smooth\+Pixmap\+Transform}
+\item 
+bool \textbf{ dont\+Save\+Painter\+State}
+\item 
+bool \textbf{ dont\+Adjust\+For\+Antialiasing}
+\item 
+bool \textbf{ cache\+Background}
+\item 
+bool \textbf{ manual\+Scene\+Update}
+\item 
+int \textbf{ refresh\+Period}
+\item 
+double \textbf{ default\+X\+Axis\+Origin\+Pos\+Percentage}
+\item 
+double \textbf{ default\+Y\+Axis\+Origin\+Pos\+Percentage}
+\item 
+bool \textbf{ modified\+Paint\+Event}
+\item 
+bool \textbf{ scroll\+Bars\+Enabled}
+\item 
+bool \textbf{ legend\+Visible}
+\item 
+Q\+Color \textbf{ background\+Color}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\label{classPlotSceneWidget_a63489347f802231e4081555aba4b9b68}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!Axis@{Axis}}
+\index{Axis@{Axis}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{Axis}
+{\footnotesize\ttfamily enum \textbf{ Plot\+Scene\+Widget\+::\+Axis}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{xBottom@{xBottom}!PlotSceneWidget@{PlotSceneWidget}}\index{PlotSceneWidget@{PlotSceneWidget}!xBottom@{xBottom}}}\mbox{\label{classPlotSceneWidget_a63489347f802231e4081555aba4b9b68a432457811e885cf926b90c8a7ae79963}} 
+x\+Bottom&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{yLeft@{yLeft}!PlotSceneWidget@{PlotSceneWidget}}\index{PlotSceneWidget@{PlotSceneWidget}!yLeft@{yLeft}}}\mbox{\label{classPlotSceneWidget_a63489347f802231e4081555aba4b9b68aaa47908d198d1c3a8d2befdfb6f8ab45}} 
+y\+Left&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{xTop@{xTop}!PlotSceneWidget@{PlotSceneWidget}}\index{PlotSceneWidget@{PlotSceneWidget}!xTop@{xTop}}}\mbox{\label{classPlotSceneWidget_a63489347f802231e4081555aba4b9b68aeb7324c6c6d7e45812b68492b2bc2b22}} 
+x\+Top&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{yRight@{yRight}!PlotSceneWidget@{PlotSceneWidget}}\index{PlotSceneWidget@{PlotSceneWidget}!yRight@{yRight}}}\mbox{\label{classPlotSceneWidget_a63489347f802231e4081555aba4b9b68a94cb31706798e334c87fac8de88c7ea2}} 
+y\+Right&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{User@{User}!PlotSceneWidget@{PlotSceneWidget}}\index{PlotSceneWidget@{PlotSceneWidget}!User@{User}}}\mbox{\label{classPlotSceneWidget_a63489347f802231e4081555aba4b9b68abb12582bf2426dafe4b1ff2875bb6e4f}} 
+User&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classPlotSceneWidget_aaa9132d73a289ab9b82b7602da568c3c}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!PlotSceneWidget@{PlotSceneWidget}}
+\index{PlotSceneWidget@{PlotSceneWidget}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{PlotSceneWidget()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Plot\+Scene\+Widget\+::\+Plot\+Scene\+Widget (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0},  }\item[{bool}]{use\+Open\+Gl = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\begin{DoxyParagraph}{Plot\+Scene\+Widget}
+\doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} is a Q\+Graphics\+View with a Q\+Graphics\+Scene where Q\+Graphics\+Item items can be placed and displayed. In particular, \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} is a {\itshape plot} where {\itshape curves} can be drawn.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Axes}
+A \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} has by default a couple of axes, the x and y axes, and their origin is by default in the center of the scene. If you want to change the axes position, see \begin{DoxyItemize}
+\item \doxyref{Plot\+Scene\+Widget\+::set\+Origin\+Pos\+Percentage}{p.}{classPlotSceneWidget_aea844334c4b2e71ff6eba2f57cd562f9} \item \doxyref{Plot\+Scene\+Widget\+::set\+Default\+X\+Axis\+Origin\+Pos\+Percentage}{p.}{classPlotSceneWidget_a0c9b92b6a5aca6da0fa85b9f9b7aca32} and \item \doxyref{Plot\+Scene\+Widget\+::set\+Default\+Y\+Axis\+Origin\+Pos\+Percentage}{p.}{classPlotSceneWidget_a759d14c7e662ce3afabebd7dcf167d9c}.\end{DoxyItemize}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Reducing the plot area inside the scene.}
+It is possible to reduce the area occupied by the plot by means of the plot\+Area\+Percentage\+Width, plot\+Area\+Percentage\+Height, plot\+Area\+Top\+Left\+X\+Percentage, plot\+Area\+Top\+Left\+Y\+Percentage properties.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Curves}
+Each curve is represented by a \doxyref{Scene\+Curve}{p.}{classSceneCurve}. A \doxyref{Scene\+Curve}{p.}{classSceneCurve} contains the data of the curve. The \doxyref{Scene\+Curve}{p.}{classSceneCurve} is not responsible for drawing itself. Each \doxyref{Scene\+Curve}{p.}{classSceneCurve} must be given a name and added to the plot by means of \doxyref{Plot\+Scene\+Widget\+::add\+Curve}{p.}{classPlotSceneWidget_ad84fa604445007630e530ad65b24b828} ~\newline
+ The painting takes place by a \doxyref{Curve\+Item}{p.}{classCurveItem} object instantiated by passing a \doxyref{Scene\+Curve}{p.}{classSceneCurve} to its constructor and by an implementation of an \doxyref{Item\+Painter\+Interface}{p.}{classItemPainterInterface} which must be installed on a \doxyref{Curve\+Item}{p.}{classCurveItem}. Once a \doxyref{Curve\+Item}{p.}{classCurveItem} is constructed with a \doxyref{Scene\+Curve}{p.}{classSceneCurve}, the \doxyref{Scene\+Curve}{p.}{classSceneCurve} {\itshape takes the ownership of the \doxyref{Curve\+Item}{p.}{classCurveItem}, destroying it when the curve is destroyed}. Once an \doxyref{Item\+Painter\+Interface}{p.}{classItemPainterInterface} implementation instance is installed on a \doxyref{Curve\+Item}{p.}{classCurveItem}, the \doxyref{Curve\+Item}{p.}{classCurveItem} {\itshape takes the ownership of the item painter} destroying it on \doxyref{Curve\+Item}{p.}{classCurveItem} destruction.
+\end{DoxyParagraph}
+\doxyref{Line\+Painter}{p.}{classLinePainter} is an example of an \doxyref{Item\+Painter\+Interface}{p.}{classItemPainterInterface} implementation. \doxyref{Dots\+Painter}{p.}{classDotsPainter} is another example.
+
+\begin{DoxyParagraph}{Example. Adding a curve to a Plot\+Scene\+Widget}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{SceneCurve *curve = myPlotSceneWidget-\/>addCurve(\textcolor{stringliteral}{"{}Curve Name"{}});}
+\DoxyCodeLine{\textcolor{comment}{//}}
+\DoxyCodeLine{\textcolor{comment}{// if you want no more than bufsize points on the curve}}
+\DoxyCodeLine{\textcolor{keywordtype}{int} bufsize = 1000;}
+\DoxyCodeLine{curve-\/>setBufferSize(bufsize);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Create the effective curve painter!}}
+\DoxyCodeLine{\textcolor{comment}{// Just pass the curve in the constructor}}
+\DoxyCodeLine{\textcolor{comment}{// The SceneCurve curve takes the ownership of curveItem, i.e. CurveItem}}
+\DoxyCodeLine{\textcolor{comment}{// will be destroyed when removeCurve is called on PlotSceneWidget (or,}}
+\DoxyCodeLine{\textcolor{comment}{// equivalently, on SceneCurve destruction)}}
+\DoxyCodeLine{\textcolor{comment}{//}}
+\DoxyCodeLine{CurveItem *curveItem = \textcolor{keyword}{new} CurveItem(curve);}
+\DoxyCodeLine{\textcolor{comment}{// add the CurveItem to the Graphics Scene}}
+\DoxyCodeLine{scene()-\/>addItem(curveItem);}
+\DoxyCodeLine{\textcolor{comment}{//}}
+\DoxyCodeLine{\textcolor{comment}{// The CurveItem is aimed at calculating the transformations between the curve data}}
+\DoxyCodeLine{\textcolor{comment}{// coordinates and the PlotSceneWidget pixel coordinates.}}
+\DoxyCodeLine{\textcolor{comment}{// The CurveItem delegates the painting to specialized painters, which can be}}
+\DoxyCodeLine{\textcolor{comment}{// line painers, dot painters, histogram painters, and so on.}}
+\DoxyCodeLine{\textcolor{comment}{//}}
+\DoxyCodeLine{\textcolor{comment}{// Let's create a LinePainter to connect points on the plot with lines:}}
+\DoxyCodeLine{\textcolor{comment}{// Pass the curve item as parameter in the LinePainter constructor}}
+\DoxyCodeLine{\textcolor{comment}{// The curveItem takes the ownership of the line painter.}}
+\DoxyCodeLine{\textcolor{comment}{//}}
+\DoxyCodeLine{LinePainter *linePainter = \textcolor{keyword}{new} LinePainter(curveItem);}
+\DoxyCodeLine{linePainter-\/>setLineColor(Qt::green); \textcolor{comment}{//  colour the lines}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// setData on the curve}}
+\DoxyCodeLine{QVector<double> xData, yData;}
+\DoxyCodeLine{\textcolor{comment}{// fill the vectors xData and yData as you like, then....}}
+\DoxyCodeLine{\textcolor{comment}{// ...}}
+\DoxyCodeLine{\textcolor{comment}{//}}
+\DoxyCodeLine{curve-\/>setData(xData, yData);}
+\end{DoxyCode}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Why ownership of Curve\+Item and Line\+Painter is passed to Scene\+Curve and Curve\+Item respectively?}
+This particular implementation allows you to create the \doxyref{Curve\+Item}{p.}{classCurveItem} and one or more \doxyref{Line\+Painter}{p.}{classLinePainter} objects and forget about their memory management. It is strongly suggested to use add\+Curve and remove\+Curve(const Q\+String\&) methods to add and remove curves to and from the \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} 
+\end{DoxyParagraph}
+\begin{DoxySeeAlso}{See also}
+\doxyref{add\+Curve}{p.}{classPlotSceneWidget_ad84fa604445007630e530ad65b24b828} 
+
+remove\+Curve(const Q\+String\&) This aspect {\itshape must be taken into account when your application allows curve deletion at runtime}. In other cases, you never want to worry about deleting the objects you create and attach to your plot to add curves or decorate them. This is accomplished by Qt Q\+Object children deletion and careful design of parent-\/children hierarchy in Q\+Graphics\+Plot library.
+\end{DoxySeeAlso}
+\begin{DoxyParagraph}{Some more details about item deletion.}
+\begin{DoxyItemize}
+\item {\itshape \doxyref{Curve\+Item}{p.}{classCurveItem}} is a Q\+Graphics\+Object and when it\textquotesingle{}s added to a Q\+Graphics\+Scene through Q\+Graphics\+Scene\+::add\+Item the ownership is taken by the Q\+Graphics\+Scene. This means that every \doxyref{Curve\+Item}{p.}{classCurveItem} is deleted on scene deletion, i.\+e. on \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} deletion, since the plot scene is a child of \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget}. \item {\itshape \doxyref{Scene\+Curve}{p.}{classSceneCurve}} is created by \doxyref{Plot\+Scene\+Widget\+::add\+Curve}{p.}{classPlotSceneWidget_ad84fa604445007630e530ad65b24b828} as a child of \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget}. Each curve is thus deleted on \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} destruction. \item {\itshape \doxyref{Line\+Painter}{p.}{classLinePainter}}, as in the {\itshape example above}, must be constructed by passing a \doxyref{Curve\+Item}{p.}{classCurveItem} in its constructor. {\itshape All \doxyref{Item\+Painter\+Interface}{p.}{classItemPainterInterface} implementations}, such as \doxyref{Line\+Painter}{p.}{classLinePainter}, must inherit from Q\+Object and the parent must be a \doxyref{Curve\+Item}{p.}{classCurveItem}, as you can see in the \doxyref{Line\+Painter}{p.}{classLinePainter} implementation. In this way, on \doxyref{Curve\+Item}{p.}{classCurveItem} deletion, the \doxyref{Line\+Painter}{p.}{classLinePainter} is automatically deleted, as a child of \doxyref{Curve\+Item}{p.}{classCurveItem}.\end{DoxyItemize}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Curve removal.}
+You can remove a \doxyref{Scene\+Curve}{p.}{classSceneCurve} at runtime by calling Plot\+Scene\+Widget\+::remove\+Curve. This method will delete the associated \doxyref{Curve\+Item}{p.}{classCurveItem} (and all its painters, such as \doxyref{Line\+Painter}{p.}{classLinePainter}, for example) and then delete the \doxyref{Scene\+Curve}{p.}{classSceneCurve} itself. 
+\end{DoxyParagraph}
+\begin{DoxySeeAlso}{See also}
+remove\+Curve 
+
+\doxyref{add\+Curve}{p.}{classPlotSceneWidget_ad84fa604445007630e530ad65b24b828}
+\end{DoxySeeAlso}
+\begin{DoxyParagraph}{Using external scales}
+External scales can be used and they can be useful when the plot is zoomed and the plot internal axes fall out of the zoom area. 
+\end{DoxyParagraph}
+\begin{DoxySeeAlso}{See also}
+\doxyref{External\+Scale\+Widget}{p.}{classExternalScaleWidget} 
+\end{DoxySeeAlso}
+\mbox{\label{classPlotSceneWidget_a5e2300c6c40f93ecbdb3a94851fe2dbe}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!PlotSceneWidget@{PlotSceneWidget}}
+\index{PlotSceneWidget@{PlotSceneWidget}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{PlotSceneWidget()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Plot\+Scene\+Widget\+::\+Plot\+Scene\+Widget (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent,  }\item[{bool}]{init\+Default\+Axes,  }\item[{bool}]{use\+Open\+Gl = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classPlotSceneWidget_a52335fb5851fb4932bc55fa9651255c9}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!addAxis@{addAxis}}
+\index{addAxis@{addAxis}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{addAxis()}
+{\footnotesize\ttfamily \textbf{ Scale\+Item} $\ast$ Plot\+Scene\+Widget\+::add\+Axis (\begin{DoxyParamCaption}\item[{\textbf{ Scale\+Item\+::\+Orientation}}]{o,  }\item[{\textbf{ Scale\+Item\+::\+Id}}]{id,  }\item[{\textbf{ Scale\+Item} $\ast$}]{associated\+Axis }\end{DoxyParamCaption})}
+
+
+
+References associated\+Axis(), Scale\+Item\+::\+Horizontal, install\+Plot\+Geometry\+Change\+Listener(), Scale\+Item\+::orientation(), perr, remove\+Axis(), scale\+Item(), Scale\+Item\+::\+Vertical, Axis\+Couple\+::x\+Axis, and Axis\+Couple\+::y\+Axis.
+
+\mbox{\label{classPlotSceneWidget_a09ee35f9b616d3fdba1a98653412232e}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!addConfigurableObjects@{addConfigurableObjects}}
+\index{addConfigurableObjects@{addConfigurableObjects}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{addConfigurableObjects()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::add\+Configurable\+Objects (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{title,  }\item[{Q\+Object $\ast$}]{object }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & in the configuration dialog of the plot the object properties will appear under a tab widget with title as the title page.\\
+\hline
+{\em object} & the object whose properties are selected and configurable. May be a widget for example, or a graphics object item.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{remove\+Configurable\+Objects}{p.}{classPlotSceneWidget_af9119828dcbdcc23c865e4a1ecc394fc} 
+\end{DoxySeeAlso}
+\mbox{\label{classPlotSceneWidget_ae3bf64dfa4b9c8e2d3bf5ff8bfdc2a9e}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!addCurve@{addCurve}}
+\index{addCurve@{addCurve}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{addCurve()\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \textbf{ Scene\+Curve} $\ast$ Plot\+Scene\+Widget\+::add\+Curve (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+the new curve just created. You can configure its properties using this return value.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name with which the curve is marked and identified. \\
+\hline
+\end{DoxyParams}
+
+
+References add\+Curve(), x\+Scale\+Item(), and y\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_ae032cbbd1c51e48ae6b2aca13b44e954}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!addCurve@{addCurve}}
+\index{addCurve@{addCurve}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{addCurve()\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \textbf{ Scene\+Curve} $\ast$ Plot\+Scene\+Widget\+::add\+Curve (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name,  }\item[{\textbf{ Scale\+Item} $\ast$}]{x\+Scale\+Item,  }\item[{\textbf{ Scale\+Item} $\ast$}]{y\+Scale\+Item }\end{DoxyParamCaption})}
+
+Use this method instead of the one provided above to attach the curve to a couple of axes different from the x bottom and y left default axes. 
+
+References curve\+About\+To\+Be\+Destroyed(), curve\+Added(), Scale\+Item\+::install\+Axis\+Change\+Listener(), perr, x\+Scale\+Item(), and y\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_ad84fa604445007630e530ad65b24b828}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!addCurve@{addCurve}}
+\index{addCurve@{addCurve}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{addCurve()\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::add\+Curve (\begin{DoxyParamCaption}\item[{\textbf{ Scene\+Curve} $\ast$}]{curve }\end{DoxyParamCaption})}
+
+
+
+References curve\+About\+To\+Be\+Destroyed(), curve\+Added(), Scene\+Curve\+::get\+X\+Axis(), Scene\+Curve\+::get\+Y\+Axis(), Scale\+Item\+::install\+Axis\+Change\+Listener(), and Scene\+Curve\+::name().
+
+
+
+Referenced by add\+Curve().
+
+\mbox{\label{classPlotSceneWidget_a4e5cd3be1c8cb9740b3392057eaa1a50}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!addLineCurve@{addLineCurve}}
+\index{addLineCurve@{addLineCurve}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{addLineCurve()}
+{\footnotesize\ttfamily \textbf{ Scene\+Curve} $\ast$ Plot\+Scene\+Widget\+::add\+Line\+Curve (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name,  }\item[{\textbf{ Scale\+Item} $\ast$}]{x\+ScaleI = {\ttfamily NULL},  }\item[{\textbf{ Scale\+Item} $\ast$}]{y\+ScaleI = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+This methods adds a new curve to the plot. The curve is represented in the plot by lines joining its points.
+
+This method is equivalent to the calls to
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{SceneCurve *c = graphicsPlot-\/>addCurve(name);}
+\DoxyCodeLine{CurveItem *curveItem = \textcolor{keyword}{new} CurveItem(c);}
+\DoxyCodeLine{graphicsPlot-\/>scene()-\/>addItem(curveItem);}
+\DoxyCodeLine{c-\/>installCurveChangeListener(curveItem);}
+\DoxyCodeLine{LinePainter *lp = \textcolor{keyword}{new} LinePainter(curveItem);}
+\end{DoxyCode}
+ The colour is automatically chosen. 
+
+References curve\+About\+To\+Be\+Destroyed(), curve\+Added(), Color\+Palette\+::get\+Color(), Scale\+Item\+::install\+Axis\+Change\+Listener(), Scene\+Curve\+::install\+Curve\+Change\+Listener(), Line\+Painter\+::set\+Line\+Color(), x\+Scale\+Item(), and y\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_a30882c859b5ffb7b23334e4aa426208c}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!appendData@{appendData}}
+\index{appendData@{appendData}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{appendData\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::append\+Data (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{curve\+Name,  }\item[{const Q\+Vector$<$ double $>$ \&}]{x\+Data,  }\item[{const Q\+Vector$<$ double $>$ \&}]{y\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [slot]}}
+
+
+
+References Scene\+Curve\+::add\+Points(), perr, and qstoc.
+
+\mbox{\label{classPlotSceneWidget_abb871aa7e1069f1a1383486e00b52997}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!appendData@{appendData}}
+\index{appendData@{appendData}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{appendData\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::append\+Data (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{curve\+Name,  }\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [slot]}}
+
+
+
+References Scene\+Curve\+::add\+Point(), perr, and qstoc.
+
+\mbox{\label{classPlotSceneWidget_acbce2ccd27716462c352e8560910735a}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!associatedAxis@{associatedAxis}}
+\index{associatedAxis@{associatedAxis}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{associatedAxis()}
+{\footnotesize\ttfamily \textbf{ Scale\+Item} $\ast$ Plot\+Scene\+Widget\+::associated\+Axis (\begin{DoxyParamCaption}\item[{\textbf{ Scale\+Item\+::\+Id}}]{other\+Axis\+Id }\end{DoxyParamCaption}) const}
+
+
+
+Referenced by add\+Axis().
+
+\mbox{\label{classPlotSceneWidget_ad82072ebee2b44a89c284f47c1878612}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!associatedOriginPosPercentage@{associatedOriginPosPercentage}}
+\index{associatedOriginPosPercentage@{associatedOriginPosPercentage}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{associatedOriginPosPercentage()}
+{\footnotesize\ttfamily Q\+Pair$<$ double, double $>$ Plot\+Scene\+Widget\+::associated\+Origin\+Pos\+Percentage (\begin{DoxyParamCaption}\item[{\textbf{ Scale\+Item\+::\+Id}}]{x\+Axis\+Id,  }\item[{\textbf{ Scale\+Item\+::\+Id}}]{y\+Axis\+Id,  }\item[{bool $\ast$}]{ok }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_abb30bbfeb652ff693c64195eaecde25a}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!axesManager@{axesManager}}
+\index{axesManager@{axesManager}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{axesManager()}
+{\footnotesize\ttfamily \textbf{ Axes\+Manager} $\ast$ Plot\+Scene\+Widget\+::axes\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Axes\+Manager}{p.}{classAxesManager}
+\end{DoxySeeAlso}
+The \doxyref{Axes\+Manager}{p.}{classAxesManager} class manages the axes in the plot and their origins. \mbox{\label{classPlotSceneWidget_a9b11322fafff74ef4c96888e3f931a6a}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!backgroundColor@{backgroundColor}}
+\index{backgroundColor@{backgroundColor}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{backgroundColor()}
+{\footnotesize\ttfamily Q\+Color Plot\+Scene\+Widget\+::background\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_a19777cdb41adf104172f1c1f224c91d0}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!boundsChanged@{boundsChanged}}
+\index{boundsChanged@{boundsChanged}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{boundsChanged()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::bounds\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+References Scene\+Curve\+::invalidate\+Cache(), Scale\+Item\+::redraw(), and scale\+Item().
+
+
+
+Referenced by set\+Plot\+Area\+Percentage(), set\+Plot\+Area\+Top\+Left\+Percentage(), set\+X\+Scale\+Enabled(), set\+Y\+Scale\+Enabled(), and show\+Event().
+
+\mbox{\label{classPlotSceneWidget_ad7f9a127a3218592b77882ae24f1a693}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!cacheBackground@{cacheBackground}}
+\index{cacheBackground@{cacheBackground}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{cacheBackground()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::cache\+Background (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_a340430dd8c68ef9060f60ffa7c444e46}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!clear@{clear}}
+\index{clear@{clear}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{clear()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+References clear\+Axes(), get\+Curves(), and Scale\+Item\+::\+Vertical.
+
+\mbox{\label{classPlotSceneWidget_ad5db9305762d17123efda241bba27e3e}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!clearAxes@{clearAxes}}
+\index{clearAxes@{clearAxes}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{clearAxes()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::clear\+Axes (\begin{DoxyParamCaption}\item[{bool}]{all = {\ttfamily false},  }\item[{\textbf{ Scale\+Item\+::\+Orientation}}]{o = {\ttfamily \textbf{ Scale\+Item\+::\+Vertical}} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em all} & true\+: all axes (horizontal and vertical) are removed \\
+\hline
+{\em all} & false\+: only the axes with the specified orientation are removed \\
+\hline
+\end{DoxyParams}
+
+
+Referenced by clear().
+
+\mbox{\label{classPlotSceneWidget_a7ea95e44aeea514e04dcdc4ef4cc28ad}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!clicked@{clicked}}
+\index{clicked@{clicked}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{clicked}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::clicked (\begin{DoxyParamCaption}\item[{const Q\+PointF \&}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & the point where the click took place. \\
+\hline
+\end{DoxyParams}
+
+
+Referenced by mouse\+Release\+Event().
+
+\mbox{\label{classPlotSceneWidget_a7c845750c80d91924a913bd1075cc396}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!contextMenuEvent@{contextMenuEvent}}
+\index{contextMenuEvent@{contextMenuEvent}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{contextMenuEvent()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::context\+Menu\+Event (\begin{DoxyParamCaption}\item[{Q\+Context\+Menu\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+References create\+Context\+Menu().
+
+\mbox{\label{classPlotSceneWidget_ac0b70cb6b75ef7ecf8d4dc2d8ef5fd6a}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!createContextMenu@{createContextMenu}}
+\index{createContextMenu@{createContextMenu}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{createContextMenu}
+{\footnotesize\ttfamily Q\+Menu $\ast$ Plot\+Scene\+Widget\+::create\+Context\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [slot]}}
+
+
+
+References execute\+Property\+Dialog(), fit\+In(), reset\+Transform\+Matrix(), and save\+Data().
+
+
+
+Referenced by context\+Menu\+Event().
+
+\mbox{\label{classPlotSceneWidget_a667c78f013c9ca84a768eeea156b695f}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!curveAboutToBeDestroyed@{curveAboutToBeDestroyed}}
+\index{curveAboutToBeDestroyed@{curveAboutToBeDestroyed}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{curveAboutToBeDestroyed()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::curve\+About\+To\+Be\+Destroyed (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name,  }\item[{bool}]{delete\+Curve = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+References curve\+About\+To\+Be\+Removed(), Scene\+Curve\+::curve\+Item(), Scene\+Curve\+::get\+X\+Axis(), Scene\+Curve\+::get\+Y\+Axis(), perr, qstoc, and Scale\+Item\+::remove\+Axis\+Change\+Listener().
+
+
+
+Referenced by add\+Curve(), add\+Line\+Curve(), and curve\+About\+To\+Be\+Destroyed().
+
+\mbox{\label{classPlotSceneWidget_ab53e14c23c3bbe24d387342baf3c68c8}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!curveAboutToBeDestroyed@{curveAboutToBeDestroyed}}
+\index{curveAboutToBeDestroyed@{curveAboutToBeDestroyed}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{curveAboutToBeDestroyed\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::curve\+About\+To\+Be\+Destroyed (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{crv }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+This method is involved when the users calls delete on a \doxyref{Scene\+Curve}{p.}{classSceneCurve} instead of using the remove\+Curve(const Q\+String\& name) method of the \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget}, which is the recommended way to remove a curve from the plot. 
+
+References curve\+About\+To\+Be\+Destroyed(), and Scene\+Curve\+::name().
+
+\mbox{\label{classPlotSceneWidget_a9f1715a23fbda05dcb91e16ca40a7ea2}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!curveAboutToBeRemoved@{curveAboutToBeRemoved}}
+\index{curveAboutToBeRemoved@{curveAboutToBeRemoved}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{curveAboutToBeRemoved}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::curve\+About\+To\+Be\+Removed (\begin{DoxyParamCaption}\item[{\textbf{ Scene\+Curve} $\ast$}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Any class interested in knowing when a curve is removed (e.\+g. \doxyref{Marker\+Item}{p.}{classMarkerItem}) must be connected to this signal, which is emitted right before the \doxyref{Scene\+Curve}{p.}{classSceneCurve} passed as parameter is removed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em curve} & a reference to the curve being removed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Note}
+When this signal is emitted, the curve axes have not been already detached (they are available) and also the associated \doxyref{Curve\+Item}{p.}{classCurveItem} is still available.
+\end{DoxyParagraph}
+\begin{DoxySeeAlso}{See also}
+\doxyref{Curve\+Item}{p.}{classCurveItem} 
+
+\doxyref{Scale\+Item}{p.}{classScaleItem} 
+
+Curve\+Addded 
+\end{DoxySeeAlso}
+
+
+Referenced by curve\+About\+To\+Be\+Destroyed().
+
+\mbox{\label{classPlotSceneWidget_ab1ab7fe9a1feaf4cd0b8213cbb37acda}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!curveAdded@{curveAdded}}
+\index{curveAdded@{curveAdded}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{curveAdded}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::curve\+Added (\begin{DoxyParamCaption}\item[{\textbf{ Scene\+Curve} $\ast$}]{curve }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em curve} & the new curve\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The \doxyref{Axis\+Change\+Listener}{p.}{classAxisChangeListener} on the x and y axes has been installed on the plot when this signal is emitted. The curve has already been inserted in the internal list of curves. This means it is available through get\+Curves and find\+Curve. This does not mean that a \doxyref{Curve\+Item}{p.}{classCurveItem} has already been installed on the curve. Always check for curve\+Item() returning N\+U\+LL. If you use add\+Line\+Curve, then the curve has a \doxyref{Curve\+Item}{p.}{classCurveItem} already associated when the signal is emitted. 
+\end{DoxyNote}
+
+
+Referenced by add\+Curve(), and add\+Line\+Curve().
+
+\mbox{\label{classPlotSceneWidget_a2680a03c811d46e35479d0e5bddd92eb}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!curvesForAxes@{curvesForAxes}}
+\index{curvesForAxes@{curvesForAxes}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{curvesForAxes()}
+{\footnotesize\ttfamily Q\+List$<$ \textbf{ Scene\+Curve} $\ast$ $>$ Plot\+Scene\+Widget\+::curves\+For\+Axes (\begin{DoxyParamCaption}\item[{\textbf{ Scale\+Item\+::\+Id}}]{axis\+Id,  }\item[{\textbf{ Scale\+Item\+::\+Orientation}}]{orientation }\end{DoxyParamCaption}) const}
+
+
+
+References Scene\+Curve\+::associated\+X\+Axis\+Id(), Scene\+Curve\+::associated\+Y\+Axis\+Id(), and Scale\+Item\+::\+Horizontal.
+
+\mbox{\label{classPlotSceneWidget_a225e9d7746130c705057a6af716a45dd}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!defaultXAxisOriginPosPercentage@{defaultXAxisOriginPosPercentage}}
+\index{defaultXAxisOriginPosPercentage@{defaultXAxisOriginPosPercentage}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{defaultXAxisOriginPosPercentage()}
+{\footnotesize\ttfamily double Plot\+Scene\+Widget\+::default\+X\+Axis\+Origin\+Pos\+Percentage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Axes are placed with a position with respect to each other defined by this value, expressed in percentage from 0.\+0 to 1.\+0. By default, the axes have both 0.\+5 as position percentage value, meaning that they intersect in the middle of each other.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{origin\+Pos\+Percentage}{p.}{classPlotSceneWidget_a5a44604c1513f4239f1621a06ad78cff} 
+
+\doxyref{default\+Y\+Axis\+Origin\+Pos\+Percentage}{p.}{classPlotSceneWidget_a6d8c6d07e187ec4ccb8f37d2eaff50df} 
+\end{DoxySeeAlso}
+
+
+References origin\+Pos\+Percentage(), and x\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_a0a932e23f0a344eb07f117b5a5f9298b}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!defaultYAxisOriginPosPercentage@{defaultYAxisOriginPosPercentage}}
+\index{defaultYAxisOriginPosPercentage@{defaultYAxisOriginPosPercentage}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{defaultYAxisOriginPosPercentage()}
+{\footnotesize\ttfamily double Plot\+Scene\+Widget\+::default\+Y\+Axis\+Origin\+Pos\+Percentage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{default\+X\+Axis\+Origin\+Pos\+Percentage}{p.}{classPlotSceneWidget_ab7e75995e4aa8101e1b7520d8383b796} 
+
+\doxyref{origin\+Pos\+Percentage}{p.}{classPlotSceneWidget_a5a44604c1513f4239f1621a06ad78cff} 
+\end{DoxySeeAlso}
+
+
+References origin\+Pos\+Percentage(), and y\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_a4d1cec0a9aebfac36db70cac05f071cd}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!dontAdjustForAntialiasing@{dontAdjustForAntialiasing}}
+\index{dontAdjustForAntialiasing@{dontAdjustForAntialiasing}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{dontAdjustForAntialiasing()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::dont\+Adjust\+For\+Antialiasing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_a72cb2abd4ccae34d2338c9fec714302b}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!dontSavePainterState@{dontSavePainterState}}
+\index{dontSavePainterState@{dontSavePainterState}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{dontSavePainterState()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::dont\+Save\+Painter\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_a91dcfe5af0ce033e6ccfe2293b662b50}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!event@{event}}
+\index{event@{event}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{event()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::event (\begin{DoxyParamCaption}\item[{Q\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Referenced by mouse\+Double\+Click\+Event(), mouse\+Move\+Event(), mouse\+Press\+Event(), mouse\+Release\+Event(), paint\+Event(), resize\+Event(), and show\+Event().
+
+\mbox{\label{classPlotSceneWidget_a027af9fdabfba811cce75af655a4d37e}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!executePropertyDialog@{executePropertyDialog}}
+\index{executePropertyDialog@{executePropertyDialog}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{executePropertyDialog}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::execute\+Property\+Dialog (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+References Property\+Dialog\+::configure\+Tabs(), Property\+Dialog\+::set\+Settings\+Key(), and Property\+Dialog\+::show().
+
+
+
+Referenced by create\+Context\+Menu().
+
+\mbox{\label{classPlotSceneWidget_aba8bb2ec0ef0f447bff165b9e70427e5}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!findCurve@{findCurve}}
+\index{findCurve@{findCurve}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{findCurve()}
+{\footnotesize\ttfamily \textbf{ Scene\+Curve} $\ast$ Plot\+Scene\+Widget\+::find\+Curve (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+the curve with the given name or N\+U\+LL if not present
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name to look for \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classPlotSceneWidget_a8f5b41672003e55011c21a1a485d5d84}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!fitIn@{fitIn}}
+\index{fitIn@{fitIn}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{fitIn}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::fit\+In (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+References notify\+Plot\+Area\+Changed().
+
+
+
+Referenced by create\+Context\+Menu().
+
+\mbox{\label{classPlotSceneWidget_a5aca24f442acfc20320c91f779c1ac46}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!getClosest@{getClosest}}
+\index{getClosest@{getClosest}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{getClosest()}
+{\footnotesize\ttfamily Q\+List$<$ \textbf{ Scene\+Curve} $\ast$ $>$ Plot\+Scene\+Widget\+::get\+Closest (\begin{DoxyParamCaption}\item[{Q\+PointF \&}]{closest\+Pos,  }\item[{int $\ast$}]{closest\+Index,  }\item[{const Q\+PointF \&}]{view\+Pos }\end{DoxyParamCaption})}
+
+The returned list contains more than one curve if they overlap in the same point. Otherwise, the list will contain at most one curve.
+
+
+\begin{DoxyParams}{Parameters}
+{\em closest\+Pos} & the position of the closest point, in scene coordinates. \\
+\hline
+{\em view\+Pos} & the position, in view coordinates, whose curve\textquotesingle{}s closest point must be searched \\
+\hline
+{\em closest\+Index} & the index with which you can retrieve the data in the data vector of the closest curve(s).\\
+\hline
+\end{DoxyParams}
+An example can be found in the \doxyref{Marker\+Item\+::mouse\+Click\+Event}{p.}{classMarkerItem_a36f524c9b5a09ab3316b3a2a9feea68b} method ~\newline
+ If no closest curve is found, the returned list is empty, the closest\+Pos is a null point and the closest index is set to -\/1.
+
+closest\+Pos is passed by reference closest\+Index is a pointer to an integer that will point to the index of the data vector associated to the closest point in the closest curve view\+Pos is the position in view coordinates, it may represent, as in \doxyref{Marker\+Item\+::mouse\+Click\+Event}{p.}{classMarkerItem_a36f524c9b5a09ab3316b3a2a9feea68b}, the point where a click event has taken place in the \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget}.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Marker\+Item\+::mouse\+Click\+Event}{p.}{classMarkerItem_a36f524c9b5a09ab3316b3a2a9feea68b} 
+\end{DoxySeeAlso}
+
+
+References Scene\+Curve\+::data(), Scene\+Curve\+::data\+Size(), Scene\+Curve\+::points(), Data\+::size(), Data\+::x\+Data, and Data\+::y\+Data.
+
+
+
+Referenced by Marker\+Item\+::mouse\+Click\+Event().
+
+\mbox{\label{classPlotSceneWidget_ae0bff27638a3468e820be345c556f4f0}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!getCurves@{getCurves}}
+\index{getCurves@{getCurves}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{getCurves()}
+{\footnotesize\ttfamily Q\+List$<$ \textbf{ Scene\+Curve} $\ast$ $>$ Plot\+Scene\+Widget\+::get\+Curves (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Referenced by clear(), Marker\+Item\+::mouse\+Click\+Event(), and save\+Data().
+
+\mbox{\label{classPlotSceneWidget_a3fce5944ff643ebc98be08b4a59da797}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!getPoints@{getPoints}}
+\index{getPoints@{getPoints}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{getPoints()}
+{\footnotesize\ttfamily Q\+List$<$\textbf{ Point} $\ast$$>$ Plot\+Scene\+Widget\+::get\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_ab8f3f7a8b4ed2d30c2afd35f2de0dea1}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!hScrollBarValueChanged@{hScrollBarValueChanged}}
+\index{hScrollBarValueChanged@{hScrollBarValueChanged}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{hScrollBarValueChanged}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::h\+Scroll\+Bar\+Value\+Changed (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value of the scrollbar as provided by the horizontal\+Scroll\+Bar \\
+\hline
+\end{DoxyParams}
+
+
+References Plot\+Geometry\+Event\+Listener\+::scroll\+Bar\+Changed().
+
+\mbox{\label{classPlotSceneWidget_a587e324d5ed2d1c36da09d0930dc4b43}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!installMouseEventListener@{installMouseEventListener}}
+\index{installMouseEventListener@{installMouseEventListener}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{installMouseEventListener()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::install\+Mouse\+Event\+Listener (\begin{DoxyParamCaption}\item[{\textbf{ Mouse\+Event\+Listener} $\ast$}]{l }\end{DoxyParamCaption})}
+
+\mbox{\label{classPlotSceneWidget_a812b10e1910d045e6f84b0dbaf0985b3}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!installPlotGeometryChangeListener@{installPlotGeometryChangeListener}}
+\index{installPlotGeometryChangeListener@{installPlotGeometryChangeListener}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{installPlotGeometryChangeListener()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::install\+Plot\+Geometry\+Change\+Listener (\begin{DoxyParamCaption}\item[{\textbf{ Plot\+Geometry\+Event\+Listener} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+Referenced by add\+Axis().
+
+\mbox{\label{classPlotSceneWidget_a3f732ec001496744eaa7f99769fe6a46}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!invTransform@{invTransform}}
+\index{invTransform@{invTransform}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{invTransform()\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily double Plot\+Scene\+Widget\+::inv\+Transform (\begin{DoxyParamCaption}\item[{const double}]{pt,  }\item[{\textbf{ Scale\+Item} $\ast$}]{scale\+Item }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyParams}{Parameters}
+{\em pt} & the x or y coordinate of the point you want to transform, in scene coordinates \\
+\hline
+{\em scale\+Item} & the \doxyref{Scale\+Item}{p.}{classScaleItem} on which to calculate the transformed value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the value of the transformed point, in the scale\+Item coordinates.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{inv\+Transform(const double pt, Scale\+Item$\ast$ scale\+Item) const}{p.}{classPlotSceneWidget_a3f732ec001496744eaa7f99769fe6a46} 
+
+\doxyref{transform}{p.}{classPlotSceneWidget_aa9a76da33ce567d805098885a05694c6} 
+\end{DoxySeeAlso}
+
+
+References Scale\+Item\+::canvas\+Height, Scale\+Item\+::canvas\+Width, Scale\+Item\+::\+Horizontal, Scale\+Item\+::lower\+Bound, Scale\+Item\+::orientation(), perr, scale\+Item(), Scale\+Item\+::upper\+Bound, and Scale\+Item\+::\+Vertical.
+
+\mbox{\label{classPlotSceneWidget_a1c8443191e678629bfcb4216876e1097}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!invTransform@{invTransform}}
+\index{invTransform@{invTransform}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{invTransform()\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Q\+PointF Plot\+Scene\+Widget\+::inv\+Transform (\begin{DoxyParamCaption}\item[{const Q\+PointF \&}]{p\+Scene\+Coord }\end{DoxyParamCaption})}
+
+This method operates on the default x and y scale items, the ones returned by x\+Scale\+Item and y\+Scale\+Item. If you want to transform according to other scale items use the inv\+Transform(const double pt, Scale\+Item$\ast$ scale\+Item) method instead.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{inv\+Transform(const double pt, Scale\+Item$\ast$ scale\+Item) const}{p.}{classPlotSceneWidget_a3f732ec001496744eaa7f99769fe6a46} 
+
+\doxyref{transform}{p.}{classPlotSceneWidget_aa9a76da33ce567d805098885a05694c6} 
+\end{DoxySeeAlso}
+
+
+References perr, x\+Scale\+Item(), and y\+Scale\+Item().
+
+
+
+Referenced by Q\+Graphics\+Zoomer\+::zoom().
+
+\mbox{\label{classPlotSceneWidget_ad255f5cd04ecd087fbc2b30a3ebc9fa1}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!invTransform@{invTransform}}
+\index{invTransform@{invTransform}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{invTransform()\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Q\+PointF Plot\+Scene\+Widget\+::inv\+Transform (\begin{DoxyParamCaption}\item[{const Q\+PointF \&}]{p\+Scene\+Coord,  }\item[{\textbf{ Scale\+Item} $\ast$}]{x\+Scale\+Item,  }\item[{\textbf{ Scale\+Item} $\ast$}]{y\+Scale\+Item }\end{DoxyParamCaption}) const}
+
+
+
+References Scale\+Item\+::canvas\+Height, Scale\+Item\+::canvas\+Width, Scale\+Item\+::lower\+Bound, perr, Scale\+Item\+::upper\+Bound, x\+Scale\+Item(), and y\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_a121785a7254060e3bbf64d36a1f6bb60}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!inZoom@{inZoom}}
+\index{inZoom@{inZoom}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{inZoom()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::in\+Zoom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+true the plot is being zoomed 
+
+false the plot is not in zoom state
+\end{DoxyReturn}
+The plot enters the zoom state when the user selects a rectangular area with the left mouse button together with the Maiusc key.
+
+\begin{DoxyParagraph}{Note}
+The plot is not in zoom state when the user scrolls the mouse wheel to scale the view. 
+\end{DoxyParagraph}
+
+
+Referenced by resize\+Event().
+
+\mbox{\label{classPlotSceneWidget_afb68ccc9b20bc177d2e10b33a99d89ec}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!legendItem@{legendItem}}
+\index{legendItem@{legendItem}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{legendItem()}
+{\footnotesize\ttfamily \textbf{ Legend\+Item} $\ast$ Plot\+Scene\+Widget\+::legend\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_a52d68407a6f01dab9edcd19492abe5c4}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!legendVisible@{legendVisible}}
+\index{legendVisible@{legendVisible}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{legendVisible()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::legend\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_a46f96581f1c953417bef7f75bfd891dd}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!loadConfigurationProperties@{loadConfigurationProperties}}
+\index{loadConfigurationProperties@{loadConfigurationProperties}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{loadConfigurationProperties()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::load\+Configuration\+Properties (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+References Settings\+Loader\+::load\+Configuration().
+
+\mbox{\label{classPlotSceneWidget_a3b958e32703caddd26c6eae550a6c113}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!manualSceneUpdate@{manualSceneUpdate}}
+\index{manualSceneUpdate@{manualSceneUpdate}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{manualSceneUpdate()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::manual\+Scene\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Manual\+Scene\+Update}{p.}{classPlotSceneWidget_a7e5a8b76791128f7c19b75d42ba187d8} 
+
+\doxyref{set\+Refresh\+Period}{p.}{classPlotSceneWidget_ace528e440bc7f36d6f43b1e2c59289ba} 
+\end{DoxySeeAlso}
+\mbox{\label{classPlotSceneWidget_a8891b1678d12893e4f17309b86a0a4c1}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!modifiedPaintEvent@{modifiedPaintEvent}}
+\index{modifiedPaintEvent@{modifiedPaintEvent}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{modifiedPaintEvent()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::modified\+Paint\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_a9c8315790109b321a50414abe06de1c5}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!mouseDoubleClickEvent@{mouseDoubleClickEvent}}
+\index{mouseDoubleClickEvent@{mouseDoubleClickEvent}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{mouseDoubleClickEvent()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::mouse\+Double\+Click\+Event (\begin{DoxyParamCaption}\item[{Q\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+References event(), and Mouse\+Event\+Listener\+::mouse\+Double\+Click\+Event().
+
+\mbox{\label{classPlotSceneWidget_ac5b5d53a901e3b809bac94a966824ec2}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!mouseMoveEvent@{mouseMoveEvent}}
+\index{mouseMoveEvent@{mouseMoveEvent}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{mouseMoveEvent()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::mouse\+Move\+Event (\begin{DoxyParamCaption}\item[{Q\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+d\+\_\+ptr-\/$>$mouse\+Moving\+Point = map\+To\+Scene(event-\/$>$pos());
+
+References event(), and Mouse\+Event\+Listener\+::mouse\+Move\+Event().
+
+\mbox{\label{classPlotSceneWidget_a959c0d1bee677f8706d9ac0e356c6472}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!mousePressEvent@{mousePressEvent}}
+\index{mousePressEvent@{mousePressEvent}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{mousePressEvent()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{Q\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+References event(), Mouse\+Event\+Listener\+::mouse\+Press\+Event(), and m\+Switch\+Axes\+Curves\+Foreground().
+
+\mbox{\label{classPlotSceneWidget_a82dacf30ee4a85de8554ef0e51e36263}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!mouseReleaseEvent@{mouseReleaseEvent}}
+\index{mouseReleaseEvent@{mouseReleaseEvent}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{mouseReleaseEvent()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::mouse\+Release\+Event (\begin{DoxyParamCaption}\item[{Q\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+References clicked(), event(), Mouse\+Event\+Listener\+::mouse\+Click\+Event(), and Mouse\+Event\+Listener\+::mouse\+Release\+Event().
+
+\mbox{\label{classPlotSceneWidget_a2c285c25884dc066a43d4471e7ab0fb4}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!mouseZoomEnabled@{mouseZoomEnabled}}
+\index{mouseZoomEnabled@{mouseZoomEnabled}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{mouseZoomEnabled()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::mouse\+Zoom\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+true the user is able to zoom with the mouse (while the Control key is simultaneously pressed. 
+
+false the mouse zoomer is disabled
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Mouse\+Zoom\+Enabled}{p.}{classPlotSceneWidget_af8d0033c74c0ec27ff3d535b10fd5248} 
+\end{DoxySeeAlso}
+\mbox{\label{classPlotSceneWidget_a0072d8c70fcee0078a31fb2e88586dfc}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!mSwitchAxesCurvesForeground@{mSwitchAxesCurvesForeground}}
+\index{mSwitchAxesCurvesForeground@{mSwitchAxesCurvesForeground}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{mSwitchAxesCurvesForeground()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::m\+Switch\+Axes\+Curves\+Foreground (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Referenced by mouse\+Press\+Event().
+
+\mbox{\label{classPlotSceneWidget_a5841f4ba9326c62eedb5fef8dd84775a}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!notifyPlotAreaChanged@{notifyPlotAreaChanged}}
+\index{notifyPlotAreaChanged@{notifyPlotAreaChanged}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{notifyPlotAreaChanged()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::notify\+Plot\+Area\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+References Plot\+Geometry\+Event\+Listener\+::plot\+Area\+Changed(), plot\+Area\+Changed(), and view\+Scale\+Changed().
+
+
+
+Referenced by fit\+In(), recalculate\+Plot\+Rect(), reset\+Transform\+Matrix(), scale(), and show\+Event().
+
+\mbox{\label{classPlotSceneWidget_a5a44604c1513f4239f1621a06ad78cff}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!originPosPercentage@{originPosPercentage}}
+\index{originPosPercentage@{originPosPercentage}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{originPosPercentage()}
+{\footnotesize\ttfamily double Plot\+Scene\+Widget\+::origin\+Pos\+Percentage (\begin{DoxyParamCaption}\item[{\textbf{ Scale\+Item} $\ast$}]{scale\+It }\end{DoxyParamCaption}) const}
+
+Axes are placed with a position with respect to each other defined by this value, expressed in percentage from 0.\+0 to 1.\+0. By default, the axes have both 0.\+5 as position percentage value, meaning that they intersect in the middle of each other. 
+
+References Scale\+Item\+::\+Horizontal, Scale\+Item\+::orientation(), Scale\+Item\+::\+Vertical, Axis\+Couple\+::x\+Axis, Axis\+Couple\+::x\+Origin\+Pos\+Percentage, Axis\+Couple\+::y\+Axis, and Axis\+Couple\+::y\+Origin\+Pos\+Percentage.
+
+
+
+Referenced by default\+X\+Axis\+Origin\+Pos\+Percentage(), and default\+Y\+Axis\+Origin\+Pos\+Percentage().
+
+\mbox{\label{classPlotSceneWidget_a57041a3f184bba01e0bff922fd09f8e9}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!painterAntiAlias@{painterAntiAlias}}
+\index{painterAntiAlias@{painterAntiAlias}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{painterAntiAlias()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::painter\+Anti\+Alias (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_a809dd56c3689960718454a11a1cbb4ed}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!painterHQGLAntiAlias@{painterHQGLAntiAlias}}
+\index{painterHQGLAntiAlias@{painterHQGLAntiAlias}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{painterHQGLAntiAlias()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::painter\+H\+Q\+G\+L\+Anti\+Alias (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_a4f535425d2f5ac6be3dd880185a42b35}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!paintEvent@{paintEvent}}
+\index{paintEvent@{paintEvent}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{paintEvent()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::paint\+Event (\begin{DoxyParamCaption}\item[{Q\+Paint\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+References event().
+
+\mbox{\label{classPlotSceneWidget_a32a99ba36d60534f09c69d5fcc6ef2aa}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!plotAreaChanged@{plotAreaChanged}}
+\index{plotAreaChanged@{plotAreaChanged}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{plotAreaChanged}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::plot\+Area\+Changed (\begin{DoxyParamCaption}\item[{const Q\+SizeF \&}]{new\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Size} & the new size of the plot area\\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Note}
+new\+Size takes into account the \doxyref{transform()}{p.}{classPlotSceneWidget_aa9a76da33ce567d805098885a05694c6} being applied to the view. The area is calculated by scaling the plot\+Rect property according to the m11 and m22 elements of the transform matrix. 
+\end{DoxyParagraph}
+
+
+Referenced by notify\+Plot\+Area\+Changed().
+
+\mbox{\label{classPlotSceneWidget_a71c9d3f01c939da875ef0cf50463490e}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!plotAreaPercentageHeight@{plotAreaPercentageHeight}}
+\index{plotAreaPercentageHeight@{plotAreaPercentageHeight}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{plotAreaPercentageHeight()}
+{\footnotesize\ttfamily double Plot\+Scene\+Widget\+::plot\+Area\+Percentage\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_aa3f4928c1f3d034175961da6a8f00469}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!plotAreaPercentageWidth@{plotAreaPercentageWidth}}
+\index{plotAreaPercentageWidth@{plotAreaPercentageWidth}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{plotAreaPercentageWidth()}
+{\footnotesize\ttfamily double Plot\+Scene\+Widget\+::plot\+Area\+Percentage\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_a465c4c66022eedc02b59fb0774acb253}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!plotAreaTopLeftXPercentage@{plotAreaTopLeftXPercentage}}
+\index{plotAreaTopLeftXPercentage@{plotAreaTopLeftXPercentage}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{plotAreaTopLeftXPercentage()}
+{\footnotesize\ttfamily double Plot\+Scene\+Widget\+::plot\+Area\+Top\+Left\+X\+Percentage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_ac29b83b8c34ab18ad43591c4e32607f0}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!plotAreaTopLeftYPercentage@{plotAreaTopLeftYPercentage}}
+\index{plotAreaTopLeftYPercentage@{plotAreaTopLeftYPercentage}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{plotAreaTopLeftYPercentage()}
+{\footnotesize\ttfamily double Plot\+Scene\+Widget\+::plot\+Area\+Top\+Left\+Y\+Percentage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_aba027d5ab9f6c587a63f5384e8c84fa8}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!plotRect@{plotRect}}
+\index{plotRect@{plotRect}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{plotRect()}
+{\footnotesize\ttfamily Q\+RectF Plot\+Scene\+Widget\+::plot\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Referenced by Scale\+Item\+::\+Scale\+Item(), Point\+::update\+Position(), Point\+::update\+X\+Pos(), Point\+::update\+Y\+Pos(), Zoomer\+::zoom(), and Zoomer\+::\+Zoomer().
+
+\mbox{\label{classPlotSceneWidget_a4d3785892fcdaee1c4754541ebb8ce91}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!plotRectChanged@{plotRectChanged}}
+\index{plotRectChanged@{plotRectChanged}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{plotRectChanged}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::plot\+Rect\+Changed (\begin{DoxyParamCaption}\item[{const Q\+RectF \&}]{new\+Rect }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Rect} & the new rectangle containing the plot.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Plot Rect property.}
+It takes into account the scene\+Rect adjusted with the plot\+Area\+Percentage\+Width, plot\+Area\+Top\+Left\+X\+Percentage, plot\+Area\+Percentage\+Height and plot\+Area\+Top\+Left\+Y\+Percentage properties. For this, new\+Rect does not always coincide with the scene rect.
+\end{DoxyParagraph}
+\begin{DoxyNote}{Note}
+The rectangle does not take into account the {\itshape transform} being applied, if any. For that purpose, please see plot\+Area\+Changed
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxyref{plot\+Area\+Changed}{p.}{classPlotSceneWidget_a32a99ba36d60534f09c69d5fcc6ef2aa} 
+\end{DoxySeeAlso}
+
+
+Referenced by recalculate\+Plot\+Rect().
+
+\mbox{\label{classPlotSceneWidget_ade8f2cdacbe48338f852da566d9909f2}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!recalculatePlotRect@{recalculatePlotRect}}
+\index{recalculatePlotRect@{recalculatePlotRect}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{recalculatePlotRect()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::recalculate\+Plot\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+The cached plot rect must be recalculated when 
+\begin{DoxyItemize}
+\item the scene rect changes 
+\item the top left percent (x or y) values change 
+\item the width or height percentage of the plot area change 
+\end{DoxyItemize}
+
+References notify\+Plot\+Area\+Changed(), plot\+Rect\+Changed(), and Plot\+Geometry\+Event\+Listener\+::plot\+Rect\+Changed().
+
+
+
+Referenced by scene\+Rect\+Changed(), set\+Plot\+Area\+Percentage(), and set\+Plot\+Area\+Top\+Left\+Percentage().
+
+\mbox{\label{classPlotSceneWidget_aab22bec1e4b2873400613e83e1262b5a}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!refreshPeriod@{refreshPeriod}}
+\index{refreshPeriod@{refreshPeriod}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{refreshPeriod()}
+{\footnotesize\ttfamily int Plot\+Scene\+Widget\+::refresh\+Period (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the period in milliseconds of the internal timer. -\/1 is returned if the timer is not active, i.\+e. manual\+Scene\+Update is false
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Manual\+Scene\+Update}{p.}{classPlotSceneWidget_a7e5a8b76791128f7c19b75d42ba187d8} 
+
+\doxyref{manual\+Scene\+Update}{p.}{classPlotSceneWidget_a99431c197f0062d692fbd2fa211ac8d4} 
+
+\doxyref{set\+Refresh\+Period}{p.}{classPlotSceneWidget_ace528e440bc7f36d6f43b1e2c59289ba} 
+\end{DoxySeeAlso}
+\mbox{\label{classPlotSceneWidget_a541c86b5c0a81d2bf9fe166ae5bd98cd}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!removeAxis@{removeAxis}}
+\index{removeAxis@{removeAxis}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{removeAxis\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::remove\+Axis (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{axis }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+
+
+References remove\+Plot\+Geometry\+Change\+Listener().
+
+\mbox{\label{classPlotSceneWidget_a0ec5d946d0be5fdfea8d66ac76776959}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!removeAxis@{removeAxis}}
+\index{removeAxis@{removeAxis}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{removeAxis()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::remove\+Axis (\begin{DoxyParamCaption}\item[{\textbf{ Scale\+Item\+::\+Id}}]{id }\end{DoxyParamCaption})}
+
+
+
+Referenced by add\+Axis().
+
+\mbox{\label{classPlotSceneWidget_af9119828dcbdcc23c865e4a1ecc394fc}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!removeConfigurableObjects@{removeConfigurableObjects}}
+\index{removeConfigurableObjects@{removeConfigurableObjects}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{removeConfigurableObjects()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::remove\+Configurable\+Objects (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{title }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & in the configuration dialog of the plot the object properties will appear under a tab widget with title as the title page.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{add\+Configurable\+Objects}{p.}{classPlotSceneWidget_a09ee35f9b616d3fdba1a98653412232e} 
+\end{DoxySeeAlso}
+\mbox{\label{classPlotSceneWidget_a9739b6866bdcd5e8f7983cd57791f8a5}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!removeMouseEventListener@{removeMouseEventListener}}
+\index{removeMouseEventListener@{removeMouseEventListener}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{removeMouseEventListener()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::remove\+Mouse\+Event\+Listener (\begin{DoxyParamCaption}\item[{\textbf{ Mouse\+Event\+Listener} $\ast$}]{l }\end{DoxyParamCaption})}
+
+\mbox{\label{classPlotSceneWidget_a4f36b5768d3db217d9a45b6a564e4e9e}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!removePlotGeometryChangeListener@{removePlotGeometryChangeListener}}
+\index{removePlotGeometryChangeListener@{removePlotGeometryChangeListener}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{removePlotGeometryChangeListener()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::remove\+Plot\+Geometry\+Change\+Listener (\begin{DoxyParamCaption}\item[{\textbf{ Plot\+Geometry\+Event\+Listener} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+Referenced by remove\+Axis().
+
+\mbox{\label{classPlotSceneWidget_a9d4748cd81e89f2f48a7dc060950d4f9}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!resetTransformMatrix@{resetTransformMatrix}}
+\index{resetTransformMatrix@{resetTransformMatrix}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{resetTransformMatrix}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::reset\+Transform\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+References notify\+Plot\+Area\+Changed().
+
+
+
+Referenced by create\+Context\+Menu().
+
+\mbox{\label{classPlotSceneWidget_a54d35ea133ebcfdd4e248a9dd162a64e}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!resizeEvent@{resizeEvent}}
+\index{resizeEvent@{resizeEvent}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{resizeEvent()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::resize\+Event (\begin{DoxyParamCaption}\item[{Q\+Resize\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+References event(), and in\+Zoom().
+
+\mbox{\label{classPlotSceneWidget_abdd338b87d0a408017dbe8592ff63af4}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!saveData@{saveData}}
+\index{saveData@{saveData}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{saveData}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::save\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+References Plot\+Scene\+Widget\+Saver\+::error\+Message(), Plot\+Scene\+Widget\+Saver\+::file\+Name(), get\+Curves(), Plot\+Scene\+Widget\+Saver\+::save(), Scale\+Item\+::scale\+Label\+Interface(), Scale\+Label\+Interface\+::\+Time\+Scale, Scale\+Label\+Interface\+::type(), and x\+Scale\+Item().
+
+
+
+Referenced by create\+Context\+Menu().
+
+\mbox{\label{classPlotSceneWidget_a242dee2399fe584cb902f437f227bc4a}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!scale@{scale}}
+\index{scale@{scale}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{scale}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::scale (\begin{DoxyParamCaption}\item[{qreal}]{sx,  }\item[{qreal}]{sy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+References notify\+Plot\+Area\+Changed().
+
+
+
+Referenced by Zoomer\+::unzoom(), wheel\+Event(), and Zoomer\+::zoom().
+
+\mbox{\label{classPlotSceneWidget_a1571de811f0501792c936ec2276eee16}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!scaleItem@{scaleItem}}
+\index{scaleItem@{scaleItem}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{scaleItem()}
+{\footnotesize\ttfamily \textbf{ Scale\+Item} $\ast$ Plot\+Scene\+Widget\+::scale\+Item (\begin{DoxyParamCaption}\item[{\textbf{ Scale\+Item\+::\+Id}}]{id }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the \doxyref{Scale\+Item}{p.}{classScaleItem} associated to the id. The \doxyref{Scale\+Item}{p.}{classScaleItem} must have previously been programmatically added through the \doxyref{Axes\+Manager}{p.}{classAxesManager}.
+\end{DoxyReturn}
+Returns N\+U\+LL if the \doxyref{Scale\+Item}{p.}{classScaleItem} with the provided Id was not added programmatically.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Axes\+Manager\+::add\+Couple}{p.}{classAxesManager_af612a8c56e607b650cc388f05333aa5c} 
+\end{DoxySeeAlso}
+
+
+Referenced by add\+Axis(), bounds\+Changed(), Line\+Painter\+::draw(), inv\+Transform(), and transform().
+
+\mbox{\label{classPlotSceneWidget_a0719b0ac858f091d44457a8b30486e03}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!scaleSceneOnMouseScroll@{scaleSceneOnMouseScroll}}
+\index{scaleSceneOnMouseScroll@{scaleSceneOnMouseScroll}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{scaleSceneOnMouseScroll()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::scale\+Scene\+On\+Mouse\+Scroll (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_aa01107aa08096910b62c76bf54d8a8b2}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!scaleSceneOnResizeEnabled@{scaleSceneOnResizeEnabled}}
+\index{scaleSceneOnResizeEnabled@{scaleSceneOnResizeEnabled}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{scaleSceneOnResizeEnabled}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::scale\+Scene\+On\+Resize\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [slot]}}
+
+If this property is set to true, then the plot is fitted on the view each time the \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} is resized. In other words, the scene rect is set to the viewport rect each time the widget is resized.
+
+\begin{DoxyParagraph}{Note}
+The behaviour describe above stops being applied after that the user zooms on the plot or uses the mouse wheel to alter the view transform (scales the view). After a zoom or a manual scaling, the user manages the scaling of the view manually until next application restart.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Note}
+When part of a Q\+Tab\+Widget, it is recommended that this property is enabled, since the geometry of the Q\+Tab\+Widget children is not correctly provided on the first show event.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Note}
+By default, this property is enabled in releases following the 2.\+2.\+1.
+\end{DoxyParagraph}
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Scale\+Scene\+On\+Resize\+Enabled}{p.}{classPlotSceneWidget_a6402763687d840e599469bba40d259c2} 
+\end{DoxySeeAlso}
+\mbox{\label{classPlotSceneWidget_a48cbf7f60ef5589f75eff17d8ca5bafa}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!sceneRectChanged@{sceneRectChanged}}
+\index{sceneRectChanged@{sceneRectChanged}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{sceneRectChanged}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::scene\+Rect\+Changed (\begin{DoxyParamCaption}\item[{const Q\+RectF \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+
+
+References recalculate\+Plot\+Rect().
+
+\mbox{\label{classPlotSceneWidget_a1be9be451075571e3f47609ce8cfee94}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!sceneRectToWidgetGeometry@{sceneRectToWidgetGeometry}}
+\index{sceneRectToWidgetGeometry@{sceneRectToWidgetGeometry}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{sceneRectToWidgetGeometry()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::scene\+Rect\+To\+Widget\+Geometry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_a0cefaaa6cebfc02d70af0e94c83db293}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!scrollBarsEnabled@{scrollBarsEnabled}}
+\index{scrollBarsEnabled@{scrollBarsEnabled}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{scrollBarsEnabled()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::scroll\+Bars\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_accaff1749292656884636f68f0866258}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setBackgroundColor@{setBackgroundColor}}
+\index{setBackgroundColor@{setBackgroundColor}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setBackgroundColor}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Background\+Color (\begin{DoxyParamCaption}\item[{const Q\+Color \&}]{c }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classPlotSceneWidget_acf02b495e804f3e39a820d811030dab6}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setCacheBackground@{setCacheBackground}}
+\index{setCacheBackground@{setCacheBackground}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setCacheBackground}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Cache\+Background (\begin{DoxyParamCaption}\item[{bool}]{cache }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classPlotSceneWidget_ae1f74971d3383c77a4dcbb17993c27bf}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setData@{setData}}
+\index{setData@{setData}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setData\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Data (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{curve\+Name,  }\item[{const Q\+Vector$<$ double $>$ \&}]{x\+Data,  }\item[{const Q\+Vector$<$ double $>$ \&}]{y\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [slot]}}
+
+
+
+References perr, qstoc, and Scene\+Curve\+::set\+Data().
+
+\mbox{\label{classPlotSceneWidget_a243303c2335a2e99dfda1bc7066a05e7}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setData@{setData}}
+\index{setData@{setData}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setData\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Data (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{curve\+Name,  }\item[{const Q\+Vector$<$ double $>$ \&}]{y\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [slot]}}
+
+
+
+References perr, qstoc, and Scene\+Curve\+::set\+Data().
+
+\mbox{\label{classPlotSceneWidget_a0c9b92b6a5aca6da0fa85b9f9b7aca32}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setDefaultXAxisOriginPosPercentage@{setDefaultXAxisOriginPosPercentage}}
+\index{setDefaultXAxisOriginPosPercentage@{setDefaultXAxisOriginPosPercentage}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setDefaultXAxisOriginPosPercentage}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Default\+X\+Axis\+Origin\+Pos\+Percentage (\begin{DoxyParamCaption}\item[{double}]{percent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+The default x axis is the axis that \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} always creates for you and places at the position 0.\+5 by default.
+
+
+\begin{DoxyParams}{Parameters}
+{\em percent} & the value of the new position for the default x axis\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Origin\+Pos\+Percentage}{p.}{classPlotSceneWidget_aea844334c4b2e71ff6eba2f57cd562f9} 
+
+\doxyref{set\+Default\+Y\+Axis\+Origin\+Pos\+Percentage}{p.}{classPlotSceneWidget_a759d14c7e662ce3afabebd7dcf167d9c}
+\end{DoxySeeAlso}
+If you added custom axes, then use the set\+Origin\+Pos\+Percentage method instead. 
+
+References set\+Origin\+Pos\+Percentage(), and x\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_a759d14c7e662ce3afabebd7dcf167d9c}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setDefaultYAxisOriginPosPercentage@{setDefaultYAxisOriginPosPercentage}}
+\index{setDefaultYAxisOriginPosPercentage@{setDefaultYAxisOriginPosPercentage}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setDefaultYAxisOriginPosPercentage}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Default\+Y\+Axis\+Origin\+Pos\+Percentage (\begin{DoxyParamCaption}\item[{double}]{percent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+The default y axis is the axis that \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} always creates for you and places at the position 0.\+5 by default.
+
+
+\begin{DoxyParams}{Parameters}
+{\em percent} & the value of the new position for the default y axis\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Origin\+Pos\+Percentage}{p.}{classPlotSceneWidget_aea844334c4b2e71ff6eba2f57cd562f9} 
+
+\doxyref{set\+Default\+X\+Axis\+Origin\+Pos\+Percentage}{p.}{classPlotSceneWidget_a0c9b92b6a5aca6da0fa85b9f9b7aca32}
+\end{DoxySeeAlso}
+If you added custom axes, then use the set\+Origin\+Pos\+Percentage method instead. 
+
+References set\+Origin\+Pos\+Percentage(), and y\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_a309373beca063169b2ae65f181db91dd}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setDontAdjustForAntialiasing@{setDontAdjustForAntialiasing}}
+\index{setDontAdjustForAntialiasing@{setDontAdjustForAntialiasing}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setDontAdjustForAntialiasing}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Dont\+Adjust\+For\+Antialiasing (\begin{DoxyParamCaption}\item[{bool}]{dont }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classPlotSceneWidget_a2f86d3b7b0d94c8f36234fb01512e740}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setDontSavePainterState@{setDontSavePainterState}}
+\index{setDontSavePainterState@{setDontSavePainterState}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setDontSavePainterState}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Dont\+Save\+Painter\+State (\begin{DoxyParamCaption}\item[{bool}]{dont }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classPlotSceneWidget_ad8b0ac4316989c870c347c5e1596a50e}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setLegendVisible@{setLegendVisible}}
+\index{setLegendVisible@{setLegendVisible}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setLegendVisible}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Legend\+Visible (\begin{DoxyParamCaption}\item[{bool}]{visible }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classPlotSceneWidget_a7e5a8b76791128f7c19b75d42ba187d8}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setManualSceneUpdate@{setManualSceneUpdate}}
+\index{setManualSceneUpdate@{setManualSceneUpdate}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setManualSceneUpdate}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Manual\+Scene\+Update (\begin{DoxyParamCaption}\item[{bool}]{manual }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+This property sets the Viewport\+Update\+Mode to {\bfseries{Q\+Graphics\+View\+::\+No\+Viewport\+Update}} meaning that Q\+Graphics\+View will never update its viewport when the scene changes; the user is expected to control all updates. This mode disables all (potentially slow) item visibility testing in Q\+Graphics\+View, and is suitable for scenes that either require a fixed frame rate, or where the viewport is otherwise updated externally.
+
+\doxyparagraph*{Note}
+
+When you enable manual scene update, then you must call set\+Refresh\+Period with the desired refresh period of the scene, which typically must be equal to the fastest refresh rate needed by the fastest item. ~\newline
+ Calling set\+Manual\+Scene\+Update with a false parameter, restores Q\+Graphics\+Scene default Viewport\+Update\+Mode, which is Q\+Graphics\+View\+::\+Minimal\+Viewport\+Update, according to the Qt documentation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em manual} & true update is managed by an internal timer. set\+Refresh\+Period must be called with a greater than zero value in order to activate the timer and have the scene refreshed with that interval.\\
+\hline
+{\em manual} & false the update is set to Q\+Graphics\+View\+::\+Minimal\+Viewport\+Update, the default Qt setting for the Viewport\+Update\+Mode property. The internal refresh timer, if previously activated and started with a valid set\+Refresh\+Period method call is {\bfseries{automatically}} stopped for you. The timer is not deleted, it is just stopped, so that a subsequent call to set\+Manual\+Scene\+Update with a true parameter {\bfseries{automatically restarts the timer with the timeout previously set with set\+Refresh\+Period}}. In this way, a second manual mode activation does not need another call to set\+Refresh\+Period. A call to set\+Refresh\+Period with zero or a negative value instead produces the {\bfseries{ destruction}} of the timer.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Refresh\+Period}{p.}{classPlotSceneWidget_ace528e440bc7f36d6f43b1e2c59289ba} 
+
+\doxyref{refresh\+Period}{p.}{classPlotSceneWidget_aeb8706d430a3454de6fd24fcd5da5e86} 
+
+\doxyref{manual\+Scene\+Update}{p.}{classPlotSceneWidget_a99431c197f0062d692fbd2fa211ac8d4} 
+\end{DoxySeeAlso}
+\mbox{\label{classPlotSceneWidget_aef92af3f88eb412793f6fa05ebe60e60}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setModifiedPaintEvent@{setModifiedPaintEvent}}
+\index{setModifiedPaintEvent@{setModifiedPaintEvent}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setModifiedPaintEvent}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Modified\+Paint\+Event (\begin{DoxyParamCaption}\item[{bool}]{mod }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classPlotSceneWidget_af8d0033c74c0ec27ff3d535b10fd5248}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setMouseZoomEnabled@{setMouseZoomEnabled}}
+\index{setMouseZoomEnabled@{setMouseZoomEnabled}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setMouseZoomEnabled}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Mouse\+Zoom\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{en }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em en} & the Ctrl+\+Left mouse button zoomes the area drawn by the mouse \\
+\hline
+{\em false} & the mouse zoomer is disabled.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{mouse\+Zoom\+Enabled}{p.}{classPlotSceneWidget_a941dc222ed819a1c4f51a5b0d68062b6} 
+\end{DoxySeeAlso}
+\mbox{\label{classPlotSceneWidget_aea844334c4b2e71ff6eba2f57cd562f9}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setOriginPosPercentage@{setOriginPosPercentage}}
+\index{setOriginPosPercentage@{setOriginPosPercentage}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setOriginPosPercentage}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Origin\+Pos\+Percentage (\begin{DoxyParamCaption}\item[{\textbf{ Scale\+Item} $\ast$}]{scale\+It,  }\item[{double}]{percent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em scale\+It} & the scale item whose position you want to change \\
+\hline
+{\em percent} & the value of the position, from 0 to 1.\+0.\\
+\hline
+\end{DoxyParams}
+If you did not add additional axes by yourself, then you might want to use the shortcut methods set\+Default\+X\+Axis\+Origin\+Pos\+Percentage and set\+Default\+Y\+Axis\+Origin\+Pos\+Percentage.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Default\+X\+Axis\+Origin\+Pos\+Percentage}{p.}{classPlotSceneWidget_a0c9b92b6a5aca6da0fa85b9f9b7aca32} 
+
+\doxyref{set\+Default\+Y\+Axis\+Origin\+Pos\+Percentage}{p.}{classPlotSceneWidget_a759d14c7e662ce3afabebd7dcf167d9c} 
+\end{DoxySeeAlso}
+
+
+References Scale\+Item\+::\+Horizontal, Scale\+Item\+::orientation(), Scale\+Item\+::update\+Labels\+Cache(), and Scale\+Item\+::\+Vertical.
+
+
+
+Referenced by set\+Default\+X\+Axis\+Origin\+Pos\+Percentage(), and set\+Default\+Y\+Axis\+Origin\+Pos\+Percentage().
+
+\mbox{\label{classPlotSceneWidget_aea2868d230f7f307c1e5822b8a3394f8}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setPainterAntiAlias@{setPainterAntiAlias}}
+\index{setPainterAntiAlias@{setPainterAntiAlias}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setPainterAntiAlias}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Painter\+Anti\+Alias (\begin{DoxyParamCaption}\item[{bool}]{en }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em en} & true\+: anti alias painting enabled \\
+\hline
+{\em en} & false\+: anti alias painting not enabled\\
+\hline
+\end{DoxyParams}
+The default is true. This might affect performance. \mbox{\label{classPlotSceneWidget_aa38ca549f0e94a9477679a7c6548d2f0}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setPainterHQGLAntiAlias@{setPainterHQGLAntiAlias}}
+\index{setPainterHQGLAntiAlias@{setPainterHQGLAntiAlias}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setPainterHQGLAntiAlias}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Painter\+H\+Q\+G\+L\+Anti\+Alias (\begin{DoxyParamCaption}\item[{bool}]{en }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em en} & true\+: anti alias painting enabled \\
+\hline
+{\em en} & false\+: anti alias painting not enabled\\
+\hline
+\end{DoxyParams}
+The default is Q\+Graphics\+View\textquotesingle{}s default. This is an Open\+G\+L-\/specific rendering hint indicating that the engine should use fragment programs and offscreen rendering for antialiasing. \mbox{\label{classPlotSceneWidget_a8723353de48712c2217fd841bee35090}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setPlotAreaPercentage@{setPlotAreaPercentage}}
+\index{setPlotAreaPercentage@{setPlotAreaPercentage}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setPlotAreaPercentage}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Plot\+Area\+Percentage (\begin{DoxyParamCaption}\item[{double}]{width\+Percent,  }\item[{double}]{height\+Percent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em width\+Percent} & a number between 0 and 1 representing the percentage of the scene rect width to be considered in order to calculate the width of the rectangular plot area. ~\newline
+In other words the plot area width will be equal to scene-\/$>$scene\+Rect().width() $\ast$ width\+Percent\\
+\hline
+{\em height\+Percent} & a number between 0 and 1 with the same meaning of width\+Percent, but referred to the scene rect height\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+set\+Plot\+Area\+S\+Top\+Left\+Percentage
+\end{DoxySeeAlso}
+The default values are 1.\+0 for both arguments, so that the plot area coincides with the scene()-\/$>$scene\+Rect() rectangle. 
+
+References bounds\+Changed(), perr, and recalculate\+Plot\+Rect().
+
+
+
+Referenced by set\+Plot\+Area\+Percentage\+Height(), and set\+Plot\+Area\+Percentage\+Width().
+
+\mbox{\label{classPlotSceneWidget_aff1148dc978dc34cfe5cfea02f57eff9}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setPlotAreaPercentageHeight@{setPlotAreaPercentageHeight}}
+\index{setPlotAreaPercentageHeight@{setPlotAreaPercentageHeight}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setPlotAreaPercentageHeight}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Plot\+Area\+Percentage\+Height (\begin{DoxyParamCaption}\item[{double}]{height\+Percent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+References set\+Plot\+Area\+Percentage().
+
+\mbox{\label{classPlotSceneWidget_ac4ceafcbeaa9cee6a913c374dfb40bae}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setPlotAreaPercentageWidth@{setPlotAreaPercentageWidth}}
+\index{setPlotAreaPercentageWidth@{setPlotAreaPercentageWidth}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setPlotAreaPercentageWidth}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Plot\+Area\+Percentage\+Width (\begin{DoxyParamCaption}\item[{double}]{width\+Percent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+References set\+Plot\+Area\+Percentage().
+
+\mbox{\label{classPlotSceneWidget_a27ae0561abca76db5adaedde7fe8763f}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setPlotAreaTopLeftPercentage@{setPlotAreaTopLeftPercentage}}
+\index{setPlotAreaTopLeftPercentage@{setPlotAreaTopLeftPercentage}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setPlotAreaTopLeftPercentage}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Plot\+Area\+Top\+Left\+Percentage (\begin{DoxyParamCaption}\item[{double}]{width\+Percent,  }\item[{double}]{height\+Percent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+One may want the plot to occupy only a portion of the scene, in order to place other elements or drawings in the same scene. With this method you configure the top left of the rectangle containing the plot. The width\+Percent and height\+Percent parameters are floating point values between 0 and 1 and represent the percentage of the width and height of the scene\+Rect to be considered in order to place the top left point of the plot rectangle.
+
+If the scene\+Rect width is 200 and width\+Percent is 0.\+1, then the top left x coordinate will be 20.
+
+
+\begin{DoxyParams}{Parameters}
+{\em width\+Percent} & a number between 0 and 1 representing the percentage of the scene rect width to be considered in order to place the x coordinate of the top left point of the plot area.\\
+\hline
+{\em height\+Percent} & a number between 0 and 1 with the same meaning of width\+Percent, but referred to the scene rect height\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Plot\+Area\+Percentage}{p.}{classPlotSceneWidget_a8723353de48712c2217fd841bee35090}
+\end{DoxySeeAlso}
+The default values are 0.\+0 for both arguments, so that the plot area coincides with the scene()-\/$>$scene\+Rect() rectangle. 
+
+References bounds\+Changed(), perr, and recalculate\+Plot\+Rect().
+
+
+
+Referenced by set\+Plot\+Area\+Top\+Left\+X\+Percentage(), and set\+Plot\+Area\+Top\+Left\+Y\+Percentage().
+
+\mbox{\label{classPlotSceneWidget_a2bb021e81085cc3ff90f70887ecd3fd7}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setPlotAreaTopLeftXPercentage@{setPlotAreaTopLeftXPercentage}}
+\index{setPlotAreaTopLeftXPercentage@{setPlotAreaTopLeftXPercentage}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setPlotAreaTopLeftXPercentage}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Plot\+Area\+Top\+Left\+X\+Percentage (\begin{DoxyParamCaption}\item[{double}]{x\+Percent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+References set\+Plot\+Area\+Top\+Left\+Percentage().
+
+\mbox{\label{classPlotSceneWidget_aef89a6cdd79fff9c97331068d4ec220f}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setPlotAreaTopLeftYPercentage@{setPlotAreaTopLeftYPercentage}}
+\index{setPlotAreaTopLeftYPercentage@{setPlotAreaTopLeftYPercentage}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setPlotAreaTopLeftYPercentage}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Plot\+Area\+Top\+Left\+Y\+Percentage (\begin{DoxyParamCaption}\item[{double}]{y\+Percent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+References set\+Plot\+Area\+Top\+Left\+Percentage().
+
+\mbox{\label{classPlotSceneWidget_ace528e440bc7f36d6f43b1e2c59289ba}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setRefreshPeriod@{setRefreshPeriod}}
+\index{setRefreshPeriod@{setRefreshPeriod}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setRefreshPeriod}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Refresh\+Period (\begin{DoxyParamCaption}\item[{int}]{period }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em period} & the interval, in milliseconds of the internal timer.\\
+\hline
+\end{DoxyParams}
+The period must be greater than 0. If zero or a negative value is passed, then the internal timer is stopped and destroyed. When invoked with a value greater than zero, an internal refresh timer is created, with object\+Name \char`\"{}refresh\+Timer\char`\"{}, its interval is set to period and the timer is started. At each timeout, the scene is refreshed. The period must be as fast as to ensure that the fastest item in the scene is updated in time.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Manual\+Scene\+Update}{p.}{classPlotSceneWidget_a7e5a8b76791128f7c19b75d42ba187d8} 
+
+\doxyref{manual\+Scene\+Update}{p.}{classPlotSceneWidget_a99431c197f0062d692fbd2fa211ac8d4} 
+
+\doxyref{refresh\+Period}{p.}{classPlotSceneWidget_aeb8706d430a3454de6fd24fcd5da5e86} 
+\end{DoxySeeAlso}
+\mbox{\label{classPlotSceneWidget_aab13f8112153e7ddb66dc04836e67144}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setScaleSceneOnMouseScroll@{setScaleSceneOnMouseScroll}}
+\index{setScaleSceneOnMouseScroll@{setScaleSceneOnMouseScroll}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setScaleSceneOnMouseScroll}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Scale\+Scene\+On\+Mouse\+Scroll (\begin{DoxyParamCaption}\item[{bool}]{en }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em en} & true enable scene scaling \\
+\hline
+{\em en} & false disable scene scaling \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classPlotSceneWidget_a6402763687d840e599469bba40d259c2}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setScaleSceneOnResizeEnabled@{setScaleSceneOnResizeEnabled}}
+\index{setScaleSceneOnResizeEnabled@{setScaleSceneOnResizeEnabled}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setScaleSceneOnResizeEnabled}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Scale\+Scene\+On\+Resize\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{en }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+Read set\+Scale\+Scene\+On\+Resize\+Enabled documentation for details.
+
+
+\begin{DoxyParams}{Parameters}
+{\em en} & true the scene is resized when the \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} is resized, until the user scrolls on the plot to scale the scene or the scene is scaled programmatically.\\
+\hline
+{\em en} & false the scene is not fitted in the view when the view (i.\+e. \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget}) is resized.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{scale\+Scene\+On\+Resize\+Enabled}{p.}{classPlotSceneWidget_af568415c591b7cf5eb2835d30fa1b0ce} 
+\end{DoxySeeAlso}
+\mbox{\label{classPlotSceneWidget_a0ff5fa76c1f327b1ccbf1418ca45e39e}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setSceneRectToWidgetGeometry@{setSceneRectToWidgetGeometry}}
+\index{setSceneRectToWidgetGeometry@{setSceneRectToWidgetGeometry}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setSceneRectToWidgetGeometry}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Scene\+Rect\+To\+Widget\+Geometry (\begin{DoxyParamCaption}\item[{bool}]{en }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+The default is enabled. On first show event the scene rect is initialized to the viewport rect. The scene rect can be changed later. This property is read only at the first show event\+: it must be changed before first show event (i.\+e. right after object construction).
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{scene\+Rect\+To\+Widget\+Geometry}{p.}{classPlotSceneWidget_a1be9be451075571e3f47609ce8cfee94} 
+\end{DoxySeeAlso}
+\mbox{\label{classPlotSceneWidget_aa11af80979e7737acd8a7108378768f5}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setScrollBarsEnabled@{setScrollBarsEnabled}}
+\index{setScrollBarsEnabled@{setScrollBarsEnabled}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setScrollBarsEnabled}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Scroll\+Bars\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{en }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classPlotSceneWidget_a5b55cacedb2d7dd3bbfbe48c18be7355}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setSettingsKey@{setSettingsKey}}
+\index{setSettingsKey@{setSettingsKey}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setSettingsKey()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Settings\+Key (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{key }\end{DoxyParamCaption})}
+
+For instance, it may be the associated device name or attribute or anything else needed to distinguish this particular plot from the other plots which may be present in the same application or another one. \mbox{\label{classPlotSceneWidget_acb8e9906185405d6b7e97d7c565e905b}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setSmoothPixmapTransform@{setSmoothPixmapTransform}}
+\index{setSmoothPixmapTransform@{setSmoothPixmapTransform}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setSmoothPixmapTransform}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Smooth\+Pixmap\+Transform (\begin{DoxyParamCaption}\item[{bool}]{enable }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classPlotSceneWidget_af9ca720631de0ce5d0be5d139873c974}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!settingsKey@{settingsKey}}
+\index{settingsKey@{settingsKey}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{settingsKey()}
+{\footnotesize\ttfamily Q\+String Plot\+Scene\+Widget\+::settings\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_a0ab8a678ab608410fcf1042f63c28d8c}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setXAxisAutoscaleEnabled@{setXAxisAutoscaleEnabled}}
+\index{setXAxisAutoscaleEnabled@{setXAxisAutoscaleEnabled}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setXAxisAutoscaleEnabled}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+X\+Axis\+Autoscale\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{en }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+calls \doxyref{x\+Scale\+Item()}{p.}{classPlotSceneWidget_a77e8a809d26525e04325cc4595fd9f5d}-\/$>$set\+Axis\+Autoscale\+Enabled(en) 
+
+References Scale\+Item\+::set\+Axis\+Autoscale\+Enabled(), and x\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_a4d82c262ff24b84d31c5170727729e26}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setXAxisLabelsOutsideCanvas@{setXAxisLabelsOutsideCanvas}}
+\index{setXAxisLabelsOutsideCanvas@{setXAxisLabelsOutsideCanvas}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setXAxisLabelsOutsideCanvas}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+X\+Axis\+Labels\+Outside\+Canvas (\begin{DoxyParamCaption}\item[{bool}]{outside }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+This is useful when the x axis is placed at the bottom. 
+
+References Scale\+Item\+::set\+Axis\+Labels\+Outside\+Canvas(), and x\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_ac46a68a5e1f69d833e405e61a23a8c4d}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setXAxisLowerBound@{setXAxisLowerBound}}
+\index{setXAxisLowerBound@{setXAxisLowerBound}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setXAxisLowerBound}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+X\+Axis\+Lower\+Bound (\begin{DoxyParamCaption}\item[{double}]{xlb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+References Scale\+Item\+::set\+Lower\+Bound(), and x\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_abeeb952e992419a8f32873f7b17a9e54}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setXAxisUpperBound@{setXAxisUpperBound}}
+\index{setXAxisUpperBound@{setXAxisUpperBound}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setXAxisUpperBound}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+X\+Axis\+Upper\+Bound (\begin{DoxyParamCaption}\item[{double}]{xub }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+References Scale\+Item\+::set\+Upper\+Bound(), and x\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_a2681b6f4443eced5778eb31fa37d6e99}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setXScaleEnabled@{setXScaleEnabled}}
+\index{setXScaleEnabled@{setXScaleEnabled}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setXScaleEnabled}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+X\+Scale\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{en }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+References bounds\+Changed(), and Scale\+Item\+::x\+Bottom.
+
+\mbox{\label{classPlotSceneWidget_afc393de572460d370fb0a49e38654d8b}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setYAxisAutoscaleEnabled@{setYAxisAutoscaleEnabled}}
+\index{setYAxisAutoscaleEnabled@{setYAxisAutoscaleEnabled}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setYAxisAutoscaleEnabled}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Y\+Axis\+Autoscale\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{en }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+calls \doxyref{x\+Scale\+Item()}{p.}{classPlotSceneWidget_a77e8a809d26525e04325cc4595fd9f5d}-\/$>$set\+Axis\+Autoscale\+Enabled(en) 
+
+References Scale\+Item\+::set\+Axis\+Autoscale\+Enabled(), and y\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_a592ba12d7f62e93bc1b0afda2f1311c9}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setYAxisLabelsOutsideCanvas@{setYAxisLabelsOutsideCanvas}}
+\index{setYAxisLabelsOutsideCanvas@{setYAxisLabelsOutsideCanvas}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setYAxisLabelsOutsideCanvas}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Y\+Axis\+Labels\+Outside\+Canvas (\begin{DoxyParamCaption}\item[{bool}]{outside }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+This is useful when the y axis is placed at the left. 
+
+References Scale\+Item\+::set\+Axis\+Labels\+Outside\+Canvas(), and y\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_aa00c1fe3bb84ea5abae44ad110559757}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setYAxisLowerBound@{setYAxisLowerBound}}
+\index{setYAxisLowerBound@{setYAxisLowerBound}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setYAxisLowerBound}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Y\+Axis\+Lower\+Bound (\begin{DoxyParamCaption}\item[{double}]{ylb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+References Scale\+Item\+::set\+Lower\+Bound(), and y\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_a9493f67b74c0394c0223b0381ce3c7ce}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setYAxisUpperBound@{setYAxisUpperBound}}
+\index{setYAxisUpperBound@{setYAxisUpperBound}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setYAxisUpperBound}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Y\+Axis\+Upper\+Bound (\begin{DoxyParamCaption}\item[{double}]{yub }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+References Scale\+Item\+::set\+Upper\+Bound(), and y\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_a314808802b9cef8f580d473d73ec8a6c}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!setYScaleEnabled@{setYScaleEnabled}}
+\index{setYScaleEnabled@{setYScaleEnabled}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{setYScaleEnabled}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::set\+Y\+Scale\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{en }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+References bounds\+Changed(), and Scale\+Item\+::y\+Left.
+
+\mbox{\label{classPlotSceneWidget_a448a2bcd80ff0fd61cbb9884b3b193e9}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!showEvent@{showEvent}}
+\index{showEvent@{showEvent}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{showEvent()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::show\+Event (\begin{DoxyParamCaption}\item[{Q\+Show\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+References bounds\+Changed(), event(), and notify\+Plot\+Area\+Changed().
+
+\mbox{\label{classPlotSceneWidget_a0fa03009a50524962c8b0ad8c58aed39}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!smoothPixmapTransform@{smoothPixmapTransform}}
+\index{smoothPixmapTransform@{smoothPixmapTransform}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{smoothPixmapTransform()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::smooth\+Pixmap\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_aa9a76da33ce567d805098885a05694c6}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!transform@{transform}}
+\index{transform@{transform}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{transform()}
+{\footnotesize\ttfamily double Plot\+Scene\+Widget\+::transform (\begin{DoxyParamCaption}\item[{const double}]{x,  }\item[{\textbf{ Scale\+Item} $\ast$}]{scale\+Item }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the value of the point on the \doxyref{Scale\+Item}{p.}{classScaleItem} axis \\
+\hline
+{\em scale\+Item} & the axis on which to make the calculation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a coordinate in scene coordinates, representing the x axis point mapped into a point in the scene coordinate 
+\end{DoxyReturn}
+
+
+References Scale\+Item\+::canvas\+Height, Scale\+Item\+::canvas\+Width, Scale\+Item\+::\+Horizontal, Scale\+Item\+::lower\+Bound, Scale\+Item\+::orientation(), perr, scale\+Item(), and Scale\+Item\+::upper\+Bound.
+
+
+
+Referenced by Dots\+Painter\+::draw(), Histogram\+Painter\+::draw(), Line\+Painter\+::draw(), and Steps\+Painter\+::draw().
+
+\mbox{\label{classPlotSceneWidget_a9d4172f6804457f9706482c180e7f6b6}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!viewScaleChanged@{viewScaleChanged}}
+\index{viewScaleChanged@{viewScaleChanged}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{viewScaleChanged\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::view\+Scale\+Changed (\begin{DoxyParamCaption}\item[{double}]{dx,  }\item[{double}]{dy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Signal notifying that the scale factors of the view have changed
+
+
+\begin{DoxyParams}{Parameters}
+{\em dx} & the m11 transform matrix value \\
+\hline
+{\em dy} & the m22 transform matrix value \\
+\hline
+\end{DoxyParams}
+
+
+Referenced by notify\+Plot\+Area\+Changed().
+
+\mbox{\label{classPlotSceneWidget_a4a33be5d644e6ab0b783155963a497a4}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!viewScaleChanged@{viewScaleChanged}}
+\index{viewScaleChanged@{viewScaleChanged}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{viewScaleChanged\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::view\+Scale\+Changed (\begin{DoxyParamCaption}\item[{double}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Notifies that the scale factors have changed. The operations performed by the \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} and its zoomer scale the view by the same factor in order to keep the aspect ratio. So this method is provided, with a single scale parameter.
+
+\begin{DoxyNote}{Note}
+If m11 differs from m22, then their mean is calculated and the mean value is emitted. 
+\end{DoxyNote}
+\mbox{\label{classPlotSceneWidget_a1231b5ca9b4c80d23bdde127589ad745}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!vScrollBarValueChanged@{vScrollBarValueChanged}}
+\index{vScrollBarValueChanged@{vScrollBarValueChanged}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{vScrollBarValueChanged}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::v\+Scroll\+Bar\+Value\+Changed (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value of the scrollbar as provided by the vertical\+Scroll\+Bar \\
+\hline
+\end{DoxyParams}
+
+
+References Plot\+Geometry\+Event\+Listener\+::scroll\+Bar\+Changed().
+
+\mbox{\label{classPlotSceneWidget_ab963a2203a7ec05053b866fa2b3f4233}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!wheelEvent@{wheelEvent}}
+\index{wheelEvent@{wheelEvent}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{wheelEvent()}
+{\footnotesize\ttfamily void Plot\+Scene\+Widget\+::wheel\+Event (\begin{DoxyParamCaption}\item[{Q\+Wheel\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+References scale().
+
+\mbox{\label{classPlotSceneWidget_ac03a12fa07b69a68107a78729834bf44}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!xAxisAutoscaleEnabled@{xAxisAutoscaleEnabled}}
+\index{xAxisAutoscaleEnabled@{xAxisAutoscaleEnabled}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{xAxisAutoscaleEnabled()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::x\+Axis\+Autoscale\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+\doxyref{x\+Scale\+Item()}{p.}{classPlotSceneWidget_a77e8a809d26525e04325cc4595fd9f5d}-\/$>$axis\+Autoscale\+Enabled() 
+\end{DoxyReturn}
+
+
+References Scale\+Item\+::axis\+Autoscale\+Enabled, and x\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_a80262fc29d691945cabf6cf02f0d7e50}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!xAxisLabelsOutsideCanvas@{xAxisLabelsOutsideCanvas}}
+\index{xAxisLabelsOutsideCanvas@{xAxisLabelsOutsideCanvas}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{xAxisLabelsOutsideCanvas()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::x\+Axis\+Labels\+Outside\+Canvas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+If set to true, draws the axis labels outside the rectangle where the curves are drawn. 
+
+References Scale\+Item\+::axis\+Labels\+Outside\+Canvas, and x\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_a863824dac1c4eafd17b233c59e853ee8}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!xAxisLowerBound@{xAxisLowerBound}}
+\index{xAxisLowerBound@{xAxisLowerBound}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{xAxisLowerBound()}
+{\footnotesize\ttfamily double Plot\+Scene\+Widget\+::x\+Axis\+Lower\+Bound (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+x\+Scale\+Item-\/$>$lower\+Bound 
+\end{DoxyReturn}
+
+
+References Scale\+Item\+::lower\+Bound, and x\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_a6d8a4f77c996ee367e346f377d7b4037}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!xAxisUpperBound@{xAxisUpperBound}}
+\index{xAxisUpperBound@{xAxisUpperBound}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{xAxisUpperBound()}
+{\footnotesize\ttfamily double Plot\+Scene\+Widget\+::x\+Axis\+Upper\+Bound (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+x\+Scale\+Item-\/$>$upper\+Bound 
+\end{DoxyReturn}
+
+
+References Scale\+Item\+::upper\+Bound, and x\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_a442e942a6fddefa4079d2a16a4d4fe4f}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!xScaleEnabled@{xScaleEnabled}}
+\index{xScaleEnabled@{xScaleEnabled}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{xScaleEnabled()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::x\+Scale\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+References Scale\+Item\+::x\+Bottom.
+
+\mbox{\label{classPlotSceneWidget_a77e8a809d26525e04325cc4595fd9f5d}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!xScaleItem@{xScaleItem}}
+\index{xScaleItem@{xScaleItem}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{xScaleItem()}
+{\footnotesize\ttfamily \textbf{ Scale\+Item} $\ast$ Plot\+Scene\+Widget\+::x\+Scale\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the x bottom scale item, if not removed programmatically, N\+U\+LL otherwise. 
+\end{DoxyReturn}
+
+
+References Scale\+Item\+::x\+Bottom.
+
+
+
+Referenced by add\+Curve(), add\+Line\+Curve(), default\+X\+Axis\+Origin\+Pos\+Percentage(), Dots\+Painter\+::draw(), Histogram\+Painter\+::draw(), Steps\+Painter\+::draw(), inv\+Transform(), save\+Data(), set\+Default\+X\+Axis\+Origin\+Pos\+Percentage(), set\+X\+Axis\+Autoscale\+Enabled(), set\+X\+Axis\+Labels\+Outside\+Canvas(), set\+X\+Axis\+Lower\+Bound(), set\+X\+Axis\+Upper\+Bound(), x\+Axis\+Autoscale\+Enabled(), x\+Axis\+Labels\+Outside\+Canvas(), x\+Axis\+Lower\+Bound(), and x\+Axis\+Upper\+Bound().
+
+\mbox{\label{classPlotSceneWidget_af26e3cf80fd662bb3b76503e6c495554}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!yAxisAutoscaleEnabled@{yAxisAutoscaleEnabled}}
+\index{yAxisAutoscaleEnabled@{yAxisAutoscaleEnabled}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{yAxisAutoscaleEnabled()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::y\+Axis\+Autoscale\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+\doxyref{y\+Scale\+Item()}{p.}{classPlotSceneWidget_a94b9df3c5be0dea79f8f85e480a4145c}-\/$>$axis\+Autoscale\+Enabled() 
+\end{DoxyReturn}
+
+
+References Scale\+Item\+::axis\+Autoscale\+Enabled, and y\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_a9f4538f6c6b36a581ffa0feb49739ce3}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!yAxisLabelsOutsideCanvas@{yAxisLabelsOutsideCanvas}}
+\index{yAxisLabelsOutsideCanvas@{yAxisLabelsOutsideCanvas}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{yAxisLabelsOutsideCanvas()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::y\+Axis\+Labels\+Outside\+Canvas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+If set to true, draws the axis labels outside the rectangle where the curves are drawn. 
+
+References Scale\+Item\+::axis\+Labels\+Outside\+Canvas, and y\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_a8e759a4607b32026b07aabd69fae89fd}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!yAxisLowerBound@{yAxisLowerBound}}
+\index{yAxisLowerBound@{yAxisLowerBound}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{yAxisLowerBound()}
+{\footnotesize\ttfamily double Plot\+Scene\+Widget\+::y\+Axis\+Lower\+Bound (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+y\+Scale\+Item-\/$>$lower\+Bound 
+\end{DoxyReturn}
+
+
+References Scale\+Item\+::lower\+Bound, and y\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_adfb3fb9e440653f42801cc961c8010b2}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!yAxisUpperBound@{yAxisUpperBound}}
+\index{yAxisUpperBound@{yAxisUpperBound}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{yAxisUpperBound()}
+{\footnotesize\ttfamily double Plot\+Scene\+Widget\+::y\+Axis\+Upper\+Bound (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+y\+Scale\+Item-\/$>$upper\+Bound 
+\end{DoxyReturn}
+
+
+References Scale\+Item\+::upper\+Bound, and y\+Scale\+Item().
+
+\mbox{\label{classPlotSceneWidget_a026d63049a020ea909b2fd4abe9f8ee7}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!yScaleEnabled@{yScaleEnabled}}
+\index{yScaleEnabled@{yScaleEnabled}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{yScaleEnabled()}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::y\+Scale\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+References Scale\+Item\+::y\+Left.
+
+\mbox{\label{classPlotSceneWidget_a94b9df3c5be0dea79f8f85e480a4145c}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!yScaleItem@{yScaleItem}}
+\index{yScaleItem@{yScaleItem}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{yScaleItem()}
+{\footnotesize\ttfamily \textbf{ Scale\+Item} $\ast$ Plot\+Scene\+Widget\+::y\+Scale\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the y left scale item, if not removed programmatically, N\+U\+LL otherwise. 
+\end{DoxyReturn}
+
+
+References Scale\+Item\+::y\+Left.
+
+
+
+Referenced by add\+Curve(), add\+Line\+Curve(), default\+Y\+Axis\+Origin\+Pos\+Percentage(), Histogram\+Painter\+::draw(), inv\+Transform(), set\+Default\+Y\+Axis\+Origin\+Pos\+Percentage(), set\+Y\+Axis\+Autoscale\+Enabled(), set\+Y\+Axis\+Labels\+Outside\+Canvas(), set\+Y\+Axis\+Lower\+Bound(), set\+Y\+Axis\+Upper\+Bound(), y\+Axis\+Autoscale\+Enabled(), y\+Axis\+Labels\+Outside\+Canvas(), y\+Axis\+Lower\+Bound(), and y\+Axis\+Upper\+Bound().
+
+\mbox{\label{classPlotSceneWidget_aa16e452f38921f36f957188d6c531db2}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!zoomer@{zoomer}}
+\index{zoomer@{zoomer}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{zoomer()}
+{\footnotesize\ttfamily \textbf{ Q\+Graphics\+Zoomer} $\ast$ Plot\+Scene\+Widget\+::zoomer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPlotSceneWidget_a6a200bee39546cc8f835387e7de0f8df}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!zoomLevel@{zoomLevel}}
+\index{zoomLevel@{zoomLevel}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{zoomLevel()}
+{\footnotesize\ttfamily int Plot\+Scene\+Widget\+::zoom\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+The minimum value returned by this call is 1 and it means that no zoom is currently applied. A value of 2 means that the plot has been zoomed 1 time, a value of 3 means that the plot has been zoomed 2 times and so on.
+
+\begin{DoxyReturn}{Returns}
+the zoom level\+: 1 means no zoom, 2 means zoomed once and so on... 
+\end{DoxyReturn}
+
+
+\doxysubsection{Property Documentation}
+\mbox{\label{classPlotSceneWidget_abc59895a8ea09d977abd29ddab6b5caf}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!backgroundColor@{backgroundColor}}
+\index{backgroundColor@{backgroundColor}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{backgroundColor}
+{\footnotesize\ttfamily Q\+Color Plot\+Scene\+Widget\+::background\+Color\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_aa1c0b3bb4486d84ed5eeb94d002d475f}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!cacheBackground@{cacheBackground}}
+\index{cacheBackground@{cacheBackground}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{cacheBackground}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::cache\+Background\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_ab7e75995e4aa8101e1b7520d8383b796}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!defaultXAxisOriginPosPercentage@{defaultXAxisOriginPosPercentage}}
+\index{defaultXAxisOriginPosPercentage@{defaultXAxisOriginPosPercentage}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{defaultXAxisOriginPosPercentage}
+{\footnotesize\ttfamily double Plot\+Scene\+Widget\+::default\+X\+Axis\+Origin\+Pos\+Percentage\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_a6d8c6d07e187ec4ccb8f37d2eaff50df}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!defaultYAxisOriginPosPercentage@{defaultYAxisOriginPosPercentage}}
+\index{defaultYAxisOriginPosPercentage@{defaultYAxisOriginPosPercentage}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{defaultYAxisOriginPosPercentage}
+{\footnotesize\ttfamily double Plot\+Scene\+Widget\+::default\+Y\+Axis\+Origin\+Pos\+Percentage\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_a1259eee103e299c2e9dde072ab1136f3}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!dontAdjustForAntialiasing@{dontAdjustForAntialiasing}}
+\index{dontAdjustForAntialiasing@{dontAdjustForAntialiasing}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{dontAdjustForAntialiasing}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::dont\+Adjust\+For\+Antialiasing\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_aafc5f5642d82ed36ca49b0a79e896535}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!dontSavePainterState@{dontSavePainterState}}
+\index{dontSavePainterState@{dontSavePainterState}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{dontSavePainterState}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::dont\+Save\+Painter\+State\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_a8bd428eae5eddb4a7bc6dc6c2d66ffe1}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!legendVisible@{legendVisible}}
+\index{legendVisible@{legendVisible}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{legendVisible}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::legend\+Visible\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_a99431c197f0062d692fbd2fa211ac8d4}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!manualSceneUpdate@{manualSceneUpdate}}
+\index{manualSceneUpdate@{manualSceneUpdate}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{manualSceneUpdate}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::manual\+Scene\+Update\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_a8d42c592174c93baff35e7b9ff95ab32}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!modifiedPaintEvent@{modifiedPaintEvent}}
+\index{modifiedPaintEvent@{modifiedPaintEvent}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{modifiedPaintEvent}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::modified\+Paint\+Event\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_a941dc222ed819a1c4f51a5b0d68062b6}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!mouseZoomEnabled@{mouseZoomEnabled}}
+\index{mouseZoomEnabled@{mouseZoomEnabled}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{mouseZoomEnabled}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::mouse\+Zoom\+Enabled\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_a9220892f84d9df2ee370064a019f92b6}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!painterAntiAlias@{painterAntiAlias}}
+\index{painterAntiAlias@{painterAntiAlias}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{painterAntiAlias}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::painter\+Anti\+Alias\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_ac4c1e65fbbfbe313743a1d4e25ce80f2}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!painterHQGLAntiAlias@{painterHQGLAntiAlias}}
+\index{painterHQGLAntiAlias@{painterHQGLAntiAlias}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{painterHQGLAntiAlias}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::painter\+H\+Q\+G\+L\+Anti\+Alias\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_a96150d70f7db58ed129a6913976adbec}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!plotAreaPercentageHeight@{plotAreaPercentageHeight}}
+\index{plotAreaPercentageHeight@{plotAreaPercentageHeight}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{plotAreaPercentageHeight}
+{\footnotesize\ttfamily double Plot\+Scene\+Widget\+::plot\+Area\+Percentage\+Height\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_a08eab77eae14fccbaf6cff495e1a6e06}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!plotAreaPercentageWidth@{plotAreaPercentageWidth}}
+\index{plotAreaPercentageWidth@{plotAreaPercentageWidth}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{plotAreaPercentageWidth}
+{\footnotesize\ttfamily double Plot\+Scene\+Widget\+::plot\+Area\+Percentage\+Width\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_ab768494a0f427436475457310e260312}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!plotAreaTopLeftXPercentage@{plotAreaTopLeftXPercentage}}
+\index{plotAreaTopLeftXPercentage@{plotAreaTopLeftXPercentage}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{plotAreaTopLeftXPercentage}
+{\footnotesize\ttfamily double Plot\+Scene\+Widget\+::plot\+Area\+Top\+Left\+X\+Percentage\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_a8d7656c200e216034c74a5c7dd615049}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!plotAreaTopLeftYPercentage@{plotAreaTopLeftYPercentage}}
+\index{plotAreaTopLeftYPercentage@{plotAreaTopLeftYPercentage}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{plotAreaTopLeftYPercentage}
+{\footnotesize\ttfamily double Plot\+Scene\+Widget\+::plot\+Area\+Top\+Left\+Y\+Percentage\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_aeb8706d430a3454de6fd24fcd5da5e86}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!refreshPeriod@{refreshPeriod}}
+\index{refreshPeriod@{refreshPeriod}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{refreshPeriod}
+{\footnotesize\ttfamily int Plot\+Scene\+Widget\+::refresh\+Period\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_af568415c591b7cf5eb2835d30fa1b0ce}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!scaleSceneOnResizeEnabled@{scaleSceneOnResizeEnabled}}
+\index{scaleSceneOnResizeEnabled@{scaleSceneOnResizeEnabled}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{scaleSceneOnResizeEnabled}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::scale\+Scene\+On\+Resize\+Enabled\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_a92556f6b77284c9e0b511b1d5b2f8f59}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!scrollBarsEnabled@{scrollBarsEnabled}}
+\index{scrollBarsEnabled@{scrollBarsEnabled}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{scrollBarsEnabled}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::scroll\+Bars\+Enabled\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_a5712ffb2af7ea23b9659872540306f88}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!smoothPixmapTransform@{smoothPixmapTransform}}
+\index{smoothPixmapTransform@{smoothPixmapTransform}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{smoothPixmapTransform}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::smooth\+Pixmap\+Transform\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_abfba09ad56d60c525c2d05cccf618c79}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!xScaleEnabled@{xScaleEnabled}}
+\index{xScaleEnabled@{xScaleEnabled}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{xScaleEnabled}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::x\+Scale\+Enabled\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classPlotSceneWidget_a600a14324690dcff595b2a142f3b232c}} 
+\index{PlotSceneWidget@{PlotSceneWidget}!yScaleEnabled@{yScaleEnabled}}
+\index{yScaleEnabled@{yScaleEnabled}!PlotSceneWidget@{PlotSceneWidget}}
+\doxysubsubsection{yScaleEnabled}
+{\footnotesize\ttfamily bool Plot\+Scene\+Widget\+::y\+Scale\+Enabled\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ plotscenewidget.\+h}\item 
+\textbf{ moc\+\_\+plotscenewidget.\+cpp}\item 
+\textbf{ plotscenewidget.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,387 @@
+\section{qtpropertymanager.\+cpp File Reference}
+\label{qtpropertymanager_8cpp}\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+{\ttfamily \#include \char`\"{}qtpropertymanager.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}qtpropertybrowserutils\+\_\+p.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$Qt\+Core/\+Q\+Date\+Time$>$}\\*
+{\ttfamily \#include $<$Qt\+Core/\+Q\+Locale$>$}\\*
+{\ttfamily \#include $<$Qt\+Core/\+Q\+Map$>$}\\*
+{\ttfamily \#include $<$Qt\+Core/\+Q\+Timer$>$}\\*
+{\ttfamily \#include $<$Q\+Icon$>$}\\*
+{\ttfamily \#include $<$Qt\+Core/\+Q\+Meta\+Enum$>$}\\*
+{\ttfamily \#include $<$Q\+Font\+Database$>$}\\*
+{\ttfamily \#include $<$Q\+Style\+Option$>$}\\*
+{\ttfamily \#include $<$Q\+Style$>$}\\*
+{\ttfamily \#include $<$Q\+Application$>$}\\*
+{\ttfamily \#include $<$Q\+Painter$>$}\\*
+{\ttfamily \#include $<$Q\+Label$>$}\\*
+{\ttfamily \#include $<$Q\+Check\+Box$>$}\\*
+{\ttfamily \#include $<$limits.\+h$>$}\\*
+{\ttfamily \#include $<$float.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}moc\+\_\+qtpropertymanager.\+cpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}qtpropertymanager.\+moc\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class {\bf Qt\+Meta\+Enum\+Wrapper}
+\item 
+class {\bf Qt\+Meta\+Enum\+Provider}
+\item 
+class {\bf Qt\+Int\+Property\+Manager\+Private}
+\item 
+struct {\bf Qt\+Int\+Property\+Manager\+Private\+::\+Data}
+\item 
+class {\bf Qt\+Double\+Property\+Manager\+Private}
+\item 
+struct {\bf Qt\+Double\+Property\+Manager\+Private\+::\+Data}
+\item 
+class {\bf Qt\+String\+Property\+Manager\+Private}
+\item 
+struct {\bf Qt\+String\+Property\+Manager\+Private\+::\+Data}
+\item 
+class {\bf Qt\+Bool\+Property\+Manager\+Private}
+\item 
+class {\bf Qt\+Date\+Property\+Manager\+Private}
+\item 
+struct {\bf Qt\+Date\+Property\+Manager\+Private\+::\+Data}
+\item 
+class {\bf Qt\+Time\+Property\+Manager\+Private}
+\item 
+class {\bf Qt\+Date\+Time\+Property\+Manager\+Private}
+\item 
+class {\bf Qt\+Key\+Sequence\+Property\+Manager\+Private}
+\item 
+class {\bf Qt\+Char\+Property\+Manager\+Private}
+\item 
+class {\bf Qt\+Locale\+Property\+Manager\+Private}
+\item 
+class {\bf Qt\+Point\+Property\+Manager\+Private}
+\item 
+class {\bf Qt\+Point\+F\+Property\+Manager\+Private}
+\item 
+struct {\bf Qt\+Point\+F\+Property\+Manager\+Private\+::\+Data}
+\item 
+class {\bf Qt\+Size\+Property\+Manager\+Private}
+\item 
+struct {\bf Qt\+Size\+Property\+Manager\+Private\+::\+Data}
+\item 
+class {\bf Qt\+Size\+F\+Property\+Manager\+Private}
+\item 
+struct {\bf Qt\+Size\+F\+Property\+Manager\+Private\+::\+Data}
+\item 
+class {\bf Qt\+Rect\+Property\+Manager\+Private}
+\item 
+struct {\bf Qt\+Rect\+Property\+Manager\+Private\+::\+Data}
+\item 
+class {\bf Qt\+Rect\+F\+Property\+Manager\+Private}
+\item 
+struct {\bf Qt\+Rect\+F\+Property\+Manager\+Private\+::\+Data}
+\item 
+class {\bf Qt\+Enum\+Property\+Manager\+Private}
+\item 
+struct {\bf Qt\+Enum\+Property\+Manager\+Private\+::\+Data}
+\item 
+class {\bf Qt\+Flag\+Property\+Manager\+Private}
+\item 
+struct {\bf Qt\+Flag\+Property\+Manager\+Private\+::\+Data}
+\item 
+class {\bf Qt\+Size\+Policy\+Property\+Manager\+Private}
+\item 
+class {\bf Qt\+Font\+Property\+Manager\+Private}
+\item 
+class {\bf Qt\+Color\+Property\+Manager\+Private}
+\item 
+class {\bf Qt\+Cursor\+Property\+Manager\+Private}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Private\+Data , class Value $>$ }\\static void {\bf set\+Simple\+Minimum\+Data} (Private\+Data $\ast$data, const Value \&min\+Val)
+\item 
+{\footnotesize template$<$class Private\+Data , class Value $>$ }\\static void {\bf set\+Simple\+Maximum\+Data} (Private\+Data $\ast$data, const Value \&max\+Val)
+\item 
+{\footnotesize template$<$class Private\+Data , class Value $>$ }\\static void {\bf set\+Size\+Minimum\+Data} (Private\+Data $\ast$data, const Value \&new\+Min\+Val)
+\item 
+{\footnotesize template$<$class Private\+Data , class Value $>$ }\\static void {\bf set\+Size\+Maximum\+Data} (Private\+Data $\ast$data, const Value \&new\+Max\+Val)
+\item 
+{\footnotesize template$<$class Size\+Value $>$ }\\static Size\+Value {\bf q\+Bound\+Size} (const Size\+Value \&min\+Val, const Size\+Value \&val, const Size\+Value \&max\+Val)
+\item 
+Q\+Size {\bf q\+Bound} (Q\+Size min\+Val, Q\+Size val, Q\+Size max\+Val)
+\item 
+Q\+SizeF {\bf q\+Bound} (Q\+SizeF min\+Val, Q\+SizeF val, Q\+SizeF max\+Val)
+\item 
+{\footnotesize template$<$class Value , class Private\+Data $>$ }\\static Value {\bf get\+Data} (const Q\+Map$<$ const {\bf Qt\+Property} $\ast$, Private\+Data $>$ \&property\+Map, Value Private\+Data\+::$\ast$data, const {\bf Qt\+Property} $\ast$property, const Value \&default\+Value=Value())
+\item 
+{\footnotesize template$<$class Value , class Private\+Data $>$ }\\static Value {\bf get\+Value} (const Q\+Map$<$ const {\bf Qt\+Property} $\ast$, Private\+Data $>$ \&property\+Map, const {\bf Qt\+Property} $\ast$property, const Value \&default\+Value=Value())
+\item 
+{\footnotesize template$<$class Value , class Private\+Data $>$ }\\static Value {\bf get\+Minimum} (const Q\+Map$<$ const {\bf Qt\+Property} $\ast$, Private\+Data $>$ \&property\+Map, const {\bf Qt\+Property} $\ast$property, const Value \&default\+Value=Value())
+\item 
+{\footnotesize template$<$class Value , class Private\+Data $>$ }\\static Value {\bf get\+Maximum} (const Q\+Map$<$ const {\bf Qt\+Property} $\ast$, Private\+Data $>$ \&property\+Map, const {\bf Qt\+Property} $\ast$property, const Value \&default\+Value=Value())
+\item 
+{\footnotesize template$<$class Value\+Change\+Parameter , class Value , class Property\+Manager $>$ }\\static void {\bf set\+Simple\+Value} (Q\+Map$<$ const {\bf Qt\+Property} $\ast$, Value $>$ \&property\+Map, Property\+Manager $\ast$manager, void(Property\+Manager\+::$\ast$property\+Changed\+Signal)({\bf Qt\+Property} $\ast$), void(Property\+Manager\+::$\ast$value\+Changed\+Signal)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter), {\bf Qt\+Property} $\ast$property, const Value \&val)
+\item 
+{\footnotesize template$<$class Value\+Change\+Parameter , class Property\+Manager\+Private , class Property\+Manager , class Value $>$ }\\static void {\bf set\+Value\+In\+Range} (Property\+Manager $\ast$manager, Property\+Manager\+Private $\ast$manager\+Private, void(Property\+Manager\+::$\ast$property\+Changed\+Signal)({\bf Qt\+Property} $\ast$), void(Property\+Manager\+::$\ast$value\+Changed\+Signal)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter), {\bf Qt\+Property} $\ast$property, const Value \&val, void(Property\+Manager\+Private\+::$\ast$set\+Sub\+Property\+Value)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter))
+\item 
+{\footnotesize template$<$class Value\+Change\+Parameter , class Property\+Manager\+Private , class Property\+Manager , class Value $>$ }\\static void {\bf set\+Border\+Values} (Property\+Manager $\ast$manager, Property\+Manager\+Private $\ast$manager\+Private, void(Property\+Manager\+::$\ast$property\+Changed\+Signal)({\bf Qt\+Property} $\ast$), void(Property\+Manager\+::$\ast$value\+Changed\+Signal)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter), void(Property\+Manager\+::$\ast$range\+Changed\+Signal)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter, Value\+Change\+Parameter), {\bf Qt\+Property} $\ast$property, const Value \&min\+Val, const Value \&max\+Val, void(Property\+Manager\+Private\+::$\ast$set\+Sub\+Property\+Range)({\bf Qt\+Property} $\ast$,                                                                       Value\+Change\+Parameter, Value\+Change\+Parameter, Value\+Change\+Parameter))
+\item 
+{\footnotesize template$<$class Value\+Change\+Parameter , class Property\+Manager\+Private , class Property\+Manager , class Value , class Private\+Data $>$ }\\static void {\bf set\+Border\+Value} (Property\+Manager $\ast$manager, Property\+Manager\+Private $\ast$manager\+Private, void(Property\+Manager\+::$\ast$property\+Changed\+Signal)({\bf Qt\+Property} $\ast$), void(Property\+Manager\+::$\ast$value\+Changed\+Signal)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter), void(Property\+Manager\+::$\ast$range\+Changed\+Signal)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter, Value\+Change\+Parameter), {\bf Qt\+Property} $\ast$property, Value(Private\+Data\+::$\ast$get\+Range\+Val)() const, void(Private\+Data\+::$\ast$set\+Range\+Val)(Value\+Change\+Parameter), const Value \&border\+Val, void(Property\+Manager\+Private\+::$\ast$set\+Sub\+Property\+Range)({\bf Qt\+Property} $\ast$,                                                                       Value\+Change\+Parameter, Value\+Change\+Parameter, Value\+Change\+Parameter))
+\item 
+{\footnotesize template$<$class Value\+Change\+Parameter , class Property\+Manager\+Private , class Property\+Manager , class Value , class Private\+Data $>$ }\\static void {\bf set\+Minimum\+Value} (Property\+Manager $\ast$manager, Property\+Manager\+Private $\ast$manager\+Private, void(Property\+Manager\+::$\ast$property\+Changed\+Signal)({\bf Qt\+Property} $\ast$), void(Property\+Manager\+::$\ast$value\+Changed\+Signal)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter), void(Property\+Manager\+::$\ast$range\+Changed\+Signal)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter, Value\+Change\+Parameter), {\bf Qt\+Property} $\ast$property, const Value \&min\+Val)
+\item 
+{\footnotesize template$<$class Value\+Change\+Parameter , class Property\+Manager\+Private , class Property\+Manager , class Value , class Private\+Data $>$ }\\static void {\bf set\+Maximum\+Value} (Property\+Manager $\ast$manager, Property\+Manager\+Private $\ast$manager\+Private, void(Property\+Manager\+::$\ast$property\+Changed\+Signal)({\bf Qt\+Property} $\ast$), void(Property\+Manager\+::$\ast$value\+Changed\+Signal)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter), void(Property\+Manager\+::$\ast$range\+Changed\+Signal)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter, Value\+Change\+Parameter), {\bf Qt\+Property} $\ast$property, const Value \&max\+Val)
+\item 
+static Q\+List$<$ Q\+Locale\+::\+Country $>$ {\bf countries\+For\+Language} (Q\+Locale\+::\+Language language)
+\item 
+static Q\+List$<$ Q\+Locale\+::\+Country $>$ {\bf sort\+Countries} (const Q\+List$<$ Q\+Locale\+::\+Country $>$ \&countries)
+\item 
+static Q\+Icon {\bf draw\+Check\+Box} (bool value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}!countries\+For\+Language@{countries\+For\+Language}}
+\index{countries\+For\+Language@{countries\+For\+Language}!qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+\subsubsection[{countries\+For\+Language(\+Q\+Locale\+::\+Language language)}]{\setlength{\rightskip}{0pt plus 5cm}static Q\+List$<$Q\+Locale\+::\+Country$>$ countries\+For\+Language (
+\begin{DoxyParamCaption}
+\item[{Q\+Locale\+::\+Language}]{language}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{qtpropertymanager_8cpp_af9ba7616ae256c552604e5ce046d09fb}
+
+
+Referenced by sort\+Countries().
+
+\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}!draw\+Check\+Box@{draw\+Check\+Box}}
+\index{draw\+Check\+Box@{draw\+Check\+Box}!qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+\subsubsection[{draw\+Check\+Box(bool value)}]{\setlength{\rightskip}{0pt plus 5cm}static Q\+Icon draw\+Check\+Box (
+\begin{DoxyParamCaption}
+\item[{bool}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{qtpropertymanager_8cpp_a372eea6ae893f62efa4e15c576d32fe8}
+
+
+Referenced by Qt\+Bool\+Property\+Manager\+::value\+Icon().
+
+\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+\subsubsection[{get\+Data(const Q\+Map$<$ const Qt\+Property $\ast$, Private\+Data $>$ \&property\+Map, Value Private\+Data\+::$\ast$data, const Qt\+Property $\ast$property, const Value \&default\+Value=\+Value())}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Value , class Private\+Data $>$ static Value get\+Data (
+\begin{DoxyParamCaption}
+\item[{const Q\+Map$<$ const {\bf Qt\+Property} $\ast$, Private\+Data $>$ \&}]{property\+Map, }
+\item[{Value Private\+Data\+::$\ast$}]{data, }
+\item[{const {\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Value \&}]{default\+Value = {\ttfamily Value()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{qtpropertymanager_8cpp_a1dcbfd9e899a6f10ed8438d771df3817}
+\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}!get\+Maximum@{get\+Maximum}}
+\index{get\+Maximum@{get\+Maximum}!qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+\subsubsection[{get\+Maximum(const Q\+Map$<$ const Qt\+Property $\ast$, Private\+Data $>$ \&property\+Map, const Qt\+Property $\ast$property, const Value \&default\+Value=\+Value())}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Value , class Private\+Data $>$ static Value get\+Maximum (
+\begin{DoxyParamCaption}
+\item[{const Q\+Map$<$ const {\bf Qt\+Property} $\ast$, Private\+Data $>$ \&}]{property\+Map, }
+\item[{const {\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Value \&}]{default\+Value = {\ttfamily Value()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{qtpropertymanager_8cpp_a899bf99d8141e843d9a8d61230c7468a}
+\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}!get\+Minimum@{get\+Minimum}}
+\index{get\+Minimum@{get\+Minimum}!qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+\subsubsection[{get\+Minimum(const Q\+Map$<$ const Qt\+Property $\ast$, Private\+Data $>$ \&property\+Map, const Qt\+Property $\ast$property, const Value \&default\+Value=\+Value())}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Value , class Private\+Data $>$ static Value get\+Minimum (
+\begin{DoxyParamCaption}
+\item[{const Q\+Map$<$ const {\bf Qt\+Property} $\ast$, Private\+Data $>$ \&}]{property\+Map, }
+\item[{const {\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Value \&}]{default\+Value = {\ttfamily Value()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{qtpropertymanager_8cpp_a2a6a7677e89e139a007ee46f7d065b60}
+\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+\subsubsection[{get\+Value(const Q\+Map$<$ const Qt\+Property $\ast$, Private\+Data $>$ \&property\+Map, const Qt\+Property $\ast$property, const Value \&default\+Value=\+Value())}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Value , class Private\+Data $>$ static Value get\+Value (
+\begin{DoxyParamCaption}
+\item[{const Q\+Map$<$ const {\bf Qt\+Property} $\ast$, Private\+Data $>$ \&}]{property\+Map, }
+\item[{const {\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Value \&}]{default\+Value = {\ttfamily Value()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{qtpropertymanager_8cpp_afe3ce5a4675df9805853f7658c856a34}
+\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}!q\+Bound@{q\+Bound}}
+\index{q\+Bound@{q\+Bound}!qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+\subsubsection[{q\+Bound(\+Q\+Size min\+Val, Q\+Size val, Q\+Size max\+Val)}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Size q\+Bound (
+\begin{DoxyParamCaption}
+\item[{Q\+Size}]{min\+Val, }
+\item[{Q\+Size}]{val, }
+\item[{Q\+Size}]{max\+Val}
+\end{DoxyParamCaption}
+)}\label{qtpropertymanager_8cpp_a2e3c77b6b0355df7994eaed984808513}
+
+
+References q\+Bound\+Size().
+
+
+
+Referenced by set\+Value\+In\+Range().
+
+\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}!q\+Bound@{q\+Bound}}
+\index{q\+Bound@{q\+Bound}!qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+\subsubsection[{q\+Bound(\+Q\+Size\+F min\+Val, Q\+Size\+F val, Q\+Size\+F max\+Val)}]{\setlength{\rightskip}{0pt plus 5cm}Q\+SizeF q\+Bound (
+\begin{DoxyParamCaption}
+\item[{Q\+SizeF}]{min\+Val, }
+\item[{Q\+SizeF}]{val, }
+\item[{Q\+SizeF}]{max\+Val}
+\end{DoxyParamCaption}
+)}\label{qtpropertymanager_8cpp_a37853b77aa1960b4618a60be92a7b5c8}
+
+
+References q\+Bound\+Size().
+
+\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}!q\+Bound\+Size@{q\+Bound\+Size}}
+\index{q\+Bound\+Size@{q\+Bound\+Size}!qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+\subsubsection[{q\+Bound\+Size(const Size\+Value \&min\+Val, const Size\+Value \&val, const Size\+Value \&max\+Val)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Size\+Value $>$ static Size\+Value q\+Bound\+Size (
+\begin{DoxyParamCaption}
+\item[{const Size\+Value \&}]{min\+Val, }
+\item[{const Size\+Value \&}]{val, }
+\item[{const Size\+Value \&}]{max\+Val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{qtpropertymanager_8cpp_a2805942c9d50e477ed0859b0f680fb72}
+
+
+Referenced by q\+Bound().
+
+\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}!set\+Border\+Value@{set\+Border\+Value}}
+\index{set\+Border\+Value@{set\+Border\+Value}!qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+\subsubsection[{set\+Border\+Value(\+Property\+Manager $\ast$manager, Property\+Manager\+Private $\ast$manager\+Private, void(\+Property\+Manager\+::$\ast$property\+Changed\+Signal)(\+Qt\+Property $\ast$), void(\+Property\+Manager\+::$\ast$value\+Changed\+Signal)(\+Qt\+Property $\ast$, Value\+Change\+Parameter), void(\+Property\+Manager\+::$\ast$range\+Changed\+Signal)(\+Qt\+Property $\ast$, Value\+Change\+Parameter, Value\+Change\+Parameter), Qt\+Property $\ast$property, Value(\+Private\+Data\+::$\ast$get\+Range\+Val)() const, void(\+Private\+Data\+::$\ast$set\+Range\+Val)(\+Value\+Change\+Parameter), const Value \&border\+Val, void(\+Property\+Manager\+Private\+::$\ast$set\+Sub\+Property\+Range)(\+Qt\+Property $\ast$,                                                                       Value\+Change\+Parameter, Value\+Change\+Parameter, Value\+Change\+Parameter))}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Value\+Change\+Parameter , class Property\+Manager\+Private , class Property\+Manager , class Value , class Private\+Data $>$ static void set\+Border\+Value (
+\begin{DoxyParamCaption}
+\item[{Property\+Manager $\ast$}]{manager, }
+\item[{Property\+Manager\+Private $\ast$}]{manager\+Private, }
+\item[{void(Property\+Manager\+::$\ast$)({\bf Qt\+Property} $\ast$)}]{property\+Changed\+Signal, }
+\item[{void(Property\+Manager\+::$\ast$)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter)}]{value\+Changed\+Signal, }
+\item[{void(Property\+Manager\+::$\ast$)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter, Value\+Change\+Parameter)}]{range\+Changed\+Signal, }
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{Value(Private\+Data\+::$\ast$)() const}]{get\+Range\+Val, }
+\item[{void(Private\+Data\+::$\ast$)(Value\+Change\+Parameter)}]{set\+Range\+Val, }
+\item[{const Value \&}]{border\+Val, }
+\item[{void(Property\+Manager\+Private\+::$\ast$)({\bf Qt\+Property} $\ast$,                                                                       Value\+Change\+Parameter, Value\+Change\+Parameter, Value\+Change\+Parameter)}]{set\+Sub\+Property\+Range}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{qtpropertymanager_8cpp_ae6eb03cdc2295c86870a2c60b2140b75}
+\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}!set\+Border\+Values@{set\+Border\+Values}}
+\index{set\+Border\+Values@{set\+Border\+Values}!qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+\subsubsection[{set\+Border\+Values(\+Property\+Manager $\ast$manager, Property\+Manager\+Private $\ast$manager\+Private, void(\+Property\+Manager\+::$\ast$property\+Changed\+Signal)(\+Qt\+Property $\ast$), void(\+Property\+Manager\+::$\ast$value\+Changed\+Signal)(\+Qt\+Property $\ast$, Value\+Change\+Parameter), void(\+Property\+Manager\+::$\ast$range\+Changed\+Signal)(\+Qt\+Property $\ast$, Value\+Change\+Parameter, Value\+Change\+Parameter), Qt\+Property $\ast$property, const Value \&min\+Val, const Value \&max\+Val, void(\+Property\+Manager\+Private\+::$\ast$set\+Sub\+Property\+Range)(\+Qt\+Property $\ast$,                                                                       Value\+Change\+Parameter, Value\+Change\+Parameter, Value\+Change\+Parameter))}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Value\+Change\+Parameter , class Property\+Manager\+Private , class Property\+Manager , class Value $>$ static void set\+Border\+Values (
+\begin{DoxyParamCaption}
+\item[{Property\+Manager $\ast$}]{manager, }
+\item[{Property\+Manager\+Private $\ast$}]{manager\+Private, }
+\item[{void(Property\+Manager\+::$\ast$)({\bf Qt\+Property} $\ast$)}]{property\+Changed\+Signal, }
+\item[{void(Property\+Manager\+::$\ast$)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter)}]{value\+Changed\+Signal, }
+\item[{void(Property\+Manager\+::$\ast$)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter, Value\+Change\+Parameter)}]{range\+Changed\+Signal, }
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Value \&}]{min\+Val, }
+\item[{const Value \&}]{max\+Val, }
+\item[{void(Property\+Manager\+Private\+::$\ast$)({\bf Qt\+Property} $\ast$,                                                                       Value\+Change\+Parameter, Value\+Change\+Parameter, Value\+Change\+Parameter)}]{set\+Sub\+Property\+Range}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{qtpropertymanager_8cpp_ab2cac09686f612132a2b4c9ebac039f4}
+\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}!set\+Maximum\+Value@{set\+Maximum\+Value}}
+\index{set\+Maximum\+Value@{set\+Maximum\+Value}!qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+\subsubsection[{set\+Maximum\+Value(\+Property\+Manager $\ast$manager, Property\+Manager\+Private $\ast$manager\+Private, void(\+Property\+Manager\+::$\ast$property\+Changed\+Signal)(\+Qt\+Property $\ast$), void(\+Property\+Manager\+::$\ast$value\+Changed\+Signal)(\+Qt\+Property $\ast$, Value\+Change\+Parameter), void(\+Property\+Manager\+::$\ast$range\+Changed\+Signal)(\+Qt\+Property $\ast$, Value\+Change\+Parameter, Value\+Change\+Parameter), Qt\+Property $\ast$property, const Value \&max\+Val)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Value\+Change\+Parameter , class Property\+Manager\+Private , class Property\+Manager , class Value , class Private\+Data $>$ static void set\+Maximum\+Value (
+\begin{DoxyParamCaption}
+\item[{Property\+Manager $\ast$}]{manager, }
+\item[{Property\+Manager\+Private $\ast$}]{manager\+Private, }
+\item[{void(Property\+Manager\+::$\ast$)({\bf Qt\+Property} $\ast$)}]{property\+Changed\+Signal, }
+\item[{void(Property\+Manager\+::$\ast$)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter)}]{value\+Changed\+Signal, }
+\item[{void(Property\+Manager\+::$\ast$)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter, Value\+Change\+Parameter)}]{range\+Changed\+Signal, }
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Value \&}]{max\+Val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{qtpropertymanager_8cpp_af083730cfc285e2e170fde3101a59204}
+\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}!set\+Minimum\+Value@{set\+Minimum\+Value}}
+\index{set\+Minimum\+Value@{set\+Minimum\+Value}!qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+\subsubsection[{set\+Minimum\+Value(\+Property\+Manager $\ast$manager, Property\+Manager\+Private $\ast$manager\+Private, void(\+Property\+Manager\+::$\ast$property\+Changed\+Signal)(\+Qt\+Property $\ast$), void(\+Property\+Manager\+::$\ast$value\+Changed\+Signal)(\+Qt\+Property $\ast$, Value\+Change\+Parameter), void(\+Property\+Manager\+::$\ast$range\+Changed\+Signal)(\+Qt\+Property $\ast$, Value\+Change\+Parameter, Value\+Change\+Parameter), Qt\+Property $\ast$property, const Value \&min\+Val)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Value\+Change\+Parameter , class Property\+Manager\+Private , class Property\+Manager , class Value , class Private\+Data $>$ static void set\+Minimum\+Value (
+\begin{DoxyParamCaption}
+\item[{Property\+Manager $\ast$}]{manager, }
+\item[{Property\+Manager\+Private $\ast$}]{manager\+Private, }
+\item[{void(Property\+Manager\+::$\ast$)({\bf Qt\+Property} $\ast$)}]{property\+Changed\+Signal, }
+\item[{void(Property\+Manager\+::$\ast$)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter)}]{value\+Changed\+Signal, }
+\item[{void(Property\+Manager\+::$\ast$)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter, Value\+Change\+Parameter)}]{range\+Changed\+Signal, }
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Value \&}]{min\+Val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{qtpropertymanager_8cpp_a72f70da7b0ee73c4f5754deda9588ac9}
+\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}!set\+Simple\+Maximum\+Data@{set\+Simple\+Maximum\+Data}}
+\index{set\+Simple\+Maximum\+Data@{set\+Simple\+Maximum\+Data}!qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+\subsubsection[{set\+Simple\+Maximum\+Data(\+Private\+Data $\ast$data, const Value \&max\+Val)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Private\+Data , class Value $>$ static void set\+Simple\+Maximum\+Data (
+\begin{DoxyParamCaption}
+\item[{Private\+Data $\ast$}]{data, }
+\item[{const Value \&}]{max\+Val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{qtpropertymanager_8cpp_a6ba6df9c4984c7d352888ac462880488}
+
+
+Referenced by Qt\+Int\+Property\+Manager\+Private\+::\+Data\+::set\+Maximum\+Value(), Qt\+Double\+Property\+Manager\+Private\+::\+Data\+::set\+Maximum\+Value(), and Qt\+Date\+Property\+Manager\+Private\+::\+Data\+::set\+Maximum\+Value().
+
+\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}!set\+Simple\+Minimum\+Data@{set\+Simple\+Minimum\+Data}}
+\index{set\+Simple\+Minimum\+Data@{set\+Simple\+Minimum\+Data}!qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+\subsubsection[{set\+Simple\+Minimum\+Data(\+Private\+Data $\ast$data, const Value \&min\+Val)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Private\+Data , class Value $>$ static void set\+Simple\+Minimum\+Data (
+\begin{DoxyParamCaption}
+\item[{Private\+Data $\ast$}]{data, }
+\item[{const Value \&}]{min\+Val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{qtpropertymanager_8cpp_aa081d347dac159485889e4a6c9206dbc}
+
+
+Referenced by Qt\+Int\+Property\+Manager\+Private\+::\+Data\+::set\+Minimum\+Value(), Qt\+Double\+Property\+Manager\+Private\+::\+Data\+::set\+Minimum\+Value(), and Qt\+Date\+Property\+Manager\+Private\+::\+Data\+::set\+Minimum\+Value().
+
+\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}!set\+Simple\+Value@{set\+Simple\+Value}}
+\index{set\+Simple\+Value@{set\+Simple\+Value}!qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+\subsubsection[{set\+Simple\+Value(\+Q\+Map$<$ const Qt\+Property $\ast$, Value $>$ \&property\+Map, Property\+Manager $\ast$manager, void(\+Property\+Manager\+::$\ast$property\+Changed\+Signal)(\+Qt\+Property $\ast$), void(\+Property\+Manager\+::$\ast$value\+Changed\+Signal)(\+Qt\+Property $\ast$, Value\+Change\+Parameter), Qt\+Property $\ast$property, const Value \&val)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Value\+Change\+Parameter , class Value , class Property\+Manager $>$ static void set\+Simple\+Value (
+\begin{DoxyParamCaption}
+\item[{Q\+Map$<$ const {\bf Qt\+Property} $\ast$, Value $>$ \&}]{property\+Map, }
+\item[{Property\+Manager $\ast$}]{manager, }
+\item[{void(Property\+Manager\+::$\ast$)({\bf Qt\+Property} $\ast$)}]{property\+Changed\+Signal, }
+\item[{void(Property\+Manager\+::$\ast$)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter)}]{value\+Changed\+Signal, }
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Value \&}]{val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{qtpropertymanager_8cpp_ac01ad52321d7d4fb4001a4b0693939dc}
+\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}!set\+Size\+Maximum\+Data@{set\+Size\+Maximum\+Data}}
+\index{set\+Size\+Maximum\+Data@{set\+Size\+Maximum\+Data}!qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+\subsubsection[{set\+Size\+Maximum\+Data(\+Private\+Data $\ast$data, const Value \&new\+Max\+Val)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Private\+Data , class Value $>$ static void set\+Size\+Maximum\+Data (
+\begin{DoxyParamCaption}
+\item[{Private\+Data $\ast$}]{data, }
+\item[{const Value \&}]{new\+Max\+Val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{qtpropertymanager_8cpp_aeef6a1e73a501379e82afa1b2a614d7c}
+
+
+Referenced by Qt\+Size\+Property\+Manager\+Private\+::\+Data\+::set\+Maximum\+Value(), and Qt\+Size\+F\+Property\+Manager\+Private\+::\+Data\+::set\+Maximum\+Value().
+
+\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}!set\+Size\+Minimum\+Data@{set\+Size\+Minimum\+Data}}
+\index{set\+Size\+Minimum\+Data@{set\+Size\+Minimum\+Data}!qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+\subsubsection[{set\+Size\+Minimum\+Data(\+Private\+Data $\ast$data, const Value \&new\+Min\+Val)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Private\+Data , class Value $>$ static void set\+Size\+Minimum\+Data (
+\begin{DoxyParamCaption}
+\item[{Private\+Data $\ast$}]{data, }
+\item[{const Value \&}]{new\+Min\+Val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{qtpropertymanager_8cpp_a8c6e7f4dedaf0a983d82bcd6647f488d}
+
+
+Referenced by Qt\+Size\+Property\+Manager\+Private\+::\+Data\+::set\+Minimum\+Value(), and Qt\+Size\+F\+Property\+Manager\+Private\+::\+Data\+::set\+Minimum\+Value().
+
+\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}!set\+Value\+In\+Range@{set\+Value\+In\+Range}}
+\index{set\+Value\+In\+Range@{set\+Value\+In\+Range}!qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+\subsubsection[{set\+Value\+In\+Range(\+Property\+Manager $\ast$manager, Property\+Manager\+Private $\ast$manager\+Private, void(\+Property\+Manager\+::$\ast$property\+Changed\+Signal)(\+Qt\+Property $\ast$), void(\+Property\+Manager\+::$\ast$value\+Changed\+Signal)(\+Qt\+Property $\ast$, Value\+Change\+Parameter), Qt\+Property $\ast$property, const Value \&val, void(\+Property\+Manager\+Private\+::$\ast$set\+Sub\+Property\+Value)(\+Qt\+Property $\ast$, Value\+Change\+Parameter))}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Value\+Change\+Parameter , class Property\+Manager\+Private , class Property\+Manager , class Value $>$ static void set\+Value\+In\+Range (
+\begin{DoxyParamCaption}
+\item[{Property\+Manager $\ast$}]{manager, }
+\item[{Property\+Manager\+Private $\ast$}]{manager\+Private, }
+\item[{void(Property\+Manager\+::$\ast$)({\bf Qt\+Property} $\ast$)}]{property\+Changed\+Signal, }
+\item[{void(Property\+Manager\+::$\ast$)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter)}]{value\+Changed\+Signal, }
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Value \&}]{val, }
+\item[{void(Property\+Manager\+Private\+::$\ast$)({\bf Qt\+Property} $\ast$, Value\+Change\+Parameter)}]{set\+Sub\+Property\+Value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{qtpropertymanager_8cpp_a105587021b161f8b2ee9a658fbdd7c5a}
+
+
+References q\+Bound().
+
+\index{qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}!sort\+Countries@{sort\+Countries}}
+\index{sort\+Countries@{sort\+Countries}!qtpropertymanager.\+cpp@{qtpropertymanager.\+cpp}}
+\subsubsection[{sort\+Countries(const Q\+List$<$ Q\+Locale\+::\+Country $>$ \&countries)}]{\setlength{\rightskip}{0pt plus 5cm}static Q\+List$<$Q\+Locale\+::\+Country$>$ sort\+Countries (
+\begin{DoxyParamCaption}
+\item[{const Q\+List$<$ Q\+Locale\+::\+Country $>$ \&}]{countries}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{qtpropertymanager_8cpp_a290cc42292ae0450cb8cefc415b32105}
+
+
+References countries\+For\+Language().
+

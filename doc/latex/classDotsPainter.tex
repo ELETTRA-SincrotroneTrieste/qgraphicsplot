@@ -1,0 +1,271 @@
+\doxysection{Dots\+Painter Class Reference}
+\label{classDotsPainter}\index{DotsPainter@{DotsPainter}}
+
+
+{\ttfamily \#include $<$dotspainter.\+h$>$}
+
+Inheritance diagram for Dots\+Painter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classDotsPainter}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ set\+Dots\+Color} (const Q\+Color \&c)
+\begin{DoxyCompactList}\small\item\em changes the color of the dots \end{DoxyCompactList}\item 
+void \textbf{ set\+Radius} (double w)
+\begin{DoxyCompactList}\small\item\em changes the width of the dots \end{DoxyCompactList}\item 
+void \textbf{ set\+Pen} (const Q\+Pen \&p)
+\begin{DoxyCompactList}\small\item\em changes the color of the dots \end{DoxyCompactList}\item 
+void \textbf{ set\+Border\+Color} (const Q\+Color \&c)
+\begin{DoxyCompactList}\small\item\em sets the border color of the dot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Dots\+Painter} (\textbf{ Curve\+Item} $\ast$\textbf{ curve\+Item})
+\item 
+virtual \textbf{ $\sim$\+Dots\+Painter} ()
+\item 
+virtual void \textbf{ draw} (\textbf{ Scene\+Curve} $\ast$curve, \textbf{ Plot\+Scene\+Widget} $\ast$plot, Q\+Painter $\ast$painter, const Q\+Style\+Option\+Graphics\+Item $\ast$option, Q\+Widget $\ast$widget=0)
+\begin{DoxyCompactList}\small\item\em the drawing method. \end{DoxyCompactList}\item 
+virtual \textbf{ Curve\+Item} $\ast$ \textbf{ curve\+Item} () const
+\item 
+virtual Q\+SizeF \textbf{ element\+Size} () const
+\begin{DoxyCompactList}\small\item\em the size of each drawn element \end{DoxyCompactList}\item 
+virtual int \textbf{ type} () const
+\item 
+Q\+Color \textbf{ border\+Color} () const
+\item 
+Q\+Color \textbf{ dots\+Color} () const
+\begin{DoxyCompactList}\small\item\em returns the colour used for the dots that form the curve \end{DoxyCompactList}\item 
+double \textbf{ radius} () const
+\begin{DoxyCompactList}\small\item\em returns the line width \end{DoxyCompactList}\item 
+Q\+Pen \textbf{ pen} () const
+\begin{DoxyCompactList}\small\item\em returns the pen used to draw the dots \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Color \textbf{ dots\+Color}
+\item 
+Q\+Color \textbf{ border\+Color}
+\item 
+double \textbf{ radius}
+\item 
+Q\+Pen \textbf{ pen}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classDotsPainter_a0feb431132f47d90fe1fbdd8bd3571cf}} 
+\index{DotsPainter@{DotsPainter}!DotsPainter@{DotsPainter}}
+\index{DotsPainter@{DotsPainter}!DotsPainter@{DotsPainter}}
+\doxysubsubsection{DotsPainter()}
+{\footnotesize\ttfamily Dots\+Painter\+::\+Dots\+Painter (\begin{DoxyParamCaption}\item[{\textbf{ Curve\+Item} $\ast$}]{curve\+Item }\end{DoxyParamCaption})}
+
+
+
+References curve\+Item(), Curve\+Item\+::install\+Item\+Painter\+Interface(), K\+M\+A\+R\+O\+ON, and K\+Y\+E\+L\+L\+OW.
+
+\mbox{\label{classDotsPainter_a53bb04a1de56af0cfd3af7c5701fa934}} 
+\index{DotsPainter@{DotsPainter}!````~DotsPainter@{$\sim$DotsPainter}}
+\index{````~DotsPainter@{$\sim$DotsPainter}!DotsPainter@{DotsPainter}}
+\doxysubsubsection{$\sim$DotsPainter()}
+{\footnotesize\ttfamily Dots\+Painter\+::$\sim$\+Dots\+Painter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classDotsPainter_a99c8a4a9c5fe5963bae2a4d602d24835}} 
+\index{DotsPainter@{DotsPainter}!borderColor@{borderColor}}
+\index{borderColor@{borderColor}!DotsPainter@{DotsPainter}}
+\doxysubsubsection{borderColor()}
+{\footnotesize\ttfamily Q\+Color Dots\+Painter\+::border\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classDotsPainter_ab7d4b95b9532291182bcb46d04449c03}} 
+\index{DotsPainter@{DotsPainter}!curveItem@{curveItem}}
+\index{curveItem@{curveItem}!DotsPainter@{DotsPainter}}
+\doxysubsubsection{curveItem()}
+{\footnotesize\ttfamily \textbf{ Curve\+Item} $\ast$ Dots\+Painter\+::curve\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \textbf{ Item\+Painter\+Interface} \doxyref{}{p.}{classItemPainterInterface_a789d5f06890eea0696bd545f6147beb9}.
+
+
+
+Referenced by Dots\+Painter().
+
+\mbox{\label{classDotsPainter_a9575edb68dccf1fda70523eddf9dda2e}} 
+\index{DotsPainter@{DotsPainter}!dotsColor@{dotsColor}}
+\index{dotsColor@{dotsColor}!DotsPainter@{DotsPainter}}
+\doxysubsubsection{dotsColor()}
+{\footnotesize\ttfamily Q\+Color Dots\+Painter\+::dots\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the color of the dots
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Dots\+Color}{p.}{classDotsPainter_a724569521067c889c21eb7d5829bb525} 
+
+\doxyref{set\+Radius}{p.}{classDotsPainter_aba2d3fe1ae1a9a39ba22b50ce6bf6cf6} 
+\end{DoxySeeAlso}
+\mbox{\label{classDotsPainter_a13f2df771ddc44c37f92febe8f2e0e8c}} 
+\index{DotsPainter@{DotsPainter}!draw@{draw}}
+\index{draw@{draw}!DotsPainter@{DotsPainter}}
+\doxysubsubsection{draw()}
+{\footnotesize\ttfamily void Dots\+Painter\+::draw (\begin{DoxyParamCaption}\item[{\textbf{ Scene\+Curve} $\ast$}]{curve,  }\item[{\textbf{ Plot\+Scene\+Widget} $\ast$}]{plot,  }\item[{Q\+Painter $\ast$}]{painter,  }\item[{const Q\+Style\+Option\+Graphics\+Item $\ast$}]{option,  }\item[{Q\+Widget $\ast$}]{widget = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This method is invoked by \doxyref{Curve\+Item}{p.}{classCurveItem} inside paint method. You can obtain the points of the curve in scene coordinates by calling curve-\/$>$points and the size of the points by means of curve-\/$>$data\+Size. It may be necessary to call painter-\/$>$save() and painter-\/$>$restore() at the beginning and end of the drawing. Each draw method of each installed \doxyref{Item\+Painter\+Interface}{p.}{classItemPainterInterface} is actually invoked in sequence without saving and restoring the painter state for you.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Curve\+Item}{p.}{classCurveItem} 
+
+\doxyref{Line\+Painter}{p.}{classLinePainter} 
+
+\doxyref{Dots\+Painter}{p.}{classDotsPainter} 
+\end{DoxySeeAlso}
+
+
+Implements \textbf{ Item\+Painter\+Interface} \doxyref{}{p.}{classItemPainterInterface_a46c979807ac7a76377a89210455f62a5}.
+
+
+
+References Scene\+Curve\+::data(), Scene\+Curve\+::data\+Size(), Data\+::invalid\+Data\+Points(), Scene\+Curve\+::points(), Elettra\+::red, Plot\+Scene\+Widget\+::transform(), and Plot\+Scene\+Widget\+::x\+Scale\+Item().
+
+\mbox{\label{classDotsPainter_a0e93a2b824e2d1c8127c7a1409cb0c0a}} 
+\index{DotsPainter@{DotsPainter}!elementSize@{elementSize}}
+\index{elementSize@{elementSize}!DotsPainter@{DotsPainter}}
+\doxysubsubsection{elementSize()}
+{\footnotesize\ttfamily Q\+SizeF Dots\+Painter\+::element\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This size is used by the classes that use \doxyref{Item\+Painter\+Interface}{p.}{classItemPainterInterface} to know how much extra space is needed in order to calculate the bounding rect of the \doxyref{Curve\+Item}{p.}{classCurveItem} or other geometrical properties.
+
+For instance, if you are drawing circles, then this method should return the radius of the circle, so that \doxyref{Curve\+Item}{p.}{classCurveItem} knows how much space has to be added to the curve bounds in order to correcly draw the items.
+
+If you are drawing lines, then this size can be 0x0 since the connecting lines do not require extra space to be calculated. If you use a particular pen width, then you may want to return its width in order to be sure that \doxyref{Curve\+Item}{p.}{classCurveItem} takes care of this space.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Curve\+Item}{p.}{classCurveItem} 
+\end{DoxySeeAlso}
+
+
+Implements \textbf{ Item\+Painter\+Interface} \doxyref{}{p.}{classItemPainterInterface_a56701b8b651536062e271311831a3ea7}.
+
+\mbox{\label{classDotsPainter_a0fea6ba334debdaaa0a751a8fddfd382}} 
+\index{DotsPainter@{DotsPainter}!pen@{pen}}
+\index{pen@{pen}!DotsPainter@{DotsPainter}}
+\doxysubsubsection{pen()}
+{\footnotesize\ttfamily Q\+Pen Dots\+Painter\+::pen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Implements the pen method of the \doxyref{Item\+Painter\+Interface}{p.}{classItemPainterInterface}.
+
+\begin{DoxyReturn}{Returns}
+the pen used to draw the dots.
+
+the pen used to draw the circles 
+\end{DoxyReturn}
+
+
+Implements \textbf{ Item\+Painter\+Interface} \doxyref{}{p.}{classItemPainterInterface_a3e8917ac7bf813cde52ce852d062d5fd}.
+
+\mbox{\label{classDotsPainter_ac2ba89d2fbfdba9a04e525cb388e4d7b}} 
+\index{DotsPainter@{DotsPainter}!radius@{radius}}
+\index{radius@{radius}!DotsPainter@{DotsPainter}}
+\doxysubsubsection{radius()}
+{\footnotesize\ttfamily double Dots\+Painter\+::radius (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the width of the line used to draw the dots.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Dots\+Color}{p.}{classDotsPainter_a724569521067c889c21eb7d5829bb525} 
+
+\doxyref{set\+Radius}{p.}{classDotsPainter_aba2d3fe1ae1a9a39ba22b50ce6bf6cf6} 
+\end{DoxySeeAlso}
+\mbox{\label{classDotsPainter_ada8472cee64a3763eb96cf41aa1a2059}} 
+\index{DotsPainter@{DotsPainter}!setBorderColor@{setBorderColor}}
+\index{setBorderColor@{setBorderColor}!DotsPainter@{DotsPainter}}
+\doxysubsubsection{setBorderColor}
+{\footnotesize\ttfamily void Dots\+Painter\+::set\+Border\+Color (\begin{DoxyParamCaption}\item[{const Q\+Color \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classDotsPainter_a724569521067c889c21eb7d5829bb525}} 
+\index{DotsPainter@{DotsPainter}!setDotsColor@{setDotsColor}}
+\index{setDotsColor@{setDotsColor}!DotsPainter@{DotsPainter}}
+\doxysubsubsection{setDotsColor}
+{\footnotesize\ttfamily void Dots\+Painter\+::set\+Dots\+Color (\begin{DoxyParamCaption}\item[{const Q\+Color \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+The default colour is yellow
+
+\begin{DoxySeeAlso}{See also}
+line\+Color 
+\end{DoxySeeAlso}
+\mbox{\label{classDotsPainter_a046f3685305a1bf883309ee286903174}} 
+\index{DotsPainter@{DotsPainter}!setPen@{setPen}}
+\index{setPen@{setPen}!DotsPainter@{DotsPainter}}
+\doxysubsubsection{setPen}
+{\footnotesize\ttfamily void Dots\+Painter\+::set\+Pen (\begin{DoxyParamCaption}\item[{const Q\+Pen \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\begin{DoxySeeAlso}{See also}
+line\+Pen 
+\end{DoxySeeAlso}
+\mbox{\label{classDotsPainter_aba2d3fe1ae1a9a39ba22b50ce6bf6cf6}} 
+\index{DotsPainter@{DotsPainter}!setRadius@{setRadius}}
+\index{setRadius@{setRadius}!DotsPainter@{DotsPainter}}
+\doxysubsubsection{setRadius}
+{\footnotesize\ttfamily void Dots\+Painter\+::set\+Radius (\begin{DoxyParamCaption}\item[{double}]{w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+The default is 0.\+0
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{radius}{p.}{classDotsPainter_a59560e4fba4bcf17e0d40abfb1ada99e} 
+\end{DoxySeeAlso}
+\mbox{\label{classDotsPainter_ab78dbe7bc7478c85685cb314258d1f2f}} 
+\index{DotsPainter@{DotsPainter}!type@{type}}
+\index{type@{type}!DotsPainter@{DotsPainter}}
+\doxysubsubsection{type()}
+{\footnotesize\ttfamily int Dots\+Painter\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \textbf{ Item\+Painter\+Interface} \doxyref{}{p.}{classItemPainterInterface_a1fbe17f4940d8da17764e772b35e7dd7}.
+
+
+
+References Item\+Painter\+Interface\+::\+Dot.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\label{classDotsPainter_a81c2cbe4e1a66954a6906dfa5168f971}} 
+\index{DotsPainter@{DotsPainter}!borderColor@{borderColor}}
+\index{borderColor@{borderColor}!DotsPainter@{DotsPainter}}
+\doxysubsubsection{borderColor}
+{\footnotesize\ttfamily Q\+Color Dots\+Painter\+::border\+Color\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classDotsPainter_a8418c8185552f5497cd843c7e449c4b9}} 
+\index{DotsPainter@{DotsPainter}!dotsColor@{dotsColor}}
+\index{dotsColor@{dotsColor}!DotsPainter@{DotsPainter}}
+\doxysubsubsection{dotsColor}
+{\footnotesize\ttfamily Q\+Color Dots\+Painter\+::dots\+Color\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classDotsPainter_a0706c95c9ba5bf29f1a07a8f96142c02}} 
+\index{DotsPainter@{DotsPainter}!pen@{pen}}
+\index{pen@{pen}!DotsPainter@{DotsPainter}}
+\doxysubsubsection{pen}
+{\footnotesize\ttfamily Q\+Pen Dots\+Painter\+::pen\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classDotsPainter_a59560e4fba4bcf17e0d40abfb1ada99e}} 
+\index{DotsPainter@{DotsPainter}!radius@{radius}}
+\index{radius@{radius}!DotsPainter@{DotsPainter}}
+\doxysubsubsection{radius}
+{\footnotesize\ttfamily double Dots\+Painter\+::radius\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ dotspainter.\+h}\item 
+\textbf{ dotspainter.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,341 @@
+\doxysection{Data Class Reference}
+\label{classData}\index{Data@{Data}}
+
+
+{\ttfamily \#include $<$data.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Data} ()
+\item 
+virtual \textbf{ $\sim$\+Data} ()
+\item 
+bool \textbf{ data\+Unchanged} () const
+\item 
+void \textbf{ cache\+Data} ()
+\item 
+\textbf{ Point} \textbf{ point} (int index) const
+\item 
+double \textbf{ xpos} (int index)
+\item 
+double \textbf{ ypos} (int index)
+\item 
+void \textbf{ remove} (int index)
+\item 
+void \textbf{ calculate\+X\+Bounds} ()
+\item 
+void \textbf{ calculate\+Y\+Bounds} ()
+\item 
+void \textbf{ calculate\+Bounds} ()
+\item 
+void \textbf{ mark\+Last\+X\+Data\+Valid} (int last\+Valid\+Pos)
+\begin{DoxyCompactList}\small\item\em sets the x data valid so that subsequent calls can use cached values for the position in scene coordinates. \end{DoxyCompactList}\item 
+void \textbf{ mark\+Last\+Y\+Data\+Valid} (bool last\+Valid\+Pos)
+\begin{DoxyCompactList}\small\item\em sets the y data valid so that subsequent calls can use cached values for the position in scene coordinates. \end{DoxyCompactList}\item 
+int \textbf{ size} () const
+\item 
+void \textbf{ set\+Data} (const Q\+Vector$<$ double $>$ \&\textbf{ x\+Data}, const Q\+Vector$<$ double $>$ \&\textbf{ y\+Data})
+\item 
+void \textbf{ set\+Data} (const Q\+Vector$<$ double $>$ \&\textbf{ y\+Data})
+\item 
+void \textbf{ add\+Point} (double x, double y)
+\item 
+void \textbf{ add\+Points} (const Q\+Vector$<$ double $>$ \&\textbf{ x\+Data}, const Q\+Vector$<$ double $>$ \&\textbf{ y\+Data})
+\item 
+Q\+Vector$<$ double $>$ \textbf{ invalid\+Data\+Points} () const
+\begin{DoxyCompactList}\small\item\em Returns a vector of double containing the abscissa values whose Y values are NaN. \end{DoxyCompactList}\item 
+void \textbf{ reset\+Max\+Min} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \textbf{ x\+Min}
+\item 
+double \textbf{ x\+Max}
+\item 
+double \textbf{ y\+Min}
+\item 
+double \textbf{ y\+Max}
+\item 
+bool \textbf{ x\+Min\+Max\+Unset}
+\item 
+bool \textbf{ y\+Min\+Max\+Unset}
+\item 
+bool \textbf{ scalar\+Mode}
+\item 
+bool \textbf{ x\+Data\+Ordered}
+\item 
+bool \textbf{ y\+Data\+Ordered}
+\item 
+Q\+Vector$<$ double $>$ \textbf{ x\+Data}
+\item 
+Q\+Vector$<$ double $>$ \textbf{ y\+Data}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classData_af11f741cb7f587e2e495452a8905a22a}} 
+\index{Data@{Data}!Data@{Data}}
+\index{Data@{Data}!Data@{Data}}
+\doxysubsubsection{Data()}
+{\footnotesize\ttfamily Data\+::\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\label{classData_aab31956423290f0d62dcca47ab4d16dd}} 
+\index{Data@{Data}!````~Data@{$\sim$Data}}
+\index{````~Data@{$\sim$Data}!Data@{Data}}
+\doxysubsubsection{$\sim$Data()}
+{\footnotesize\ttfamily Data\+::$\sim$\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classData_a049efbc171d748a7e0f7ee7129915711}} 
+\index{Data@{Data}!addPoint@{addPoint}}
+\index{addPoint@{addPoint}!Data@{Data}}
+\doxysubsubsection{addPoint()}
+{\footnotesize\ttfamily void Data\+::add\+Point (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+\mbox{\label{classData_a2134c74d8fc79bb1faa93d0fe86f05aa}} 
+\index{Data@{Data}!addPoints@{addPoints}}
+\index{addPoints@{addPoints}!Data@{Data}}
+\doxysubsubsection{addPoints()}
+{\footnotesize\ttfamily void Data\+::add\+Points (\begin{DoxyParamCaption}\item[{const Q\+Vector$<$ double $>$ \&}]{x\+Data,  }\item[{const Q\+Vector$<$ double $>$ \&}]{y\+Data }\end{DoxyParamCaption})}
+
+\mbox{\label{classData_ad8f8f8d9d6873c74d5fb285d7b016447}} 
+\index{Data@{Data}!cacheData@{cacheData}}
+\index{cacheData@{cacheData}!Data@{Data}}
+\doxysubsubsection{cacheData()}
+{\footnotesize\ttfamily void Data\+::cache\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\label{classData_a1f60547d51838c0c1728c226306c6f1b}} 
+\index{Data@{Data}!calculateBounds@{calculateBounds}}
+\index{calculateBounds@{calculateBounds}!Data@{Data}}
+\doxysubsubsection{calculateBounds()}
+{\footnotesize\ttfamily void Data\+::calculate\+Bounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\label{classData_acadf3c553b09de10c206f68d90afdf46}} 
+\index{Data@{Data}!calculateXBounds@{calculateXBounds}}
+\index{calculateXBounds@{calculateXBounds}!Data@{Data}}
+\doxysubsubsection{calculateXBounds()}
+{\footnotesize\ttfamily void Data\+::calculate\+X\+Bounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\label{classData_a22301512f14173d64ce95cb822e00da8}} 
+\index{Data@{Data}!calculateYBounds@{calculateYBounds}}
+\index{calculateYBounds@{calculateYBounds}!Data@{Data}}
+\doxysubsubsection{calculateYBounds()}
+{\footnotesize\ttfamily void Data\+::calculate\+Y\+Bounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\label{classData_a6336c4ae7fcdd799d2144ae2ffb5854d}} 
+\index{Data@{Data}!dataUnchanged@{dataUnchanged}}
+\index{dataUnchanged@{dataUnchanged}!Data@{Data}}
+\doxysubsubsection{dataUnchanged()}
+{\footnotesize\ttfamily bool Data\+::data\+Unchanged (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classData_af6c27f1f290d7cbfe4f989ca75caf5ce}} 
+\index{Data@{Data}!invalidDataPoints@{invalidDataPoints}}
+\index{invalidDataPoints@{invalidDataPoints}!Data@{Data}}
+\doxysubsubsection{invalidDataPoints()}
+{\footnotesize\ttfamily Q\+Vector$<$ double $>$ Data\+::invalid\+Data\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+a vector of double with the x values associated to a NaN Y value 
+\end{DoxyReturn}
+
+
+Referenced by Dots\+Painter\+::draw(), Line\+Painter\+::draw(), and Steps\+Painter\+::draw().
+
+\mbox{\label{classData_a55d947f509b463db8ce118e39cdc3ce5}} 
+\index{Data@{Data}!markLastXDataValid@{markLastXDataValid}}
+\index{markLastXDataValid@{markLastXDataValid}!Data@{Data}}
+\doxysubsubsection{markLastXDataValid()}
+{\footnotesize\ttfamily void Data\+::mark\+Last\+X\+Data\+Valid (\begin{DoxyParamCaption}\item[{int}]{last\+Valid\+Pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em valid} & true the cached data is marked as valid \\
+\hline
+{\em valid} & false the cached data is marked as invalid\\
+\hline
+\end{DoxyParams}
+If data is marked as valid xpos will return the cached value of the position in scene coordinates. Otherwise, it will calculate it again using the plot rect, the axis upper and lower bound and the index of the data whose position has to be calculated. \mbox{\label{classData_a36bf3071fc75d914a0f9917dbdb3a523}} 
+\index{Data@{Data}!markLastYDataValid@{markLastYDataValid}}
+\index{markLastYDataValid@{markLastYDataValid}!Data@{Data}}
+\doxysubsubsection{markLastYDataValid()}
+{\footnotesize\ttfamily void Data\+::mark\+Last\+Y\+Data\+Valid (\begin{DoxyParamCaption}\item[{bool}]{last\+Valid\+Pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em valid} & true the cached data is marked as valid \\
+\hline
+{\em valid} & false the cached data is marked as invalid\\
+\hline
+\end{DoxyParams}
+If data is marked as valid ypos will return the cached value of the position in scene coordinates. Otherwise, it will calculate it again using the plot rect, the axis upper and lower bound and the index of the data whose position has to be calculated. \mbox{\label{classData_a4cb0060fdb5afd9d029fe5eb6567509a}} 
+\index{Data@{Data}!point@{point}}
+\index{point@{point}!Data@{Data}}
+\doxysubsubsection{point()}
+{\footnotesize\ttfamily \textbf{ Point} Data\+::point (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classData_a832c340cb4ad28e75d0eeee53609378c}} 
+\index{Data@{Data}!remove@{remove}}
+\index{remove@{remove}!Data@{Data}}
+\doxysubsubsection{remove()}
+{\footnotesize\ttfamily void Data\+::remove (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+\mbox{\label{classData_adb5a27a4ccf19ebfd46df775797f2661}} 
+\index{Data@{Data}!resetMaxMin@{resetMaxMin}}
+\index{resetMaxMin@{resetMaxMin}!Data@{Data}}
+\doxysubsubsection{resetMaxMin()}
+{\footnotesize\ttfamily void Data\+::reset\+Max\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\label{classData_afd3b2206cea354d65ddb3251bff624dd}} 
+\index{Data@{Data}!setData@{setData}}
+\index{setData@{setData}!Data@{Data}}
+\doxysubsubsection{setData()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Data\+::set\+Data (\begin{DoxyParamCaption}\item[{const Q\+Vector$<$ double $>$ \&}]{x\+Data,  }\item[{const Q\+Vector$<$ double $>$ \&}]{y\+Data }\end{DoxyParamCaption})}
+
+\mbox{\label{classData_a894d2eb0bf1a8a9d73d5d5dada4ae334}} 
+\index{Data@{Data}!setData@{setData}}
+\index{setData@{setData}!Data@{Data}}
+\doxysubsubsection{setData()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Data\+::set\+Data (\begin{DoxyParamCaption}\item[{const Q\+Vector$<$ double $>$ \&}]{y\+Data }\end{DoxyParamCaption})}
+
+\mbox{\label{classData_aa9f9b7ba6f885e66e035148c2b2599c3}} 
+\index{Data@{Data}!size@{size}}
+\index{size@{size}!Data@{Data}}
+\doxysubsubsection{size()}
+{\footnotesize\ttfamily int Data\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Referenced by Plot\+Scene\+Widget\+::get\+Closest(), Curve\+Item\+::item\+About\+To\+Be\+Removed(), Curve\+Item\+::item\+Added(), and Scene\+Curve\+::points().
+
+\mbox{\label{classData_a91228e67190d82f40abf1595422b8530}} 
+\index{Data@{Data}!xpos@{xpos}}
+\index{xpos@{xpos}!Data@{Data}}
+\doxysubsubsection{xpos()}
+{\footnotesize\ttfamily double Data\+::xpos (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+printf(\char`\"{}-\/-\/-\/ using pos in index \%d for X\textbackslash{}n\char`\"{}, index);
+
+else
+
+printf(\char`\"{}-\/-\/-\/ must recalc X pos cuz idx \%d last\+Valid\+X \%d\textbackslash{}n\char`\"{}, index, last\+Valid\+X\+Pos);
+
+References perr.
+
+\mbox{\label{classData_a89397aa0c67e85a785ef055cb6d22dfa}} 
+\index{Data@{Data}!ypos@{ypos}}
+\index{ypos@{ypos}!Data@{Data}}
+\doxysubsubsection{ypos()}
+{\footnotesize\ttfamily double Data\+::ypos (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+printf(\char`\"{}-\/-\/-\/ using pos in index \%d for Y\textbackslash{}n\char`\"{}, index);
+
+else
+
+printf(\char`\"{}-\/-\/-\/ must recalc Y pos cuz idx \%d last\+Valid\+X \%d\textbackslash{}n\char`\"{}, index, last\+Valid\+X\+Pos);
+
+References perr.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classData_aa1943e4f0e01ae9b69380044e529c0d5}} 
+\index{Data@{Data}!scalarMode@{scalarMode}}
+\index{scalarMode@{scalarMode}!Data@{Data}}
+\doxysubsubsection{scalarMode}
+{\footnotesize\ttfamily bool Data\+::scalar\+Mode}
+
+\mbox{\label{classData_a80a40bc29ee1bbd78e2ac3ded150998b}} 
+\index{Data@{Data}!xData@{xData}}
+\index{xData@{xData}!Data@{Data}}
+\doxysubsubsection{xData}
+{\footnotesize\ttfamily Q\+Vector$<$double$>$ Data\+::x\+Data}
+
+
+
+Referenced by Plot\+Scene\+Widget\+::get\+Closest(), Curve\+Item\+::item\+About\+To\+Be\+Removed(), Curve\+Item\+::item\+Added(), Marker\+Item\+::paint(), and Plot\+Scene\+Widget\+Saver\+::save().
+
+\mbox{\label{classData_a221d7515f486d423ba8370624d9aa086}} 
+\index{Data@{Data}!xDataOrdered@{xDataOrdered}}
+\index{xDataOrdered@{xDataOrdered}!Data@{Data}}
+\doxysubsubsection{xDataOrdered}
+{\footnotesize\ttfamily bool Data\+::x\+Data\+Ordered}
+
+\mbox{\label{classData_abea74b7768f23296f4b0f61994fa929e}} 
+\index{Data@{Data}!xMax@{xMax}}
+\index{xMax@{xMax}!Data@{Data}}
+\doxysubsubsection{xMax}
+{\footnotesize\ttfamily double Data\+::x\+Max}
+
+
+
+Referenced by Scale\+Item\+::set\+Bounds\+From\+Curves().
+
+\mbox{\label{classData_abc80ec42269b867db1ef573764599e51}} 
+\index{Data@{Data}!xMin@{xMin}}
+\index{xMin@{xMin}!Data@{Data}}
+\doxysubsubsection{xMin}
+{\footnotesize\ttfamily double Data\+::x\+Min}
+
+
+
+Referenced by Scale\+Item\+::set\+Bounds\+From\+Curves().
+
+\mbox{\label{classData_a1dd9c9364ef9f0aecd0156b2faf5e804}} 
+\index{Data@{Data}!xMinMaxUnset@{xMinMaxUnset}}
+\index{xMinMaxUnset@{xMinMaxUnset}!Data@{Data}}
+\doxysubsubsection{xMinMaxUnset}
+{\footnotesize\ttfamily bool Data\+::x\+Min\+Max\+Unset}
+
+\mbox{\label{classData_a99023ccecb03a6c6e6e5853fbc924dbc}} 
+\index{Data@{Data}!yData@{yData}}
+\index{yData@{yData}!Data@{Data}}
+\doxysubsubsection{yData}
+{\footnotesize\ttfamily Q\+Vector$<$double$>$ Data\+::y\+Data}
+
+
+
+Referenced by Plot\+Scene\+Widget\+::get\+Closest(), Curve\+Item\+::item\+About\+To\+Be\+Removed(), Curve\+Item\+::item\+Added(), Marker\+Item\+::paint(), and Plot\+Scene\+Widget\+Saver\+::save().
+
+\mbox{\label{classData_aed9a1dec8e5c8258236597fdc7088b8c}} 
+\index{Data@{Data}!yDataOrdered@{yDataOrdered}}
+\index{yDataOrdered@{yDataOrdered}!Data@{Data}}
+\doxysubsubsection{yDataOrdered}
+{\footnotesize\ttfamily bool Data\+::y\+Data\+Ordered}
+
+\mbox{\label{classData_af96f578721851d003f876df47a6b2f9b}} 
+\index{Data@{Data}!yMax@{yMax}}
+\index{yMax@{yMax}!Data@{Data}}
+\doxysubsubsection{yMax}
+{\footnotesize\ttfamily double Data\+::y\+Max}
+
+
+
+Referenced by Scale\+Item\+::set\+Bounds\+From\+Curves().
+
+\mbox{\label{classData_a9c4eeb469f8bb24443251a4399738900}} 
+\index{Data@{Data}!yMin@{yMin}}
+\index{yMin@{yMin}!Data@{Data}}
+\doxysubsubsection{yMin}
+{\footnotesize\ttfamily double Data\+::y\+Min}
+
+
+
+Referenced by Scale\+Item\+::set\+Bounds\+From\+Curves().
+
+\mbox{\label{classData_a3ee9c2cb9a46ded9446d4460edfb6363}} 
+\index{Data@{Data}!yMinMaxUnset@{yMinMaxUnset}}
+\index{yMinMaxUnset@{yMinMaxUnset}!Data@{Data}}
+\doxysubsubsection{yMinMaxUnset}
+{\footnotesize\ttfamily bool Data\+::y\+Min\+Max\+Unset}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ data.\+h}\item 
+\textbf{ data.\+cpp}\item 
+\textbf{ data\+\_\+\+\_\+bk.\+cpp}\end{DoxyCompactItemize}

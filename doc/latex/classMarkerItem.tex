@@ -1,0 +1,360 @@
+\doxysection{Marker\+Item Class Reference}
+\label{classMarkerItem}\index{MarkerItem@{MarkerItem}}
+
+
+When a mouse click event takes place into the plot, the closest point on the closest curve is marked by a round circle and the x and y values of the point on the curve are drawn.  
+
+
+
+
+{\ttfamily \#include $<$markeritem.\+h$>$}
+
+Inheritance diagram for Marker\+Item\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMarkerItem}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \textbf{ Type} = User\+Type + 201
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ set\+Text\+Color} (const Q\+Color \&c)
+\item 
+void \textbf{ set\+Point\+Color} (const Q\+Color \&pointC)
+\begin{DoxyCompactList}\small\item\em Set or change the point fill color. \end{DoxyCompactList}\item 
+void \textbf{ set\+Point\+Border\+Color} (const Q\+Color \&bc)
+\item 
+void \textbf{ set\+Background\+Color} (const Q\+Color \&bgc)
+\item 
+void \textbf{ set\+Decoration\+Enabled} (bool en)
+\item 
+void \textbf{ set\+Dot\+Radius} (double r)
+\item 
+void \textbf{ remove\+Curve} (\textbf{ Scene\+Curve} $\ast$c)
+\item 
+void \textbf{ set\+Item\+Ignores\+Transformations} (bool ign)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Marker\+Item} (Q\+Graphics\+Object $\ast$parent)
+\item 
+virtual \textbf{ $\sim$\+Marker\+Item} ()
+\item 
+virtual void \textbf{ mouse\+Click\+Event} (\textbf{ Plot\+Scene\+Widget} $\ast$plot, const Q\+PointF \&pos)
+\item 
+virtual void \textbf{ mouse\+Release\+Event} (\textbf{ Plot\+Scene\+Widget} $\ast$plot, Q\+Mouse\+Event $\ast$e)
+\item 
+virtual void \textbf{ mouse\+Double\+Click\+Event} (\textbf{ Plot\+Scene\+Widget} $\ast$, Q\+Mouse\+Event $\ast$)
+\item 
+virtual void \textbf{ paint} (Q\+Painter $\ast$painter, const Q\+Style\+Option\+Graphics\+Item $\ast$option, Q\+Widget $\ast$widget)
+\item 
+virtual Q\+RectF \textbf{ bounding\+Rect} () const
+\item 
+Q\+Color \textbf{ text\+Color} () const
+\begin{DoxyCompactList}\small\item\em The color of the text. Default is black. \end{DoxyCompactList}\item 
+Q\+Color \textbf{ point\+Color} () const
+\begin{DoxyCompactList}\small\item\em Returns the color used to fill the point. \end{DoxyCompactList}\item 
+Q\+Color \textbf{ point\+Border\+Color} () const
+\begin{DoxyCompactList}\small\item\em This property holds the color of the point. \end{DoxyCompactList}\item 
+Q\+Color \textbf{ background\+Color} () const
+\begin{DoxyCompactList}\small\item\em This property determines the background color of the text area. \end{DoxyCompactList}\item 
+bool \textbf{ decoration\+Enabled} () const
+\item 
+double \textbf{ dot\+Radius} () const
+\begin{DoxyCompactList}\small\item\em This property describes the dimensions of the point drawn by the marker. \end{DoxyCompactList}\item 
+bool \textbf{ item\+Ignores\+Transformations} () const
+\begin{DoxyCompactList}\small\item\em This property determines if the item ignores the scen transformataions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ decoration\+Enabled}
+\item 
+Q\+Color \textbf{ text\+Color}
+\item 
+Q\+Color \textbf{ point\+Color}
+\item 
+Q\+Color \textbf{ point\+Border\+Color}
+\item 
+Q\+Color \textbf{ background\+Color}
+\item 
+double \textbf{ dot\+Radius}
+\item 
+bool \textbf{ item\+Ignores\+Transformations}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The marker is drawn on the point of the curve closest to the point where the mouse click event took place.
+
+\begin{DoxyParagraph}{Implementation}
+When the user clicks on a point P1 on the plot, the \doxyref{Marker\+Item}{p.}{classMarkerItem} asks the plot which are the curve and the point closest to P1. A circle is drawn on that point and its position is kept up to date when the {\itshape y} coordinate changes in time. The point is kept drawn on the same {\itshape x } coordinate.
+\end{DoxyParagraph}
+\begin{DoxyNote}{Note}
+Important note If your application {\itshape permits removing curves}, then you {\itshape must connect the \doxyref{Plot\+Scene\+Widget\+::curve\+About\+To\+Be\+Removed}{p.}{classPlotSceneWidget_a9f1715a23fbda05dcb91e16ca40a7ea2} signal to the \doxyref{Marker\+Item\+::remove\+Curve}{p.}{classMarkerItem_aaf40c0614989f306e817c706842aefef} slot}. {\itshape Forgetting to do this will cause the application to crash} when a curve on which a marker is placed is removed. ~\newline
+ It is not otherwise possible for the \doxyref{Marker\+Item}{p.}{classMarkerItem} to know when a curve is removed, because the closest x coordinate point and the closest curve are only calculated on the click event and are not updated at each paint event, for performance reasons. You don\textquotesingle{}t need this signal/slot connection if you don\textquotesingle{}t plan to remove curves from the plot at runtime.
+\end{DoxyNote}
+\doxyref{Marker\+Item}{p.}{classMarkerItem} is configurable through some Qt properties. If you want to be able to change them at runtime, remember to call \doxyref{Plot\+Scene\+Widget\+::add\+Configurable\+Objects}{p.}{classPlotSceneWidget_a09ee35f9b616d3fdba1a98653412232e} after creating your own \doxyref{Marker\+Item}{p.}{classMarkerItem}.
+
+\begin{DoxyParagraph}{Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{MarkerItem* marker = \textcolor{keyword}{new} MarkerItem(0);}
+\DoxyCodeLine{myPlotSceneWidget-\/>installMouseEventListener(marker);}
+\DoxyCodeLine{myPlotSceneWidget-\/>scene()-\/>addItem(marker);}
+\DoxyCodeLine{\textcolor{comment}{// if you plan to remove a curve from the plot}}
+\DoxyCodeLine{connect(myPlotSceneWidget, SIGNAL(curveAboutToBeRemoved(SceneCurve *)), marker,}
+\DoxyCodeLine{        SLOT(removeCurve(SceneCurve *)));}
+\DoxyCodeLine{\textcolor{comment}{// if you want to configure the MarkerItem at runtime:}}
+\DoxyCodeLine{myPlotSceneWidget-\/>addConfigurableObjects(\textcolor{stringliteral}{"{}Marker"{}}, marker);}
+\end{DoxyCode}
+
+\end{DoxyParagraph}
+If the {\itshape alias} Qt property is set on a scene curve, this is used by the marker to draw the curve identifier instead of its name (\doxyref{Scene\+Curve\+::name}{p.}{classSceneCurve_a5e7482ea4d79c6abfa889cc42a28beca}). 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\label{classMarkerItem_a29b1b3dca5994a5250417458e7093080}} 
+\doxysubsubsection{anonymous enum}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Type@{Type}!MarkerItem@{MarkerItem}}\index{MarkerItem@{MarkerItem}!Type@{Type}}}\mbox{\label{classMarkerItem_a29b1b3dca5994a5250417458e7093080a4f6e3346d0d589c3d5a167c57e44a8b3}} 
+Type&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classMarkerItem_ac04a166d60dd8c38977d585ddacb1f42}} 
+\index{MarkerItem@{MarkerItem}!MarkerItem@{MarkerItem}}
+\index{MarkerItem@{MarkerItem}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{MarkerItem()}
+{\footnotesize\ttfamily Marker\+Item\+::\+Marker\+Item (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Object $\ast$}]{parent }\end{DoxyParamCaption})}
+
+
+
+References Elettra\+::black, K\+B\+L\+UE, K\+D\+A\+R\+K\+G\+R\+AY, K\+L\+I\+G\+H\+T\+G\+R\+AY, and K\+O\+R\+A\+N\+GE.
+
+\mbox{\label{classMarkerItem_a2c0c2f00a8a56767503a5cc13b9a35bf}} 
+\index{MarkerItem@{MarkerItem}!````~MarkerItem@{$\sim$MarkerItem}}
+\index{````~MarkerItem@{$\sim$MarkerItem}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{$\sim$MarkerItem()}
+{\footnotesize\ttfamily Marker\+Item\+::$\sim$\+Marker\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classMarkerItem_a2eea6b9d2e49f3a7938e8c0a3ff27996}} 
+\index{MarkerItem@{MarkerItem}!backgroundColor@{backgroundColor}}
+\index{backgroundColor@{backgroundColor}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{backgroundColor()}
+{\footnotesize\ttfamily Q\+Color Marker\+Item\+::background\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classMarkerItem_a16f8587e4aaa51dc62f504403ea05afe}} 
+\index{MarkerItem@{MarkerItem}!boundingRect@{boundingRect}}
+\index{boundingRect@{boundingRect}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{boundingRect()}
+{\footnotesize\ttfamily Q\+RectF Marker\+Item\+::bounding\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\label{classMarkerItem_a1d1b9a9f86d0afa07078d8d53c86a7f3}} 
+\index{MarkerItem@{MarkerItem}!decorationEnabled@{decorationEnabled}}
+\index{decorationEnabled@{decorationEnabled}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{decorationEnabled()}
+{\footnotesize\ttfamily bool Marker\+Item\+::decoration\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classMarkerItem_a1bf3e425db5dee0e05967b514c75ea2f}} 
+\index{MarkerItem@{MarkerItem}!dotRadius@{dotRadius}}
+\index{dotRadius@{dotRadius}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{dotRadius()}
+{\footnotesize\ttfamily double Marker\+Item\+::dot\+Radius (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classMarkerItem_a551010dabeef1188f0357fa754071cb5}} 
+\index{MarkerItem@{MarkerItem}!itemIgnoresTransformations@{itemIgnoresTransformations}}
+\index{itemIgnoresTransformations@{itemIgnoresTransformations}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{itemIgnoresTransformations()}
+{\footnotesize\ttfamily bool Marker\+Item\+::item\+Ignores\+Transformations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+By default, scene transformations are ignored \mbox{\label{classMarkerItem_a36f524c9b5a09ab3316b3a2a9feea68b}} 
+\index{MarkerItem@{MarkerItem}!mouseClickEvent@{mouseClickEvent}}
+\index{mouseClickEvent@{mouseClickEvent}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{mouseClickEvent()}
+{\footnotesize\ttfamily void Marker\+Item\+::mouse\+Click\+Event (\begin{DoxyParamCaption}\item[{\textbf{ Plot\+Scene\+Widget} $\ast$}]{plot,  }\item[{const Q\+PointF \&}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \textbf{ Mouse\+Event\+Listener} \doxyref{}{p.}{classMouseEventListener_a6249277d63cd602d57d0ede85f500e8e}.
+
+
+
+References Plot\+Scene\+Widget\+::get\+Closest(), and Plot\+Scene\+Widget\+::get\+Curves().
+
+\mbox{\label{classMarkerItem_a10cad03ca4204edef7955d0bbfcc8076}} 
+\index{MarkerItem@{MarkerItem}!mouseDoubleClickEvent@{mouseDoubleClickEvent}}
+\index{mouseDoubleClickEvent@{mouseDoubleClickEvent}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{mouseDoubleClickEvent()}
+{\footnotesize\ttfamily void Marker\+Item\+::mouse\+Double\+Click\+Event (\begin{DoxyParamCaption}\item[{\textbf{ Plot\+Scene\+Widget} $\ast$}]{plot,  }\item[{Q\+Mouse\+Event $\ast$}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \textbf{ Mouse\+Event\+Listener} \doxyref{}{p.}{classMouseEventListener_af719579838a1ec38339abbe5d6592f80}.
+
+\mbox{\label{classMarkerItem_a2e2ddcb7b549b738a4f6a8c903ccb4dd}} 
+\index{MarkerItem@{MarkerItem}!mouseReleaseEvent@{mouseReleaseEvent}}
+\index{mouseReleaseEvent@{mouseReleaseEvent}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{mouseReleaseEvent()}
+{\footnotesize\ttfamily void Marker\+Item\+::mouse\+Release\+Event (\begin{DoxyParamCaption}\item[{\textbf{ Plot\+Scene\+Widget} $\ast$}]{plot,  }\item[{Q\+Mouse\+Event $\ast$}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \textbf{ Mouse\+Event\+Listener} \doxyref{}{p.}{classMouseEventListener_ac4860df2f966a7686413a4a8e8e350a4}.
+
+\mbox{\label{classMarkerItem_af3a47dea0986fb622d90ebb83645cc5d}} 
+\index{MarkerItem@{MarkerItem}!paint@{paint}}
+\index{paint@{paint}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{paint()}
+{\footnotesize\ttfamily void Marker\+Item\+::paint (\begin{DoxyParamCaption}\item[{Q\+Painter $\ast$}]{painter,  }\item[{const Q\+Style\+Option\+Graphics\+Item $\ast$}]{option,  }\item[{Q\+Widget $\ast$}]{widget }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+References Scene\+Curve\+::data(), Scene\+Curve\+::data\+Size(), Scene\+Curve\+::get\+X\+Axis(), Scene\+Curve\+::get\+Y\+Axis(), K\+D\+A\+R\+K\+G\+R\+AY, Scale\+Item\+::label(), Scene\+Curve\+::name(), Scene\+Curve\+::points(), Elettra\+::white, Data\+::x\+Data, and Data\+::y\+Data.
+
+\mbox{\label{classMarkerItem_a15b5ccc26606835fba77f9c5cb5e89ab}} 
+\index{MarkerItem@{MarkerItem}!pointBorderColor@{pointBorderColor}}
+\index{pointBorderColor@{pointBorderColor}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{pointBorderColor()}
+{\footnotesize\ttfamily Q\+Color Marker\+Item\+::point\+Border\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Default\+: blue \mbox{\label{classMarkerItem_afc4073c6e18cbb0e6e304ab9ed6b49e1}} 
+\index{MarkerItem@{MarkerItem}!pointColor@{pointColor}}
+\index{pointColor@{pointColor}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{pointColor()}
+{\footnotesize\ttfamily Q\+Color Marker\+Item\+::point\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+If an invalid color is set (the default), then the circle is drawn but not filled
+
+\begin{DoxyReturn}{Returns}
+the color used to fill in the point.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Point\+Color}{p.}{classMarkerItem_aee2af52e7cef94e61268ceb04a4978d0} 
+\end{DoxySeeAlso}
+\mbox{\label{classMarkerItem_aaf40c0614989f306e817c706842aefef}} 
+\index{MarkerItem@{MarkerItem}!removeCurve@{removeCurve}}
+\index{removeCurve@{removeCurve}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{removeCurve}
+{\footnotesize\ttfamily void Marker\+Item\+::remove\+Curve (\begin{DoxyParamCaption}\item[{\textbf{ Scene\+Curve} $\ast$}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classMarkerItem_a5f2b4ad50a742ab67df1b4e94a9195d5}} 
+\index{MarkerItem@{MarkerItem}!setBackgroundColor@{setBackgroundColor}}
+\index{setBackgroundColor@{setBackgroundColor}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{setBackgroundColor}
+{\footnotesize\ttfamily void Marker\+Item\+::set\+Background\+Color (\begin{DoxyParamCaption}\item[{const Q\+Color \&}]{bgc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classMarkerItem_ac4f8e656fa006fdafaa9b2d65e73d360}} 
+\index{MarkerItem@{MarkerItem}!setDecorationEnabled@{setDecorationEnabled}}
+\index{setDecorationEnabled@{setDecorationEnabled}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{setDecorationEnabled}
+{\footnotesize\ttfamily void Marker\+Item\+::set\+Decoration\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{en }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classMarkerItem_a9d010e9523a6f3cc1335e5b7fd37a746}} 
+\index{MarkerItem@{MarkerItem}!setDotRadius@{setDotRadius}}
+\index{setDotRadius@{setDotRadius}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{setDotRadius}
+{\footnotesize\ttfamily void Marker\+Item\+::set\+Dot\+Radius (\begin{DoxyParamCaption}\item[{double}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classMarkerItem_a7526f1b57c4547ceb8459b599be9a82e}} 
+\index{MarkerItem@{MarkerItem}!setItemIgnoresTransformations@{setItemIgnoresTransformations}}
+\index{setItemIgnoresTransformations@{setItemIgnoresTransformations}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{setItemIgnoresTransformations}
+{\footnotesize\ttfamily void Marker\+Item\+::set\+Item\+Ignores\+Transformations (\begin{DoxyParamCaption}\item[{bool}]{ign }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classMarkerItem_a1766400e6fa02da790fcaa9853d0991b}} 
+\index{MarkerItem@{MarkerItem}!setPointBorderColor@{setPointBorderColor}}
+\index{setPointBorderColor@{setPointBorderColor}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{setPointBorderColor}
+{\footnotesize\ttfamily void Marker\+Item\+::set\+Point\+Border\+Color (\begin{DoxyParamCaption}\item[{const Q\+Color \&}]{bc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classMarkerItem_aee2af52e7cef94e61268ceb04a4978d0}} 
+\index{MarkerItem@{MarkerItem}!setPointColor@{setPointColor}}
+\index{setPointColor@{setPointColor}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{setPointColor}
+{\footnotesize\ttfamily void Marker\+Item\+::set\+Point\+Color (\begin{DoxyParamCaption}\item[{const Q\+Color \&}]{pointC }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em pointC} & the color to use to fill the circle around the marker point.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Note}
+Unless set\+Point\+Color is called, the \doxyref{Marker\+Item}{p.}{classMarkerItem} only draws the circle, without filling it. 
+\end{DoxyParagraph}
+\mbox{\label{classMarkerItem_a017d1af44107fa606f9aab3a7014688e}} 
+\index{MarkerItem@{MarkerItem}!setTextColor@{setTextColor}}
+\index{setTextColor@{setTextColor}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{setTextColor}
+{\footnotesize\ttfamily void Marker\+Item\+::set\+Text\+Color (\begin{DoxyParamCaption}\item[{const Q\+Color \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classMarkerItem_a9bff58627c5a0edcff1ad3834a4c3c29}} 
+\index{MarkerItem@{MarkerItem}!textColor@{textColor}}
+\index{textColor@{textColor}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{textColor()}
+{\footnotesize\ttfamily Q\+Color Marker\+Item\+::text\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\label{classMarkerItem_a0e786188fbb0510115d57882646ee72f}} 
+\index{MarkerItem@{MarkerItem}!backgroundColor@{backgroundColor}}
+\index{backgroundColor@{backgroundColor}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{backgroundColor}
+{\footnotesize\ttfamily Q\+Color Marker\+Item\+::background\+Color\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classMarkerItem_af29267d13b598068d0688841da101436}} 
+\index{MarkerItem@{MarkerItem}!decorationEnabled@{decorationEnabled}}
+\index{decorationEnabled@{decorationEnabled}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{decorationEnabled}
+{\footnotesize\ttfamily bool Marker\+Item\+::decoration\+Enabled\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classMarkerItem_a70613ffd96fafd9d9a98808eb9cd10ff}} 
+\index{MarkerItem@{MarkerItem}!dotRadius@{dotRadius}}
+\index{dotRadius@{dotRadius}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{dotRadius}
+{\footnotesize\ttfamily double Marker\+Item\+::dot\+Radius\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classMarkerItem_ab99c53e48e4a9bb5a0f7f4afa69aaea5}} 
+\index{MarkerItem@{MarkerItem}!itemIgnoresTransformations@{itemIgnoresTransformations}}
+\index{itemIgnoresTransformations@{itemIgnoresTransformations}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{itemIgnoresTransformations}
+{\footnotesize\ttfamily bool Marker\+Item\+::item\+Ignores\+Transformations\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classMarkerItem_aeb732b09da4c0d7f2f10840daa5544e6}} 
+\index{MarkerItem@{MarkerItem}!pointBorderColor@{pointBorderColor}}
+\index{pointBorderColor@{pointBorderColor}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{pointBorderColor}
+{\footnotesize\ttfamily Q\+Color Marker\+Item\+::point\+Border\+Color\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classMarkerItem_a9634fd73acac0dade5012b02c2844fa5}} 
+\index{MarkerItem@{MarkerItem}!pointColor@{pointColor}}
+\index{pointColor@{pointColor}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{pointColor}
+{\footnotesize\ttfamily Q\+Color Marker\+Item\+::point\+Color\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classMarkerItem_a688fbeb08c006280c076299ed1bab1d1}} 
+\index{MarkerItem@{MarkerItem}!textColor@{textColor}}
+\index{textColor@{textColor}!MarkerItem@{MarkerItem}}
+\doxysubsubsection{textColor}
+{\footnotesize\ttfamily Q\+Color Marker\+Item\+::text\+Color\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ markeritem.\+h}\item 
+\textbf{ markeritem.\+cpp}\end{DoxyCompactItemize}

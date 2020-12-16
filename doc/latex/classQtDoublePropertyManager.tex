@@ -1,0 +1,458 @@
+\section{Qt\+Double\+Property\+Manager Class Reference}
+\label{classQtDoublePropertyManager}\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+
+
+The \doxyref{Qt\+Double\+Property\+Manager}{p.}{classQtDoublePropertyManager} provides and manages double properties.  
+
+
+
+
+{\ttfamily \#include $<$qtpropertymanager.\+h$>$}
+
+Inheritance diagram for Qt\+Double\+Property\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classQtDoublePropertyManager}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf set\+Value} ({\bf Qt\+Property} $\ast$property, double val)
+\item 
+void {\bf set\+Minimum} ({\bf Qt\+Property} $\ast$property, double min\+Val)
+\item 
+void {\bf set\+Maximum} ({\bf Qt\+Property} $\ast$property, double max\+Val)
+\item 
+void {\bf set\+Range} ({\bf Qt\+Property} $\ast$property, double min\+Val, double max\+Val)
+\item 
+void {\bf set\+Single\+Step} ({\bf Qt\+Property} $\ast$property, double step)
+\item 
+void {\bf set\+Decimals} ({\bf Qt\+Property} $\ast$property, int prec)
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf value\+Changed} ({\bf Qt\+Property} $\ast$property, double val)
+\item 
+void {\bf range\+Changed} ({\bf Qt\+Property} $\ast$property, double min\+Val, double max\+Val)
+\item 
+void {\bf single\+Step\+Changed} ({\bf Qt\+Property} $\ast$property, double step)
+\item 
+void {\bf decimals\+Changed} ({\bf Qt\+Property} $\ast$property, int prec)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Qt\+Double\+Property\+Manager} (Q\+Object $\ast$parent=0)
+\item 
+{\bf $\sim$\+Qt\+Double\+Property\+Manager} ()
+\item 
+double {\bf value} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+double {\bf minimum} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+double {\bf maximum} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+double {\bf single\+Step} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+int {\bf decimals} (const {\bf Qt\+Property} $\ast$property) const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String {\bf value\+Text} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+virtual void {\bf initialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\item 
+virtual void {\bf uninitialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A double property has a current value, and a range specifying the valid values. The range is defined by a minimum and a maximum value.
+
+The property\textquotesingle{}s value and range can be retrieved using the \doxyref{value()}{p.}{classQtDoublePropertyManager_a43660de019d315e365e93ddbfc8cefdb}, \doxyref{minimum()}{p.}{classQtDoublePropertyManager_a7ade0f50e0ef8cfcd34cc87edfbfe241} and \doxyref{maximum()}{p.}{classQtDoublePropertyManager_a0cfaa2ad37770f4df2489202c70869e8} functions, and can be set using the \doxyref{set\+Value()}{p.}{classQtDoublePropertyManager_ac38dda79cdc700a6484d6a6cdd234d75}, \doxyref{set\+Minimum()}{p.}{classQtDoublePropertyManager_ac303052e95e61e4bbce4e0b70efe35eb} and \doxyref{set\+Maximum()}{p.}{classQtDoublePropertyManager_a5f5bde901cbcab806e8b75d05c0230e4} slots. Alternatively, the range can be defined in one go using the \doxyref{set\+Range()}{p.}{classQtDoublePropertyManager_af272ed9deea94559169f2553eb127007} slot.
+
+In addition, \doxyref{Qt\+Double\+Property\+Manager}{p.}{classQtDoublePropertyManager} provides the \doxyref{value\+Changed()}{p.}{classQtDoublePropertyManager_a3b088a6be8424a7aaed6b78df4d1c430} signal which is emitted whenever a property created by this manager changes, and the \doxyref{range\+Changed()}{p.}{classQtDoublePropertyManager_ac724186dcc4b2eea6598dace14a7d498} signal which is emitted whenever such a property changes its range of valid values.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager}, \doxyref{Qt\+Double\+Spin\+Box\+Factory}{p.}{classQtDoubleSpinBoxFactory} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\subsubsection[{Qt\+Double\+Property\+Manager(\+Q\+Object $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Double\+Property\+Manager\+::\+Qt\+Double\+Property\+Manager (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classQtDoublePropertyManager_a18bf76eeaf2fb82fecffca4bf0d24c3c}
+Creates a manager with the given {\itshape parent}. \index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!````~Qt\+Double\+Property\+Manager@{$\sim$\+Qt\+Double\+Property\+Manager}}
+\index{````~Qt\+Double\+Property\+Manager@{$\sim$\+Qt\+Double\+Property\+Manager}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\subsubsection[{$\sim$\+Qt\+Double\+Property\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Double\+Property\+Manager\+::$\sim$\+Qt\+Double\+Property\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classQtDoublePropertyManager_a8080cb2cf6ae314580db58337f9b4360}
+Destroys this manager, and all the properties it has created. 
+
+References Qt\+Abstract\+Property\+Manager\+::clear().
+
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!decimals@{decimals}}
+\index{decimals@{decimals}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\subsubsection[{decimals(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}int Qt\+Double\+Property\+Manager\+::decimals (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtDoublePropertyManager_a3e715c1010d4d0041022fb3820826db0}
+Returns the given {\itshape property\textquotesingle{}s} precision, in decimals.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Decimals()}{p.}{classQtDoublePropertyManager_a7eedb9fc0d6e1cbb7900a1a6635d9514} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Double\+Property\+Manager\+Private\+::\+Data\+::decimals, and Qt\+Double\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+Referenced by Qt\+Double\+Spin\+Box\+Factory\+::create\+Editor().
+
+\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!decimals\+Changed@{decimals\+Changed}}
+\index{decimals\+Changed@{decimals\+Changed}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\subsubsection[{decimals\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Double\+Property\+Manager\+::decimals\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{int}]{prec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtDoublePropertyManager_a64846b2480a151acfa18106adad43f79}
+This signal is emitted whenever a property created by this manager changes its precision of value, passing a pointer to the {\itshape property} and the new {\itshape prec} value
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Decimals()}{p.}{classQtDoublePropertyManager_a7eedb9fc0d6e1cbb7900a1a6635d9514} 
+\end{DoxySeeAlso}
+
+
+Referenced by set\+Decimals().
+
+\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!initialize\+Property@{initialize\+Property}}
+\index{initialize\+Property@{initialize\+Property}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\subsubsection[{initialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Double\+Property\+Manager\+::initialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtDoublePropertyManager_a5c5e24308b5e1449bc8a63073c9095bf}
+
+
+Implements {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ab7501ecabc5285cb50d7ed91a2ef44fc}.
+
+
+
+References Qt\+Double\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!maximum@{maximum}}
+\index{maximum@{maximum}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\subsubsection[{maximum(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}double Qt\+Double\+Property\+Manager\+::maximum (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtDoublePropertyManager_a0cfaa2ad37770f4df2489202c70869e8}
+Returns the given {\itshape property\textquotesingle{}s} maximum value.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{minimum()}{p.}{classQtDoublePropertyManager_a7ade0f50e0ef8cfcd34cc87edfbfe241}, \doxyref{set\+Range()}{p.}{classQtDoublePropertyManager_af272ed9deea94559169f2553eb127007} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Double\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+Referenced by Qt\+Double\+Spin\+Box\+Factory\+::create\+Editor().
+
+\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!minimum@{minimum}}
+\index{minimum@{minimum}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\subsubsection[{minimum(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}double Qt\+Double\+Property\+Manager\+::minimum (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtDoublePropertyManager_a7ade0f50e0ef8cfcd34cc87edfbfe241}
+Returns the given {\itshape property\textquotesingle{}s} minimum value.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{maximum()}{p.}{classQtDoublePropertyManager_a0cfaa2ad37770f4df2489202c70869e8}, \doxyref{set\+Range()}{p.}{classQtDoublePropertyManager_af272ed9deea94559169f2553eb127007} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Double\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+Referenced by Qt\+Double\+Spin\+Box\+Factory\+::create\+Editor().
+
+\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!range\+Changed@{range\+Changed}}
+\index{range\+Changed@{range\+Changed}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\subsubsection[{range\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Double\+Property\+Manager\+::range\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{double}]{minimum, }
+\item[{double}]{maximum}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtDoublePropertyManager_ac724186dcc4b2eea6598dace14a7d498}
+This signal is emitted whenever a property created by this manager changes its range of valid values, passing a pointer to the {\itshape property} and the new {\itshape minimum} and {\itshape maximum} values
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Range()}{p.}{classQtDoublePropertyManager_af272ed9deea94559169f2553eb127007} 
+\end{DoxySeeAlso}
+
+
+Referenced by set\+Maximum(), set\+Minimum(), and set\+Range().
+
+\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!set\+Decimals@{set\+Decimals}}
+\index{set\+Decimals@{set\+Decimals}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\subsubsection[{set\+Decimals}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Double\+Property\+Manager\+::set\+Decimals (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{int}]{prec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtDoublePropertyManager_a7eedb9fc0d6e1cbb7900a1a6635d9514}
+Sets the precision of the given {\itshape property} to {\itshape prec}.
+
+The valid decimal range is 0-\/13. The default is 2.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{decimals()}{p.}{classQtDoublePropertyManager_a3e715c1010d4d0041022fb3820826db0} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Double\+Property\+Manager\+Private\+::\+Data\+::decimals, decimals\+Changed(), and Qt\+Double\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+Referenced by Qt\+Point\+F\+Property\+Manager\+::initialize\+Property(), Qt\+Size\+F\+Property\+Manager\+::initialize\+Property(), Qt\+Rect\+F\+Property\+Manager\+::initialize\+Property(), Qt\+Point\+F\+Property\+Manager\+::set\+Decimals(), Qt\+Size\+F\+Property\+Manager\+::set\+Decimals(), and Qt\+Rect\+F\+Property\+Manager\+::set\+Decimals().
+
+\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!set\+Maximum@{set\+Maximum}}
+\index{set\+Maximum@{set\+Maximum}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\subsubsection[{set\+Maximum}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Double\+Property\+Manager\+::set\+Maximum (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{double}]{max\+Val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtDoublePropertyManager_a5f5bde901cbcab806e8b75d05c0230e4}
+Sets the maximum value for the given {\itshape property} to {\itshape max\+Val}.
+
+When setting the maximum value, the minimum and current values are adjusted if necessary (ensuring that the range remains valid and that the current value is within in the range).
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{maximum()}{p.}{classQtDoublePropertyManager_a0cfaa2ad37770f4df2489202c70869e8}, \doxyref{set\+Range()}{p.}{classQtDoublePropertyManager_af272ed9deea94559169f2553eb127007}, \doxyref{range\+Changed()}{p.}{classQtDoublePropertyManager_ac724186dcc4b2eea6598dace14a7d498} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Abstract\+Property\+Manager\+::property\+Changed(), range\+Changed(), and value\+Changed().
+
+\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!set\+Minimum@{set\+Minimum}}
+\index{set\+Minimum@{set\+Minimum}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\subsubsection[{set\+Minimum}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Double\+Property\+Manager\+::set\+Minimum (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{double}]{min\+Val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtDoublePropertyManager_ac303052e95e61e4bbce4e0b70efe35eb}
+Sets the minimum value for the given {\itshape property} to {\itshape min\+Val}.
+
+When setting the minimum value, the maximum and current values are adjusted if necessary (ensuring that the range remains valid and that the current value is within in the range).
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{minimum()}{p.}{classQtDoublePropertyManager_a7ade0f50e0ef8cfcd34cc87edfbfe241}, \doxyref{set\+Range()}{p.}{classQtDoublePropertyManager_af272ed9deea94559169f2553eb127007}, \doxyref{range\+Changed()}{p.}{classQtDoublePropertyManager_ac724186dcc4b2eea6598dace14a7d498} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Abstract\+Property\+Manager\+::property\+Changed(), range\+Changed(), and value\+Changed().
+
+
+
+Referenced by Qt\+Size\+F\+Property\+Manager\+::initialize\+Property(), and Qt\+Rect\+F\+Property\+Manager\+::initialize\+Property().
+
+\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!set\+Range@{set\+Range}}
+\index{set\+Range@{set\+Range}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\subsubsection[{set\+Range}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Double\+Property\+Manager\+::set\+Range (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{double}]{minimum, }
+\item[{double}]{maximum}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtDoublePropertyManager_af272ed9deea94559169f2553eb127007}
+Sets the range of valid values.
+
+This is a convenience function defining the range of valid values in one go; setting the {\itshape minimum} and {\itshape maximum} values for the given {\itshape property} with a single function call.
+
+When setting a new range, the current value is adjusted if necessary (ensuring that the value remains within range).
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Minimum()}{p.}{classQtDoublePropertyManager_ac303052e95e61e4bbce4e0b70efe35eb}, \doxyref{set\+Maximum()}{p.}{classQtDoublePropertyManager_a5f5bde901cbcab806e8b75d05c0230e4}, \doxyref{range\+Changed()}{p.}{classQtDoublePropertyManager_ac724186dcc4b2eea6598dace14a7d498} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Abstract\+Property\+Manager\+::property\+Changed(), range\+Changed(), and value\+Changed().
+
+\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!set\+Single\+Step@{set\+Single\+Step}}
+\index{set\+Single\+Step@{set\+Single\+Step}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\subsubsection[{set\+Single\+Step}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Double\+Property\+Manager\+::set\+Single\+Step (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{double}]{step}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtDoublePropertyManager_a8b1a1ad21c1ebbfe7ed02652cfcd70d2}
+Sets the step value for the given {\itshape property} to {\itshape step}.
+
+The step is typically used to increment or decrement a property value while pressing an arrow key.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{single\+Step()}{p.}{classQtDoublePropertyManager_a42d23740262ae843474acb7a76950931} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Double\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Double\+Property\+Manager\+Private\+::\+Data\+::single\+Step, and single\+Step\+Changed().
+
+\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\subsubsection[{set\+Value}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Double\+Property\+Manager\+::set\+Value (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtDoublePropertyManager_ac38dda79cdc700a6484d6a6cdd234d75}
+Sets the value of the given {\itshape property} to {\itshape value}.
+
+If the specified {\itshape value} is not valid according to the given {\itshape property\textquotesingle{}s} range, the {\itshape value} is adjusted to the nearest valid value within the range.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{value()}{p.}{classQtDoublePropertyManager_a43660de019d315e365e93ddbfc8cefdb}, \doxyref{set\+Range()}{p.}{classQtDoublePropertyManager_af272ed9deea94559169f2553eb127007}, \doxyref{value\+Changed()}{p.}{classQtDoublePropertyManager_a3b088a6be8424a7aaed6b78df4d1c430} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Abstract\+Property\+Manager\+::property\+Changed(), and value\+Changed().
+
+
+
+Referenced by Qt\+Point\+F\+Property\+Manager\+::initialize\+Property(), Qt\+Size\+F\+Property\+Manager\+::initialize\+Property(), Qt\+Rect\+F\+Property\+Manager\+::initialize\+Property(), Qt\+Point\+F\+Property\+Manager\+::set\+Value(), Qt\+Rect\+F\+Property\+Manager\+::set\+Value(), and Qt\+Double\+Spin\+Box\+Factory\+Private\+::slot\+Set\+Value().
+
+\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!single\+Step@{single\+Step}}
+\index{single\+Step@{single\+Step}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\subsubsection[{single\+Step(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}double Qt\+Double\+Property\+Manager\+::single\+Step (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtDoublePropertyManager_a42d23740262ae843474acb7a76950931}
+Returns the given {\itshape property\textquotesingle{}s} step value.
+
+The step is typically used to increment or decrement a property value while pressing an arrow key.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Single\+Step()}{p.}{classQtDoublePropertyManager_a8b1a1ad21c1ebbfe7ed02652cfcd70d2} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Double\+Property\+Manager\+Private\+::m\+\_\+values, and Qt\+Double\+Property\+Manager\+Private\+::\+Data\+::single\+Step.
+
+
+
+Referenced by Qt\+Double\+Spin\+Box\+Factory\+::create\+Editor().
+
+\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!single\+Step\+Changed@{single\+Step\+Changed}}
+\index{single\+Step\+Changed@{single\+Step\+Changed}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\subsubsection[{single\+Step\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Double\+Property\+Manager\+::single\+Step\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{double}]{step}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtDoublePropertyManager_a4e4584fee57e23d34428bbc3d27021c2}
+This signal is emitted whenever a property created by this manager changes its single step property, passing a pointer to the {\itshape property} and the new {\itshape step} value
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Single\+Step()}{p.}{classQtDoublePropertyManager_a8b1a1ad21c1ebbfe7ed02652cfcd70d2} 
+\end{DoxySeeAlso}
+
+
+Referenced by set\+Single\+Step().
+
+\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!uninitialize\+Property@{uninitialize\+Property}}
+\index{uninitialize\+Property@{uninitialize\+Property}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\subsubsection[{uninitialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Double\+Property\+Manager\+::uninitialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtDoublePropertyManager_a7b7f5f82c57e094d68cc06590bd9be50}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ad199337e1ac748eef077011d94ecd5b4}.
+
+
+
+References Qt\+Double\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!value@{value}}
+\index{value@{value}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\subsubsection[{value(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}double Qt\+Double\+Property\+Manager\+::value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtDoublePropertyManager_a43660de019d315e365e93ddbfc8cefdb}
+Returns the given {\itshape property\textquotesingle{}s} value.
+
+If the given property is not managed by this manager, this function returns 0.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Value()}{p.}{classQtDoublePropertyManager_ac38dda79cdc700a6484d6a6cdd234d75} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Double\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+Referenced by Qt\+Double\+Spin\+Box\+Factory\+::create\+Editor(), Qt\+Double\+Spin\+Box\+Factory\+Private\+::slot\+Decimals\+Changed(), and Qt\+Double\+Spin\+Box\+Factory\+Private\+::slot\+Range\+Changed().
+
+\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!value\+Changed@{value\+Changed}}
+\index{value\+Changed@{value\+Changed}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\subsubsection[{value\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Double\+Property\+Manager\+::value\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtDoublePropertyManager_a3b088a6be8424a7aaed6b78df4d1c430}
+This signal is emitted whenever a property created by this manager changes its value, passing a pointer to the {\itshape property} and the new {\itshape value} as parameters.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Value()}{p.}{classQtDoublePropertyManager_ac38dda79cdc700a6484d6a6cdd234d75} 
+\end{DoxySeeAlso}
+
+
+Referenced by set\+Maximum(), set\+Minimum(), set\+Range(), and set\+Value().
+
+\index{Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}!value\+Text@{value\+Text}}
+\index{value\+Text@{value\+Text}!Qt\+Double\+Property\+Manager@{Qt\+Double\+Property\+Manager}}
+\subsubsection[{value\+Text(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Qt\+Double\+Property\+Manager\+::value\+Text (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtDoublePropertyManager_a0fc1a084b9a16f860fb43fca41f0ce75}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_aa99cf98b6f1d9582245eb2f5168c5b21}.
+
+
+
+References Qt\+Double\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtpropertymanager.\+h}\item 
+{\bf qtpropertymanager.\+cpp}\end{DoxyCompactItemize}

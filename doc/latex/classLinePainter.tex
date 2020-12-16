@@ -1,0 +1,258 @@
+\doxysection{Line\+Painter Class Reference}
+\label{classLinePainter}\index{LinePainter@{LinePainter}}
+
+
+{\ttfamily \#include $<$linepainter.\+h$>$}
+
+Inheritance diagram for Line\+Painter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classLinePainter}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ set\+Line\+Color} (const Q\+Color \&c)
+\begin{DoxyCompactList}\small\item\em changes the color of the lines \end{DoxyCompactList}\item 
+void \textbf{ set\+Line\+Width} (double w)
+\begin{DoxyCompactList}\small\item\em changes the width of the lines \end{DoxyCompactList}\item 
+void \textbf{ set\+Line\+Pen} (const Q\+Pen \&p)
+\begin{DoxyCompactList}\small\item\em changes the color of the lines \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Line\+Painter} (\textbf{ Curve\+Item} $\ast$\textbf{ curve\+Item})
+\item 
+virtual \textbf{ $\sim$\+Line\+Painter} ()
+\item 
+virtual void \textbf{ draw} (\textbf{ Scene\+Curve} $\ast$curve, \textbf{ Plot\+Scene\+Widget} $\ast$plot, Q\+Painter $\ast$painter, const Q\+Style\+Option\+Graphics\+Item $\ast$option, Q\+Widget $\ast$widget=0)
+\begin{DoxyCompactList}\small\item\em the drawing method. \end{DoxyCompactList}\item 
+virtual \textbf{ Curve\+Item} $\ast$ \textbf{ curve\+Item} () const
+\item 
+virtual Q\+SizeF \textbf{ element\+Size} () const
+\begin{DoxyCompactList}\small\item\em the size of each drawn element \end{DoxyCompactList}\item 
+virtual int \textbf{ type} () const
+\item 
+Q\+Color \textbf{ line\+Color} () const
+\begin{DoxyCompactList}\small\item\em returns the colour used for the lines that form the curve \end{DoxyCompactList}\item 
+double \textbf{ line\+Width} () const
+\begin{DoxyCompactList}\small\item\em returns the line width \end{DoxyCompactList}\item 
+Q\+Pen \textbf{ line\+Pen} () const
+\begin{DoxyCompactList}\small\item\em returns the pen used to draw the lines \end{DoxyCompactList}\item 
+Q\+Pen \textbf{ pen} () const
+\begin{DoxyCompactList}\small\item\em Implements the pen method of the \doxyref{Item\+Painter\+Interface}{p.}{classItemPainterInterface}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Color \textbf{ line\+Color}
+\item 
+double \textbf{ line\+Width}
+\item 
+Q\+Pen \textbf{ line\+Pen}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classLinePainter_a7996779cc2fd64d36be99cc464f08c20}} 
+\index{LinePainter@{LinePainter}!LinePainter@{LinePainter}}
+\index{LinePainter@{LinePainter}!LinePainter@{LinePainter}}
+\doxysubsubsection{LinePainter()}
+{\footnotesize\ttfamily Line\+Painter\+::\+Line\+Painter (\begin{DoxyParamCaption}\item[{\textbf{ Curve\+Item} $\ast$}]{curve\+Item }\end{DoxyParamCaption})}
+
+
+
+References curve\+Item(), and Curve\+Item\+::install\+Item\+Painter\+Interface().
+
+\mbox{\label{classLinePainter_a094ed82d2ddb86f8baf11ead2c6bc74e}} 
+\index{LinePainter@{LinePainter}!````~LinePainter@{$\sim$LinePainter}}
+\index{````~LinePainter@{$\sim$LinePainter}!LinePainter@{LinePainter}}
+\doxysubsubsection{$\sim$LinePainter()}
+{\footnotesize\ttfamily Line\+Painter\+::$\sim$\+Line\+Painter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classLinePainter_a8b39159575be6a43d85d491a8a4a24ad}} 
+\index{LinePainter@{LinePainter}!curveItem@{curveItem}}
+\index{curveItem@{curveItem}!LinePainter@{LinePainter}}
+\doxysubsubsection{curveItem()}
+{\footnotesize\ttfamily \textbf{ Curve\+Item} $\ast$ Line\+Painter\+::curve\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \textbf{ Item\+Painter\+Interface} \doxyref{}{p.}{classItemPainterInterface_a789d5f06890eea0696bd545f6147beb9}.
+
+
+
+Referenced by Line\+Painter().
+
+\mbox{\label{classLinePainter_ac2b1b502aacf1dfffa3a5e16aa895617}} 
+\index{LinePainter@{LinePainter}!draw@{draw}}
+\index{draw@{draw}!LinePainter@{LinePainter}}
+\doxysubsubsection{draw()}
+{\footnotesize\ttfamily void Line\+Painter\+::draw (\begin{DoxyParamCaption}\item[{\textbf{ Scene\+Curve} $\ast$}]{curve,  }\item[{\textbf{ Plot\+Scene\+Widget} $\ast$}]{plot,  }\item[{Q\+Painter $\ast$}]{painter,  }\item[{const Q\+Style\+Option\+Graphics\+Item $\ast$}]{option,  }\item[{Q\+Widget $\ast$}]{widget = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This method is invoked by \doxyref{Curve\+Item}{p.}{classCurveItem} inside paint method. You can obtain the points of the curve in scene coordinates by calling curve-\/$>$points and the size of the points by means of curve-\/$>$data\+Size. It may be necessary to call painter-\/$>$save() and painter-\/$>$restore() at the beginning and end of the drawing. Each draw method of each installed \doxyref{Item\+Painter\+Interface}{p.}{classItemPainterInterface} is actually invoked in sequence without saving and restoring the painter state for you.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Curve\+Item}{p.}{classCurveItem} 
+
+\doxyref{Line\+Painter}{p.}{classLinePainter} 
+
+\doxyref{Dots\+Painter}{p.}{classDotsPainter} 
+\end{DoxySeeAlso}
+
+
+Implements \textbf{ Item\+Painter\+Interface} \doxyref{}{p.}{classItemPainterInterface_a46c979807ac7a76377a89210455f62a5}.
+
+
+
+References Scale\+Item\+::axis\+Id(), Scene\+Curve\+::data(), Scene\+Curve\+::data\+Size(), Scene\+Curve\+::get\+X\+Axis(), Data\+::invalid\+Data\+Points(), Scene\+Curve\+::points(), Elettra\+::red, Plot\+Scene\+Widget\+::scale\+Item(), and Plot\+Scene\+Widget\+::transform().
+
+\mbox{\label{classLinePainter_a304a0f14ae921e30a8abbf9a18e210c5}} 
+\index{LinePainter@{LinePainter}!elementSize@{elementSize}}
+\index{elementSize@{elementSize}!LinePainter@{LinePainter}}
+\doxysubsubsection{elementSize()}
+{\footnotesize\ttfamily Q\+SizeF Line\+Painter\+::element\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This size is used by the classes that use \doxyref{Item\+Painter\+Interface}{p.}{classItemPainterInterface} to know how much extra space is needed in order to calculate the bounding rect of the \doxyref{Curve\+Item}{p.}{classCurveItem} or other geometrical properties.
+
+For instance, if you are drawing circles, then this method should return the radius of the circle, so that \doxyref{Curve\+Item}{p.}{classCurveItem} knows how much space has to be added to the curve bounds in order to correcly draw the items.
+
+If you are drawing lines, then this size can be 0x0 since the connecting lines do not require extra space to be calculated. If you use a particular pen width, then you may want to return its width in order to be sure that \doxyref{Curve\+Item}{p.}{classCurveItem} takes care of this space.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Curve\+Item}{p.}{classCurveItem} 
+\end{DoxySeeAlso}
+
+
+Implements \textbf{ Item\+Painter\+Interface} \doxyref{}{p.}{classItemPainterInterface_a56701b8b651536062e271311831a3ea7}.
+
+\mbox{\label{classLinePainter_ae9b817d257e6ff4d85b0eac19daa58e7}} 
+\index{LinePainter@{LinePainter}!lineColor@{lineColor}}
+\index{lineColor@{lineColor}!LinePainter@{LinePainter}}
+\doxysubsubsection{lineColor()}
+{\footnotesize\ttfamily Q\+Color Line\+Painter\+::line\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the color of the lines
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Line\+Color}{p.}{classLinePainter_ac7c4e988b7a94a03a2474a7baec4646a} 
+
+\doxyref{set\+Line\+Width}{p.}{classLinePainter_a36a2c1f5bdd88af5937d3dc757be6e86} 
+\end{DoxySeeAlso}
+\mbox{\label{classLinePainter_a7ce1f695fb88c8176d74c1a2980611d3}} 
+\index{LinePainter@{LinePainter}!linePen@{linePen}}
+\index{linePen@{linePen}!LinePainter@{LinePainter}}
+\doxysubsubsection{linePen()}
+{\footnotesize\ttfamily Q\+Pen Line\+Painter\+::line\+Pen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the pen used to draw the lines. 
+\end{DoxyReturn}
+\mbox{\label{classLinePainter_ab2c3cf956f70beb5188facf56852b6b6}} 
+\index{LinePainter@{LinePainter}!lineWidth@{lineWidth}}
+\index{lineWidth@{lineWidth}!LinePainter@{LinePainter}}
+\doxysubsubsection{lineWidth()}
+{\footnotesize\ttfamily double Line\+Painter\+::line\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the width of the line used to draw the lines.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Line\+Color}{p.}{classLinePainter_ac7c4e988b7a94a03a2474a7baec4646a} 
+
+\doxyref{set\+Line\+Width}{p.}{classLinePainter_a36a2c1f5bdd88af5937d3dc757be6e86} 
+\end{DoxySeeAlso}
+\mbox{\label{classLinePainter_a67ac95bd3bb90f6a108a339bee81b9d2}} 
+\index{LinePainter@{LinePainter}!pen@{pen}}
+\index{pen@{pen}!LinePainter@{LinePainter}}
+\doxysubsubsection{pen()}
+{\footnotesize\ttfamily Q\+Pen Line\+Painter\+::pen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the line pen as returned by \doxyref{line\+Pen()}{p.}{classLinePainter_a5485866bb1f1673c18f70296635adee2} 
+\end{DoxyReturn}
+
+
+Implements \textbf{ Item\+Painter\+Interface} \doxyref{}{p.}{classItemPainterInterface_a3e8917ac7bf813cde52ce852d062d5fd}.
+
+\mbox{\label{classLinePainter_ac7c4e988b7a94a03a2474a7baec4646a}} 
+\index{LinePainter@{LinePainter}!setLineColor@{setLineColor}}
+\index{setLineColor@{setLineColor}!LinePainter@{LinePainter}}
+\doxysubsubsection{setLineColor}
+{\footnotesize\ttfamily void Line\+Painter\+::set\+Line\+Color (\begin{DoxyParamCaption}\item[{const Q\+Color \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+The default colour is Qt\+::black
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{line\+Color}{p.}{classLinePainter_a55b84b726554bf3de5f322030caa7fd4} 
+\end{DoxySeeAlso}
+
+
+Referenced by Ext\+Scale\+Plot\+Scene\+Widget\+::add\+Curve(), Plot\+Scene\+Widget\+::add\+Line\+Curve(), and X\+Y\+Scene\+Test\+::\+X\+Y\+Scene\+Test().
+
+\mbox{\label{classLinePainter_af4aff76fe7f2a7b14325922d54425930}} 
+\index{LinePainter@{LinePainter}!setLinePen@{setLinePen}}
+\index{setLinePen@{setLinePen}!LinePainter@{LinePainter}}
+\doxysubsubsection{setLinePen}
+{\footnotesize\ttfamily void Line\+Painter\+::set\+Line\+Pen (\begin{DoxyParamCaption}\item[{const Q\+Pen \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{line\+Pen}{p.}{classLinePainter_a5485866bb1f1673c18f70296635adee2} 
+\end{DoxySeeAlso}
+\mbox{\label{classLinePainter_a36a2c1f5bdd88af5937d3dc757be6e86}} 
+\index{LinePainter@{LinePainter}!setLineWidth@{setLineWidth}}
+\index{setLineWidth@{setLineWidth}!LinePainter@{LinePainter}}
+\doxysubsubsection{setLineWidth}
+{\footnotesize\ttfamily void Line\+Painter\+::set\+Line\+Width (\begin{DoxyParamCaption}\item[{double}]{w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+The default is 0.\+0
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{line\+Width}{p.}{classLinePainter_aad600bea8abd54e27139dad79c65010c} 
+\end{DoxySeeAlso}
+\mbox{\label{classLinePainter_ab8cf0d82bd8f3e419c4635c4089d5d46}} 
+\index{LinePainter@{LinePainter}!type@{type}}
+\index{type@{type}!LinePainter@{LinePainter}}
+\doxysubsubsection{type()}
+{\footnotesize\ttfamily int Line\+Painter\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \textbf{ Item\+Painter\+Interface} \doxyref{}{p.}{classItemPainterInterface_a1fbe17f4940d8da17764e772b35e7dd7}.
+
+
+
+References Item\+Painter\+Interface\+::\+Line.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\label{classLinePainter_a55b84b726554bf3de5f322030caa7fd4}} 
+\index{LinePainter@{LinePainter}!lineColor@{lineColor}}
+\index{lineColor@{lineColor}!LinePainter@{LinePainter}}
+\doxysubsubsection{lineColor}
+{\footnotesize\ttfamily Q\+Color Line\+Painter\+::line\+Color\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classLinePainter_a5485866bb1f1673c18f70296635adee2}} 
+\index{LinePainter@{LinePainter}!linePen@{linePen}}
+\index{linePen@{linePen}!LinePainter@{LinePainter}}
+\doxysubsubsection{linePen}
+{\footnotesize\ttfamily Q\+Pen Line\+Painter\+::line\+Pen\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classLinePainter_aad600bea8abd54e27139dad79c65010c}} 
+\index{LinePainter@{LinePainter}!lineWidth@{lineWidth}}
+\index{lineWidth@{lineWidth}!LinePainter@{LinePainter}}
+\doxysubsubsection{lineWidth}
+{\footnotesize\ttfamily double Line\+Painter\+::line\+Width\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ linepainter.\+h}\item 
+\textbf{ linepainter.\+cpp}\end{DoxyCompactItemize}

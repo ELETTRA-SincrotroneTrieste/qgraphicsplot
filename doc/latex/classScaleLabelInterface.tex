@@ -1,0 +1,179 @@
+\doxysection{Scale\+Label\+Interface Class Reference}
+\label{classScaleLabelInterface}\index{ScaleLabelInterface@{ScaleLabelInterface}}
+
+
+This interface defines methods to provide custom labels in a \doxyref{Scale\+Item}{p.}{classScaleItem}.  
+
+
+
+
+{\ttfamily \#include $<$scalelabelinterface.\+h$>$}
+
+Inheritance diagram for Scale\+Label\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classScaleLabelInterface}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ Type} \{ \newline
+\textbf{ Undefined} = -\/1, 
+\textbf{ Time\+Scale}, 
+\textbf{ Position} = 1, 
+\textbf{ Z\+Position}, 
+\newline
+\textbf{ X\+Position}, 
+\textbf{ Y\+Position}, 
+\textbf{ Label\+Map}, 
+\textbf{ User} = 100, 
+\newline
+\textbf{ Max\+User} = 1000
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Scale\+Label\+Interface} ()
+\item 
+virtual Q\+String \textbf{ label} (double value) const =0
+\begin{DoxyCompactList}\small\item\em This method must be reimplemented in a subclass and must return a Q\+String to be displayed in the \doxyref{Scale\+Item}{p.}{classScaleItem} in correspondance to the value on the axis. \end{DoxyCompactList}\item 
+virtual \textbf{ Type} \textbf{ type} () const =0
+\item 
+virtual Q\+String \textbf{ longest\+Label} () const =0
+\begin{DoxyCompactList}\small\item\em This method returns the longest possible string that may be returned by the implementing scale label interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+To customize axis labels, just provide an implementation of this \doxyref{Scale\+Label\+Interface}{p.}{classScaleLabelInterface} and install it on a \doxyref{Scale\+Item}{p.}{classScaleItem}. You must implement the label method, that returns a Q\+String depending on the value of the point in the axis.
+
+\begin{DoxyParagraph}{Example}
+A custom implementation may return a string displaying a date/time value represented by a timestamp on the x axis. 
+\end{DoxyParagraph}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\label{classScaleLabelInterface_a483a6f24ab9e11e9c0a0dd54fbcd559a}} 
+\index{ScaleLabelInterface@{ScaleLabelInterface}!Type@{Type}}
+\index{Type@{Type}!ScaleLabelInterface@{ScaleLabelInterface}}
+\doxysubsubsection{Type}
+{\footnotesize\ttfamily enum \textbf{ Scale\+Label\+Interface\+::\+Type}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Undefined@{Undefined}!ScaleLabelInterface@{ScaleLabelInterface}}\index{ScaleLabelInterface@{ScaleLabelInterface}!Undefined@{Undefined}}}\mbox{\label{classScaleLabelInterface_a483a6f24ab9e11e9c0a0dd54fbcd559aa5be6aa3a61653bec24440654f06077a8}} 
+Undefined&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TimeScale@{TimeScale}!ScaleLabelInterface@{ScaleLabelInterface}}\index{ScaleLabelInterface@{ScaleLabelInterface}!TimeScale@{TimeScale}}}\mbox{\label{classScaleLabelInterface_a483a6f24ab9e11e9c0a0dd54fbcd559aadcc64828a6c109e3f8beaaa5592b14ed}} 
+Time\+Scale&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Position@{Position}!ScaleLabelInterface@{ScaleLabelInterface}}\index{ScaleLabelInterface@{ScaleLabelInterface}!Position@{Position}}}\mbox{\label{classScaleLabelInterface_a483a6f24ab9e11e9c0a0dd54fbcd559aa3e89def35fa8c95b4121f0c102ea6810}} 
+Position&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ZPosition@{ZPosition}!ScaleLabelInterface@{ScaleLabelInterface}}\index{ScaleLabelInterface@{ScaleLabelInterface}!ZPosition@{ZPosition}}}\mbox{\label{classScaleLabelInterface_a483a6f24ab9e11e9c0a0dd54fbcd559aa2e12dd6eb23930043e827b187d7eaea8}} 
+Z\+Position&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{XPosition@{XPosition}!ScaleLabelInterface@{ScaleLabelInterface}}\index{ScaleLabelInterface@{ScaleLabelInterface}!XPosition@{XPosition}}}\mbox{\label{classScaleLabelInterface_a483a6f24ab9e11e9c0a0dd54fbcd559aab586317d5895bf581c59030b3545892c}} 
+X\+Position&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{YPosition@{YPosition}!ScaleLabelInterface@{ScaleLabelInterface}}\index{ScaleLabelInterface@{ScaleLabelInterface}!YPosition@{YPosition}}}\mbox{\label{classScaleLabelInterface_a483a6f24ab9e11e9c0a0dd54fbcd559aa7c84663e2244a73b79c751fda57c2d78}} 
+Y\+Position&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LabelMap@{LabelMap}!ScaleLabelInterface@{ScaleLabelInterface}}\index{ScaleLabelInterface@{ScaleLabelInterface}!LabelMap@{LabelMap}}}\mbox{\label{classScaleLabelInterface_a483a6f24ab9e11e9c0a0dd54fbcd559aae6c862287baa1115efa436ba0bede1ce}} 
+Label\+Map&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{User@{User}!ScaleLabelInterface@{ScaleLabelInterface}}\index{ScaleLabelInterface@{ScaleLabelInterface}!User@{User}}}\mbox{\label{classScaleLabelInterface_a483a6f24ab9e11e9c0a0dd54fbcd559aa163ecb909ab91b2eeff4d1f5fb1af306}} 
+User&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MaxUser@{MaxUser}!ScaleLabelInterface@{ScaleLabelInterface}}\index{ScaleLabelInterface@{ScaleLabelInterface}!MaxUser@{MaxUser}}}\mbox{\label{classScaleLabelInterface_a483a6f24ab9e11e9c0a0dd54fbcd559aa60c1814cbfa943c07c0eef767b4a2672}} 
+Max\+User&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classScaleLabelInterface_a209ca676e25bbd104c936a20628e2416}} 
+\index{ScaleLabelInterface@{ScaleLabelInterface}!ScaleLabelInterface@{ScaleLabelInterface}}
+\index{ScaleLabelInterface@{ScaleLabelInterface}!ScaleLabelInterface@{ScaleLabelInterface}}
+\doxysubsubsection{ScaleLabelInterface()}
+{\footnotesize\ttfamily Scale\+Label\+Interface\+::\+Scale\+Label\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classScaleLabelInterface_a1c68e07c44a7aed5c90b72ad46c80a4c}} 
+\index{ScaleLabelInterface@{ScaleLabelInterface}!label@{label}}
+\index{label@{label}!ScaleLabelInterface@{ScaleLabelInterface}}
+\doxysubsubsection{label()}
+{\footnotesize\ttfamily virtual Q\+String Scale\+Label\+Interface\+::label (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value on the \doxyref{Scale\+Item}{p.}{classScaleItem}, in the \doxyref{Scale\+Item}{p.}{classScaleItem} coordinates. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a Q\+String that represents the value passed as parameter.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{Scale\+Item\+::install\+Scale\+Label\+Interface}{p.}{classScaleItem_a557b14c667f12996a4cf57ff0b7b5d7f} 
+
+\doxyref{Scale\+Item}{p.}{classScaleItem} 
+\end{DoxySeeAlso}
+
+
+Implemented in \textbf{ Time\+Scale\+Label} \doxyref{}{p.}{classTimeScaleLabel_a5a600d367b78d93d32be23a5f5528520}.
+
+
+
+Referenced by External\+Scale\+Widget\+::paint\+Event().
+
+\mbox{\label{classScaleLabelInterface_aae0aa07083dcb8bf5cc86291338cb82b}} 
+\index{ScaleLabelInterface@{ScaleLabelInterface}!longestLabel@{longestLabel}}
+\index{longestLabel@{longestLabel}!ScaleLabelInterface@{ScaleLabelInterface}}
+\doxysubsubsection{longestLabel()}
+{\footnotesize\ttfamily virtual Q\+String Scale\+Label\+Interface\+::longest\+Label (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyParagraph}{Note\+: this method must return the longest possible string independently of the}
+labels currently displayed as returned by the label method. For instance, if the x axis maps the months of the year, then \char`\"{}\+September\char`\"{} must be returned.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Note\+: if the longest\+Label changes over time (for instance, the format of the months}
+switches to the month number instead of the name), then a call to update\+Geometry may be required on the scales that use the \doxyref{Scale\+Label\+Interface}{p.}{classScaleLabelInterface}, in order to recalculate the size occupied by the labels. 
+\end{DoxyParagraph}
+
+
+Implemented in \textbf{ Time\+Scale\+Label} \doxyref{}{p.}{classTimeScaleLabel_aef9813fa6cd48a4dcb1d7050681b9bb3}.
+
+
+
+Referenced by External\+Scale\+Widget\+::m\+Calculate\+Longest\+Label\+Width().
+
+\mbox{\label{classScaleLabelInterface_a9f3cf76c7fa92a21c2eb340abababf23}} 
+\index{ScaleLabelInterface@{ScaleLabelInterface}!type@{type}}
+\index{type@{type}!ScaleLabelInterface@{ScaleLabelInterface}}
+\doxysubsubsection{type()}
+{\footnotesize\ttfamily virtual \textbf{ Type} Scale\+Label\+Interface\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \textbf{ Time\+Scale\+Label} \doxyref{}{p.}{classTimeScaleLabel_aba81c97958eb4e6e10b16abe6c553db0}.
+
+
+
+Referenced by Plot\+Scene\+Widget\+::save\+Data().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ scalelabelinterface.\+h}\item 
+\textbf{ scalelabelinterface.\+cpp}\end{DoxyCompactItemize}

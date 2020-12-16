@@ -1,0 +1,396 @@
+\section{Qt\+Int\+Property\+Manager Class Reference}
+\label{classQtIntPropertyManager}\index{Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}}
+
+
+The \doxyref{Qt\+Int\+Property\+Manager}{p.}{classQtIntPropertyManager} provides and manages int properties.  
+
+
+
+
+{\ttfamily \#include $<$qtpropertymanager.\+h$>$}
+
+Inheritance diagram for Qt\+Int\+Property\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classQtIntPropertyManager}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf set\+Value} ({\bf Qt\+Property} $\ast$property, int val)
+\item 
+void {\bf set\+Minimum} ({\bf Qt\+Property} $\ast$property, int min\+Val)
+\item 
+void {\bf set\+Maximum} ({\bf Qt\+Property} $\ast$property, int max\+Val)
+\item 
+void {\bf set\+Range} ({\bf Qt\+Property} $\ast$property, int min\+Val, int max\+Val)
+\item 
+void {\bf set\+Single\+Step} ({\bf Qt\+Property} $\ast$property, int step)
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf value\+Changed} ({\bf Qt\+Property} $\ast$property, int val)
+\item 
+void {\bf range\+Changed} ({\bf Qt\+Property} $\ast$property, int min\+Val, int max\+Val)
+\item 
+void {\bf single\+Step\+Changed} ({\bf Qt\+Property} $\ast$property, int step)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Qt\+Int\+Property\+Manager} (Q\+Object $\ast$parent=0)
+\item 
+{\bf $\sim$\+Qt\+Int\+Property\+Manager} ()
+\item 
+int {\bf value} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+int {\bf minimum} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+int {\bf maximum} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+int {\bf single\+Step} (const {\bf Qt\+Property} $\ast$property) const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String {\bf value\+Text} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+virtual void {\bf initialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\item 
+virtual void {\bf uninitialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An int property has a current value, and a range specifying the valid values. The range is defined by a minimum and a maximum value.
+
+The property\textquotesingle{}s value and range can be retrieved using the \doxyref{value()}{p.}{classQtIntPropertyManager_abc2262d297496aff50d8cafa3e90b0ff}, \doxyref{minimum()}{p.}{classQtIntPropertyManager_acf24786c2e0990165cc69349d6acc580} and \doxyref{maximum()}{p.}{classQtIntPropertyManager_a3277dc219e7689a0656420f472835ff1} functions, and can be set using the \doxyref{set\+Value()}{p.}{classQtIntPropertyManager_af918e1e91c69de900a3ce3fe8fb4291f}, \doxyref{set\+Minimum()}{p.}{classQtIntPropertyManager_abb419f45a387832a3b74f8c9180dd176} and \doxyref{set\+Maximum()}{p.}{classQtIntPropertyManager_aa09805459434ad6e58274c8213293f89} slots. Alternatively, the range can be defined in one go using the \doxyref{set\+Range()}{p.}{classQtIntPropertyManager_a313c2054fa57dda4e39bfaa6ee64cc38} slot.
+
+In addition, \doxyref{Qt\+Int\+Property\+Manager}{p.}{classQtIntPropertyManager} provides the \doxyref{value\+Changed()}{p.}{classQtIntPropertyManager_a524990cc950be2174854c0150f906776} signal which is emitted whenever a property created by this manager changes, and the \doxyref{range\+Changed()}{p.}{classQtIntPropertyManager_a2e89b90fb975144bad068d9eee7c2095} signal which is emitted whenever such a property changes its range of valid values.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager}, \doxyref{Qt\+Spin\+Box\+Factory}{p.}{classQtSpinBoxFactory}, \doxyref{Qt\+Slider\+Factory}{p.}{classQtSliderFactory}, \doxyref{Qt\+Scroll\+Bar\+Factory}{p.}{classQtScrollBarFactory} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}!Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}}
+\index{Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}!Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}}
+\subsubsection[{Qt\+Int\+Property\+Manager(\+Q\+Object $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Int\+Property\+Manager\+::\+Qt\+Int\+Property\+Manager (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classQtIntPropertyManager_a7e85fcf0917d2f7afdd4816e57344eaa}
+Creates a manager with the given {\itshape parent}. \index{Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}!````~Qt\+Int\+Property\+Manager@{$\sim$\+Qt\+Int\+Property\+Manager}}
+\index{````~Qt\+Int\+Property\+Manager@{$\sim$\+Qt\+Int\+Property\+Manager}!Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}}
+\subsubsection[{$\sim$\+Qt\+Int\+Property\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Int\+Property\+Manager\+::$\sim$\+Qt\+Int\+Property\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classQtIntPropertyManager_a29740b5a22332096ac0365d6f23fa418}
+Destroys this manager, and all the properties it has created. 
+
+References Qt\+Abstract\+Property\+Manager\+::clear().
+
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}!initialize\+Property@{initialize\+Property}}
+\index{initialize\+Property@{initialize\+Property}!Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}}
+\subsubsection[{initialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Int\+Property\+Manager\+::initialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtIntPropertyManager_a4fecf7bf63c97bab2204f8ebe329d9c7}
+
+
+Implements {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ab7501ecabc5285cb50d7ed91a2ef44fc}.
+
+
+
+References Qt\+Int\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}!maximum@{maximum}}
+\index{maximum@{maximum}!Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}}
+\subsubsection[{maximum(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}int Qt\+Int\+Property\+Manager\+::maximum (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtIntPropertyManager_a3277dc219e7689a0656420f472835ff1}
+Returns the given {\itshape property\textquotesingle{}s} maximum value.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Maximum()}{p.}{classQtIntPropertyManager_aa09805459434ad6e58274c8213293f89}, \doxyref{minimum()}{p.}{classQtIntPropertyManager_acf24786c2e0990165cc69349d6acc580}, \doxyref{set\+Range()}{p.}{classQtIntPropertyManager_a313c2054fa57dda4e39bfaa6ee64cc38} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Int\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+Referenced by Qt\+Spin\+Box\+Factory\+::create\+Editor(), Qt\+Slider\+Factory\+::create\+Editor(), and Qt\+Scroll\+Bar\+Factory\+::create\+Editor().
+
+\index{Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}!minimum@{minimum}}
+\index{minimum@{minimum}!Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}}
+\subsubsection[{minimum(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}int Qt\+Int\+Property\+Manager\+::minimum (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtIntPropertyManager_acf24786c2e0990165cc69349d6acc580}
+Returns the given {\itshape property\textquotesingle{}s} minimum value.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Minimum()}{p.}{classQtIntPropertyManager_abb419f45a387832a3b74f8c9180dd176}, \doxyref{maximum()}{p.}{classQtIntPropertyManager_a3277dc219e7689a0656420f472835ff1}, \doxyref{set\+Range()}{p.}{classQtIntPropertyManager_a313c2054fa57dda4e39bfaa6ee64cc38} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Int\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+Referenced by Qt\+Spin\+Box\+Factory\+::create\+Editor(), Qt\+Slider\+Factory\+::create\+Editor(), and Qt\+Scroll\+Bar\+Factory\+::create\+Editor().
+
+\index{Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}!range\+Changed@{range\+Changed}}
+\index{range\+Changed@{range\+Changed}!Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}}
+\subsubsection[{range\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Int\+Property\+Manager\+::range\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{int}]{minimum, }
+\item[{int}]{maximum}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtIntPropertyManager_a2e89b90fb975144bad068d9eee7c2095}
+This signal is emitted whenever a property created by this manager changes its range of valid values, passing a pointer to the {\itshape property} and the new {\itshape minimum} and {\itshape maximum} values.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Range()}{p.}{classQtIntPropertyManager_a313c2054fa57dda4e39bfaa6ee64cc38} 
+\end{DoxySeeAlso}
+
+
+Referenced by set\+Maximum(), set\+Minimum(), and set\+Range().
+
+\index{Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}!set\+Maximum@{set\+Maximum}}
+\index{set\+Maximum@{set\+Maximum}!Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}}
+\subsubsection[{set\+Maximum}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Int\+Property\+Manager\+::set\+Maximum (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{int}]{max\+Val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtIntPropertyManager_aa09805459434ad6e58274c8213293f89}
+Sets the maximum value for the given {\itshape property} to {\itshape max\+Val}.
+
+When setting maximum value, the minimum and current values are adjusted if necessary (ensuring that the range remains valid and that the current value is within the range).
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{maximum()}{p.}{classQtIntPropertyManager_a3277dc219e7689a0656420f472835ff1}, \doxyref{set\+Range()}{p.}{classQtIntPropertyManager_a313c2054fa57dda4e39bfaa6ee64cc38}, \doxyref{range\+Changed()}{p.}{classQtIntPropertyManager_a2e89b90fb975144bad068d9eee7c2095} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Abstract\+Property\+Manager\+::property\+Changed(), range\+Changed(), and value\+Changed().
+
+\index{Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}!set\+Minimum@{set\+Minimum}}
+\index{set\+Minimum@{set\+Minimum}!Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}}
+\subsubsection[{set\+Minimum}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Int\+Property\+Manager\+::set\+Minimum (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{int}]{min\+Val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtIntPropertyManager_abb419f45a387832a3b74f8c9180dd176}
+Sets the minimum value for the given {\itshape property} to {\itshape min\+Val}.
+
+When setting the minimum value, the maximum and current values are adjusted if necessary (ensuring that the range remains valid and that the current value is within the range).
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{minimum()}{p.}{classQtIntPropertyManager_acf24786c2e0990165cc69349d6acc580}, \doxyref{set\+Range()}{p.}{classQtIntPropertyManager_a313c2054fa57dda4e39bfaa6ee64cc38}, \doxyref{range\+Changed()}{p.}{classQtIntPropertyManager_a2e89b90fb975144bad068d9eee7c2095} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Abstract\+Property\+Manager\+::property\+Changed(), range\+Changed(), and value\+Changed().
+
+
+
+Referenced by Qt\+Size\+Property\+Manager\+::initialize\+Property(), Qt\+Rect\+Property\+Manager\+::initialize\+Property(), and Qt\+Font\+Property\+Manager\+::initialize\+Property().
+
+\index{Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}!set\+Range@{set\+Range}}
+\index{set\+Range@{set\+Range}!Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}}
+\subsubsection[{set\+Range}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Int\+Property\+Manager\+::set\+Range (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{int}]{minimum, }
+\item[{int}]{maximum}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtIntPropertyManager_a313c2054fa57dda4e39bfaa6ee64cc38}
+Sets the range of valid values.
+
+This is a convenience function defining the range of valid values in one go; setting the {\itshape minimum} and {\itshape maximum} values for the given {\itshape property} with a single function call.
+
+When setting a new range, the current value is adjusted if necessary (ensuring that the value remains within range).
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Minimum()}{p.}{classQtIntPropertyManager_abb419f45a387832a3b74f8c9180dd176}, \doxyref{set\+Maximum()}{p.}{classQtIntPropertyManager_aa09805459434ad6e58274c8213293f89}, \doxyref{range\+Changed()}{p.}{classQtIntPropertyManager_a2e89b90fb975144bad068d9eee7c2095} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Abstract\+Property\+Manager\+::property\+Changed(), range\+Changed(), and value\+Changed().
+
+
+
+Referenced by Qt\+Size\+Policy\+Property\+Manager\+::initialize\+Property(), and Qt\+Color\+Property\+Manager\+::initialize\+Property().
+
+\index{Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}!set\+Single\+Step@{set\+Single\+Step}}
+\index{set\+Single\+Step@{set\+Single\+Step}!Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}}
+\subsubsection[{set\+Single\+Step}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Int\+Property\+Manager\+::set\+Single\+Step (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{int}]{step}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtIntPropertyManager_ae8139311ffcabd74b10c3c9ecdad1703}
+Sets the step value for the given {\itshape property} to {\itshape step}.
+
+The step is typically used to increment or decrement a property value while pressing an arrow key.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{single\+Step()}{p.}{classQtIntPropertyManager_ab997bc2e5e625a2dbc47db719088b12d} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Int\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Int\+Property\+Manager\+Private\+::\+Data\+::single\+Step, and single\+Step\+Changed().
+
+\index{Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}}
+\subsubsection[{set\+Value}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Int\+Property\+Manager\+::set\+Value (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtIntPropertyManager_af918e1e91c69de900a3ce3fe8fb4291f}
+Sets the value of the given {\itshape property} to {\itshape value}.
+
+If the specified {\itshape value} is not valid according to the given {\itshape property\textquotesingle{}s} range, the {\itshape value} is adjusted to the nearest valid value within the range.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{value()}{p.}{classQtIntPropertyManager_abc2262d297496aff50d8cafa3e90b0ff}, \doxyref{set\+Range()}{p.}{classQtIntPropertyManager_a313c2054fa57dda4e39bfaa6ee64cc38}, \doxyref{value\+Changed()}{p.}{classQtIntPropertyManager_a524990cc950be2174854c0150f906776} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Abstract\+Property\+Manager\+::property\+Changed(), and value\+Changed().
+
+
+
+Referenced by Qt\+Point\+Property\+Manager\+::initialize\+Property(), Qt\+Size\+Property\+Manager\+::initialize\+Property(), Qt\+Rect\+Property\+Manager\+::initialize\+Property(), Qt\+Size\+Policy\+Property\+Manager\+::initialize\+Property(), Qt\+Font\+Property\+Manager\+::initialize\+Property(), Qt\+Color\+Property\+Manager\+::initialize\+Property(), Qt\+Point\+Property\+Manager\+::set\+Value(), Qt\+Rect\+Property\+Manager\+::set\+Value(), Qt\+Size\+Policy\+Property\+Manager\+::set\+Value(), Qt\+Font\+Property\+Manager\+::set\+Value(), Qt\+Color\+Property\+Manager\+::set\+Value(), Qt\+Spin\+Box\+Factory\+Private\+::slot\+Set\+Value(), Qt\+Slider\+Factory\+Private\+::slot\+Set\+Value(), and Qt\+Scroll\+Bar\+Factory\+Private\+::slot\+Set\+Value().
+
+\index{Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}!single\+Step@{single\+Step}}
+\index{single\+Step@{single\+Step}!Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}}
+\subsubsection[{single\+Step(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}int Qt\+Int\+Property\+Manager\+::single\+Step (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtIntPropertyManager_ab997bc2e5e625a2dbc47db719088b12d}
+Returns the given {\itshape property\textquotesingle{}s} step value.
+
+The step is typically used to increment or decrement a property value while pressing an arrow key.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Single\+Step()}{p.}{classQtIntPropertyManager_ae8139311ffcabd74b10c3c9ecdad1703} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Int\+Property\+Manager\+Private\+::m\+\_\+values, and Qt\+Int\+Property\+Manager\+Private\+::\+Data\+::single\+Step.
+
+
+
+Referenced by Qt\+Spin\+Box\+Factory\+::create\+Editor(), Qt\+Slider\+Factory\+::create\+Editor(), and Qt\+Scroll\+Bar\+Factory\+::create\+Editor().
+
+\index{Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}!single\+Step\+Changed@{single\+Step\+Changed}}
+\index{single\+Step\+Changed@{single\+Step\+Changed}!Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}}
+\subsubsection[{single\+Step\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Int\+Property\+Manager\+::single\+Step\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{int}]{step}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtIntPropertyManager_a3b15fd1424c8207ac9b4823bd35770bd}
+This signal is emitted whenever a property created by this manager changes its single step property, passing a pointer to the {\itshape property} and the new {\itshape step} value
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Single\+Step()}{p.}{classQtIntPropertyManager_ae8139311ffcabd74b10c3c9ecdad1703} 
+\end{DoxySeeAlso}
+
+
+Referenced by set\+Single\+Step().
+
+\index{Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}!uninitialize\+Property@{uninitialize\+Property}}
+\index{uninitialize\+Property@{uninitialize\+Property}!Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}}
+\subsubsection[{uninitialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Int\+Property\+Manager\+::uninitialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtIntPropertyManager_ade1279551339ebcaad47f35ded9489a8}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ad199337e1ac748eef077011d94ecd5b4}.
+
+
+
+References Qt\+Int\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}!value@{value}}
+\index{value@{value}!Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}}
+\subsubsection[{value(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}int Qt\+Int\+Property\+Manager\+::value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtIntPropertyManager_abc2262d297496aff50d8cafa3e90b0ff}
+Returns the given {\itshape property\textquotesingle{}s} value.
+
+If the given property is not managed by this manager, this function returns 0.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Value()}{p.}{classQtIntPropertyManager_af918e1e91c69de900a3ce3fe8fb4291f} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Int\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+Referenced by Qt\+Spin\+Box\+Factory\+::create\+Editor(), Qt\+Slider\+Factory\+::create\+Editor(), Qt\+Scroll\+Bar\+Factory\+::create\+Editor(), Qt\+Spin\+Box\+Factory\+Private\+::slot\+Range\+Changed(), Qt\+Slider\+Factory\+Private\+::slot\+Range\+Changed(), and Qt\+Scroll\+Bar\+Factory\+Private\+::slot\+Range\+Changed().
+
+\index{Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}!value\+Changed@{value\+Changed}}
+\index{value\+Changed@{value\+Changed}!Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}}
+\subsubsection[{value\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Int\+Property\+Manager\+::value\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtIntPropertyManager_a524990cc950be2174854c0150f906776}
+This signal is emitted whenever a property created by this manager changes its value, passing a pointer to the {\itshape property} and the new {\itshape value} as parameters.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Value()}{p.}{classQtIntPropertyManager_af918e1e91c69de900a3ce3fe8fb4291f} 
+\end{DoxySeeAlso}
+
+
+Referenced by set\+Maximum(), set\+Minimum(), set\+Range(), and set\+Value().
+
+\index{Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}!value\+Text@{value\+Text}}
+\index{value\+Text@{value\+Text}!Qt\+Int\+Property\+Manager@{Qt\+Int\+Property\+Manager}}
+\subsubsection[{value\+Text(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Qt\+Int\+Property\+Manager\+::value\+Text (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtIntPropertyManager_a6d49f585aa4d0c9f9a25bc9731b3fbd3}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_aa99cf98b6f1d9582245eb2f5168c5b21}.
+
+
+
+References Qt\+Int\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtpropertymanager.\+h}\item 
+{\bf qtpropertymanager.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,101 @@
+\section{Qt\+Group\+Property\+Manager Class Reference}
+\label{classQtGroupPropertyManager}\index{Qt\+Group\+Property\+Manager@{Qt\+Group\+Property\+Manager}}
+
+
+The \doxyref{Qt\+Group\+Property\+Manager}{p.}{classQtGroupPropertyManager} provides and manages group properties.  
+
+
+
+
+{\ttfamily \#include $<$qtpropertymanager.\+h$>$}
+
+Inheritance diagram for Qt\+Group\+Property\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classQtGroupPropertyManager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Qt\+Group\+Property\+Manager} (Q\+Object $\ast$parent=0)
+\item 
+{\bf $\sim$\+Qt\+Group\+Property\+Manager} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bf has\+Value} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+virtual void {\bf initialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\item 
+virtual void {\bf uninitialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+This class is intended to provide a grouping element without any value.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Qt\+Group\+Property\+Manager@{Qt\+Group\+Property\+Manager}!Qt\+Group\+Property\+Manager@{Qt\+Group\+Property\+Manager}}
+\index{Qt\+Group\+Property\+Manager@{Qt\+Group\+Property\+Manager}!Qt\+Group\+Property\+Manager@{Qt\+Group\+Property\+Manager}}
+\subsubsection[{Qt\+Group\+Property\+Manager(\+Q\+Object $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Group\+Property\+Manager\+::\+Qt\+Group\+Property\+Manager (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classQtGroupPropertyManager_a0ac7d2ec5c7ef3de4118ab50aed2d180}
+Creates a manager with the given {\itshape parent}. \index{Qt\+Group\+Property\+Manager@{Qt\+Group\+Property\+Manager}!````~Qt\+Group\+Property\+Manager@{$\sim$\+Qt\+Group\+Property\+Manager}}
+\index{````~Qt\+Group\+Property\+Manager@{$\sim$\+Qt\+Group\+Property\+Manager}!Qt\+Group\+Property\+Manager@{Qt\+Group\+Property\+Manager}}
+\subsubsection[{$\sim$\+Qt\+Group\+Property\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Group\+Property\+Manager\+::$\sim$\+Qt\+Group\+Property\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classQtGroupPropertyManager_a9a5f626ec6949568c9a79ef1f28d28d1}
+Destroys this manager, and all the properties it has created. 
+
+\subsection{Member Function Documentation}
+\index{Qt\+Group\+Property\+Manager@{Qt\+Group\+Property\+Manager}!has\+Value@{has\+Value}}
+\index{has\+Value@{has\+Value}!Qt\+Group\+Property\+Manager@{Qt\+Group\+Property\+Manager}}
+\subsubsection[{has\+Value(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Qt\+Group\+Property\+Manager\+::has\+Value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtGroupPropertyManager_af26cb958379f283cad20b7f8affa6e37}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_a6da2ba16bf6ed716d54efe81f118d3ca}.
+
+\index{Qt\+Group\+Property\+Manager@{Qt\+Group\+Property\+Manager}!initialize\+Property@{initialize\+Property}}
+\index{initialize\+Property@{initialize\+Property}!Qt\+Group\+Property\+Manager@{Qt\+Group\+Property\+Manager}}
+\subsubsection[{initialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Group\+Property\+Manager\+::initialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtGroupPropertyManager_a88a0f0bb93c6f2758ef327deb0b260be}
+
+
+Implements {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ab7501ecabc5285cb50d7ed91a2ef44fc}.
+
+\index{Qt\+Group\+Property\+Manager@{Qt\+Group\+Property\+Manager}!uninitialize\+Property@{uninitialize\+Property}}
+\index{uninitialize\+Property@{uninitialize\+Property}!Qt\+Group\+Property\+Manager@{Qt\+Group\+Property\+Manager}}
+\subsubsection[{uninitialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Group\+Property\+Manager\+::uninitialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtGroupPropertyManager_a5da3d766cbd3b92a7491522e4a5e1e9b}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ad199337e1ac748eef077011d94ecd5b4}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtpropertymanager.\+h}\item 
+{\bf qtpropertymanager.\+cpp}\end{DoxyCompactItemize}

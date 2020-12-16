@@ -1,0 +1,220 @@
+\doxysection{Point Class Reference}
+\label{classPoint}\index{Point@{Point}}
+
+
+a point item that calculates its position in the view and simply draws a cross centered at x,y and the represented x and y values.  
+
+
+
+
+{\ttfamily \#include $<$point.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Point} (const \textbf{ Point\+Data} \&data, \textbf{ Scale\+Item} $\ast$x\+Axis, \textbf{ Scale\+Item} $\ast$y\+Axis)
+\item 
+\textbf{ Point} (double \textbf{ x}, double \textbf{ y})
+\item 
+virtual \textbf{ $\sim$\+Point} ()
+\item 
+double \textbf{ update\+X\+Pos} (\textbf{ Plot\+Scene\+Widget} $\ast$view)
+\item 
+double \textbf{ update\+Y\+Pos} (\textbf{ Plot\+Scene\+Widget} $\ast$view)
+\item 
+Q\+PointF \textbf{ update\+Position} (\textbf{ Plot\+Scene\+Widget} $\ast$view)
+\begin{DoxyCompactList}\small\item\em calculates the position in scene coordinates according to the view geometry. \end{DoxyCompactList}\item 
+Q\+PointF \textbf{ pos} () const
+\begin{DoxyCompactList}\small\item\em returns the position of the point in scene coordinates \end{DoxyCompactList}\item 
+const \textbf{ Point\+Data} \& \textbf{ point\+DataR} () const
+\item 
+\textbf{ Point\+Data} \textbf{ point\+Data} () const
+\item 
+void \textbf{ set\+Point\+Data} (const \textbf{ Point\+Data} \&pd)
+\begin{DoxyCompactList}\small\item\em sets the \doxyref{Point\+Data}{p.}{classPointData} associated to the X\+Y\+Item. \end{DoxyCompactList}\item 
+void \textbf{ set\+Pos} (const Q\+PointF \&\textbf{ pos})
+\item 
+void \textbf{ set\+Pos} (qreal \textbf{ x}, qreal \textbf{ y})
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \textbf{ x}
+\item 
+double \textbf{ y}
+\item 
+double \textbf{ xpos}
+\item 
+double \textbf{ ypos}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ Scene\+Curve}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+You must inherit from this class or install a custom \doxyref{Item\+Painter\+Interface}{p.}{classItemPainterInterface} to change its drawing behaviour. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classPoint_ae59a6aba27e61216b1ad9bb08d19b297}} 
+\index{Point@{Point}!Point@{Point}}
+\index{Point@{Point}!Point@{Point}}
+\doxysubsubsection{Point()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Point\+::\+Point (\begin{DoxyParamCaption}\item[{const \textbf{ Point\+Data} \&}]{data,  }\item[{\textbf{ Scale\+Item} $\ast$}]{x\+Axis,  }\item[{\textbf{ Scale\+Item} $\ast$}]{y\+Axis }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\mbox{\label{classPoint_a78b55e8d5466bb8c2cf60fa55f2562ff}} 
+\index{Point@{Point}!Point@{Point}}
+\index{Point@{Point}!Point@{Point}}
+\doxysubsubsection{Point()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Point\+::\+Point (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+References x, and y.
+
+\mbox{\label{classPoint_a395fa04b4ec126b66fc053f829a30cc1}} 
+\index{Point@{Point}!````~Point@{$\sim$Point}}
+\index{````~Point@{$\sim$Point}!Point@{Point}}
+\doxysubsubsection{$\sim$Point()}
+{\footnotesize\ttfamily Point\+::$\sim$\+Point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classPoint_a55b9ba1ce28224655f962639d51955a0}} 
+\index{Point@{Point}!pointData@{pointData}}
+\index{pointData@{pointData}!Point@{Point}}
+\doxysubsubsection{pointData()}
+{\footnotesize\ttfamily \textbf{ Point\+Data} Point\+::point\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPoint_a04d8c21f5f31720aa53bb25aa891b5ac}} 
+\index{Point@{Point}!pointDataR@{pointDataR}}
+\index{pointDataR@{pointDataR}!Point@{Point}}
+\doxysubsubsection{pointDataR()}
+{\footnotesize\ttfamily const \textbf{ Point\+Data} \& Point\+::point\+DataR (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classPoint_a21331b2316176588ee77dd26a8abfe91}} 
+\index{Point@{Point}!pos@{pos}}
+\index{pos@{pos}!Point@{Point}}
+\doxysubsubsection{pos()}
+{\footnotesize\ttfamily Q\+PointF Point\+::pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the Q\+PointF representing the item position inside the scene, in scene coordinates. 
+\end{DoxyReturn}
+
+
+Referenced by set\+Pos().
+
+\mbox{\label{classPoint_a7eab86fbd3c13a5da3e171bb0e6ceab0}} 
+\index{Point@{Point}!setPointData@{setPointData}}
+\index{setPointData@{setPointData}!Point@{Point}}
+\doxysubsubsection{setPointData()}
+{\footnotesize\ttfamily void Point\+::set\+Point\+Data (\begin{DoxyParamCaption}\item[{const \textbf{ Point\+Data} \&}]{pd }\end{DoxyParamCaption})}
+
+Sets or updates the \doxyref{Point\+Data}{p.}{classPointData} associated to the item. Remember to call calculate\+Position after this call if you need to reposition the item after its data has changed. \mbox{\label{classPoint_a3464b4ba85d226f74349eef5ed5c7cb4}} 
+\index{Point@{Point}!setPos@{setPos}}
+\index{setPos@{setPos}!Point@{Point}}
+\doxysubsubsection{setPos()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Point\+::set\+Pos (\begin{DoxyParamCaption}\item[{const Q\+PointF \&}]{pos }\end{DoxyParamCaption})}
+
+
+
+References pos().
+
+
+
+Referenced by update\+X\+Pos(), and update\+Y\+Pos().
+
+\mbox{\label{classPoint_a533cc4149e202e13477f0788b471d701}} 
+\index{Point@{Point}!setPos@{setPos}}
+\index{setPos@{setPos}!Point@{Point}}
+\doxysubsubsection{setPos()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Point\+::set\+Pos (\begin{DoxyParamCaption}\item[{qreal}]{x,  }\item[{qreal}]{y }\end{DoxyParamCaption})}
+
+
+
+References Item\+Position\+Change\+Listener\+::on\+Item\+Position\+Changed(), x, and y.
+
+\mbox{\label{classPoint_a3ec32b952d63b28aa2e1d7e7edb143a2}} 
+\index{Point@{Point}!updatePosition@{updatePosition}}
+\index{updatePosition@{updatePosition}!Point@{Point}}
+\doxysubsubsection{updatePosition()}
+{\footnotesize\ttfamily Q\+PointF Point\+::update\+Position (\begin{DoxyParamCaption}\item[{\textbf{ Plot\+Scene\+Widget} $\ast$}]{view }\end{DoxyParamCaption})}
+
+Updates the internal position available through the pos call. 
+
+References Item\+Position\+Change\+Listener\+::on\+Item\+Position\+Changed(), Plot\+Scene\+Widget\+::plot\+Rect(), x, and y.
+
+\mbox{\label{classPoint_adbe79fc7d28fa82c0c7b52ffbe54f4b6}} 
+\index{Point@{Point}!updateXPos@{updateXPos}}
+\index{updateXPos@{updateXPos}!Point@{Point}}
+\doxysubsubsection{updateXPos()}
+{\footnotesize\ttfamily double Point\+::update\+X\+Pos (\begin{DoxyParamCaption}\item[{\textbf{ Plot\+Scene\+Widget} $\ast$}]{view }\end{DoxyParamCaption})}
+
+
+
+References Plot\+Scene\+Widget\+::plot\+Rect(), set\+Pos(), and x.
+
+\mbox{\label{classPoint_a498bbd59a85e16e3e807999a0a0473b2}} 
+\index{Point@{Point}!updateYPos@{updateYPos}}
+\index{updateYPos@{updateYPos}!Point@{Point}}
+\doxysubsubsection{updateYPos()}
+{\footnotesize\ttfamily double Point\+::update\+Y\+Pos (\begin{DoxyParamCaption}\item[{\textbf{ Plot\+Scene\+Widget} $\ast$}]{view }\end{DoxyParamCaption})}
+
+
+
+References Plot\+Scene\+Widget\+::plot\+Rect(), set\+Pos(), and y.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\label{classPoint_a67b74cfd8a8dbb3befcf5713704e45bc}} 
+\index{Point@{Point}!SceneCurve@{SceneCurve}}
+\index{SceneCurve@{SceneCurve}!Point@{Point}}
+\doxysubsubsection{SceneCurve}
+{\footnotesize\ttfamily friend class \textbf{ Scene\+Curve}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classPoint_ab99c56589bc8ad5fa5071387110a5bc7}} 
+\index{Point@{Point}!x@{x}}
+\index{x@{x}!Point@{Point}}
+\doxysubsubsection{x}
+{\footnotesize\ttfamily double Point\+::x}
+
+
+
+Referenced by Point(), set\+Pos(), update\+Position(), and update\+X\+Pos().
+
+\mbox{\label{classPoint_a6cbbd51b165eadb60153a8adffd537ca}} 
+\index{Point@{Point}!xpos@{xpos}}
+\index{xpos@{xpos}!Point@{Point}}
+\doxysubsubsection{xpos}
+{\footnotesize\ttfamily double Point\+::xpos}
+
+\mbox{\label{classPoint_afa38be143ae800e6ad69ce8ed4df62d8}} 
+\index{Point@{Point}!y@{y}}
+\index{y@{y}!Point@{Point}}
+\doxysubsubsection{y}
+{\footnotesize\ttfamily double Point\+::y}
+
+
+
+Referenced by Point(), set\+Pos(), update\+Position(), and update\+Y\+Pos().
+
+\mbox{\label{classPoint_a898fc8fd8f88d509eab337eadc75e327}} 
+\index{Point@{Point}!ypos@{ypos}}
+\index{ypos@{ypos}!Point@{Point}}
+\doxysubsubsection{ypos}
+{\footnotesize\ttfamily double Point\+::ypos}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ point.\+h}\item 
+\textbf{ point.\+cpp}\end{DoxyCompactItemize}

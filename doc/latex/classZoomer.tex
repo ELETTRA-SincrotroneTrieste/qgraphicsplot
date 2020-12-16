@@ -1,0 +1,93 @@
+\doxysection{Zoomer Class Reference}
+\label{classZoomer}\index{Zoomer@{Zoomer}}
+
+
+{\ttfamily \#include $<$zoomer.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Zoomer} (\textbf{ Plot\+Scene\+Widget} $\ast$plot)
+\item 
+void \textbf{ zoom} (const Q\+RectF \&zoom\+Rect)
+\item 
+void \textbf{ set\+Zoom\+Rect} (const Q\+RectF \&r)
+\item 
+void \textbf{ set\+Base\+Scale} (double sx, double sy)
+\item 
+bool \textbf{ in\+Zoom} () const
+\item 
+void \textbf{ unzoom} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classZoomer_af886ff12c52c132f8e3fef38fe3bf7da}} 
+\index{Zoomer@{Zoomer}!Zoomer@{Zoomer}}
+\index{Zoomer@{Zoomer}!Zoomer@{Zoomer}}
+\doxysubsubsection{Zoomer()}
+{\footnotesize\ttfamily Zoomer\+::\+Zoomer (\begin{DoxyParamCaption}\item[{\textbf{ Plot\+Scene\+Widget} $\ast$}]{plot }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+References Zoomer\+Private\+::in\+Zoom, Zoomer\+Private\+::plot, Plot\+Scene\+Widget\+::plot\+Rect(), Zoomer\+Private\+::zoom\+Rect, and Zoomer\+Private\+::zoom\+Stack.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classZoomer_a92eed36598d2c283278830db5ae61159}} 
+\index{Zoomer@{Zoomer}!inZoom@{inZoom}}
+\index{inZoom@{inZoom}!Zoomer@{Zoomer}}
+\doxysubsubsection{inZoom()}
+{\footnotesize\ttfamily bool Zoomer\+::in\+Zoom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+References Zoomer\+Private\+::in\+Zoom.
+
+\mbox{\label{classZoomer_ab34fb1b966669d0a31d118f1755418e8}} 
+\index{Zoomer@{Zoomer}!setBaseScale@{setBaseScale}}
+\index{setBaseScale@{setBaseScale}!Zoomer@{Zoomer}}
+\doxysubsubsection{setBaseScale()}
+{\footnotesize\ttfamily void Zoomer\+::set\+Base\+Scale (\begin{DoxyParamCaption}\item[{double}]{sx,  }\item[{double}]{sy }\end{DoxyParamCaption})}
+
+
+
+References Zoomer\+Private\+::zoom\+Stack.
+
+\mbox{\label{classZoomer_ac4cd18fa74c95bdf1115fa5201c32122}} 
+\index{Zoomer@{Zoomer}!setZoomRect@{setZoomRect}}
+\index{setZoomRect@{setZoomRect}!Zoomer@{Zoomer}}
+\doxysubsubsection{setZoomRect()}
+{\footnotesize\ttfamily void Zoomer\+::set\+Zoom\+Rect (\begin{DoxyParamCaption}\item[{const Q\+RectF \&}]{r }\end{DoxyParamCaption})}
+
+
+
+References Zoomer\+Private\+::zoom\+Rect.
+
+\mbox{\label{classZoomer_a487718e260edf10ffa5b57839ac104bd}} 
+\index{Zoomer@{Zoomer}!unzoom@{unzoom}}
+\index{unzoom@{unzoom}!Zoomer@{Zoomer}}
+\doxysubsubsection{unzoom()}
+{\footnotesize\ttfamily void Zoomer\+::unzoom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+References Zoomer\+Private\+::in\+Zoom, Zoomer\+Private\+::plot, Plot\+Scene\+Widget\+::scale(), Zoomer\+Private\+::zoom\+Rect, and Zoomer\+Private\+::zoom\+Stack.
+
+\mbox{\label{classZoomer_a7af13bf02578185a1a417a0d32934000}} 
+\index{Zoomer@{Zoomer}!zoom@{zoom}}
+\index{zoom@{zoom}!Zoomer@{Zoomer}}
+\doxysubsubsection{zoom()}
+{\footnotesize\ttfamily void Zoomer\+::zoom (\begin{DoxyParamCaption}\item[{const Q\+RectF \&}]{zoom\+Rect }\end{DoxyParamCaption})}
+
+
+
+References Zoomer\+Private\+::in\+Zoom, Zoomer\+Private\+::plot, Plot\+Scene\+Widget\+::plot\+Rect(), Plot\+Scene\+Widget\+::scale(), and Zoomer\+Private\+::zoom\+Stack.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ zoomer.\+h}\item 
+\textbf{ zoomer.\+cpp}\end{DoxyCompactItemize}

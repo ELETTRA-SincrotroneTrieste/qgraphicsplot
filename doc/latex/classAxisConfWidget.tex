@@ -1,0 +1,148 @@
+\section{Axis\+Conf\+Widget Class Reference}
+\label{classAxisConfWidget}\index{Axis\+Conf\+Widget@{Axis\+Conf\+Widget}}
+
+
+{\ttfamily \#include $<$axisconfwidget.\+h$>$}
+
+Inheritance diagram for Axis\+Conf\+Widget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classAxisConfWidget}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf add\+Scale} ({\bf Scale\+Widget\+::\+Position} pos)
+\item 
+void {\bf remove\+Scale} (const Q\+String \&name)
+\item 
+void {\bf apply\+Options\+Signal} (const Q\+List$<$ {\bf Curve\+Options} $>$ \&)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Axis\+Conf\+Widget} (Q\+Widget $\ast$parent=0)
+\item 
+void {\bf set\+Axis\+Count} (int c, {\bf Scale\+Orientation\+::\+Type} o={\bf Scale\+Orientation\+::\+Vertical})
+\item 
+int {\bf axis\+Count} ({\bf Scale\+Orientation\+::\+Type} o={\bf Scale\+Orientation\+::\+Vertical}) const 
+\item 
+void {\bf add\+Item} (const Q\+String \&src)
+\item 
+void {\bf add\+Configurable\+Objects} (const Q\+String \&group\+Name, const Q\+List$<$ Q\+Object $\ast$ $>$o)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Axis\+Conf\+Widget@{Axis\+Conf\+Widget}!Axis\+Conf\+Widget@{Axis\+Conf\+Widget}}
+\index{Axis\+Conf\+Widget@{Axis\+Conf\+Widget}!Axis\+Conf\+Widget@{Axis\+Conf\+Widget}}
+\subsubsection[{Axis\+Conf\+Widget(\+Q\+Widget $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Axis\+Conf\+Widget\+::\+Axis\+Conf\+Widget (
+\begin{DoxyParamCaption}
+\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{classAxisConfWidget_a72a080271cd7deb4b7201cb95613f54f}
+
+
+References add\+Scale(), remove\+Scale(), and Axis\+Conf\+Widget\+Private\+::tv\+Axes.
+
+
+
+\subsection{Member Function Documentation}
+\index{Axis\+Conf\+Widget@{Axis\+Conf\+Widget}!add\+Configurable\+Objects@{add\+Configurable\+Objects}}
+\index{add\+Configurable\+Objects@{add\+Configurable\+Objects}!Axis\+Conf\+Widget@{Axis\+Conf\+Widget}}
+\subsubsection[{add\+Configurable\+Objects(const Q\+String \&group\+Name, const Q\+List$<$ Q\+Object $\ast$ $>$o)}]{\setlength{\rightskip}{0pt plus 5cm}void Axis\+Conf\+Widget\+::add\+Configurable\+Objects (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{group\+Name, }
+\item[{const Q\+List$<$ Q\+Object $\ast$ $>$}]{o}
+\end{DoxyParamCaption}
+)}\label{classAxisConfWidget_a637272ed61abbdb030f93077658c045f}
+
+
+References Qt\+Abstract\+Property\+Browser\+::add\+Property(), add\+Scale(), apply\+Options\+Signal(), Tree\+View\+Axes\+::axis\+Count(), Scale\+Widget\+::\+Bottom, Tree\+View\+Axes\+::\+Col\+Y\+Axis, Tree\+View\+Axes\+::get\+Curve\+Options(), Scale\+Orientation\+::\+Horizontal, Scale\+Widget\+::\+Left, remove\+Scale(), Scale\+Widget\+::\+Right, Tree\+View\+Axes\+::set\+Axis\+Count(), Qt\+Tree\+Property\+Browser\+::set\+Expanded(), Qt\+Abstract\+Property\+Browser\+::set\+Factory\+For\+Manager(), Object\+Property\+Manager\+::set\+Objects(), Scale\+Widget\+::\+Top, Qt\+Abstract\+Property\+Browser\+::top\+Level\+Items(), Axis\+Conf\+Widget\+Private\+::tv\+Axes, and Scale\+Orientation\+::\+Vertical.
+
+
+
+Referenced by Ext\+Scale\+Plot\+Scene\+Widget\+::add\+Scale(), and Ext\+Scale\+Plot\+Scene\+Widget\+::on\+Data\+Min\+Max\+Changed().
+
+\index{Axis\+Conf\+Widget@{Axis\+Conf\+Widget}!add\+Item@{add\+Item}}
+\index{add\+Item@{add\+Item}!Axis\+Conf\+Widget@{Axis\+Conf\+Widget}}
+\subsubsection[{add\+Item(const Q\+String \&src)}]{\setlength{\rightskip}{0pt plus 5cm}void Axis\+Conf\+Widget\+::add\+Item (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{src}
+\end{DoxyParamCaption}
+)}\label{classAxisConfWidget_ad931ad2a16e19868055e35302140c90e}
+
+
+References Tree\+View\+Axes\+::add\+Item(), and Axis\+Conf\+Widget\+Private\+::tv\+Axes.
+
+
+
+Referenced by Ext\+Scale\+Plot\+Scene\+Widget\+::on\+Data\+Min\+Max\+Changed().
+
+\index{Axis\+Conf\+Widget@{Axis\+Conf\+Widget}!add\+Scale@{add\+Scale}}
+\index{add\+Scale@{add\+Scale}!Axis\+Conf\+Widget@{Axis\+Conf\+Widget}}
+\subsubsection[{add\+Scale}]{\setlength{\rightskip}{0pt plus 5cm}void Axis\+Conf\+Widget\+::add\+Scale (
+\begin{DoxyParamCaption}
+\item[{{\bf Scale\+Widget\+::\+Position}}]{pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classAxisConfWidget_a6cae39676a567125d29399854212f4fe}
+
+
+Referenced by add\+Configurable\+Objects(), and Axis\+Conf\+Widget().
+
+\index{Axis\+Conf\+Widget@{Axis\+Conf\+Widget}!apply\+Options\+Signal@{apply\+Options\+Signal}}
+\index{apply\+Options\+Signal@{apply\+Options\+Signal}!Axis\+Conf\+Widget@{Axis\+Conf\+Widget}}
+\subsubsection[{apply\+Options\+Signal}]{\setlength{\rightskip}{0pt plus 5cm}void Axis\+Conf\+Widget\+::apply\+Options\+Signal (
+\begin{DoxyParamCaption}
+\item[{const Q\+List$<$ {\bf Curve\+Options} $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classAxisConfWidget_a07c78eb46c36c0ba552729a8c155fd00}
+
+
+Referenced by add\+Configurable\+Objects().
+
+\index{Axis\+Conf\+Widget@{Axis\+Conf\+Widget}!axis\+Count@{axis\+Count}}
+\index{axis\+Count@{axis\+Count}!Axis\+Conf\+Widget@{Axis\+Conf\+Widget}}
+\subsubsection[{axis\+Count(\+Scale\+Orientation\+::\+Type o=\+Scale\+Orientation\+::\+Vertical) const }]{\setlength{\rightskip}{0pt plus 5cm}int Axis\+Conf\+Widget\+::axis\+Count (
+\begin{DoxyParamCaption}
+\item[{{\bf Scale\+Orientation\+::\+Type}}]{o = {\ttfamily {\bf Scale\+Orientation\+::\+Vertical}}}
+\end{DoxyParamCaption}
+) const}\label{classAxisConfWidget_ae567552131cce891f5dbbaa0edfd038c}
+
+
+References Tree\+View\+Axes\+::axis\+Count(), and Axis\+Conf\+Widget\+Private\+::tv\+Axes.
+
+\index{Axis\+Conf\+Widget@{Axis\+Conf\+Widget}!remove\+Scale@{remove\+Scale}}
+\index{remove\+Scale@{remove\+Scale}!Axis\+Conf\+Widget@{Axis\+Conf\+Widget}}
+\subsubsection[{remove\+Scale}]{\setlength{\rightskip}{0pt plus 5cm}void Axis\+Conf\+Widget\+::remove\+Scale (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classAxisConfWidget_afbf0bc8706b6a231e4904eb1ed333c85}
+
+
+Referenced by add\+Configurable\+Objects(), and Axis\+Conf\+Widget().
+
+\index{Axis\+Conf\+Widget@{Axis\+Conf\+Widget}!set\+Axis\+Count@{set\+Axis\+Count}}
+\index{set\+Axis\+Count@{set\+Axis\+Count}!Axis\+Conf\+Widget@{Axis\+Conf\+Widget}}
+\subsubsection[{set\+Axis\+Count(int c, Scale\+Orientation\+::\+Type o=\+Scale\+Orientation\+::\+Vertical)}]{\setlength{\rightskip}{0pt plus 5cm}void Axis\+Conf\+Widget\+::set\+Axis\+Count (
+\begin{DoxyParamCaption}
+\item[{int}]{c, }
+\item[{{\bf Scale\+Orientation\+::\+Type}}]{o = {\ttfamily {\bf Scale\+Orientation\+::\+Vertical}}}
+\end{DoxyParamCaption}
+)}\label{classAxisConfWidget_a328c5dcbfdccf83bf722edc6f911d568}
+
+
+References Tree\+View\+Axes\+::set\+Axis\+Count(), and Axis\+Conf\+Widget\+Private\+::tv\+Axes.
+
+
+
+Referenced by Ext\+Scale\+Plot\+Scene\+Widget\+::on\+Data\+Min\+Max\+Changed().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf axisconfwidget.\+h}\item 
+{\bf axisconfwidget.\+cpp}\end{DoxyCompactItemize}

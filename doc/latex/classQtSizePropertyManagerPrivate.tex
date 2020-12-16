@@ -1,0 +1,138 @@
+\section{Qt\+Size\+Property\+Manager\+Private Class Reference}
+\label{classQtSizePropertyManagerPrivate}\index{Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf Data}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Q\+Map$<$ const {\bf Qt\+Property} $\ast$, {\bf Data} $>$ {\bf Property\+Value\+Map}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf slot\+Int\+Changed} ({\bf Qt\+Property} $\ast$property, int value)
+\item 
+void {\bf slot\+Property\+Destroyed} ({\bf Qt\+Property} $\ast$property)
+\item 
+void {\bf set\+Value} ({\bf Qt\+Property} $\ast$property, const Q\+Size \&val)
+\item 
+void {\bf set\+Range} ({\bf Qt\+Property} $\ast$property, const Q\+Size \&min\+Val, const Q\+Size \&max\+Val, const Q\+Size \&val)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Property\+Value\+Map} {\bf m\+\_\+values}
+\item 
+{\bf Qt\+Int\+Property\+Manager} $\ast$ {\bf m\+\_\+int\+Property\+Manager}
+\item 
+Q\+Map$<$ const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$ $>$ {\bf m\+\_\+property\+ToW}
+\item 
+Q\+Map$<$ const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$ $>$ {\bf m\+\_\+property\+ToH}
+\item 
+Q\+Map$<$ const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$ $>$ {\bf m\+\_\+w\+To\+Property}
+\item 
+Q\+Map$<$ const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$ $>$ {\bf m\+\_\+h\+To\+Property}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\index{Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}!Property\+Value\+Map@{Property\+Value\+Map}}
+\index{Property\+Value\+Map@{Property\+Value\+Map}!Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}}
+\subsubsection[{Property\+Value\+Map}]{\setlength{\rightskip}{0pt plus 5cm}typedef Q\+Map$<$const {\bf Qt\+Property} $\ast$, {\bf Data}$>$ {\bf Qt\+Size\+Property\+Manager\+Private\+::\+Property\+Value\+Map}}\label{classQtSizePropertyManagerPrivate_a5fc82fd505948ce87865497312860715}
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}!set\+Range@{set\+Range}}
+\index{set\+Range@{set\+Range}!Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}}
+\subsubsection[{set\+Range(\+Qt\+Property $\ast$property, const Q\+Size \&min\+Val, const Q\+Size \&max\+Val, const Q\+Size \&val)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Size\+Property\+Manager\+Private\+::set\+Range (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Size \&}]{min\+Val, }
+\item[{const Q\+Size \&}]{max\+Val, }
+\item[{const Q\+Size \&}]{val}
+\end{DoxyParamCaption}
+)}\label{classQtSizePropertyManagerPrivate_a90c582fc332873532a2a6fe6bc2af8b9}
+
+
+Referenced by Qt\+Size\+Property\+Manager\+::set\+Maximum(), Qt\+Size\+Property\+Manager\+::set\+Minimum(), and Qt\+Size\+Property\+Manager\+::set\+Range().
+
+\index{Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}}
+\subsubsection[{set\+Value(\+Qt\+Property $\ast$property, const Q\+Size \&val)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Size\+Property\+Manager\+Private\+::set\+Value (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Size \&}]{val}
+\end{DoxyParamCaption}
+)}\label{classQtSizePropertyManagerPrivate_a47743bf3b9926c4a71a4bd93d9c69011}
+
+
+Referenced by Qt\+Size\+Property\+Manager\+::set\+Value().
+
+\index{Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}!slot\+Int\+Changed@{slot\+Int\+Changed}}
+\index{slot\+Int\+Changed@{slot\+Int\+Changed}!Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}}
+\subsubsection[{slot\+Int\+Changed(\+Qt\+Property $\ast$property, int value)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Size\+Property\+Manager\+Private\+::slot\+Int\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}\label{classQtSizePropertyManagerPrivate_afb067af40382b5586083153f0e314c80}
+\index{Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}!slot\+Property\+Destroyed@{slot\+Property\+Destroyed}}
+\index{slot\+Property\+Destroyed@{slot\+Property\+Destroyed}!Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}}
+\subsubsection[{slot\+Property\+Destroyed(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Size\+Property\+Manager\+Private\+::slot\+Property\+Destroyed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)}\label{classQtSizePropertyManagerPrivate_a0831f3a5551600d1248e10073b7ebb94}
+
+
+\subsection{Member Data Documentation}
+\index{Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}!m\+\_\+h\+To\+Property@{m\+\_\+h\+To\+Property}}
+\index{m\+\_\+h\+To\+Property@{m\+\_\+h\+To\+Property}!Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}}
+\subsubsection[{m\+\_\+h\+To\+Property}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Map$<$const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$$>$ Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+h\+To\+Property}\label{classQtSizePropertyManagerPrivate_ade58bdd517687b6b6eda954ddb6d8ab6}
+
+
+Referenced by Qt\+Size\+Property\+Manager\+::initialize\+Property(), and Qt\+Size\+Property\+Manager\+::uninitialize\+Property().
+
+\index{Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}!m\+\_\+int\+Property\+Manager@{m\+\_\+int\+Property\+Manager}}
+\index{m\+\_\+int\+Property\+Manager@{m\+\_\+int\+Property\+Manager}!Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}}
+\subsubsection[{m\+\_\+int\+Property\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Qt\+Int\+Property\+Manager}$\ast$ Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+int\+Property\+Manager}\label{classQtSizePropertyManagerPrivate_ab6085d4a72ff7e0b01dc10b5f74b0cc1}
+
+
+Referenced by Qt\+Size\+Property\+Manager\+::initialize\+Property(), Qt\+Size\+Property\+Manager\+::\+Qt\+Size\+Property\+Manager(), and Qt\+Size\+Property\+Manager\+::sub\+Int\+Property\+Manager().
+
+\index{Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}!m\+\_\+property\+ToH@{m\+\_\+property\+ToH}}
+\index{m\+\_\+property\+ToH@{m\+\_\+property\+ToH}!Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}}
+\subsubsection[{m\+\_\+property\+ToH}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Map$<$const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$$>$ Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+property\+ToH}\label{classQtSizePropertyManagerPrivate_a8c414f6e39b1d7d663b911180567216f}
+
+
+Referenced by Qt\+Size\+Property\+Manager\+::initialize\+Property(), and Qt\+Size\+Property\+Manager\+::uninitialize\+Property().
+
+\index{Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}!m\+\_\+property\+ToW@{m\+\_\+property\+ToW}}
+\index{m\+\_\+property\+ToW@{m\+\_\+property\+ToW}!Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}}
+\subsubsection[{m\+\_\+property\+ToW}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Map$<$const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$$>$ Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+property\+ToW}\label{classQtSizePropertyManagerPrivate_aaf27868c878cb12def1e5c778662eebb}
+
+
+Referenced by Qt\+Size\+Property\+Manager\+::initialize\+Property(), and Qt\+Size\+Property\+Manager\+::uninitialize\+Property().
+
+\index{Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}!m\+\_\+values@{m\+\_\+values}}
+\index{m\+\_\+values@{m\+\_\+values}!Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}}
+\subsubsection[{m\+\_\+values}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Property\+Value\+Map} Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+values}\label{classQtSizePropertyManagerPrivate_ac147fdc10704437490462f61ac0f018d}
+
+
+Referenced by Qt\+Size\+Property\+Manager\+::initialize\+Property(), Qt\+Size\+Property\+Manager\+::maximum(), Qt\+Size\+Property\+Manager\+::minimum(), Qt\+Size\+Property\+Manager\+::uninitialize\+Property(), Qt\+Size\+Property\+Manager\+::value(), and Qt\+Size\+Property\+Manager\+::value\+Text().
+
+\index{Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}!m\+\_\+w\+To\+Property@{m\+\_\+w\+To\+Property}}
+\index{m\+\_\+w\+To\+Property@{m\+\_\+w\+To\+Property}!Qt\+Size\+Property\+Manager\+Private@{Qt\+Size\+Property\+Manager\+Private}}
+\subsubsection[{m\+\_\+w\+To\+Property}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Map$<$const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$$>$ Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+w\+To\+Property}\label{classQtSizePropertyManagerPrivate_ae9c18e390dc5aaff574f3d8b77053aba}
+
+
+Referenced by Qt\+Size\+Property\+Manager\+::initialize\+Property(), and Qt\+Size\+Property\+Manager\+::uninitialize\+Property().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtpropertymanager.\+cpp}\end{DoxyCompactItemize}

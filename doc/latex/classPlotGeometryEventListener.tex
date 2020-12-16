@@ -1,0 +1,139 @@
+\doxysection{Plot\+Geometry\+Event\+Listener Class Reference}
+\label{classPlotGeometryEventListener}\index{PlotGeometryEventListener@{PlotGeometryEventListener}}
+
+
+This is an interface that you can subclass to be notified when the plot rect changes.  
+
+
+
+
+{\ttfamily \#include $<$plotgeometryeventlistener.\+h$>$}
+
+Inheritance diagram for Plot\+Geometry\+Event\+Listener\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classPlotGeometryEventListener}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Plot\+Geometry\+Event\+Listener} ()
+\item 
+virtual void \textbf{ plot\+Rect\+Changed} (const Q\+RectF \&new\+Rect)=0
+\begin{DoxyCompactList}\small\item\em pure virtual method that needs to be reimplemented in order to be notified when the plot rect changes \end{DoxyCompactList}\item 
+virtual void \textbf{ plot\+Area\+Changed} (const Q\+SizeF \&area)=0
+\begin{DoxyCompactList}\small\item\em pure virtual method that needs to be reimplemented in order to be notified when the plot area changes. \end{DoxyCompactList}\item 
+virtual void \textbf{ scroll\+Bar\+Changed} (Qt\+::\+Orientation orientation, int value)=0
+\begin{DoxyCompactList}\small\item\em pure virtual method that needs to be reimplemented in order to be notified when the value of one of the two scrollbars changes. \end{DoxyCompactList}\item 
+virtual void \textbf{ plot\+Zoom\+Level\+Changed} (int level)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Subclass Plot\+Event\+Listener and implement the plot\+Rect\+Changed method if you want to be notified when the plot rect changes.
+
+This usually happens when the scene rect changes or the plot area changes.
+
+\begin{DoxySeeAlso}{See also}
+Plot\+Scene\+Widget\+::install\+Plot\+Change\+Listener 
+
+\doxyref{Plot\+Scene\+Widget\+::set\+Plot\+Area\+Percentage}{p.}{classPlotSceneWidget_a8723353de48712c2217fd841bee35090} 
+
+\doxyref{Plot\+Scene\+Widget\+::set\+Plot\+Area\+Top\+Left\+Percentage}{p.}{classPlotSceneWidget_a27ae0561abca76db5adaedde7fe8763f} 
+
+\doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classPlotGeometryEventListener_a5267af5f0f430cf59e81dafb8e47cffe}} 
+\index{PlotGeometryEventListener@{PlotGeometryEventListener}!PlotGeometryEventListener@{PlotGeometryEventListener}}
+\index{PlotGeometryEventListener@{PlotGeometryEventListener}!PlotGeometryEventListener@{PlotGeometryEventListener}}
+\doxysubsubsection{PlotGeometryEventListener()}
+{\footnotesize\ttfamily Plot\+Geometry\+Event\+Listener\+::\+Plot\+Geometry\+Event\+Listener (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classPlotGeometryEventListener_a451ef7ee9192c782b42d362fafcf8728}} 
+\index{PlotGeometryEventListener@{PlotGeometryEventListener}!plotAreaChanged@{plotAreaChanged}}
+\index{plotAreaChanged@{plotAreaChanged}!PlotGeometryEventListener@{PlotGeometryEventListener}}
+\doxysubsubsection{plotAreaChanged()}
+{\footnotesize\ttfamily virtual void Plot\+Geometry\+Event\+Listener\+::plot\+Area\+Changed (\begin{DoxyParamCaption}\item[{const Q\+SizeF \&}]{area }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyNote}{Note}
+The area takes into account the scaling factors currently applied to the view, i.\+e. m11() and m22() of the current transformation obtained by transform(). 
+\end{DoxyNote}
+
+
+Implemented in \textbf{ External\+Scale\+Widget} \doxyref{}{p.}{classExternalScaleWidget_a0afa7f7de93bb8cb8e0fb823a01166d6}, and \textbf{ Scale\+Item} \doxyref{}{p.}{classScaleItem_a43d92c86bcff5a16781cfd1c6b21591d}.
+
+
+
+Referenced by Plot\+Scene\+Widget\+::notify\+Plot\+Area\+Changed().
+
+\mbox{\label{classPlotGeometryEventListener_ae7ff8cf122bddc2cddf30712ce0794bc}} 
+\index{PlotGeometryEventListener@{PlotGeometryEventListener}!plotRectChanged@{plotRectChanged}}
+\index{plotRectChanged@{plotRectChanged}!PlotGeometryEventListener@{PlotGeometryEventListener}}
+\doxysubsubsection{plotRectChanged()}
+{\footnotesize\ttfamily virtual void Plot\+Geometry\+Event\+Listener\+::plot\+Rect\+Changed (\begin{DoxyParamCaption}\item[{const Q\+RectF \&}]{new\+Rect }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Rect} & the new plot rectangle.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+Plot\+Scene\+Widget\+::install\+Plot\+Change\+Listener 
+
+\doxyref{Plot\+Scene\+Widget\+::set\+Plot\+Area\+Percentage}{p.}{classPlotSceneWidget_a8723353de48712c2217fd841bee35090} 
+
+\doxyref{Plot\+Scene\+Widget\+::set\+Plot\+Area\+Top\+Left\+Percentage}{p.}{classPlotSceneWidget_a27ae0561abca76db5adaedde7fe8763f} 
+
+\doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} 
+\end{DoxySeeAlso}
+
+
+Implemented in \textbf{ External\+Scale\+Widget} \doxyref{}{p.}{classExternalScaleWidget_a130a96ab678f256229e912ff5d49c814}, and \textbf{ Scale\+Item} \doxyref{}{p.}{classScaleItem_aee2c2c671267c95ab7aaf53183f6f24e}.
+
+
+
+Referenced by Plot\+Scene\+Widget\+::recalculate\+Plot\+Rect().
+
+\mbox{\label{classPlotGeometryEventListener_afdefdcd7c3df18b477cf6b417a18d6d2}} 
+\index{PlotGeometryEventListener@{PlotGeometryEventListener}!plotZoomLevelChanged@{plotZoomLevelChanged}}
+\index{plotZoomLevelChanged@{plotZoomLevelChanged}!PlotGeometryEventListener@{PlotGeometryEventListener}}
+\doxysubsubsection{plotZoomLevelChanged()}
+{\footnotesize\ttfamily virtual void Plot\+Geometry\+Event\+Listener\+::plot\+Zoom\+Level\+Changed (\begin{DoxyParamCaption}\item[{int}]{level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \textbf{ External\+Scale\+Widget} \doxyref{}{p.}{classExternalScaleWidget_a1897469940bad4daa0371bfaf4c4cf17}, and \textbf{ Scale\+Item} \doxyref{}{p.}{classScaleItem_a4e3242c66d9ea7d15146aae069539023}.
+
+\mbox{\label{classPlotGeometryEventListener_a4a6c330b19d80ae02486503a6ef5989d}} 
+\index{PlotGeometryEventListener@{PlotGeometryEventListener}!scrollBarChanged@{scrollBarChanged}}
+\index{scrollBarChanged@{scrollBarChanged}!PlotGeometryEventListener@{PlotGeometryEventListener}}
+\doxysubsubsection{scrollBarChanged()}
+{\footnotesize\ttfamily virtual void Plot\+Geometry\+Event\+Listener\+::scroll\+Bar\+Changed (\begin{DoxyParamCaption}\item[{Qt\+::\+Orientation}]{orientation,  }\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em orientation} & one of the two possible Qt\+::\+Orientation values\+: Qt\+::\+Horizontal or Qt\+::\+Vertical\\
+\hline
+{\em value} & the value of the scrollbar \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \textbf{ External\+Scale\+Widget} \doxyref{}{p.}{classExternalScaleWidget_a162473948c6750e2ee3b0015a01c9154}, and \textbf{ Scale\+Item} \doxyref{}{p.}{classScaleItem_a0191443c7a768c3eaad515bcc054421f}.
+
+
+
+Referenced by Plot\+Scene\+Widget\+::h\+Scroll\+Bar\+Value\+Changed(), and Plot\+Scene\+Widget\+::v\+Scroll\+Bar\+Value\+Changed().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ plotgeometryeventlistener.\+h}\end{DoxyCompactItemize}

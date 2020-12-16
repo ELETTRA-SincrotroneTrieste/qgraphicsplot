@@ -1,0 +1,121 @@
+release_2_7_0: fix: invisible curves are now ignored when calculating axes bounds from curves max and mins
+
+release_2_6_0: multiple Y scales in plot have been introduced
+
+release_2_5_1: Fixed bug in ScaleItem: space needed by labels must be scaled with current transformation 
+		matrix m11 and m22 before changing the rectangle.
+		Fixed MarkerItem curve name sections
+
+release_2_5_0: LegendItem rewritten. ScaleLabelInterface: added longestLabel pure virtual method to 
+               improve scale labels size calculations.
+
+release_2_4_1: fix in PlotSceneWidget::getClosest
+
+
+release_2_4_0: Added support for Qt5.
+               If Qt5 qmake is used, the build library will be named liqgraphicsplot-qt5.so
+
+	       Improved MarkerItem behaviour, dot on the line and text at the top left corner of the view.
+	       MarkerItem now ignores transformations.
+
+	       ScaleItem now does not scale contents when plot is zoomed. Ticks and label size remain constant
+	       through zooming.
+
+release_2_2_4
+	* Added a new method to add a curve (accepts an already allocated SceneCurve)
+	* src/curve/painters/circleitemset.h: changed private method into protected
+
+release_2_2_3
+    * Fixed include directives in dotspainter.h and dotspainter.cpp
+    * curveitem.cpp: fixed return value in ItemPainterInterface *CurveItem::itemPainter().
+      Now it correctly returns NULL when there are no ItemPainters installed
+    * Removed QDESIGNER_WIDGET_EXPORT from plotscenewidget.h
+
+release_2_2_2
+    * Dynamic properties support in configuration dialog for all (Q)Objects.
+    * Axis title, axis title font and axis title color properties have been added to the ScaleItem.
+    * PlotSceneWidget::resizeEvent has been modified so that until a wheel event or a zoom event take place
+      the sceneRect is adjusted to the viewport rect. This brings the behaviour of the PlotSceneWidget nearer
+      to the one adopted by Qwt plots. This fixes geometry problems when the PlotSceneWidget is placed inside
+      a QTabWidget.
+    * Save data method added to PlotSceneWidget in order to save the data of the plot on a text file (csv).
+      The dialog is the same used in QTango 4.3.4.
+
+    * ScaleLabelInterface: introduced a new pure virtual method named type aimed at rtti information.
+      - TimeScaleLabel now implements this method.
+
+
+release_2_2_1
+    * Some fixes in ScaleItem
+    * Added shortcuts in PlotSceneWidget to set x and y axes bounds, autoscale, labels outside canvas
+    * Added a property to set scene background, in order to change the plot color background.
+    * "alias" SceneCurve property can be set so that the MarkerItem shows a custom text instead of a
+      curve source.
+
+release_2_2_0:
+    * Completely renewed configuration dialog.
+    * addLineCurve method added in PlotSceneWidget that automatically manages curve creation,
+      CurveItem association and ItemPainter.
+    * Curve legend added.
+    * Qt designer plugins for PlotSceneWidget and ExternalScaleWidget
+
+
+release_2_1_0: 
+
+    Requires Qt >= 4.8 in order to build.
+    Applications using the library will require at least Qt 4.8. This constraint guarantees a better performance.
+
+    When zoomed, the scales and the grid become denser. 
+
+    KNOWN ISSUES: zooming after a certain degree causes the grid not to be uniformly drawn. We are looking for 
+                  a fix...
+
+release_2_0_2:
+
+    The  PlotSceneWidget notifies when scaled through a signal called viewScaleChanged.
+    GraphicsObject conected to this signal can be accordingly scaled if desired.
+
+    - viewScaleChanged signals were introduced in PlotSceneWidget class in order to be notified when
+      the view is scaled
+    - CircleItemSet : circles can be scaled through a scale divider and a SLOT called setRadiusScaleDivider
+    - TargetItem: can be scaled via the TargetItem::setRadiusScaleDivider SLOT
+
+release_2_0_1:
+    - added Q_PROPERTY macros in src/horizontalscalewidget.h and src/verticalscalewidget.h
+      so that the configuration dialog works for them (it considers the last meta object properties only)
+
+    - added QDateTime/double conversion methods and properties for upper and lower bound
+
+    - Property Dialog recognizes and manages QDateTime and QFont property types.
+
+    - removed unused and other warnings
+
+    - TargetItem: implemented xAxisBoundsChanged and yAxisBoundsChanged to correctly reposition the item
+                  when the axes scale change.
+
+Fixes:
+
+    Fixes on src/axes/scaleitem.cpp:
+    Introduced a method mNotifyBoundsChanged which notifies listeners when the
+    axes bounds change.
+    Fixed setBounds() that did not use to call updateLabelsCache() and d_ptr->view->boundsChanged
+
+release_2_0_0:
+    - improved graphics performance via QPainter clipping
+    - zoom with Ctrl+Shift on the plot
+    - external scale widgets have been introduced
+    - Qt4 designer plugins for PlotSceneWidget and scale widgets
+    - many more...
+
+release_1_0_5: CurveItem: added a method to return the SceneCurve
+               associated to the item. See curveitem.h and curveitem.cpp
+
+release_1_0_4: TargetItem auto repositioning when plot canvas rect changes.
+
+release_1_0_3: corrected click event on plot scene widget
+
+release_1_0_2: axes improvements
+
+release_1_0_1: corrections to CircleItemSet
+
+release_1_0_0: first release.

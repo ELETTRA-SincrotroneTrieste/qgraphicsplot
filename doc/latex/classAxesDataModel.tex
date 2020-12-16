@@ -1,0 +1,168 @@
+\section{Axes\+Data\+Model Class Reference}
+\label{classAxesDataModel}\index{Axes\+Data\+Model@{Axes\+Data\+Model}}
+
+
+{\ttfamily \#include $<$axesdatamodel.\+h$>$}
+
+Inheritance diagram for Axes\+Data\+Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classAxesDataModel}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf Columns} \{ {\bf Col\+Name} = 0, 
+{\bf Col\+Y\+Axis}, 
+{\bf Column\+Count}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Axes\+Data\+Model} (Q\+Object $\ast$parent)
+\item 
+int {\bf row\+Count} (const Q\+Model\+Index \&parent) const 
+\item 
+int {\bf column\+Count} (const Q\+Model\+Index \&parent) const 
+\item 
+Q\+Variant {\bf data} (const Q\+Model\+Index \&index, int role) const 
+\item 
+bool {\bf set\+Data} (const Q\+Model\+Index \&index, const Q\+Variant \&value, int role)
+\item 
+Q\+Variant {\bf header\+Data} (int section, Qt\+::\+Orientation orientation, int role) const 
+\item 
+bool {\bf insert\+Rows} (int row, int count, const Q\+Model\+Index \&parent=Q\+Model\+Index())
+\item 
+Qt\+::\+Item\+Flags {\bf flags} (const Q\+Model\+Index \&index) const 
+\item 
+Q\+List$<$ {\bf Curve\+Options} $>$ {\bf get\+Data} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\index{Axes\+Data\+Model@{Axes\+Data\+Model}!Columns@{Columns}}
+\index{Columns@{Columns}!Axes\+Data\+Model@{Axes\+Data\+Model}}
+\subsubsection[{Columns}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Axes\+Data\+Model\+::\+Columns}}\label{classAxesDataModel_accbb742e1af48be64a7e6ee79ce978ad}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Col\+Name@{Col\+Name}!Axes\+Data\+Model@{Axes\+Data\+Model}}\index{Axes\+Data\+Model@{Axes\+Data\+Model}!Col\+Name@{Col\+Name}}\item[{\em 
+Col\+Name\label{classAxesDataModel_accbb742e1af48be64a7e6ee79ce978ada8f1b125012cfaacb989cebc7e3a72491}
+}]\index{Col\+Y\+Axis@{Col\+Y\+Axis}!Axes\+Data\+Model@{Axes\+Data\+Model}}\index{Axes\+Data\+Model@{Axes\+Data\+Model}!Col\+Y\+Axis@{Col\+Y\+Axis}}\item[{\em 
+Col\+Y\+Axis\label{classAxesDataModel_accbb742e1af48be64a7e6ee79ce978adadf5cd446d6b6eaf0f97d3b7265594b91}
+}]\index{Column\+Count@{Column\+Count}!Axes\+Data\+Model@{Axes\+Data\+Model}}\index{Axes\+Data\+Model@{Axes\+Data\+Model}!Column\+Count@{Column\+Count}}\item[{\em 
+Column\+Count\label{classAxesDataModel_accbb742e1af48be64a7e6ee79ce978ada22e7693d6517edf2cdd48479603c5063}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Axes\+Data\+Model@{Axes\+Data\+Model}!Axes\+Data\+Model@{Axes\+Data\+Model}}
+\index{Axes\+Data\+Model@{Axes\+Data\+Model}!Axes\+Data\+Model@{Axes\+Data\+Model}}
+\subsubsection[{Axes\+Data\+Model(\+Q\+Object $\ast$parent)}]{\setlength{\rightskip}{0pt plus 5cm}Axes\+Data\+Model\+::\+Axes\+Data\+Model (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent}
+\end{DoxyParamCaption}
+)}\label{classAxesDataModel_ac1103ed0d560ed40edad27c7c47a743c}
+
+
+\subsection{Member Function Documentation}
+\index{Axes\+Data\+Model@{Axes\+Data\+Model}!column\+Count@{column\+Count}}
+\index{column\+Count@{column\+Count}!Axes\+Data\+Model@{Axes\+Data\+Model}}
+\subsubsection[{column\+Count(const Q\+Model\+Index \&parent) const }]{\setlength{\rightskip}{0pt plus 5cm}int Axes\+Data\+Model\+::column\+Count (
+\begin{DoxyParamCaption}
+\item[{const Q\+Model\+Index \&}]{parent}
+\end{DoxyParamCaption}
+) const}\label{classAxesDataModel_a30201acf0831072298cb71de6b647381}
+
+
+References Column\+Count.
+
+\index{Axes\+Data\+Model@{Axes\+Data\+Model}!data@{data}}
+\index{data@{data}!Axes\+Data\+Model@{Axes\+Data\+Model}}
+\subsubsection[{data(const Q\+Model\+Index \&index, int role) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Variant Axes\+Data\+Model\+::data (
+\begin{DoxyParamCaption}
+\item[{const Q\+Model\+Index \&}]{index, }
+\item[{int}]{role}
+\end{DoxyParamCaption}
+) const}\label{classAxesDataModel_affc3a310415a2acef02e8a607da4f7bf}
+
+
+References Col\+Name, Col\+Y\+Axis, Curve\+Options\+::name, Curve\+Options\+::short\+Name(), and Curve\+Options\+::y\+Axis\+Name.
+
+
+
+Referenced by Tree\+View\+Axes\+::add\+Item().
+
+\index{Axes\+Data\+Model@{Axes\+Data\+Model}!flags@{flags}}
+\index{flags@{flags}!Axes\+Data\+Model@{Axes\+Data\+Model}}
+\subsubsection[{flags(const Q\+Model\+Index \&index) const }]{\setlength{\rightskip}{0pt plus 5cm}Qt\+::\+Item\+Flags Axes\+Data\+Model\+::flags (
+\begin{DoxyParamCaption}
+\item[{const Q\+Model\+Index \&}]{index}
+\end{DoxyParamCaption}
+) const}\label{classAxesDataModel_aaf4423b8a91e918e633fd663d80194aa}
+\index{Axes\+Data\+Model@{Axes\+Data\+Model}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!Axes\+Data\+Model@{Axes\+Data\+Model}}
+\subsubsection[{get\+Data() const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+List$<$ {\bf Curve\+Options} $>$ Axes\+Data\+Model\+::get\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classAxesDataModel_ad858a4aec3dd1167c9c4ea5c91389f23}
+
+
+Referenced by Tree\+View\+Axes\+::get\+Curve\+Options().
+
+\index{Axes\+Data\+Model@{Axes\+Data\+Model}!header\+Data@{header\+Data}}
+\index{header\+Data@{header\+Data}!Axes\+Data\+Model@{Axes\+Data\+Model}}
+\subsubsection[{header\+Data(int section, Qt\+::\+Orientation orientation, int role) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Variant Axes\+Data\+Model\+::header\+Data (
+\begin{DoxyParamCaption}
+\item[{int}]{section, }
+\item[{Qt\+::\+Orientation}]{orientation, }
+\item[{int}]{role}
+\end{DoxyParamCaption}
+) const}\label{classAxesDataModel_ade3ec52c747d9bd06e2de4237f779d29}
+\index{Axes\+Data\+Model@{Axes\+Data\+Model}!insert\+Rows@{insert\+Rows}}
+\index{insert\+Rows@{insert\+Rows}!Axes\+Data\+Model@{Axes\+Data\+Model}}
+\subsubsection[{insert\+Rows(int row, int count, const Q\+Model\+Index \&parent=\+Q\+Model\+Index())}]{\setlength{\rightskip}{0pt plus 5cm}bool Axes\+Data\+Model\+::insert\+Rows (
+\begin{DoxyParamCaption}
+\item[{int}]{row, }
+\item[{int}]{count, }
+\item[{const Q\+Model\+Index \&}]{parent = {\ttfamily QModelIndex()}}
+\end{DoxyParamCaption}
+)}\label{classAxesDataModel_a538e4b724acfc8639fbf60bb4a17a578}
+\index{Axes\+Data\+Model@{Axes\+Data\+Model}!row\+Count@{row\+Count}}
+\index{row\+Count@{row\+Count}!Axes\+Data\+Model@{Axes\+Data\+Model}}
+\subsubsection[{row\+Count(const Q\+Model\+Index \&parent) const }]{\setlength{\rightskip}{0pt plus 5cm}int Axes\+Data\+Model\+::row\+Count (
+\begin{DoxyParamCaption}
+\item[{const Q\+Model\+Index \&}]{parent}
+\end{DoxyParamCaption}
+) const}\label{classAxesDataModel_a506392fc6a6df8e31a15dfe3dca9c5a5}
+
+
+Referenced by Tree\+View\+Axes\+::add\+Item().
+
+\index{Axes\+Data\+Model@{Axes\+Data\+Model}!set\+Data@{set\+Data}}
+\index{set\+Data@{set\+Data}!Axes\+Data\+Model@{Axes\+Data\+Model}}
+\subsubsection[{set\+Data(const Q\+Model\+Index \&index, const Q\+Variant \&value, int role)}]{\setlength{\rightskip}{0pt plus 5cm}bool Axes\+Data\+Model\+::set\+Data (
+\begin{DoxyParamCaption}
+\item[{const Q\+Model\+Index \&}]{index, }
+\item[{const Q\+Variant \&}]{value, }
+\item[{int}]{role}
+\end{DoxyParamCaption}
+)}\label{classAxesDataModel_a21f0f15f27013a770914cfb7af5ae588}
+
+
+References Col\+Name, Col\+Y\+Axis, Curve\+Options\+::name, perr, and Curve\+Options\+::y\+Axis\+Name.
+
+
+
+Referenced by Tree\+View\+Axes\+::add\+Item().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf axesdatamodel.\+h}\item 
+{\bf axesdatamodel.\+cpp}\end{DoxyCompactItemize}

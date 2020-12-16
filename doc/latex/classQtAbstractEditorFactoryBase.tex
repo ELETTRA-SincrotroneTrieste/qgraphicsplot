@@ -1,0 +1,123 @@
+\section{Qt\+Abstract\+Editor\+Factory\+Base Class Reference}
+\label{classQtAbstractEditorFactoryBase}\index{Qt\+Abstract\+Editor\+Factory\+Base@{Qt\+Abstract\+Editor\+Factory\+Base}}
+
+
+The \doxyref{Qt\+Abstract\+Editor\+Factory\+Base}{p.}{classQtAbstractEditorFactoryBase} provides an interface for editor factories.  
+
+
+
+
+{\ttfamily \#include $<$qtpropertybrowser.\+h$>$}
+
+Inheritance diagram for Qt\+Abstract\+Editor\+Factory\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{classQtAbstractEditorFactoryBase}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual Q\+Widget $\ast$ {\bf create\+Editor} ({\bf Qt\+Property} $\ast$property, Q\+Widget $\ast$parent)=0
+\end{DoxyCompactItemize}
+\subsection*{Protected Slots}
+\begin{DoxyCompactItemize}
+\item 
+virtual void {\bf manager\+Destroyed} (Q\+Object $\ast$manager)=0
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Qt\+Abstract\+Editor\+Factory\+Base} (Q\+Object $\ast$parent=0)
+\item 
+virtual void {\bf break\+Connection} ({\bf Qt\+Abstract\+Property\+Manager} $\ast$manager)=0
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bf Qt\+Abstract\+Property\+Browser}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An editor factory is a class that is able to create an editing widget of a specified type (e.\+g. line edits or comboboxes) for a given \doxyref{Qt\+Property}{p.}{classQtProperty} object, and it is used in conjunction with the \doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager} and \doxyref{Qt\+Abstract\+Property\+Browser}{p.}{classQtAbstractPropertyBrowser} classes.
+
+When using a property browser widget, the properties are created and managed by implementations of the \doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager} class. To ensure that the properties\textquotesingle{} values will be displayed using suitable editing widgets, the managers are associated with objects of \doxyref{Qt\+Abstract\+Editor\+Factory}{p.}{classQtAbstractEditorFactory} subclasses. The property browser will use these associations to determine which factories it should use to create the preferred editing widgets.
+
+Typically, an editor factory is created by subclassing the \doxyref{Qt\+Abstract\+Editor\+Factory}{p.}{classQtAbstractEditorFactory} template class which inherits \doxyref{Qt\+Abstract\+Editor\+Factory\+Base}{p.}{classQtAbstractEditorFactoryBase}. But note that several ready-\/made implementations are available\+:
+
+\doxyref{Qt\+Check\+Box\+Factory}{p.}{classQtCheckBoxFactory}  \doxyref{Qt\+Date\+Edit\+Factory}{p.}{classQtDateEditFactory}  \doxyref{Qt\+Date\+Time\+Edit\+Factory}{p.}{classQtDateTimeEditFactory}  \doxyref{Qt\+Double\+Spin\+Box\+Factory}{p.}{classQtDoubleSpinBoxFactory}  \doxyref{Qt\+Enum\+Editor\+Factory}{p.}{classQtEnumEditorFactory}  \doxyref{Qt\+Line\+Edit\+Factory}{p.}{classQtLineEditFactory}  \doxyref{Qt\+Scroll\+Bar\+Factory}{p.}{classQtScrollBarFactory}  \doxyref{Qt\+Slider\+Factory}{p.}{classQtSliderFactory}  \doxyref{Qt\+Spin\+Box\+Factory}{p.}{classQtSpinBoxFactory}  \doxyref{Qt\+Time\+Edit\+Factory}{p.}{classQtTimeEditFactory}  \doxyref{Qt\+Variant\+Editor\+Factory}{p.}{classQtVariantEditorFactory} 
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager}, \doxyref{Qt\+Abstract\+Property\+Browser}{p.}{classQtAbstractPropertyBrowser} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Qt\+Abstract\+Editor\+Factory\+Base@{Qt\+Abstract\+Editor\+Factory\+Base}!Qt\+Abstract\+Editor\+Factory\+Base@{Qt\+Abstract\+Editor\+Factory\+Base}}
+\index{Qt\+Abstract\+Editor\+Factory\+Base@{Qt\+Abstract\+Editor\+Factory\+Base}!Qt\+Abstract\+Editor\+Factory\+Base@{Qt\+Abstract\+Editor\+Factory\+Base}}
+\subsubsection[{Qt\+Abstract\+Editor\+Factory\+Base(\+Q\+Object $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Abstract\+Editor\+Factory\+Base\+::\+Qt\+Abstract\+Editor\+Factory\+Base (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [protected]}}\label{classQtAbstractEditorFactoryBase_af75f911c4f773b7fc9adcff15a0b3ed3}
+Creates an abstract editor factory with the given {\itshape parent}. 
+
+\subsection{Member Function Documentation}
+\index{Qt\+Abstract\+Editor\+Factory\+Base@{Qt\+Abstract\+Editor\+Factory\+Base}!break\+Connection@{break\+Connection}}
+\index{break\+Connection@{break\+Connection}!Qt\+Abstract\+Editor\+Factory\+Base@{Qt\+Abstract\+Editor\+Factory\+Base}}
+\subsubsection[{break\+Connection(\+Qt\+Abstract\+Property\+Manager $\ast$manager)=0}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Abstract\+Editor\+Factory\+Base\+::break\+Connection (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Abstract\+Property\+Manager} $\ast$}]{manager}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\label{classQtAbstractEditorFactoryBase_a0608f6600aab1e8c8fc7cf1476452321}
+
+
+Referenced by Qt\+Abstract\+Property\+Browser\+::unset\+Factory\+For\+Manager().
+
+\index{Qt\+Abstract\+Editor\+Factory\+Base@{Qt\+Abstract\+Editor\+Factory\+Base}!create\+Editor@{create\+Editor}}
+\index{create\+Editor@{create\+Editor}!Qt\+Abstract\+Editor\+Factory\+Base@{Qt\+Abstract\+Editor\+Factory\+Base}}
+\subsubsection[{create\+Editor(\+Qt\+Property $\ast$property, Q\+Widget $\ast$parent)=0}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Widget $\ast$ Qt\+Abstract\+Editor\+Factory\+Base\+::create\+Editor (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{Q\+Widget $\ast$}]{parent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classQtAbstractEditorFactoryBase_aecea70732c941a1d992a61179389e9a2}
+Creates an editing widget (with the given {\itshape parent}) for the given {\itshape property}.
+
+This function is reimplemented in \doxyref{Qt\+Abstract\+Editor\+Factory}{p.}{classQtAbstractEditorFactory} template class which also provides a pure virtual convenience overload of this function enabling access to the property\textquotesingle{}s manager.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Editor\+Factory\+::create\+Editor()}{p.}{classQtAbstractEditorFactory_a5386f2a9e2d641ce88feaaa5f78fa33a} 
+\end{DoxySeeAlso}
+
+
+Implemented in {\bf Qt\+Variant\+Editor\+Factory} \doxyref{}{p.}{classQtVariantEditorFactory_af761bbd5d9bb08c837ef6c5b9faa1146}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a5386f2a9e2d641ce88feaaa5f78fa33a}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Char\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a5386f2a9e2d641ce88feaaa5f78fa33a}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Date\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a5386f2a9e2d641ce88feaaa5f78fa33a}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Bool\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a5386f2a9e2d641ce88feaaa5f78fa33a}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Color\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a5386f2a9e2d641ce88feaaa5f78fa33a}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Key\+Sequence\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a5386f2a9e2d641ce88feaaa5f78fa33a}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Date\+Time\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a5386f2a9e2d641ce88feaaa5f78fa33a}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Double\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a5386f2a9e2d641ce88feaaa5f78fa33a}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Time\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a5386f2a9e2d641ce88feaaa5f78fa33a}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Variant\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a5386f2a9e2d641ce88feaaa5f78fa33a}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Cursor\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a5386f2a9e2d641ce88feaaa5f78fa33a}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Enum\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a5386f2a9e2d641ce88feaaa5f78fa33a}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Int\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a5386f2a9e2d641ce88feaaa5f78fa33a}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Font\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a5386f2a9e2d641ce88feaaa5f78fa33a}, and {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+String\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a5386f2a9e2d641ce88feaaa5f78fa33a}.
+
+
+
+Referenced by Qt\+Variant\+Editor\+Factory\+::create\+Editor(), Qt\+Abstract\+Property\+Browser\+::create\+Editor(), and Qt\+Cursor\+Editor\+Factory\+::create\+Editor().
+
+\index{Qt\+Abstract\+Editor\+Factory\+Base@{Qt\+Abstract\+Editor\+Factory\+Base}!manager\+Destroyed@{manager\+Destroyed}}
+\index{manager\+Destroyed@{manager\+Destroyed}!Qt\+Abstract\+Editor\+Factory\+Base@{Qt\+Abstract\+Editor\+Factory\+Base}}
+\subsubsection[{manager\+Destroyed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Abstract\+Editor\+Factory\+Base\+::manager\+Destroyed (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{manager}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}, {\ttfamily [slot]}}\label{classQtAbstractEditorFactoryBase_a23b6035f2a6b0d4415969146bd01a0ec}
+
+
+Implemented in {\bf Qt\+Abstract\+Editor\+Factory$<$ Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a7ce89948efbdfa4dc1884c4f7dc2dc59}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Char\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a7ce89948efbdfa4dc1884c4f7dc2dc59}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Date\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a7ce89948efbdfa4dc1884c4f7dc2dc59}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Bool\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a7ce89948efbdfa4dc1884c4f7dc2dc59}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Color\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a7ce89948efbdfa4dc1884c4f7dc2dc59}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Key\+Sequence\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a7ce89948efbdfa4dc1884c4f7dc2dc59}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Date\+Time\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a7ce89948efbdfa4dc1884c4f7dc2dc59}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Double\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a7ce89948efbdfa4dc1884c4f7dc2dc59}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Time\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a7ce89948efbdfa4dc1884c4f7dc2dc59}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Variant\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a7ce89948efbdfa4dc1884c4f7dc2dc59}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Cursor\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a7ce89948efbdfa4dc1884c4f7dc2dc59}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Enum\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a7ce89948efbdfa4dc1884c4f7dc2dc59}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Int\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a7ce89948efbdfa4dc1884c4f7dc2dc59}, {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Font\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a7ce89948efbdfa4dc1884c4f7dc2dc59}, and {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+String\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a7ce89948efbdfa4dc1884c4f7dc2dc59}.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\index{Qt\+Abstract\+Editor\+Factory\+Base@{Qt\+Abstract\+Editor\+Factory\+Base}!Qt\+Abstract\+Property\+Browser@{Qt\+Abstract\+Property\+Browser}}
+\index{Qt\+Abstract\+Property\+Browser@{Qt\+Abstract\+Property\+Browser}!Qt\+Abstract\+Editor\+Factory\+Base@{Qt\+Abstract\+Editor\+Factory\+Base}}
+\subsubsection[{Qt\+Abstract\+Property\+Browser}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Qt\+Abstract\+Property\+Browser}\hspace{0.3cm}{\ttfamily [friend]}}\label{classQtAbstractEditorFactoryBase_ae38c9285b332188b28b54dbf290d682f}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtpropertybrowser.\+h}\item 
+{\bf qtpropertybrowser.\+cpp}\end{DoxyCompactItemize}

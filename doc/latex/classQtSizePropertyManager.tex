@@ -1,0 +1,338 @@
+\section{Qt\+Size\+Property\+Manager Class Reference}
+\label{classQtSizePropertyManager}\index{Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}}
+
+
+The \doxyref{Qt\+Size\+Property\+Manager}{p.}{classQtSizePropertyManager} provides and manages Q\+Size properties.  
+
+
+
+
+{\ttfamily \#include $<$qtpropertymanager.\+h$>$}
+
+Inheritance diagram for Qt\+Size\+Property\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classQtSizePropertyManager}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf set\+Value} ({\bf Qt\+Property} $\ast$property, const Q\+Size \&val)
+\item 
+void {\bf set\+Minimum} ({\bf Qt\+Property} $\ast$property, const Q\+Size \&min\+Val)
+\item 
+void {\bf set\+Maximum} ({\bf Qt\+Property} $\ast$property, const Q\+Size \&max\+Val)
+\item 
+void {\bf set\+Range} ({\bf Qt\+Property} $\ast$property, const Q\+Size \&min\+Val, const Q\+Size \&max\+Val)
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf value\+Changed} ({\bf Qt\+Property} $\ast$property, const Q\+Size \&val)
+\item 
+void {\bf range\+Changed} ({\bf Qt\+Property} $\ast$property, const Q\+Size \&min\+Val, const Q\+Size \&max\+Val)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Qt\+Size\+Property\+Manager} (Q\+Object $\ast$parent=0)
+\item 
+{\bf $\sim$\+Qt\+Size\+Property\+Manager} ()
+\item 
+{\bf Qt\+Int\+Property\+Manager} $\ast$ {\bf sub\+Int\+Property\+Manager} () const 
+\item 
+Q\+Size {\bf value} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+Q\+Size {\bf minimum} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+Q\+Size {\bf maximum} (const {\bf Qt\+Property} $\ast$property) const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String {\bf value\+Text} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+virtual void {\bf initialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\item 
+virtual void {\bf uninitialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A size property has nested {\itshape width} and {\itshape height} subproperties. The top-\/level property\textquotesingle{}s value can be retrieved using the \doxyref{value()}{p.}{classQtSizePropertyManager_a6cac477aebb79887409152e9a6005bf2} function, and set using the \doxyref{set\+Value()}{p.}{classQtSizePropertyManager_a61be90b7c37d4c5194cfc469f43b20a7} slot.
+
+The subproperties are created by a \doxyref{Qt\+Int\+Property\+Manager}{p.}{classQtIntPropertyManager} object. This manager can be retrieved using the \doxyref{sub\+Int\+Property\+Manager()}{p.}{classQtSizePropertyManager_a2b6bf7c0605312bd501cf2553f22adf6} function. In order to provide editing widgets for the subproperties in a property browser widget, this manager must be associated with an editor factory.
+
+A size property also has a range of valid values defined by a minimum size and a maximum size. These sizes can be retrieved using the \doxyref{minimum()}{p.}{classQtSizePropertyManager_a603e4d3d162ddb23e91374191b84f68d} and the \doxyref{maximum()}{p.}{classQtSizePropertyManager_aeea0240d2b2f9aa5c5d2774ac10f9779} functions, and set using the \doxyref{set\+Minimum()}{p.}{classQtSizePropertyManager_aa476ac5c003190f9d9c5fc2c6ad8ecde} and \doxyref{set\+Maximum()}{p.}{classQtSizePropertyManager_ae61e1d1ace1aa09791d1eeed92489a80} slots. Alternatively, the range can be defined in one go using the \doxyref{set\+Range()}{p.}{classQtSizePropertyManager_ae33ffb20e71a6c0d543650ce60ec529c} slot.
+
+In addition, \doxyref{Qt\+Size\+Property\+Manager}{p.}{classQtSizePropertyManager} provides the \doxyref{value\+Changed()}{p.}{classQtSizePropertyManager_a747c0437bcba80a49393f58489f9a9bc} signal which is emitted whenever a property created by this manager changes, and the \doxyref{range\+Changed()}{p.}{classQtSizePropertyManager_ade832b6b1b40c086b73771f8f8a3a5c4} signal which is emitted whenever such a property changes its range of valid sizes.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager}, \doxyref{Qt\+Int\+Property\+Manager}{p.}{classQtIntPropertyManager}, \doxyref{Qt\+Size\+F\+Property\+Manager}{p.}{classQtSizeFPropertyManager} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}!Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}}
+\index{Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}!Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}}
+\subsubsection[{Qt\+Size\+Property\+Manager(\+Q\+Object $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Size\+Property\+Manager\+::\+Qt\+Size\+Property\+Manager (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classQtSizePropertyManager_a91e79d5d59863963fe2d1419da645520}
+Creates a manager with the given {\itshape parent}. 
+
+References Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+int\+Property\+Manager, Qt\+Abstract\+Property\+Manager\+::property\+Destroyed(), and value\+Changed().
+
+\index{Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}!````~Qt\+Size\+Property\+Manager@{$\sim$\+Qt\+Size\+Property\+Manager}}
+\index{````~Qt\+Size\+Property\+Manager@{$\sim$\+Qt\+Size\+Property\+Manager}!Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}}
+\subsubsection[{$\sim$\+Qt\+Size\+Property\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Size\+Property\+Manager\+::$\sim$\+Qt\+Size\+Property\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classQtSizePropertyManager_aeb5cb986fb4d704554694f9cd7ce97bc}
+Destroys this manager, and all the properties it has created. 
+
+References Qt\+Abstract\+Property\+Manager\+::clear().
+
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}!initialize\+Property@{initialize\+Property}}
+\index{initialize\+Property@{initialize\+Property}!Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}}
+\subsubsection[{initialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Size\+Property\+Manager\+::initialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtSizePropertyManager_affbd5b7cfafc273b1af7b6e535de39ee}
+
+
+Implements {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ab7501ecabc5285cb50d7ed91a2ef44fc}.
+
+
+
+References Qt\+Abstract\+Property\+Manager\+::add\+Property(), Qt\+Property\+::add\+Sub\+Property(), Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+h\+To\+Property, Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+int\+Property\+Manager, Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+property\+ToH, Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+property\+ToW, Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+w\+To\+Property, Qt\+Int\+Property\+Manager\+::set\+Minimum(), Qt\+Property\+::set\+Property\+Name(), and Qt\+Int\+Property\+Manager\+::set\+Value().
+
+\index{Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}!maximum@{maximum}}
+\index{maximum@{maximum}!Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}}
+\subsubsection[{maximum(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Size Qt\+Size\+Property\+Manager\+::maximum (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtSizePropertyManager_aeea0240d2b2f9aa5c5d2774ac10f9779}
+Returns the given {\itshape property\textquotesingle{}s} maximum size value.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Maximum()}{p.}{classQtSizePropertyManager_ae61e1d1ace1aa09791d1eeed92489a80}, \doxyref{minimum()}{p.}{classQtSizePropertyManager_a603e4d3d162ddb23e91374191b84f68d}, \doxyref{set\+Range()}{p.}{classQtSizePropertyManager_ae33ffb20e71a6c0d543650ce60ec529c} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}!minimum@{minimum}}
+\index{minimum@{minimum}!Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}}
+\subsubsection[{minimum(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Size Qt\+Size\+Property\+Manager\+::minimum (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtSizePropertyManager_a603e4d3d162ddb23e91374191b84f68d}
+Returns the given {\itshape property\textquotesingle{}s} minimum size value.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Minimum()}{p.}{classQtSizePropertyManager_aa476ac5c003190f9d9c5fc2c6ad8ecde}, \doxyref{maximum()}{p.}{classQtSizePropertyManager_aeea0240d2b2f9aa5c5d2774ac10f9779}, \doxyref{set\+Range()}{p.}{classQtSizePropertyManager_ae33ffb20e71a6c0d543650ce60ec529c} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}!range\+Changed@{range\+Changed}}
+\index{range\+Changed@{range\+Changed}!Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}}
+\subsubsection[{range\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Size\+Property\+Manager\+::range\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Size \&}]{minimum, }
+\item[{const Q\+Size \&}]{maximum}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtSizePropertyManager_ade832b6b1b40c086b73771f8f8a3a5c4}
+This signal is emitted whenever a property created by this manager changes its range of valid sizes, passing a pointer to the {\itshape property} and the new {\itshape minimum} and {\itshape maximum} sizes.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Range()}{p.}{classQtSizePropertyManager_ae33ffb20e71a6c0d543650ce60ec529c} 
+\end{DoxySeeAlso}
+
+
+Referenced by set\+Maximum(), set\+Minimum(), and set\+Range().
+
+\index{Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}!set\+Maximum@{set\+Maximum}}
+\index{set\+Maximum@{set\+Maximum}!Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}}
+\subsubsection[{set\+Maximum}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Size\+Property\+Manager\+::set\+Maximum (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Size \&}]{max\+Val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtSizePropertyManager_ae61e1d1ace1aa09791d1eeed92489a80}
+Sets the maximum size value for the given {\itshape property} to {\itshape max\+Val}.
+
+When setting the maximum size value, the minimum and current values are adjusted if necessary (ensuring that the size range remains valid and that the current value is within the range).
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{maximum()}{p.}{classQtSizePropertyManager_aeea0240d2b2f9aa5c5d2774ac10f9779}, \doxyref{set\+Range()}{p.}{classQtSizePropertyManager_ae33ffb20e71a6c0d543650ce60ec529c}, \doxyref{range\+Changed()}{p.}{classQtSizePropertyManager_ade832b6b1b40c086b73771f8f8a3a5c4} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Size\+Property\+Manager\+Private\+::\+Data\+::maximum\+Value(), Qt\+Abstract\+Property\+Manager\+::property\+Changed(), range\+Changed(), Qt\+Size\+Property\+Manager\+Private\+::\+Data\+::set\+Maximum\+Value(), Qt\+Size\+Property\+Manager\+Private\+::set\+Range(), and value\+Changed().
+
+\index{Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}!set\+Minimum@{set\+Minimum}}
+\index{set\+Minimum@{set\+Minimum}!Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}}
+\subsubsection[{set\+Minimum}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Size\+Property\+Manager\+::set\+Minimum (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Size \&}]{min\+Val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtSizePropertyManager_aa476ac5c003190f9d9c5fc2c6ad8ecde}
+Sets the minimum size value for the given {\itshape property} to {\itshape min\+Val}.
+
+When setting the minimum size value, the maximum and current values are adjusted if necessary (ensuring that the size range remains valid and that the current value is within the range).
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{minimum()}{p.}{classQtSizePropertyManager_a603e4d3d162ddb23e91374191b84f68d}, \doxyref{set\+Range()}{p.}{classQtSizePropertyManager_ae33ffb20e71a6c0d543650ce60ec529c}, \doxyref{range\+Changed()}{p.}{classQtSizePropertyManager_ade832b6b1b40c086b73771f8f8a3a5c4} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Size\+Property\+Manager\+Private\+::\+Data\+::minimum\+Value(), Qt\+Abstract\+Property\+Manager\+::property\+Changed(), range\+Changed(), Qt\+Size\+Property\+Manager\+Private\+::\+Data\+::set\+Minimum\+Value(), Qt\+Size\+Property\+Manager\+Private\+::set\+Range(), and value\+Changed().
+
+\index{Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}!set\+Range@{set\+Range}}
+\index{set\+Range@{set\+Range}!Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}}
+\subsubsection[{set\+Range}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Size\+Property\+Manager\+::set\+Range (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Size \&}]{minimum, }
+\item[{const Q\+Size \&}]{maximum}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtSizePropertyManager_ae33ffb20e71a6c0d543650ce60ec529c}
+Sets the range of valid values.
+
+This is a convenience function defining the range of valid values in one go; setting the {\itshape minimum} and {\itshape maximum} values for the given {\itshape property} with a single function call.
+
+When setting a new range, the current value is adjusted if necessary (ensuring that the value remains within the range).
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Minimum()}{p.}{classQtSizePropertyManager_aa476ac5c003190f9d9c5fc2c6ad8ecde}, \doxyref{set\+Maximum()}{p.}{classQtSizePropertyManager_ae61e1d1ace1aa09791d1eeed92489a80}, \doxyref{range\+Changed()}{p.}{classQtSizePropertyManager_ade832b6b1b40c086b73771f8f8a3a5c4} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Abstract\+Property\+Manager\+::property\+Changed(), range\+Changed(), Qt\+Size\+Property\+Manager\+Private\+::set\+Range(), and value\+Changed().
+
+\index{Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}}
+\subsubsection[{set\+Value}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Size\+Property\+Manager\+::set\+Value (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Size \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtSizePropertyManager_a61be90b7c37d4c5194cfc469f43b20a7}
+Sets the value of the given {\itshape property} to {\itshape value}.
+
+If the specified {\itshape value} is not valid according to the given {\itshape property\textquotesingle{}s} size range, the {\itshape value} is adjusted to the nearest valid value within the size range.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{value()}{p.}{classQtSizePropertyManager_a6cac477aebb79887409152e9a6005bf2}, \doxyref{set\+Range()}{p.}{classQtSizePropertyManager_ae33ffb20e71a6c0d543650ce60ec529c}, \doxyref{value\+Changed()}{p.}{classQtSizePropertyManager_a747c0437bcba80a49393f58489f9a9bc} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Abstract\+Property\+Manager\+::property\+Changed(), Qt\+Size\+Property\+Manager\+Private\+::set\+Value(), and value\+Changed().
+
+\index{Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}!sub\+Int\+Property\+Manager@{sub\+Int\+Property\+Manager}}
+\index{sub\+Int\+Property\+Manager@{sub\+Int\+Property\+Manager}!Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}}
+\subsubsection[{sub\+Int\+Property\+Manager() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Qt\+Int\+Property\+Manager} $\ast$ Qt\+Size\+Property\+Manager\+::sub\+Int\+Property\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classQtSizePropertyManager_a2b6bf7c0605312bd501cf2553f22adf6}
+Returns the manager that creates the nested {\itshape width} and {\itshape height} subproperties.
+
+In order to provide editing widgets for the {\itshape width} and {\itshape height} properties in a property browser widget, this manager must be associated with an editor factory.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Browser\+::set\+Factory\+For\+Manager()}{p.}{classQtAbstractPropertyBrowser_a952b5b393e83f16253033fa4a9f5ea89} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+int\+Property\+Manager.
+
+
+
+Referenced by Qt\+Variant\+Property\+Manager\+::\+Qt\+Variant\+Property\+Manager().
+
+\index{Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}!uninitialize\+Property@{uninitialize\+Property}}
+\index{uninitialize\+Property@{uninitialize\+Property}!Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}}
+\subsubsection[{uninitialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Size\+Property\+Manager\+::uninitialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtSizePropertyManager_ac0cea7899f1b5433973f0fad9d593fd5}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ad199337e1ac748eef077011d94ecd5b4}.
+
+
+
+References Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+h\+To\+Property, Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+property\+ToH, Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+property\+ToW, Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+values, and Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+w\+To\+Property.
+
+\index{Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}!value@{value}}
+\index{value@{value}!Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}}
+\subsubsection[{value(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Size Qt\+Size\+Property\+Manager\+::value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtSizePropertyManager_a6cac477aebb79887409152e9a6005bf2}
+Returns the given {\itshape property\textquotesingle{}s} value.
+
+If the given {\itshape property} is not managed by this manager, this function returns an invalid size
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Value()}{p.}{classQtSizePropertyManager_a61be90b7c37d4c5194cfc469f43b20a7} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}!value\+Changed@{value\+Changed}}
+\index{value\+Changed@{value\+Changed}!Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}}
+\subsubsection[{value\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Size\+Property\+Manager\+::value\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Size \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtSizePropertyManager_a747c0437bcba80a49393f58489f9a9bc}
+This signal is emitted whenever a property created by this manager changes its value, passing a pointer to the {\itshape property} and the new {\itshape value} as parameters.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Value()}{p.}{classQtSizePropertyManager_a61be90b7c37d4c5194cfc469f43b20a7} 
+\end{DoxySeeAlso}
+
+
+Referenced by Qt\+Size\+Property\+Manager(), set\+Maximum(), set\+Minimum(), set\+Range(), and set\+Value().
+
+\index{Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}!value\+Text@{value\+Text}}
+\index{value\+Text@{value\+Text}!Qt\+Size\+Property\+Manager@{Qt\+Size\+Property\+Manager}}
+\subsubsection[{value\+Text(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Qt\+Size\+Property\+Manager\+::value\+Text (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtSizePropertyManager_aaa0414ae375124021030687e0a54c61c}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_aa99cf98b6f1d9582245eb2f5168c5b21}.
+
+
+
+References Qt\+Size\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtpropertymanager.\+h}\item 
+{\bf qtpropertymanager.\+cpp}\end{DoxyCompactItemize}

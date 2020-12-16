@@ -1,0 +1,109 @@
+The main class that contains the plot canvas.\+This library can draw curves on a plot canvas. Each curve is represented by a \doxyref{Scene\+Curve}{p.}{classSceneCurve}. A \doxyref{Scene\+Curve}{p.}{classSceneCurve} contains the data of the curve. The \doxyref{Scene\+Curve}{p.}{classSceneCurve} is not responsible for drawing its shape. Each \doxyref{Scene\+Curve}{p.}{classSceneCurve} must be given a name and added to the plot by means of \doxyref{Plot\+Scene\+Widget\+::add\+Curve}{p.}{classPlotSceneWidget_ad84fa604445007630e530ad65b24b828} ~\newline
+ The painting takes place by a \doxyref{Curve\+Item}{p.}{classCurveItem} object constructed by passing a \doxyref{Scene\+Curve}{p.}{classSceneCurve} to it and by an implementation of an \doxyref{Item\+Painter\+Interface}{p.}{classItemPainterInterface} which must be installed on a \doxyref{Curve\+Item}{p.}{classCurveItem}.
+
+The \doxyref{Scale\+Item}{p.}{classScaleItem} class represents an axis scale. More than a couple of axes may be added to the plot. \doxyref{Axes\+Manager}{p.}{classAxesManager} class is responsible of coupling and managing the axes.
+
+The \doxyref{Target\+Item}{p.}{classTargetItem} item is a Q\+Graphics\+Object that can be moved over the plot and it is aimed at realizing writers.
+
+Readers that want to draw curves on the plot have to conform to the \doxyref{X\+Y\+Plot\+Interface}{p.}{classXYPlotInterface} interface that the \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} implements.
+
+In the {\itshape examples} directory you will find some examples of the usage of the library.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} 
+
+\doxyref{Scene\+Curve}{p.}{classSceneCurve} 
+
+\doxyref{Curve\+Item}{p.}{classCurveItem} 
+
+\doxyref{Item\+Painter\+Interface}{p.}{classItemPainterInterface} 
+
+\doxyref{Line\+Painter}{p.}{classLinePainter} 
+
+\doxyref{Dots\+Painter}{p.}{classDotsPainter} 
+
+\doxyref{Scale\+Item}{p.}{classScaleItem}
+\end{DoxySeeAlso}
+\begin{DoxyParagraph}{Examples}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Scalar plot}
+see directory examples/scalar 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Spectrum plot}
+see directory examples/spectrum/ 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Aging circles}
+see directory examples/agingcircles
+\end{DoxyParagraph}
+
+
+\begin{DoxyParagraph}{Using external scales}
+External scales can be used and they can be useful when the plot is zoomed and the plot internal axes fall out of the zoom area. You can find an example in the directory examples/externalscales 
+\end{DoxyParagraph}
+\begin{DoxySeeAlso}{See also}
+\doxyref{External\+Scale\+Widget}{p.}{classExternalScaleWidget}
+\end{DoxySeeAlso}
+
+
+\begin{DoxyParagraph}{Properties and settings}
+Each Q\+Object (in particular Q\+Graphics\+Object for the items in a plot) can export its relevant properties through a set of {\itshape Q\+\_\+\+P\+R\+O\+P\+E\+R\+TY} declarations. These properties are then taken into account at runtime and the most important types of properties can be modified and saved. Each object will display its properties under a page of a tab widget. To register Q\+Object\textquotesingle{}s properties, the object must have an object\+Name and you must provide a settings key through the set\+Settings\+Key method call, passing a string as a key for the properties of your objects to be saved by the Q\+Settings class. Normally, you want to pass the application name as settings key.
+\end{DoxyParagraph}
+\begin{DoxyNote}{Note}
+Since version 2.\+2.\+2, Qt {\itshape dynamic properties} directly set on Q\+Objects with {\itshape set\+Property} are taken into account and made available by the configuration dialog. 
+
+Dynamic properties starting with two underscores {\itshape \char`\"{}\+\_\+\+\_\+\char`\"{}} are reserved and do not have to be used. 
+
+Since dynamic properties are expected to be application specific, their names are put in evidence by means of a bold font in the configuration dialog.
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{graphicsPlot-\/>setSettingsKey(qApp-\/>applicationName());}
+\end{DoxyCode}
+
+
+Each configurable object must then be registered with the add\+Configurable\+Objects method call, passing the name of the tab in the tab widget for the object and a reference to the object itself.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{graphicsPlot-\/>addConfigurableObjects(curveItem-\/>name() + \textcolor{stringliteral}{"{} Properties"{}}, curveItem);}
+\end{DoxyCode}
+
+
+\begin{DoxyParagraph}{Position of the axes}
+The axes are placed by \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} through the classes \doxyref{Axes\+Manager}{p.}{classAxesManager} and \doxyref{Axis\+Couple}{p.}{classAxisCouple}. Each \doxyref{Axis\+Couple}{p.}{classAxisCouple} in the \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} represents a couple of axis, one with Horizontal orientation and the other with Vertical orientation. The default positioning of the axes is done by default such as each the axes cross each other in the middle. If you want to change the reciprocal axes position, see \doxyref{Plot\+Scene\+Widget\+::set\+Origin\+Pos\+Percentage}{p.}{classPlotSceneWidget_aea844334c4b2e71ff6eba2f57cd562f9} \doxyref{Plot\+Scene\+Widget\+::set\+Default\+X\+Axis\+Origin\+Pos\+Percentage}{p.}{classPlotSceneWidget_a0c9b92b6a5aca6da0fa85b9f9b7aca32} and \doxyref{Plot\+Scene\+Widget\+::set\+Default\+Y\+Axis\+Origin\+Pos\+Percentage}{p.}{classPlotSceneWidget_a759d14c7e662ce3afabebd7dcf167d9c}.
+\end{DoxyParagraph}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{// change the position of the axis}}
+\DoxyCodeLine{graphicsPlot-\/>setDefaultXAxisOriginPosPercentage(0.0);}
+\DoxyCodeLine{graphicsPlot-\/>setDefaultYAxisOriginPosPercentage(0.1);}
+\end{DoxyCode}
+
+
+The code above produces the effect of placing the scales as in the {\itshape scalartime} example in the {\itshape examples} folder. Here you can see a screenshot of the {\itshape scalartime} example
+
+
+
+In the {\itshape scalartime} example, the time labels in the x axis have been realized by installing a \doxyref{Time\+Scale\+Label}{p.}{classTimeScaleLabel} on the x axis\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{TimeScaleLabel *timeScaleLabel = \textcolor{keyword}{new} TimeScaleLabel();}
+\DoxyCodeLine{graphicsPlot-\/>xScaleItem()-\/>installScaleLabelInterface(timeScaleLabel);}
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Time\+Scale\+Label}{p.}{classTimeScaleLabel} 
+
+install\+Scale\+Label\+Interface 
+
+\doxyref{Scale\+Label\+Interface}{p.}{classScaleLabelInterface}
+\end{DoxySeeAlso}
+To customize x or y scale labels, have a look to \doxyref{Scale\+Label\+Interface}{p.}{classScaleLabelInterface}. You must subclass that interface and provide a \doxyref{Scale\+Label\+Interface\+::label}{p.}{classScaleLabelInterface_a1c68e07c44a7aed5c90b72ad46c80a4c} method implementation.
+
+\begin{DoxyParagraph}{Implementation notes}
+\doxyref{Plot\+Geometry\+Event\+Listener}{p.}{classPlotGeometryEventListener} and \doxyref{Mouse\+Event\+Listener}{p.}{classMouseEventListener} interfaces can benefit from \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} notifications when the geometry of the plot changes (see \doxyref{Plot\+Geometry\+Event\+Listener}{p.}{classPlotGeometryEventListener}) or the mouse is clicked/moved/pressed/released on a certain point (see \doxyref{Mouse\+Event\+Listener}{p.}{classMouseEventListener}). install\+Mouse\+Event\+Listener and install\+Plot\+Geometry\+Change\+Listener methods can be used by any class implementing the \doxyref{Mouse\+Event\+Listener}{p.}{classMouseEventListener} and \doxyref{Plot\+Geometry\+Event\+Listener}{p.}{classPlotGeometryEventListener} interfaces in order to register for the corresponding events. ~\newline
+ Other relevant changes taking place in the \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} are notified by means of Qt {\itshape signals}. For example, signals are emitted when a new curve is added or removed or an axis is removed. Appropriate signals are also emitted when the area of the plot changes (taking into account the currently applied transform matrix) and when the plot rect changes. 
+\end{DoxyParagraph}

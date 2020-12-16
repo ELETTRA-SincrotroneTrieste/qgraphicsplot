@@ -1,0 +1,86 @@
+A) Install QGraphicsPlot library.
+
+Adjust graphicsplot.pro according to your needs and environment.
+In particular, consider setting the
+
+INSTALL_ROOT
+
+so that it points to the place where the library has to be installed
+(for example /usr/local/qgraphicsplot)
+
+In the first lines of qgraphicsplot.pro you may also choose specific directories
+for library and include installations.
+
++---                                                               --+
+
+IMPORTANT NOTE:
+
+Since version 2.1.0, the library requires Qt>=4.8
+This choice may impact performance.
+If you want to build the library with a previous version of Qt,
+remove the error line in qgraphicsplot.pro and comment out the
+check for the Qt version done in src/plotscenewidget.h, after the
+include directives at the top.
+
++---                                                                 +
+
+
++---                                                               --+
+NOTE: Qt5 support
+If you use qt5 qmake, the library will have a "-qt5" suffix.
+All Qt libraries that need QGraphicsPlot must then be (re)compiled
+against qt5 (for example, TGraphicsPlot)
++---                                                                 +
+
+
+1. Build the library
+- qmake
+- make
+
+2. Install the library
+ - qmake
+ - make install (as root, if you haven't the write permissions on the INSTALL_ROOT directory)
+
+
+B) Install Qt4 designer plugins
+
+cd src/plugins
+
+Adjust qgraphicsplotplugin.pro (INSTALL_ROOT must be the same as before)
+
+1. build plugins
+- qmake
+- make
+
+2. install plugins
+- qmake
+- make install (as root, if necessary)
+
+C) Compile examples.
+
+cd examples
+- qmake
+- make
+
+This will automatically compile all the examples provided with the distribution
+of the library.
+
+The qwt examples need the qwt libraries and are provided in order to offer a performance
+comparison with the qwts (version 5)
+
+To link your applications to the library:
+
+-L/usr/local/qgraphicsplot/lib -lQGraphicsPlot
+
+where /usr/local/qgraphicsplot/lib may be different according to INSTALL_ROOT and
+LIB_DIR settings in qgraphicsplot.pro
+
+Documentation is installed in SHAREDIR directory specified in qgraphicsplot.pro
+
+Read also the README file contained in the same directory as this file.
+
+(C) 2012 Giacomo Strangolino
+    giacomo.strangolino@elettra.trieste.it
+
+
+

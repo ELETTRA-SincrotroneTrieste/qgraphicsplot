@@ -1,0 +1,258 @@
+\doxysection{Histogram\+Painter Class Reference}
+\label{classHistogramPainter}\index{HistogramPainter@{HistogramPainter}}
+
+
+{\ttfamily \#include $<$histogrampainter.\+h$>$}
+
+Inheritance diagram for Histogram\+Painter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classHistogramPainter}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ set\+Auto\+Width} (bool aw)
+\item 
+void \textbf{ set\+Width} (double w)
+\item 
+void \textbf{ set\+Base\+Line} (double baseline)
+\item 
+void \textbf{ set\+Color} (const Q\+Color \&c)
+\item 
+void \textbf{ set\+Color\+At} (int index, const Q\+Color \&c)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Histogram\+Painter} (\textbf{ Curve\+Item} $\ast$\textbf{ curve\+Item})
+\item 
+virtual void \textbf{ draw} (\textbf{ Scene\+Curve} $\ast$curve, \textbf{ Plot\+Scene\+Widget} $\ast$plot, Q\+Painter $\ast$painter, const Q\+Style\+Option\+Graphics\+Item $\ast$option, Q\+Widget $\ast$widget=0)
+\begin{DoxyCompactList}\small\item\em the drawing method. \end{DoxyCompactList}\item 
+virtual \textbf{ Curve\+Item} $\ast$ \textbf{ curve\+Item} () const
+\item 
+virtual Q\+SizeF \textbf{ element\+Size} () const
+\begin{DoxyCompactList}\small\item\em the size of each drawn element \end{DoxyCompactList}\item 
+virtual int \textbf{ type} () const
+\item 
+Q\+Color \textbf{ color} () const
+\item 
+double \textbf{ width} () const
+\item 
+double \textbf{ base\+Line} () const
+\item 
+bool \textbf{ auto\+Width} () const
+\item 
+Q\+Color \textbf{ color\+At} (int index) const
+\item 
+Q\+Pen \textbf{ pen} () const
+\begin{DoxyCompactList}\small\item\em Implements the pen method of the \doxyref{Item\+Painter\+Interface}{p.}{classItemPainterInterface}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+double \textbf{ width}
+\item 
+double \textbf{ base\+Line}
+\item 
+Q\+Color \textbf{ color}
+\item 
+bool \textbf{ auto\+Width}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classHistogramPainter_a24905488bfde011c3b7f13b803384136}} 
+\index{HistogramPainter@{HistogramPainter}!HistogramPainter@{HistogramPainter}}
+\index{HistogramPainter@{HistogramPainter}!HistogramPainter@{HistogramPainter}}
+\doxysubsubsection{HistogramPainter()}
+{\footnotesize\ttfamily Histogram\+Painter\+::\+Histogram\+Painter (\begin{DoxyParamCaption}\item[{\textbf{ Curve\+Item} $\ast$}]{curve\+Item }\end{DoxyParamCaption})}
+
+
+
+References curve\+Item(), Curve\+Item\+::install\+Item\+Painter\+Interface(), K\+B\+L\+UE, and K\+D\+A\+R\+K\+B\+L\+UE.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classHistogramPainter_affa953ef2880c049f76e511d81039acf}} 
+\index{HistogramPainter@{HistogramPainter}!autoWidth@{autoWidth}}
+\index{autoWidth@{autoWidth}!HistogramPainter@{HistogramPainter}}
+\doxysubsubsection{autoWidth()}
+{\footnotesize\ttfamily bool Histogram\+Painter\+::auto\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classHistogramPainter_ae819bbfa683cc01210a635c5ea247690}} 
+\index{HistogramPainter@{HistogramPainter}!baseLine@{baseLine}}
+\index{baseLine@{baseLine}!HistogramPainter@{HistogramPainter}}
+\doxysubsubsection{baseLine()}
+{\footnotesize\ttfamily double Histogram\+Painter\+::base\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classHistogramPainter_a5055f177584243e979246e0feef7429c}} 
+\index{HistogramPainter@{HistogramPainter}!color@{color}}
+\index{color@{color}!HistogramPainter@{HistogramPainter}}
+\doxysubsubsection{color()}
+{\footnotesize\ttfamily Q\+Color Histogram\+Painter\+::color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classHistogramPainter_a978a462b7fe4991dc9583575c17326b0}} 
+\index{HistogramPainter@{HistogramPainter}!colorAt@{colorAt}}
+\index{colorAt@{colorAt}!HistogramPainter@{HistogramPainter}}
+\doxysubsubsection{colorAt()}
+{\footnotesize\ttfamily Q\+Color Histogram\+Painter\+::color\+At (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classHistogramPainter_aaca5073f0178254aec17556e86fb9b7e}} 
+\index{HistogramPainter@{HistogramPainter}!curveItem@{curveItem}}
+\index{curveItem@{curveItem}!HistogramPainter@{HistogramPainter}}
+\doxysubsubsection{curveItem()}
+{\footnotesize\ttfamily \textbf{ Curve\+Item} $\ast$ Histogram\+Painter\+::curve\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \textbf{ Item\+Painter\+Interface} \doxyref{}{p.}{classItemPainterInterface_a789d5f06890eea0696bd545f6147beb9}.
+
+
+
+Referenced by Histogram\+Painter().
+
+\mbox{\label{classHistogramPainter_a4aa7a90c6f0dd07a2064074c2b1d6fe6}} 
+\index{HistogramPainter@{HistogramPainter}!draw@{draw}}
+\index{draw@{draw}!HistogramPainter@{HistogramPainter}}
+\doxysubsubsection{draw()}
+{\footnotesize\ttfamily void Histogram\+Painter\+::draw (\begin{DoxyParamCaption}\item[{\textbf{ Scene\+Curve} $\ast$}]{curve,  }\item[{\textbf{ Plot\+Scene\+Widget} $\ast$}]{plot,  }\item[{Q\+Painter $\ast$}]{painter,  }\item[{const Q\+Style\+Option\+Graphics\+Item $\ast$}]{option,  }\item[{Q\+Widget $\ast$}]{widget = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This method is invoked by \doxyref{Curve\+Item}{p.}{classCurveItem} inside paint method. You can obtain the points of the curve in scene coordinates by calling curve-\/$>$points and the size of the points by means of curve-\/$>$data\+Size. It may be necessary to call painter-\/$>$save() and painter-\/$>$restore() at the beginning and end of the drawing. Each draw method of each installed \doxyref{Item\+Painter\+Interface}{p.}{classItemPainterInterface} is actually invoked in sequence without saving and restoring the painter state for you.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Curve\+Item}{p.}{classCurveItem} 
+
+\doxyref{Line\+Painter}{p.}{classLinePainter} 
+
+\doxyref{Dots\+Painter}{p.}{classDotsPainter} 
+\end{DoxySeeAlso}
+T\+E\+ST /// painter-\/$>$set\+Pen(\+Qt\+::red); painter-\/$>$draw\+Line(x1, y\+Base\+Line, x2, y\+Base\+Line);
+
+Implements \textbf{ Item\+Painter\+Interface} \doxyref{}{p.}{classItemPainterInterface_a46c979807ac7a76377a89210455f62a5}.
+
+
+
+References Scale\+Item\+::canvas\+Width, Scene\+Curve\+::data\+Size(), Scene\+Curve\+::get\+X\+Axis(), Scale\+Item\+::lower\+Bound, Scene\+Curve\+::points(), Plot\+Scene\+Widget\+::transform(), Scale\+Item\+::upper\+Bound, width, Plot\+Scene\+Widget\+::x\+Scale\+Item(), and Plot\+Scene\+Widget\+::y\+Scale\+Item().
+
+\mbox{\label{classHistogramPainter_a205f74ede82a38d83b98a86b46c28967}} 
+\index{HistogramPainter@{HistogramPainter}!elementSize@{elementSize}}
+\index{elementSize@{elementSize}!HistogramPainter@{HistogramPainter}}
+\doxysubsubsection{elementSize()}
+{\footnotesize\ttfamily Q\+SizeF Histogram\+Painter\+::element\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This size is used by the classes that use \doxyref{Item\+Painter\+Interface}{p.}{classItemPainterInterface} to know how much extra space is needed in order to calculate the bounding rect of the \doxyref{Curve\+Item}{p.}{classCurveItem} or other geometrical properties.
+
+For instance, if you are drawing circles, then this method should return the radius of the circle, so that \doxyref{Curve\+Item}{p.}{classCurveItem} knows how much space has to be added to the curve bounds in order to correcly draw the items.
+
+If you are drawing lines, then this size can be 0x0 since the connecting lines do not require extra space to be calculated. If you use a particular pen width, then you may want to return its width in order to be sure that \doxyref{Curve\+Item}{p.}{classCurveItem} takes care of this space.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Curve\+Item}{p.}{classCurveItem} 
+\end{DoxySeeAlso}
+
+
+Implements \textbf{ Item\+Painter\+Interface} \doxyref{}{p.}{classItemPainterInterface_a56701b8b651536062e271311831a3ea7}.
+
+\mbox{\label{classHistogramPainter_ad79ef3714eb9c6a3350a48b36d1acbfd}} 
+\index{HistogramPainter@{HistogramPainter}!pen@{pen}}
+\index{pen@{pen}!HistogramPainter@{HistogramPainter}}
+\doxysubsubsection{pen()}
+{\footnotesize\ttfamily Q\+Pen Histogram\+Painter\+::pen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the pen used to draw the rects 
+\end{DoxyReturn}
+
+
+Implements \textbf{ Item\+Painter\+Interface} \doxyref{}{p.}{classItemPainterInterface_a3e8917ac7bf813cde52ce852d062d5fd}.
+
+\mbox{\label{classHistogramPainter_a04f6de19bb23d99cc5450a2f1b457fc4}} 
+\index{HistogramPainter@{HistogramPainter}!setAutoWidth@{setAutoWidth}}
+\index{setAutoWidth@{setAutoWidth}!HistogramPainter@{HistogramPainter}}
+\doxysubsubsection{setAutoWidth}
+{\footnotesize\ttfamily void Histogram\+Painter\+::set\+Auto\+Width (\begin{DoxyParamCaption}\item[{bool}]{aw }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classHistogramPainter_ad27ae0b35b71c473b6e107a6f06818ec}} 
+\index{HistogramPainter@{HistogramPainter}!setBaseLine@{setBaseLine}}
+\index{setBaseLine@{setBaseLine}!HistogramPainter@{HistogramPainter}}
+\doxysubsubsection{setBaseLine}
+{\footnotesize\ttfamily void Histogram\+Painter\+::set\+Base\+Line (\begin{DoxyParamCaption}\item[{double}]{baseline }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classHistogramPainter_ab1165ae8d135b5f4195a70c49cb1369b}} 
+\index{HistogramPainter@{HistogramPainter}!setColor@{setColor}}
+\index{setColor@{setColor}!HistogramPainter@{HistogramPainter}}
+\doxysubsubsection{setColor}
+{\footnotesize\ttfamily void Histogram\+Painter\+::set\+Color (\begin{DoxyParamCaption}\item[{const Q\+Color \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classHistogramPainter_a51b421837081b4a4ef02360993ee1d22}} 
+\index{HistogramPainter@{HistogramPainter}!setColorAt@{setColorAt}}
+\index{setColorAt@{setColorAt}!HistogramPainter@{HistogramPainter}}
+\doxysubsubsection{setColorAt}
+{\footnotesize\ttfamily void Histogram\+Painter\+::set\+Color\+At (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{const Q\+Color \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classHistogramPainter_a23f311e180d805a3bda6eb3333cf0143}} 
+\index{HistogramPainter@{HistogramPainter}!setWidth@{setWidth}}
+\index{setWidth@{setWidth}!HistogramPainter@{HistogramPainter}}
+\doxysubsubsection{setWidth}
+{\footnotesize\ttfamily void Histogram\+Painter\+::set\+Width (\begin{DoxyParamCaption}\item[{double}]{w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classHistogramPainter_a1add5039a36f58e743710dfb54e413ec}} 
+\index{HistogramPainter@{HistogramPainter}!type@{type}}
+\index{type@{type}!HistogramPainter@{HistogramPainter}}
+\doxysubsubsection{type()}
+{\footnotesize\ttfamily int Histogram\+Painter\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \textbf{ Item\+Painter\+Interface} \doxyref{}{p.}{classItemPainterInterface_a1fbe17f4940d8da17764e772b35e7dd7}.
+
+
+
+References Item\+Painter\+Interface\+::\+Histogram.
+
+\mbox{\label{classHistogramPainter_a0df9a3f16eddeac917308056615b0933}} 
+\index{HistogramPainter@{HistogramPainter}!width@{width}}
+\index{width@{width}!HistogramPainter@{HistogramPainter}}
+\doxysubsubsection{width()}
+{\footnotesize\ttfamily double Histogram\+Painter\+::width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\label{classHistogramPainter_acae330ace6f32d9de9cd14bd6c5d3b7b}} 
+\index{HistogramPainter@{HistogramPainter}!autoWidth@{autoWidth}}
+\index{autoWidth@{autoWidth}!HistogramPainter@{HistogramPainter}}
+\doxysubsubsection{autoWidth}
+{\footnotesize\ttfamily bool Histogram\+Painter\+::auto\+Width\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classHistogramPainter_a83bc51523b00f3b1e820a626458f8d3c}} 
+\index{HistogramPainter@{HistogramPainter}!baseLine@{baseLine}}
+\index{baseLine@{baseLine}!HistogramPainter@{HistogramPainter}}
+\doxysubsubsection{baseLine}
+{\footnotesize\ttfamily double Histogram\+Painter\+::base\+Line\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classHistogramPainter_a94dd353449f9e55867a90d97086f8136}} 
+\index{HistogramPainter@{HistogramPainter}!color@{color}}
+\index{color@{color}!HistogramPainter@{HistogramPainter}}
+\doxysubsubsection{color}
+{\footnotesize\ttfamily Q\+Color Histogram\+Painter\+::color\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\label{classHistogramPainter_a230bcb3531a2a2e8e1dcec9ad5fdac71}} 
+\index{HistogramPainter@{HistogramPainter}!width@{width}}
+\index{width@{width}!HistogramPainter@{HistogramPainter}}
+\doxysubsubsection{width}
+{\footnotesize\ttfamily double Histogram\+Painter\+::width\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Referenced by draw().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ histogrampainter.\+h}\item 
+\textbf{ histogrampainter.\+cpp}\end{DoxyCompactItemize}

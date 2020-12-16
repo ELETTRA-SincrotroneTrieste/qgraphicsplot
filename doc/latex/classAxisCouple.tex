@@ -1,0 +1,147 @@
+\doxysection{Axis\+Couple Class Reference}
+\label{classAxisCouple}\index{AxisCouple@{AxisCouple}}
+
+
+{\ttfamily \#include $<$axiscouple.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Axis\+Couple} (\textbf{ Scale\+Item} $\ast$\textbf{ x\+Axis}, \textbf{ Scale\+Item} $\ast$\textbf{ y\+Axis}, double \textbf{ x\+Origin\+Pos\+Percentage}, double \textbf{ y\+Origin\+Pos\+Percentage})
+\item 
+\textbf{ Axis\+Couple} ()
+\item 
+\textbf{ Axis\+Couple} (const \textbf{ Axis\+Couple} \&other)
+\item 
+bool \textbf{ is\+Valid} () const
+\begin{DoxyCompactList}\small\item\em Returns true if the axis couple is valid, false otherwise. \end{DoxyCompactList}\item 
+bool \textbf{ operator==} (const \textbf{ Axis\+Couple} \&other) const
+\item 
+\textbf{ Axis\+Couple} \& \textbf{ operator=} (const \textbf{ Axis\+Couple} \&other)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Scale\+Item} $\ast$ \textbf{ x\+Axis}
+\item 
+\textbf{ Scale\+Item} $\ast$ \textbf{ y\+Axis}
+\item 
+double \textbf{ x\+Origin\+Pos\+Percentage}
+\item 
+double \textbf{ y\+Origin\+Pos\+Percentage}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classAxisCouple_a8a0bda1fa9860409f6c1b1281b2b6245}} 
+\index{AxisCouple@{AxisCouple}!AxisCouple@{AxisCouple}}
+\index{AxisCouple@{AxisCouple}!AxisCouple@{AxisCouple}}
+\doxysubsubsection{AxisCouple()\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Axis\+Couple\+::\+Axis\+Couple (\begin{DoxyParamCaption}\item[{\textbf{ Scale\+Item} $\ast$}]{x\+Axis,  }\item[{\textbf{ Scale\+Item} $\ast$}]{y\+Axis,  }\item[{double}]{x\+Origin\+Pos\+Percentage,  }\item[{double}]{y\+Origin\+Pos\+Percentage }\end{DoxyParamCaption})}
+
+
+
+References x\+Axis, x\+Origin\+Pos\+Percentage, y\+Axis, and y\+Origin\+Pos\+Percentage.
+
+\mbox{\label{classAxisCouple_acdbb6e71df022c40afa24f4745b4f773}} 
+\index{AxisCouple@{AxisCouple}!AxisCouple@{AxisCouple}}
+\index{AxisCouple@{AxisCouple}!AxisCouple@{AxisCouple}}
+\doxysubsubsection{AxisCouple()\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Axis\+Couple\+::\+Axis\+Couple (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+References x\+Axis, x\+Origin\+Pos\+Percentage, y\+Axis, and y\+Origin\+Pos\+Percentage.
+
+\mbox{\label{classAxisCouple_ac9b43e226f574ccec6a7262040446563}} 
+\index{AxisCouple@{AxisCouple}!AxisCouple@{AxisCouple}}
+\index{AxisCouple@{AxisCouple}!AxisCouple@{AxisCouple}}
+\doxysubsubsection{AxisCouple()\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Axis\+Couple\+::\+Axis\+Couple (\begin{DoxyParamCaption}\item[{const \textbf{ Axis\+Couple} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+References x\+Axis, x\+Origin\+Pos\+Percentage, y\+Axis, and y\+Origin\+Pos\+Percentage.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classAxisCouple_ac0e2f9f49234db25c1dd2303233fbe5c}} 
+\index{AxisCouple@{AxisCouple}!isValid@{isValid}}
+\index{isValid@{isValid}!AxisCouple@{AxisCouple}}
+\doxysubsubsection{isValid()}
+{\footnotesize\ttfamily bool Axis\+Couple\+::is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+An axis couple is valid when at least one of the two axis is not null 
+
+References x\+Axis, and y\+Axis.
+
+\mbox{\label{classAxisCouple_a0913d1ae6baff5cb032503176fa440fc}} 
+\index{AxisCouple@{AxisCouple}!operator=@{operator=}}
+\index{operator=@{operator=}!AxisCouple@{AxisCouple}}
+\doxysubsubsection{operator=()}
+{\footnotesize\ttfamily \textbf{ Axis\+Couple} \& Axis\+Couple\+::operator= (\begin{DoxyParamCaption}\item[{const \textbf{ Axis\+Couple} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+References x\+Axis, x\+Origin\+Pos\+Percentage, y\+Axis, and y\+Origin\+Pos\+Percentage.
+
+\mbox{\label{classAxisCouple_a2c10418e2e776a31c7dd5f2a7f769496}} 
+\index{AxisCouple@{AxisCouple}!operator==@{operator==}}
+\index{operator==@{operator==}!AxisCouple@{AxisCouple}}
+\doxysubsubsection{operator==()}
+{\footnotesize\ttfamily bool Axis\+Couple\+::operator== (\begin{DoxyParamCaption}\item[{const \textbf{ Axis\+Couple} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+References x\+Axis, and y\+Axis.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classAxisCouple_a9995544ecb83e08e3cbd88fea20a2305}} 
+\index{AxisCouple@{AxisCouple}!xAxis@{xAxis}}
+\index{xAxis@{xAxis}!AxisCouple@{AxisCouple}}
+\doxysubsubsection{xAxis}
+{\footnotesize\ttfamily \textbf{ Scale\+Item}$\ast$ Axis\+Couple\+::x\+Axis}
+
+
+
+Referenced by Plot\+Scene\+Widget\+::add\+Axis(), Axis\+Couple(), Axes\+Manager\+::clear\+Axes(), Axes\+Manager\+::find\+Incomplete\+Couple(), Axes\+Manager\+::get\+All\+Axes(), Axes\+Manager\+::get\+Associated\+Axis(), Axes\+Manager\+::get\+Axis(), Axes\+Manager\+::get\+Origin\+Pos\+Percentage(), is\+Valid(), operator=(), operator==(), and Plot\+Scene\+Widget\+::origin\+Pos\+Percentage().
+
+\mbox{\label{classAxisCouple_ac2001fade92af061243c299f1aab0a8a}} 
+\index{AxisCouple@{AxisCouple}!xOriginPosPercentage@{xOriginPosPercentage}}
+\index{xOriginPosPercentage@{xOriginPosPercentage}!AxisCouple@{AxisCouple}}
+\doxysubsubsection{xOriginPosPercentage}
+{\footnotesize\ttfamily double Axis\+Couple\+::x\+Origin\+Pos\+Percentage}
+
+
+
+Referenced by Axis\+Couple(), Axes\+Manager\+::get\+Origin\+Pos\+Percentage(), operator=(), and Plot\+Scene\+Widget\+::origin\+Pos\+Percentage().
+
+\mbox{\label{classAxisCouple_afdb21039c92d5cea11ed361b3286f8c3}} 
+\index{AxisCouple@{AxisCouple}!yAxis@{yAxis}}
+\index{yAxis@{yAxis}!AxisCouple@{AxisCouple}}
+\doxysubsubsection{yAxis}
+{\footnotesize\ttfamily \textbf{ Scale\+Item} $\ast$ Axis\+Couple\+::y\+Axis}
+
+
+
+Referenced by Plot\+Scene\+Widget\+::add\+Axis(), Axis\+Couple(), Axes\+Manager\+::clear\+Axes(), Axes\+Manager\+::find\+Incomplete\+Couple(), Axes\+Manager\+::get\+All\+Axes(), Axes\+Manager\+::get\+Associated\+Axis(), Axes\+Manager\+::get\+Axis(), Axes\+Manager\+::get\+Origin\+Pos\+Percentage(), is\+Valid(), operator=(), operator==(), and Plot\+Scene\+Widget\+::origin\+Pos\+Percentage().
+
+\mbox{\label{classAxisCouple_a4eab3fe661685d1a3bc691d153759425}} 
+\index{AxisCouple@{AxisCouple}!yOriginPosPercentage@{yOriginPosPercentage}}
+\index{yOriginPosPercentage@{yOriginPosPercentage}!AxisCouple@{AxisCouple}}
+\doxysubsubsection{yOriginPosPercentage}
+{\footnotesize\ttfamily double Axis\+Couple\+::y\+Origin\+Pos\+Percentage}
+
+
+
+Referenced by Axis\+Couple(), Axes\+Manager\+::get\+Origin\+Pos\+Percentage(), operator=(), and Plot\+Scene\+Widget\+::origin\+Pos\+Percentage().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ axiscouple.\+h}\item 
+\textbf{ axiscouple.\+cpp}\end{DoxyCompactItemize}

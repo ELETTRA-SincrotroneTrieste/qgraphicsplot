@@ -1,0 +1,492 @@
+\doxysection{Target\+Item Class Reference}
+\label{classTargetItem}\index{TargetItem@{TargetItem}}
+
+
+A Q\+Graphics\+Object that can be moved and can be attached to a writer in order to write a value according to the position of the item.  
+
+
+
+
+{\ttfamily \#include $<$targetitem.\+h$>$}
+
+Inheritance diagram for Target\+Item\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTargetItem}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \textbf{ Type} = User\+Type + 101
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ set\+Circle\+Color} (const Q\+Color \&c)
+\item 
+void \textbf{ set\+Point\+Label\+Enabled} (bool en)
+\item 
+void \textbf{ set\+Inner\+Radius} (double r)
+\item 
+void \textbf{ set\+Outer\+Radius} (double r)
+\item 
+void \textbf{ set\+Radius\+Scale\+Divider} (double divider)
+\item 
+void \textbf{ setX} (double \textbf{ x})
+\begin{DoxyCompactList}\small\item\em stores the x position in the x scale coordinate. \end{DoxyCompactList}\item 
+void \textbf{ setY} (double \textbf{ y})
+\begin{DoxyCompactList}\small\item\em stores the y position in the y scale coordinate. \end{DoxyCompactList}\item 
+void \textbf{ update\+Position} ()
+\begin{DoxyCompactList}\small\item\em updates the item position according to the x and y values in scale coordinates \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual int \textbf{ type} () const
+\item 
+\textbf{ Target\+Item} (\textbf{ Scale\+Item} $\ast$x\+Axis, \textbf{ Scale\+Item} $\ast$y\+Axis, \textbf{ Plot\+Scene\+Widget} $\ast$plot)
+\begin{DoxyCompactList}\small\item\em The \doxyref{Target\+Item}{p.}{classTargetItem} constructor. \end{DoxyCompactList}\item 
+Q\+Color \textbf{ circle\+Color} () const
+\item 
+bool \textbf{ point\+Label\+Enabled} () const
+\item 
+double \textbf{ inner\+Radius} () const
+\item 
+double \textbf{ outer\+Radius} () const
+\item 
+double \textbf{ radius\+Scale\+Divider} () const
+\item 
+double \textbf{ x} () const
+\begin{DoxyCompactList}\small\item\em returns the x position in the \doxyref{Scale\+Item}{p.}{classScaleItem} x coordinate system \end{DoxyCompactList}\item 
+double \textbf{ y} () const
+\begin{DoxyCompactList}\small\item\em returns the y position in the \doxyref{Scale\+Item}{p.}{classScaleItem} y coordinate system \end{DoxyCompactList}\item 
+virtual void \textbf{ paint} (Q\+Painter $\ast$painter, const Q\+Style\+Option\+Graphics\+Item $\ast$option, Q\+Widget $\ast$widget=0)
+\item 
+Q\+RectF \textbf{ bounding\+Rect} () const
+\item 
+void \textbf{ install\+Item\+Move\+Listener} (\textbf{ Item\+Move\+Listener} $\ast$l)
+\begin{DoxyCompactList}\small\item\em Installs an \doxyref{Item\+Move\+Listener}{p.}{classItemMoveListener} implementation. \end{DoxyCompactList}\item 
+\textbf{ Item\+Move\+Listener} $\ast$ \textbf{ item\+Move\+Listener} () const
+\begin{DoxyCompactList}\small\item\em Returns the currently installed item move listener. \end{DoxyCompactList}\item 
+void \textbf{ canvas\+Rect\+Changed} (const Q\+RectF \&new\+Rect)
+\begin{DoxyCompactList}\small\item\em This method updates the item position when the plot canvas changes. \end{DoxyCompactList}\item 
+virtual void \textbf{ x\+Axis\+Bounds\+Changed} (double, double)
+\begin{DoxyCompactList}\small\item\em This must be implemented from \doxyref{Axis\+Change\+Listener}{p.}{classAxisChangeListener} interface, but they do nothing. \end{DoxyCompactList}\item 
+virtual void \textbf{ y\+Axis\+Bounds\+Changed} (double, double)
+\begin{DoxyCompactList}\small\item\em This is aimed at repositioning the target item. \end{DoxyCompactList}\item 
+virtual void \textbf{ axis\+Autoscale\+Changed} (\textbf{ Scale\+Item\+::\+Orientation}, bool)
+\begin{DoxyCompactList}\small\item\em This is aimed at repositioning the target item. \end{DoxyCompactList}\item 
+virtual void \textbf{ tick\+Step\+Len\+Changed} (double)
+\begin{DoxyCompactList}\small\item\em notifies listeners about tick step len changes. \end{DoxyCompactList}\item 
+virtual void \textbf{ labels\+Format\+Changed} (const Q\+String \&)
+\begin{DoxyCompactList}\small\item\em when the labels format changes, labels\+Format\+Changed is used \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual Q\+Variant \textbf{ item\+Change} (Graphics\+Item\+Change change, const Q\+Variant \&value)
+\item 
+void \textbf{ mouse\+Press\+Event} (Q\+Graphics\+Scene\+Mouse\+Event $\ast$event)
+\item 
+void \textbf{ mouse\+Release\+Event} (Q\+Graphics\+Scene\+Mouse\+Event $\ast$event)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A \doxyref{Target\+Item}{p.}{classTargetItem} must be attached to a couple of \doxyref{Scale\+Item}{p.}{classScaleItem} axes, and must be constructed passing a reference to a \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget}, as you can see in the \doxyref{Target\+Item}{p.}{classTargetItem} constructor.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Target\+Item}{p.}{classTargetItem}
+\end{DoxySeeAlso}
+In order to receive move events, you have to implement the \doxyref{Item\+Move\+Listener}{p.}{classItemMoveListener} interface and install it by calling install\+Item\+Move\+Listener. Move events are sent only if the mouse button is pressed. set\+Pos does not per se produce a move event.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{install\+Item\+Move\+Listener}{p.}{classTargetItem_ad5ab5abecc38a3a7444db71ffb8f1bcf} 
+
+\doxyref{Item\+Move\+Listener}{p.}{classItemMoveListener}
+\end{DoxySeeAlso}
+\begin{DoxyParagraph}{Automatic repositioning of the Target\+Item when the plot geometry changes.}
+\doxyref{Target\+Item}{p.}{classTargetItem} implements \doxyref{Axis\+Change\+Listener}{p.}{classAxisChangeListener} interface. When the \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} plot canvas changes its geometry, the canvas\+Rect\+Changed method repositions the target item according to the new geometry and the values of x and y axes coordinates of the target items, which are set with setX and setY.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Note}
+The \doxyref{Target\+Item}{p.}{classTargetItem} constructor {\bfseries{installs the \doxyref{Target\+Item}{p.}{classTargetItem} on each \doxyref{Scale\+Item}{p.}{classScaleItem} in order to receive the geometry change events}} of the \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} and to be able to reposition itself when the canvas rect changes. 
+\end{DoxyParagraph}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\label{classTargetItem_a355bdd8feb6751ad5916b17a6080ee0c}} 
+\doxysubsubsection{anonymous enum}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Type@{Type}!TargetItem@{TargetItem}}\index{TargetItem@{TargetItem}!Type@{Type}}}\mbox{\label{classTargetItem_a355bdd8feb6751ad5916b17a6080ee0ca016548595798de645c72e03cccd063c1}} 
+Type&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classTargetItem_a26447d7d7586187e56f0a3f4a8e9d700}} 
+\index{TargetItem@{TargetItem}!TargetItem@{TargetItem}}
+\index{TargetItem@{TargetItem}!TargetItem@{TargetItem}}
+\doxysubsubsection{TargetItem()}
+{\footnotesize\ttfamily Target\+Item\+::\+Target\+Item (\begin{DoxyParamCaption}\item[{\textbf{ Scale\+Item} $\ast$}]{x\+Axis,  }\item[{\textbf{ Scale\+Item} $\ast$}]{y\+Axis,  }\item[{\textbf{ Plot\+Scene\+Widget} $\ast$}]{plot }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Axis} & a reference to the associated x \doxyref{Scale\+Item}{p.}{classScaleItem} \\
+\hline
+{\em y\+Axis} & a reference to the associated x \doxyref{Scale\+Item}{p.}{classScaleItem} \\
+\hline
+{\em plot} & the \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} in which to place the \doxyref{Target\+Item}{p.}{classTargetItem}\\
+\hline
+\end{DoxyParams}
+Initiates a red \doxyref{Target\+Item}{p.}{classTargetItem} with an inner radius of 15 and an outer radius of 20. The item is movable, selectable, sends geometry changes and sends scene position changes (Q\+Graphics\+Item\textquotesingle{}s item flags).
+
+The position with respect to the x and y scales is set to 0.\+0 by default. Remember to call setX and setY when you know what the position of the item is. Storing x and y position in axes coordinates is important in order to reposition the item when the canvas rect of the plot changes.
+
+\begin{DoxyParagraph}{Automatic repositioning of the Target\+Item on plot geometry change event.}
+When the \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} plot canvas changes its geometry, the canvas\+Rect\+Changed method repositions the target item according to the new geometry and the values of x and y axes coordinates of the target items, which are set with setX and setY The \doxyref{Target\+Item}{p.}{classTargetItem} constructor installs the \doxyref{Target\+Item}{p.}{classTargetItem} on each axis, x\+Axis and y\+Axis, in order to automatically manage the object repositioning when the canvas plot rect changes. 
+\end{DoxyParagraph}
+
+
+References K\+R\+ED.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classTargetItem_ab284643661fb4a98d28795bd1ab4e3d8}} 
+\index{TargetItem@{TargetItem}!axisAutoscaleChanged@{axisAutoscaleChanged}}
+\index{axisAutoscaleChanged@{axisAutoscaleChanged}!TargetItem@{TargetItem}}
+\doxysubsubsection{axisAutoscaleChanged()}
+{\footnotesize\ttfamily virtual void Target\+Item\+::axis\+Autoscale\+Changed (\begin{DoxyParamCaption}\item[{\textbf{ Scale\+Item\+::\+Orientation}}]{,  }\item[{bool}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \textbf{ Axis\+Change\+Listener} \doxyref{}{p.}{classAxisChangeListener_a0ba77e9333823d2f6e8d2855298e98c2}.
+
+\mbox{\label{classTargetItem_a7f19f749894e7239880765846fc3f33e}} 
+\index{TargetItem@{TargetItem}!boundingRect@{boundingRect}}
+\index{boundingRect@{boundingRect}!TargetItem@{TargetItem}}
+\doxysubsubsection{boundingRect()}
+{\footnotesize\ttfamily Q\+RectF Target\+Item\+::bounding\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+References outer\+Radius().
+
+\mbox{\label{classTargetItem_a0c1241685f4d26636109ad2614c904c4}} 
+\index{TargetItem@{TargetItem}!canvasRectChanged@{canvasRectChanged}}
+\index{canvasRectChanged@{canvasRectChanged}!TargetItem@{TargetItem}}
+\doxysubsubsection{canvasRectChanged()}
+{\footnotesize\ttfamily void Target\+Item\+::canvas\+Rect\+Changed (\begin{DoxyParamCaption}\item[{const Q\+RectF \&}]{new\+Rect }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \textbf{ Axis\+Change\+Listener} \doxyref{}{p.}{classAxisChangeListener_a0da790f01216e2de20aad59a322c0068}.
+
+
+
+References update\+Position().
+
+\mbox{\label{classTargetItem_aca7377c7d074a5a50f71c885ad7f7fdb}} 
+\index{TargetItem@{TargetItem}!circleColor@{circleColor}}
+\index{circleColor@{circleColor}!TargetItem@{TargetItem}}
+\doxysubsubsection{circleColor()}
+{\footnotesize\ttfamily Q\+Color Target\+Item\+::circle\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classTargetItem_aec4d32ddf0a1f5d6b83702d9a677737b}} 
+\index{TargetItem@{TargetItem}!innerRadius@{innerRadius}}
+\index{innerRadius@{innerRadius}!TargetItem@{TargetItem}}
+\doxysubsubsection{innerRadius()}
+{\footnotesize\ttfamily double Target\+Item\+::inner\+Radius (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Referenced by paint().
+
+\mbox{\label{classTargetItem_ad5ab5abecc38a3a7444db71ffb8f1bcf}} 
+\index{TargetItem@{TargetItem}!installItemMoveListener@{installItemMoveListener}}
+\index{installItemMoveListener@{installItemMoveListener}!TargetItem@{TargetItem}}
+\doxysubsubsection{installItemMoveListener()}
+{\footnotesize\ttfamily void Target\+Item\+::install\+Item\+Move\+Listener (\begin{DoxyParamCaption}\item[{\textbf{ Item\+Move\+Listener} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & an object implementing the \doxyref{Item\+Move\+Listener}{p.}{classItemMoveListener} interface. \\
+\hline
+{\em N\+U\+LL} & if you want to remove a previously installed listener.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{Item\+Move\+Listener}{p.}{classItemMoveListener} 
+
+\doxyref{item\+Move\+Listener}{p.}{classTargetItem_adedcb4c0202703278fb9291d0681ff23} 
+\end{DoxySeeAlso}
+\mbox{\label{classTargetItem_aea2dd00d5b874dd75dd4e66467f1974c}} 
+\index{TargetItem@{TargetItem}!itemChange@{itemChange}}
+\index{itemChange@{itemChange}!TargetItem@{TargetItem}}
+\doxysubsubsection{itemChange()}
+{\footnotesize\ttfamily Q\+Variant Target\+Item\+::item\+Change (\begin{DoxyParamCaption}\item[{Graphics\+Item\+Change}]{change,  }\item[{const Q\+Variant \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\label{classTargetItem_adedcb4c0202703278fb9291d0681ff23}} 
+\index{TargetItem@{TargetItem}!itemMoveListener@{itemMoveListener}}
+\index{itemMoveListener@{itemMoveListener}!TargetItem@{TargetItem}}
+\doxysubsubsection{itemMoveListener()}
+{\footnotesize\ttfamily \textbf{ Item\+Move\+Listener} $\ast$ Target\+Item\+::item\+Move\+Listener (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the currently installed item move listener, N\+U\+LL if none is installed 
+\end{DoxyReturn}
+\mbox{\label{classTargetItem_a573b62d42101431dd10a4bc51aa646ca}} 
+\index{TargetItem@{TargetItem}!labelsFormatChanged@{labelsFormatChanged}}
+\index{labelsFormatChanged@{labelsFormatChanged}!TargetItem@{TargetItem}}
+\doxysubsubsection{labelsFormatChanged()}
+{\footnotesize\ttfamily virtual void Target\+Item\+::labels\+Format\+Changed (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{new\+Format }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Scale\+Item}{p.}{classScaleItem} 
+\end{DoxySeeAlso}
+
+
+Implements \textbf{ Axis\+Change\+Listener} \doxyref{}{p.}{classAxisChangeListener_aded1a2f535f770ded583ebd689841ee7}.
+
+\mbox{\label{classTargetItem_a4439ca06438f6421190f2651bf9cb20d}} 
+\index{TargetItem@{TargetItem}!mousePressEvent@{mousePressEvent}}
+\index{mousePressEvent@{mousePressEvent}!TargetItem@{TargetItem}}
+\doxysubsubsection{mousePressEvent()}
+{\footnotesize\ttfamily void Target\+Item\+::mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{classTargetItem_a22001a9073e69fd6733ec522e93b5861}} 
+\index{TargetItem@{TargetItem}!mouseReleaseEvent@{mouseReleaseEvent}}
+\index{mouseReleaseEvent@{mouseReleaseEvent}!TargetItem@{TargetItem}}
+\doxysubsubsection{mouseReleaseEvent()}
+{\footnotesize\ttfamily void Target\+Item\+::mouse\+Release\+Event (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{classTargetItem_a0565d181f0a78f5e4b25066cd04cd6aa}} 
+\index{TargetItem@{TargetItem}!outerRadius@{outerRadius}}
+\index{outerRadius@{outerRadius}!TargetItem@{TargetItem}}
+\doxysubsubsection{outerRadius()}
+{\footnotesize\ttfamily double Target\+Item\+::outer\+Radius (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Referenced by bounding\+Rect(), and paint().
+
+\mbox{\label{classTargetItem_af11ffe7bce26a37e92e182839a813e49}} 
+\index{TargetItem@{TargetItem}!paint@{paint}}
+\index{paint@{paint}!TargetItem@{TargetItem}}
+\doxysubsubsection{paint()}
+{\footnotesize\ttfamily void Target\+Item\+::paint (\begin{DoxyParamCaption}\item[{Q\+Painter $\ast$}]{painter,  }\item[{const Q\+Style\+Option\+Graphics\+Item $\ast$}]{option,  }\item[{Q\+Widget $\ast$}]{widget = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+References Elettra\+::black, inner\+Radius(), K\+D\+A\+R\+K\+G\+R\+E\+EN, K\+R\+ED, outer\+Radius(), Elettra\+::white, x(), and y().
+
+\mbox{\label{classTargetItem_a8c47e66a9a3f8af7729146de022ca6b6}} 
+\index{TargetItem@{TargetItem}!pointLabelEnabled@{pointLabelEnabled}}
+\index{pointLabelEnabled@{pointLabelEnabled}!TargetItem@{TargetItem}}
+\doxysubsubsection{pointLabelEnabled()}
+{\footnotesize\ttfamily bool Target\+Item\+::point\+Label\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classTargetItem_af3c7cb1e6236f86b7a31109ad670d007}} 
+\index{TargetItem@{TargetItem}!radiusScaleDivider@{radiusScaleDivider}}
+\index{radiusScaleDivider@{radiusScaleDivider}!TargetItem@{TargetItem}}
+\doxysubsubsection{radiusScaleDivider()}
+{\footnotesize\ttfamily double Target\+Item\+::radius\+Scale\+Divider (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classTargetItem_ae5630371a50b950af48e8aa106de43d2}} 
+\index{TargetItem@{TargetItem}!setCircleColor@{setCircleColor}}
+\index{setCircleColor@{setCircleColor}!TargetItem@{TargetItem}}
+\doxysubsubsection{setCircleColor}
+{\footnotesize\ttfamily void Target\+Item\+::set\+Circle\+Color (\begin{DoxyParamCaption}\item[{const Q\+Color \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classTargetItem_a4101798780730bcf9b2d924a478324ee}} 
+\index{TargetItem@{TargetItem}!setInnerRadius@{setInnerRadius}}
+\index{setInnerRadius@{setInnerRadius}!TargetItem@{TargetItem}}
+\doxysubsubsection{setInnerRadius}
+{\footnotesize\ttfamily void Target\+Item\+::set\+Inner\+Radius (\begin{DoxyParamCaption}\item[{double}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classTargetItem_a68844406cb00975b80c485acb1eaa153}} 
+\index{TargetItem@{TargetItem}!setOuterRadius@{setOuterRadius}}
+\index{setOuterRadius@{setOuterRadius}!TargetItem@{TargetItem}}
+\doxysubsubsection{setOuterRadius}
+{\footnotesize\ttfamily void Target\+Item\+::set\+Outer\+Radius (\begin{DoxyParamCaption}\item[{double}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classTargetItem_ad6a6a58eeafeaf6153d48fb318a4b55a}} 
+\index{TargetItem@{TargetItem}!setPointLabelEnabled@{setPointLabelEnabled}}
+\index{setPointLabelEnabled@{setPointLabelEnabled}!TargetItem@{TargetItem}}
+\doxysubsubsection{setPointLabelEnabled}
+{\footnotesize\ttfamily void Target\+Item\+::set\+Point\+Label\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{en }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classTargetItem_ad1f817718be0d724812252688cf70788}} 
+\index{TargetItem@{TargetItem}!setRadiusScaleDivider@{setRadiusScaleDivider}}
+\index{setRadiusScaleDivider@{setRadiusScaleDivider}!TargetItem@{TargetItem}}
+\doxysubsubsection{setRadiusScaleDivider}
+{\footnotesize\ttfamily void Target\+Item\+::set\+Radius\+Scale\+Divider (\begin{DoxyParamCaption}\item[{double}]{divider }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classTargetItem_af0e308ba41bf46a7d070d70d1a63d1c1}} 
+\index{TargetItem@{TargetItem}!setX@{setX}}
+\index{setX@{setX}!TargetItem@{TargetItem}}
+\doxysubsubsection{setX}
+{\footnotesize\ttfamily void Target\+Item\+::setX (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the x value, in the \doxyref{Scale\+Item}{p.}{classScaleItem} coordinates (x axis coordinate)\\
+\hline
+\end{DoxyParams}
+Storing the x value in the target item allows its position to be automatically updated when the canvas rect of the plot changes.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{setY}{p.}{classTargetItem_a13d4420bda57b6d4012147b1cdc7d07e} 
+
+\doxyref{y}{p.}{classTargetItem_adda9a04ae462317de921c903b6b6114b} 
+
+\doxyref{x}{p.}{classTargetItem_acfe77eeed3354a230528eea1cfad19a8} 
+\end{DoxySeeAlso}
+
+
+References x().
+
+\mbox{\label{classTargetItem_a13d4420bda57b6d4012147b1cdc7d07e}} 
+\index{TargetItem@{TargetItem}!setY@{setY}}
+\index{setY@{setY}!TargetItem@{TargetItem}}
+\doxysubsubsection{setY}
+{\footnotesize\ttfamily void Target\+Item\+::setY (\begin{DoxyParamCaption}\item[{double}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & the y value, in the \doxyref{Scale\+Item}{p.}{classScaleItem} coordinates (y axis coordinate)\\
+\hline
+\end{DoxyParams}
+Storing the y value in the target item allows its position to be automatically updated when the canvas rect of the plot changes.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{setX}{p.}{classTargetItem_af0e308ba41bf46a7d070d70d1a63d1c1} 
+
+\doxyref{y}{p.}{classTargetItem_adda9a04ae462317de921c903b6b6114b} 
+
+\doxyref{x}{p.}{classTargetItem_acfe77eeed3354a230528eea1cfad19a8} 
+\end{DoxySeeAlso}
+
+
+References y().
+
+\mbox{\label{classTargetItem_af4949357c0bf6bfee9783e6b26a5971c}} 
+\index{TargetItem@{TargetItem}!tickStepLenChanged@{tickStepLenChanged}}
+\index{tickStepLenChanged@{tickStepLenChanged}!TargetItem@{TargetItem}}
+\doxysubsubsection{tickStepLenChanged()}
+{\footnotesize\ttfamily virtual void Target\+Item\+::tick\+Step\+Len\+Changed (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+The tick step len can be tuned by a property in a \doxyref{Scale\+Item}{p.}{classScaleItem} or let it be automatically calculated by \doxyref{Scale\+Item}{p.}{classScaleItem}. \begin{DoxySeeAlso}{See also}
+\doxyref{Scale\+Item}{p.}{classScaleItem} 
+\end{DoxySeeAlso}
+
+
+Implements \textbf{ Axis\+Change\+Listener} \doxyref{}{p.}{classAxisChangeListener_ad164cf2d365c6536a513d504e77d9626}.
+
+\mbox{\label{classTargetItem_ad4ad5d5aee7fca7cf54a1e619f1e0e2e}} 
+\index{TargetItem@{TargetItem}!type@{type}}
+\index{type@{type}!TargetItem@{TargetItem}}
+\doxysubsubsection{type()}
+{\footnotesize\ttfamily virtual int Target\+Item\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+References Type.
+
+\mbox{\label{classTargetItem_a792748d4193b59dd00324af15cc31a49}} 
+\index{TargetItem@{TargetItem}!updatePosition@{updatePosition}}
+\index{updatePosition@{updatePosition}!TargetItem@{TargetItem}}
+\doxysubsubsection{updatePosition}
+{\footnotesize\ttfamily void Target\+Item\+::update\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{setX}{p.}{classTargetItem_af0e308ba41bf46a7d070d70d1a63d1c1} 
+
+\doxyref{setY}{p.}{classTargetItem_a13d4420bda57b6d4012147b1cdc7d07e} 
+
+\doxyref{x}{p.}{classTargetItem_acfe77eeed3354a230528eea1cfad19a8} 
+
+\doxyref{y}{p.}{classTargetItem_adda9a04ae462317de921c903b6b6114b} 
+\end{DoxySeeAlso}
+
+
+Referenced by canvas\+Rect\+Changed(), x\+Axis\+Bounds\+Changed(), and y\+Axis\+Bounds\+Changed().
+
+\mbox{\label{classTargetItem_acfe77eeed3354a230528eea1cfad19a8}} 
+\index{TargetItem@{TargetItem}!x@{x}}
+\index{x@{x}!TargetItem@{TargetItem}}
+\doxysubsubsection{x()}
+{\footnotesize\ttfamily double Target\+Item\+::x (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the x position in the \doxyref{Scale\+Item}{p.}{classScaleItem} x coordinate system
+\end{DoxyReturn}
+Must have previously been set with setX
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{setX}{p.}{classTargetItem_af0e308ba41bf46a7d070d70d1a63d1c1} 
+
+\doxyref{y}{p.}{classTargetItem_adda9a04ae462317de921c903b6b6114b} 
+\end{DoxySeeAlso}
+
+
+Referenced by paint(), and set\+X().
+
+\mbox{\label{classTargetItem_a8776009af96a70213ce6d9cb9d513e31}} 
+\index{TargetItem@{TargetItem}!xAxisBoundsChanged@{xAxisBoundsChanged}}
+\index{xAxisBoundsChanged@{xAxisBoundsChanged}!TargetItem@{TargetItem}}
+\doxysubsubsection{xAxisBoundsChanged()}
+{\footnotesize\ttfamily void Target\+Item\+::x\+Axis\+Bounds\+Changed (\begin{DoxyParamCaption}\item[{double}]{,  }\item[{double}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Calls \doxyref{update\+Position()}{p.}{classTargetItem_a792748d4193b59dd00324af15cc31a49}; 
+
+Implements \textbf{ Axis\+Change\+Listener} \doxyref{}{p.}{classAxisChangeListener_a9e9e54365613740fecfdb5fec51f13f5}.
+
+
+
+References update\+Position().
+
+\mbox{\label{classTargetItem_adda9a04ae462317de921c903b6b6114b}} 
+\index{TargetItem@{TargetItem}!y@{y}}
+\index{y@{y}!TargetItem@{TargetItem}}
+\doxysubsubsection{y()}
+{\footnotesize\ttfamily double Target\+Item\+::y (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the y position in the \doxyref{Scale\+Item}{p.}{classScaleItem} y coordinate system
+\end{DoxyReturn}
+Must have previously been set with setY
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{setY}{p.}{classTargetItem_a13d4420bda57b6d4012147b1cdc7d07e} 
+
+\doxyref{x}{p.}{classTargetItem_acfe77eeed3354a230528eea1cfad19a8} 
+\end{DoxySeeAlso}
+
+
+Referenced by paint(), and set\+Y().
+
+\mbox{\label{classTargetItem_a8b64c9b65306d3f16a3e2b19e5378121}} 
+\index{TargetItem@{TargetItem}!yAxisBoundsChanged@{yAxisBoundsChanged}}
+\index{yAxisBoundsChanged@{yAxisBoundsChanged}!TargetItem@{TargetItem}}
+\doxysubsubsection{yAxisBoundsChanged()}
+{\footnotesize\ttfamily void Target\+Item\+::y\+Axis\+Bounds\+Changed (\begin{DoxyParamCaption}\item[{double}]{,  }\item[{double}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Calls \doxyref{update\+Position()}{p.}{classTargetItem_a792748d4193b59dd00324af15cc31a49}; 
+
+Implements \textbf{ Axis\+Change\+Listener} \doxyref{}{p.}{classAxisChangeListener_aa02ec8c122600f6fd95940a8361a48ef}.
+
+
+
+References update\+Position().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ targetitem.\+h}\item 
+\textbf{ targetitem.\+cpp}\end{DoxyCompactItemize}

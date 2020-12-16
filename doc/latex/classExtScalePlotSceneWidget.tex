@@ -1,0 +1,169 @@
+\doxysection{Ext\+Scale\+Plot\+Scene\+Widget Class Reference}
+\label{classExtScalePlotSceneWidget}\index{ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}}
+
+
+{\ttfamily \#include $<$extscaleplotscenewidget.\+h$>$}
+
+Inheritance diagram for Ext\+Scale\+Plot\+Scene\+Widget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classExtScalePlotSceneWidget}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Ext\+Scale\+Plot\+Scene\+Widget} (Q\+Widget $\ast$parent=0, bool multi\+Scale=false)
+\item 
+\textbf{ Scene\+Curve} $\ast$ \textbf{ add\+Curve} (const Q\+String \&name, \textbf{ Scale\+Item} $\ast$x\+Scale=N\+U\+LL, \textbf{ Scale\+Item} $\ast$y\+Scale=N\+U\+LL, bool add\+Ext\+Scale=false)
+\item 
+\textbf{ Scale\+Item} $\ast$ \textbf{ add\+Axis} (\textbf{ Scale\+Item\+::\+Orientation} o, const Q\+String \&axis\+Name)
+\item 
+void \textbf{ add\+External\+Scale} (\textbf{ Scale\+Item} $\ast$axis, \textbf{ Scene\+Curve} $\ast$curve)
+\item 
+\textbf{ Plot\+Scene\+Widget} $\ast$ \textbf{ get\+Plot} () const
+\item 
+void \textbf{ set\+Multiscale} (bool \textbf{ multiscale})
+\item 
+bool \textbf{ multiscale} () const
+\item 
+\textbf{ Scale\+Item} $\ast$ \textbf{ get\+Axis} (\textbf{ Scale\+Item\+::\+Id})
+\item 
+void \textbf{ remove\+Curve} (const Q\+String \&name)
+\item 
+void \textbf{ clear} ()
+\item 
+\textbf{ Scene\+Curve} $\ast$ \textbf{ add\+Curve} (\textbf{ Scene\+Curve} $\ast$curve, bool add\+Ext\+Scale)
+\begin{DoxyCompactList}\small\item\em Add a pre configured curve to the plot. \end{DoxyCompactList}\item 
+void \textbf{ remove\+Additional\+External\+Scales} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classExtScalePlotSceneWidget_a413597fe879d85f9ed915366a791977f}} 
+\index{ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}!ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}}
+\index{ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}!ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}}
+\doxysubsubsection{ExtScalePlotSceneWidget()}
+{\footnotesize\ttfamily Ext\+Scale\+Plot\+Scene\+Widget\+::\+Ext\+Scale\+Plot\+Scene\+Widget (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0},  }\item[{bool}]{multi\+Scale = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+References Scale\+Item\+::\+Horizontal, External\+Scale\+Widget\+::install\+Scale\+Label\+Interface(), External\+Scale\+Widget\+::set\+Alignment(), External\+Scale\+Widget\+::set\+Label\+Rotation(), External\+Scale\+Widget\+::set\+Margin(), External\+Scale\+Widget\+::set\+Origin\+Percentage(), External\+Scale\+Widget\+::set\+Tick\+Step\+Len(), and Scale\+Item\+::x\+Bottom.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classExtScalePlotSceneWidget_a2209979ad48708cac296a579f7e7b3f0}} 
+\index{ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}!addAxis@{addAxis}}
+\index{addAxis@{addAxis}!ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}}
+\doxysubsubsection{addAxis()}
+{\footnotesize\ttfamily \textbf{ Scale\+Item} $\ast$ Ext\+Scale\+Plot\+Scene\+Widget\+::add\+Axis (\begin{DoxyParamCaption}\item[{\textbf{ Scale\+Item\+::\+Orientation}}]{o,  }\item[{const Q\+String \&}]{axis\+Name }\end{DoxyParamCaption})}
+
+\mbox{\label{classExtScalePlotSceneWidget_af7423483438c93cad473989d4f27e4d1}} 
+\index{ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}!addCurve@{addCurve}}
+\index{addCurve@{addCurve}!ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}}
+\doxysubsubsection{addCurve()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \textbf{ Scene\+Curve} $\ast$ Ext\+Scale\+Plot\+Scene\+Widget\+::add\+Curve (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name,  }\item[{\textbf{ Scale\+Item} $\ast$}]{x\+Scale = {\ttfamily NULL},  }\item[{\textbf{ Scale\+Item} $\ast$}]{y\+Scale = {\ttfamily NULL},  }\item[{bool}]{add\+Ext\+Scale = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+References add\+External\+Scale(), Scene\+Curve\+::install\+Curve\+Change\+Listener(), K\+C\+A\+M\+EL, K\+D\+A\+R\+K\+B\+L\+UE, K\+D\+A\+R\+K\+C\+Y\+AN, K\+D\+A\+R\+K\+P\+I\+NK, K\+D\+A\+R\+K\+W\+A\+T\+ER, K\+G\+R\+AY, K\+V\+E\+R\+Y\+D\+A\+R\+K\+V\+I\+O\+L\+ET, K\+Y\+E\+L\+L\+OW, perr, qstoc, and Line\+Painter\+::set\+Line\+Color().
+
+\mbox{\label{classExtScalePlotSceneWidget_a75c00ba19ee541ac87b7f6b43993efb9}} 
+\index{ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}!addCurve@{addCurve}}
+\index{addCurve@{addCurve}!ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}}
+\doxysubsubsection{addCurve()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \textbf{ Scene\+Curve} $\ast$ Ext\+Scale\+Plot\+Scene\+Widget\+::add\+Curve (\begin{DoxyParamCaption}\item[{\textbf{ Scene\+Curve} $\ast$}]{curve,  }\item[{bool}]{add\+Ext\+Scale }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em curve} & a previously configured curve to be added to the plot \\
+\hline
+\end{DoxyParams}
+
+
+References add\+External\+Scale(), Scene\+Curve\+::get\+Y\+Axis(), and Scene\+Curve\+::name().
+
+\mbox{\label{classExtScalePlotSceneWidget_a8b9a7b9c8a8fa1ad7bcde7d17c0a18cf}} 
+\index{ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}!addExternalScale@{addExternalScale}}
+\index{addExternalScale@{addExternalScale}!ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}}
+\doxysubsubsection{addExternalScale()}
+{\footnotesize\ttfamily void Ext\+Scale\+Plot\+Scene\+Widget\+::add\+External\+Scale (\begin{DoxyParamCaption}\item[{\textbf{ Scale\+Item} $\ast$}]{axis,  }\item[{\textbf{ Scene\+Curve} $\ast$}]{curve }\end{DoxyParamCaption})}
+
+
+
+References Scene\+Curve\+::curve\+Item(), Scale\+Item\+::install\+Axis\+Change\+Listener(), Curve\+Item\+::item\+Painter(), Scene\+Curve\+::name(), Item\+Painter\+Interface\+::pen(), External\+Scale\+Widget\+::set\+Alignment(), External\+Scale\+Widget\+::set\+Margin(), External\+Scale\+Widget\+::set\+Origin\+Percentage(), External\+Scale\+Widget\+::set\+Pen(), External\+Scale\+Widget\+::set\+Tick\+Drawing\+Inverted(), External\+Scale\+Widget\+::set\+Tick\+Step\+Len(), Scale\+Item\+::tick\+Step\+Len, and Scale\+Item\+::\+Vertical.
+
+
+
+Referenced by add\+Curve().
+
+\mbox{\label{classExtScalePlotSceneWidget_a868c4b180616fcea23d73e2b5fbbc920}} 
+\index{ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}!clear@{clear}}
+\index{clear@{clear}!ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}}
+\doxysubsubsection{clear()}
+{\footnotesize\ttfamily void Ext\+Scale\+Plot\+Scene\+Widget\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+References Scene\+Curve\+::name(), remove\+Additional\+External\+Scales(), remove\+Curve(), and Scale\+Item\+::\+Vertical.
+
+\mbox{\label{classExtScalePlotSceneWidget_af99dfb5493d885378da3d1cbaceb07a0}} 
+\index{ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}!getAxis@{getAxis}}
+\index{getAxis@{getAxis}!ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}}
+\doxysubsubsection{getAxis()}
+{\footnotesize\ttfamily \textbf{ Scale\+Item} $\ast$ Ext\+Scale\+Plot\+Scene\+Widget\+::get\+Axis (\begin{DoxyParamCaption}\item[{\textbf{ Scale\+Item\+::\+Id}}]{id }\end{DoxyParamCaption})}
+
+\mbox{\label{classExtScalePlotSceneWidget_af52188581acd44d38575d0ab3ec42b53}} 
+\index{ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}!getPlot@{getPlot}}
+\index{getPlot@{getPlot}!ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}}
+\doxysubsubsection{getPlot()}
+{\footnotesize\ttfamily \textbf{ Plot\+Scene\+Widget} $\ast$ Ext\+Scale\+Plot\+Scene\+Widget\+::get\+Plot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classExtScalePlotSceneWidget_a0ad31e543030a8ca26b045eea7181030}} 
+\index{ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}!multiscale@{multiscale}}
+\index{multiscale@{multiscale}!ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}}
+\doxysubsubsection{multiscale()}
+{\footnotesize\ttfamily bool Ext\+Scale\+Plot\+Scene\+Widget\+::multiscale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Referenced by set\+Multiscale().
+
+\mbox{\label{classExtScalePlotSceneWidget_a1119324d99467b9c865b59edffdff35a}} 
+\index{ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}!removeAdditionalExternalScales@{removeAdditionalExternalScales}}
+\index{removeAdditionalExternalScales@{removeAdditionalExternalScales}!ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}}
+\doxysubsubsection{removeAdditionalExternalScales()}
+{\footnotesize\ttfamily void Ext\+Scale\+Plot\+Scene\+Widget\+::remove\+Additional\+External\+Scales (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Referenced by clear().
+
+\mbox{\label{classExtScalePlotSceneWidget_a9a942d275219d79e413def2bb00383f2}} 
+\index{ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}!removeCurve@{removeCurve}}
+\index{removeCurve@{removeCurve}!ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}}
+\doxysubsubsection{removeCurve()}
+{\footnotesize\ttfamily void Ext\+Scale\+Plot\+Scene\+Widget\+::remove\+Curve (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Referenced by clear().
+
+\mbox{\label{classExtScalePlotSceneWidget_aae713fa43dfe0770168dff6478c74aeb}} 
+\index{ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}!setMultiscale@{setMultiscale}}
+\index{setMultiscale@{setMultiscale}!ExtScalePlotSceneWidget@{ExtScalePlotSceneWidget}}
+\doxysubsubsection{setMultiscale()}
+{\footnotesize\ttfamily void Ext\+Scale\+Plot\+Scene\+Widget\+::set\+Multiscale (\begin{DoxyParamCaption}\item[{bool}]{multiscale }\end{DoxyParamCaption})}
+
+
+
+References multiscale().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ extscaleplotscenewidget.\+h}\item 
+\textbf{ extscaleplotscenewidget.\+cpp}\item 
+\textbf{ extscaleplotscenewidget.\+h.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,151 @@
+\doxysection{Legend\+Item\+Private Class Reference}
+\label{classLegendItemPrivate}\index{LegendItemPrivate@{LegendItemPrivate}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ update\+Longest\+Curve\+Name} ()
+\item 
+void \textbf{ add\+Curve} (\textbf{ Scene\+Curve} $\ast$crv)
+\item 
+void \textbf{ remove\+Curve} (const Q\+String \&name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \textbf{ width}
+\item 
+double \textbf{ height}
+\item 
+bool \textbf{ fill\+Background}
+\item 
+bool \textbf{ draw\+Bounding\+Rect}
+\item 
+Q\+String \textbf{ longest\+Curve\+Name}
+\item 
+Q\+Hash$<$ Q\+String, \textbf{ Scene\+Curve} $\ast$ $>$ \textbf{ curves}
+\item 
+Q\+Hash$<$ Q\+String, Q\+String $>$ \textbf{ curve\+Aliases}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classLegendItemPrivate_aa4c3f6eceaeceef98e1963f8f0e42cca}} 
+\index{LegendItemPrivate@{LegendItemPrivate}!addCurve@{addCurve}}
+\index{addCurve@{addCurve}!LegendItemPrivate@{LegendItemPrivate}}
+\doxysubsubsection{addCurve()}
+{\footnotesize\ttfamily void Legend\+Item\+Private\+::add\+Curve (\begin{DoxyParamCaption}\item[{\textbf{ Scene\+Curve} $\ast$}]{crv }\end{DoxyParamCaption})}
+
+
+
+References curves, Scene\+Curve\+::name(), and update\+Longest\+Curve\+Name().
+
+
+
+Referenced by Legend\+Item\+::new\+Curve\+Added().
+
+\mbox{\label{classLegendItemPrivate_abbc194f97613b166ec37e036a65d6cc9}} 
+\index{LegendItemPrivate@{LegendItemPrivate}!removeCurve@{removeCurve}}
+\index{removeCurve@{removeCurve}!LegendItemPrivate@{LegendItemPrivate}}
+\doxysubsubsection{removeCurve()}
+{\footnotesize\ttfamily void Legend\+Item\+Private\+::remove\+Curve (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name }\end{DoxyParamCaption})}
+
+
+
+References curve\+Aliases, and curves.
+
+
+
+Referenced by Legend\+Item\+::curve\+Removed().
+
+\mbox{\label{classLegendItemPrivate_a145897caa877a6ad04d84e1a5007f2ab}} 
+\index{LegendItemPrivate@{LegendItemPrivate}!updateLongestCurveName@{updateLongestCurveName}}
+\index{updateLongestCurveName@{updateLongestCurveName}!LegendItemPrivate@{LegendItemPrivate}}
+\doxysubsubsection{updateLongestCurveName()}
+{\footnotesize\ttfamily void Legend\+Item\+Private\+::update\+Longest\+Curve\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+References curve\+Aliases, curves, longest\+Curve\+Name, and Scene\+Curve\+::name().
+
+
+
+Referenced by add\+Curve(), Legend\+Item\+::curve\+Removed(), and Legend\+Item\+::set\+Curve\+Alias().
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classLegendItemPrivate_a92bd53a0c265091bfd98e4a7ed78afef}} 
+\index{LegendItemPrivate@{LegendItemPrivate}!curveAliases@{curveAliases}}
+\index{curveAliases@{curveAliases}!LegendItemPrivate@{LegendItemPrivate}}
+\doxysubsubsection{curveAliases}
+{\footnotesize\ttfamily Q\+Hash$<$Q\+String, Q\+String$>$ Legend\+Item\+Private\+::curve\+Aliases}
+
+
+
+Referenced by Legend\+Item\+::curve\+Alias(), Legend\+Item\+::curve\+Real\+Name(), Legend\+Item\+::paint(), remove\+Curve(), Legend\+Item\+::remove\+Curve\+Alias(), Legend\+Item\+::set\+Curve\+Alias(), and update\+Longest\+Curve\+Name().
+
+\mbox{\label{classLegendItemPrivate_ab0dffd52d6fd0605d7f14e021dea1f6d}} 
+\index{LegendItemPrivate@{LegendItemPrivate}!curves@{curves}}
+\index{curves@{curves}!LegendItemPrivate@{LegendItemPrivate}}
+\doxysubsubsection{curves}
+{\footnotesize\ttfamily Q\+Hash$<$Q\+String, \textbf{ Scene\+Curve} $\ast$$>$ Legend\+Item\+Private\+::curves}
+
+
+
+Referenced by add\+Curve(), Legend\+Item\+::paint(), remove\+Curve(), and update\+Longest\+Curve\+Name().
+
+\mbox{\label{classLegendItemPrivate_a9b2c7a2178fde45ded0ca392f14151e7}} 
+\index{LegendItemPrivate@{LegendItemPrivate}!drawBoundingRect@{drawBoundingRect}}
+\index{drawBoundingRect@{drawBoundingRect}!LegendItemPrivate@{LegendItemPrivate}}
+\doxysubsubsection{drawBoundingRect}
+{\footnotesize\ttfamily bool Legend\+Item\+Private\+::draw\+Bounding\+Rect}
+
+
+
+Referenced by Legend\+Item\+::draw\+Bounding\+Rect(), Legend\+Item\+::\+Legend\+Item(), Legend\+Item\+::paint(), and Legend\+Item\+::set\+Draw\+Bounding\+Rect().
+
+\mbox{\label{classLegendItemPrivate_a0d1cdbac44ac432d9e06abd2e730187e}} 
+\index{LegendItemPrivate@{LegendItemPrivate}!fillBackground@{fillBackground}}
+\index{fillBackground@{fillBackground}!LegendItemPrivate@{LegendItemPrivate}}
+\doxysubsubsection{fillBackground}
+{\footnotesize\ttfamily bool Legend\+Item\+Private\+::fill\+Background}
+
+
+
+Referenced by Legend\+Item\+::fill\+Background(), Legend\+Item\+::\+Legend\+Item(), Legend\+Item\+::paint(), and Legend\+Item\+::set\+Fill\+Background().
+
+\mbox{\label{classLegendItemPrivate_a7503d7ccfa9cfbb264af07ae7874532e}} 
+\index{LegendItemPrivate@{LegendItemPrivate}!height@{height}}
+\index{height@{height}!LegendItemPrivate@{LegendItemPrivate}}
+\doxysubsubsection{height}
+{\footnotesize\ttfamily double Legend\+Item\+Private\+::height}
+
+
+
+Referenced by Legend\+Item\+::bounding\+Rect(), Legend\+Item\+::\+Legend\+Item(), and Legend\+Item\+::paint().
+
+\mbox{\label{classLegendItemPrivate_a633ff18446f6d20046a9a508aae2dccf}} 
+\index{LegendItemPrivate@{LegendItemPrivate}!longestCurveName@{longestCurveName}}
+\index{longestCurveName@{longestCurveName}!LegendItemPrivate@{LegendItemPrivate}}
+\doxysubsubsection{longestCurveName}
+{\footnotesize\ttfamily Q\+String Legend\+Item\+Private\+::longest\+Curve\+Name}
+
+
+
+Referenced by Legend\+Item\+::paint(), and update\+Longest\+Curve\+Name().
+
+\mbox{\label{classLegendItemPrivate_ab3e9bda2c46cd79866dc0b14f97556d5}} 
+\index{LegendItemPrivate@{LegendItemPrivate}!width@{width}}
+\index{width@{width}!LegendItemPrivate@{LegendItemPrivate}}
+\doxysubsubsection{width}
+{\footnotesize\ttfamily double Legend\+Item\+Private\+::width}
+
+
+
+Referenced by Legend\+Item\+::bounding\+Rect(), Legend\+Item\+::\+Legend\+Item(), and Legend\+Item\+::paint().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ legenditem.\+cpp}\end{DoxyCompactItemize}

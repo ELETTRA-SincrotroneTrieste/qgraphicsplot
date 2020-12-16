@@ -1,0 +1,185 @@
+\section{Qt\+Key\+Sequence\+Property\+Manager Class Reference}
+\label{classQtKeySequencePropertyManager}\index{Qt\+Key\+Sequence\+Property\+Manager@{Qt\+Key\+Sequence\+Property\+Manager}}
+
+
+The \doxyref{Qt\+Key\+Sequence\+Property\+Manager}{p.}{classQtKeySequencePropertyManager} provides and manages Q\+Key\+Sequence properties.  
+
+
+
+
+{\ttfamily \#include $<$qtpropertymanager.\+h$>$}
+
+Inheritance diagram for Qt\+Key\+Sequence\+Property\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classQtKeySequencePropertyManager}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf set\+Value} ({\bf Qt\+Property} $\ast$property, const Q\+Key\+Sequence \&val)
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf value\+Changed} ({\bf Qt\+Property} $\ast$property, const Q\+Key\+Sequence \&val)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Qt\+Key\+Sequence\+Property\+Manager} (Q\+Object $\ast$parent=0)
+\item 
+{\bf $\sim$\+Qt\+Key\+Sequence\+Property\+Manager} ()
+\item 
+Q\+Key\+Sequence {\bf value} (const {\bf Qt\+Property} $\ast$property) const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String {\bf value\+Text} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+virtual void {\bf initialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\item 
+virtual void {\bf uninitialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A key sequence\textquotesingle{}s value can be retrieved using the \doxyref{value()}{p.}{classQtKeySequencePropertyManager_afb367c5f08a54b4d5d46ea29bf21d8a0} function, and set using the \doxyref{set\+Value()}{p.}{classQtKeySequencePropertyManager_a5c2de188e9025f7d9f6d4545ca95b0b7} slot.
+
+In addition, \doxyref{Qt\+Key\+Sequence\+Property\+Manager}{p.}{classQtKeySequencePropertyManager} provides the \doxyref{value\+Changed()}{p.}{classQtKeySequencePropertyManager_a13afad4a446d765b39cd9c39f2bd0698} signal which is emitted whenever a property created by this manager changes.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Qt\+Key\+Sequence\+Property\+Manager@{Qt\+Key\+Sequence\+Property\+Manager}!Qt\+Key\+Sequence\+Property\+Manager@{Qt\+Key\+Sequence\+Property\+Manager}}
+\index{Qt\+Key\+Sequence\+Property\+Manager@{Qt\+Key\+Sequence\+Property\+Manager}!Qt\+Key\+Sequence\+Property\+Manager@{Qt\+Key\+Sequence\+Property\+Manager}}
+\subsubsection[{Qt\+Key\+Sequence\+Property\+Manager(\+Q\+Object $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Key\+Sequence\+Property\+Manager\+::\+Qt\+Key\+Sequence\+Property\+Manager (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classQtKeySequencePropertyManager_add55b71ea7507d4a1e00a1ea35013865}
+Creates a manager with the given {\itshape parent}. \index{Qt\+Key\+Sequence\+Property\+Manager@{Qt\+Key\+Sequence\+Property\+Manager}!````~Qt\+Key\+Sequence\+Property\+Manager@{$\sim$\+Qt\+Key\+Sequence\+Property\+Manager}}
+\index{````~Qt\+Key\+Sequence\+Property\+Manager@{$\sim$\+Qt\+Key\+Sequence\+Property\+Manager}!Qt\+Key\+Sequence\+Property\+Manager@{Qt\+Key\+Sequence\+Property\+Manager}}
+\subsubsection[{$\sim$\+Qt\+Key\+Sequence\+Property\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Key\+Sequence\+Property\+Manager\+::$\sim$\+Qt\+Key\+Sequence\+Property\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classQtKeySequencePropertyManager_acbee53270edeff9f0140455d62f751f8}
+Destroys this manager, and all the properties it has created. 
+
+References Qt\+Abstract\+Property\+Manager\+::clear().
+
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Key\+Sequence\+Property\+Manager@{Qt\+Key\+Sequence\+Property\+Manager}!initialize\+Property@{initialize\+Property}}
+\index{initialize\+Property@{initialize\+Property}!Qt\+Key\+Sequence\+Property\+Manager@{Qt\+Key\+Sequence\+Property\+Manager}}
+\subsubsection[{initialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Key\+Sequence\+Property\+Manager\+::initialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtKeySequencePropertyManager_a535348ab3ea71807535749f3b4cbee35}
+
+
+Implements {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ab7501ecabc5285cb50d7ed91a2ef44fc}.
+
+
+
+References Qt\+Key\+Sequence\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Key\+Sequence\+Property\+Manager@{Qt\+Key\+Sequence\+Property\+Manager}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Qt\+Key\+Sequence\+Property\+Manager@{Qt\+Key\+Sequence\+Property\+Manager}}
+\subsubsection[{set\+Value}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Key\+Sequence\+Property\+Manager\+::set\+Value (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Key\+Sequence \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtKeySequencePropertyManager_a5c2de188e9025f7d9f6d4545ca95b0b7}
+Sets the value of the given {\itshape property} to {\itshape value}.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{value()}{p.}{classQtKeySequencePropertyManager_afb367c5f08a54b4d5d46ea29bf21d8a0}, \doxyref{value\+Changed()}{p.}{classQtKeySequencePropertyManager_a13afad4a446d765b39cd9c39f2bd0698} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Key\+Sequence\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Abstract\+Property\+Manager\+::property\+Changed(), and value\+Changed().
+
+
+
+Referenced by Qt\+Key\+Sequence\+Editor\+Factory\+Private\+::slot\+Set\+Value().
+
+\index{Qt\+Key\+Sequence\+Property\+Manager@{Qt\+Key\+Sequence\+Property\+Manager}!uninitialize\+Property@{uninitialize\+Property}}
+\index{uninitialize\+Property@{uninitialize\+Property}!Qt\+Key\+Sequence\+Property\+Manager@{Qt\+Key\+Sequence\+Property\+Manager}}
+\subsubsection[{uninitialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Key\+Sequence\+Property\+Manager\+::uninitialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtKeySequencePropertyManager_aa2e4e15743b3cf77b3f37eb0fcee93b0}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ad199337e1ac748eef077011d94ecd5b4}.
+
+
+
+References Qt\+Key\+Sequence\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Key\+Sequence\+Property\+Manager@{Qt\+Key\+Sequence\+Property\+Manager}!value@{value}}
+\index{value@{value}!Qt\+Key\+Sequence\+Property\+Manager@{Qt\+Key\+Sequence\+Property\+Manager}}
+\subsubsection[{value(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Key\+Sequence Qt\+Key\+Sequence\+Property\+Manager\+::value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtKeySequencePropertyManager_afb367c5f08a54b4d5d46ea29bf21d8a0}
+Returns the given {\itshape property\textquotesingle{}s} value.
+
+If the given {\itshape property} is not managed by this manager, this function returns an empty Q\+Key\+Sequence object.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Value()}{p.}{classQtKeySequencePropertyManager_a5c2de188e9025f7d9f6d4545ca95b0b7} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Key\+Sequence\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+Referenced by Qt\+Key\+Sequence\+Editor\+Factory\+::create\+Editor().
+
+\index{Qt\+Key\+Sequence\+Property\+Manager@{Qt\+Key\+Sequence\+Property\+Manager}!value\+Changed@{value\+Changed}}
+\index{value\+Changed@{value\+Changed}!Qt\+Key\+Sequence\+Property\+Manager@{Qt\+Key\+Sequence\+Property\+Manager}}
+\subsubsection[{value\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Key\+Sequence\+Property\+Manager\+::value\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Key\+Sequence \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtKeySequencePropertyManager_a13afad4a446d765b39cd9c39f2bd0698}
+This signal is emitted whenever a property created by this manager changes its value, passing a pointer to the {\itshape property} and the new {\itshape value} as parameters. 
+
+Referenced by set\+Value().
+
+\index{Qt\+Key\+Sequence\+Property\+Manager@{Qt\+Key\+Sequence\+Property\+Manager}!value\+Text@{value\+Text}}
+\index{value\+Text@{value\+Text}!Qt\+Key\+Sequence\+Property\+Manager@{Qt\+Key\+Sequence\+Property\+Manager}}
+\subsubsection[{value\+Text(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Qt\+Key\+Sequence\+Property\+Manager\+::value\+Text (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtKeySequencePropertyManager_add2465e1e34bfd12c64f322efd022346}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_aa99cf98b6f1d9582245eb2f5168c5b21}.
+
+
+
+References Qt\+Key\+Sequence\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtpropertymanager.\+h}\item 
+{\bf qtpropertymanager.\+cpp}\end{DoxyCompactItemize}

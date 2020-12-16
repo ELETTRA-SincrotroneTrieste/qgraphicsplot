@@ -1,0 +1,90 @@
+\section{Qt\+Flag\+Property\+Manager\+Private Class Reference}
+\label{classQtFlagPropertyManagerPrivate}\index{Qt\+Flag\+Property\+Manager\+Private@{Qt\+Flag\+Property\+Manager\+Private}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf Data}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Q\+Map$<$ const {\bf Qt\+Property} $\ast$, {\bf Data} $>$ {\bf Property\+Value\+Map}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf slot\+Bool\+Changed} ({\bf Qt\+Property} $\ast$property, bool value)
+\item 
+void {\bf slot\+Property\+Destroyed} ({\bf Qt\+Property} $\ast$property)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Property\+Value\+Map} {\bf m\+\_\+values}
+\item 
+{\bf Qt\+Bool\+Property\+Manager} $\ast$ {\bf m\+\_\+bool\+Property\+Manager}
+\item 
+Q\+Map$<$ const {\bf Qt\+Property} $\ast$, Q\+List$<$ {\bf Qt\+Property} $\ast$ $>$ $>$ {\bf m\+\_\+property\+To\+Flags}
+\item 
+Q\+Map$<$ const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$ $>$ {\bf m\+\_\+flag\+To\+Property}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\index{Qt\+Flag\+Property\+Manager\+Private@{Qt\+Flag\+Property\+Manager\+Private}!Property\+Value\+Map@{Property\+Value\+Map}}
+\index{Property\+Value\+Map@{Property\+Value\+Map}!Qt\+Flag\+Property\+Manager\+Private@{Qt\+Flag\+Property\+Manager\+Private}}
+\subsubsection[{Property\+Value\+Map}]{\setlength{\rightskip}{0pt plus 5cm}typedef Q\+Map$<$const {\bf Qt\+Property} $\ast$, {\bf Data}$>$ {\bf Qt\+Flag\+Property\+Manager\+Private\+::\+Property\+Value\+Map}}\label{classQtFlagPropertyManagerPrivate_aaf95fa2b317bbf69ae498f9e700ab8f7}
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Flag\+Property\+Manager\+Private@{Qt\+Flag\+Property\+Manager\+Private}!slot\+Bool\+Changed@{slot\+Bool\+Changed}}
+\index{slot\+Bool\+Changed@{slot\+Bool\+Changed}!Qt\+Flag\+Property\+Manager\+Private@{Qt\+Flag\+Property\+Manager\+Private}}
+\subsubsection[{slot\+Bool\+Changed(\+Qt\+Property $\ast$property, bool value)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Flag\+Property\+Manager\+Private\+::slot\+Bool\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{bool}]{value}
+\end{DoxyParamCaption}
+)}\label{classQtFlagPropertyManagerPrivate_a304ec9c1cb6f5e56f362ef5d79f2584b}
+\index{Qt\+Flag\+Property\+Manager\+Private@{Qt\+Flag\+Property\+Manager\+Private}!slot\+Property\+Destroyed@{slot\+Property\+Destroyed}}
+\index{slot\+Property\+Destroyed@{slot\+Property\+Destroyed}!Qt\+Flag\+Property\+Manager\+Private@{Qt\+Flag\+Property\+Manager\+Private}}
+\subsubsection[{slot\+Property\+Destroyed(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Flag\+Property\+Manager\+Private\+::slot\+Property\+Destroyed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)}\label{classQtFlagPropertyManagerPrivate_a363158e41ba4767f9c3a2bff56d0f685}
+
+
+\subsection{Member Data Documentation}
+\index{Qt\+Flag\+Property\+Manager\+Private@{Qt\+Flag\+Property\+Manager\+Private}!m\+\_\+bool\+Property\+Manager@{m\+\_\+bool\+Property\+Manager}}
+\index{m\+\_\+bool\+Property\+Manager@{m\+\_\+bool\+Property\+Manager}!Qt\+Flag\+Property\+Manager\+Private@{Qt\+Flag\+Property\+Manager\+Private}}
+\subsubsection[{m\+\_\+bool\+Property\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Qt\+Bool\+Property\+Manager}$\ast$ Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+bool\+Property\+Manager}\label{classQtFlagPropertyManagerPrivate_ae41b8d3e8b141292994c25be1a246de5}
+
+
+Referenced by Qt\+Flag\+Property\+Manager\+::\+Qt\+Flag\+Property\+Manager(), Qt\+Flag\+Property\+Manager\+::set\+Flag\+Names(), Qt\+Flag\+Property\+Manager\+::set\+Value(), and Qt\+Flag\+Property\+Manager\+::sub\+Bool\+Property\+Manager().
+
+\index{Qt\+Flag\+Property\+Manager\+Private@{Qt\+Flag\+Property\+Manager\+Private}!m\+\_\+flag\+To\+Property@{m\+\_\+flag\+To\+Property}}
+\index{m\+\_\+flag\+To\+Property@{m\+\_\+flag\+To\+Property}!Qt\+Flag\+Property\+Manager\+Private@{Qt\+Flag\+Property\+Manager\+Private}}
+\subsubsection[{m\+\_\+flag\+To\+Property}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Map$<$const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$$>$ Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+flag\+To\+Property}\label{classQtFlagPropertyManagerPrivate_a3e36ce557aaf46e9b4ab59f1e14031e5}
+
+
+Referenced by Qt\+Flag\+Property\+Manager\+::set\+Flag\+Names(), and Qt\+Flag\+Property\+Manager\+::uninitialize\+Property().
+
+\index{Qt\+Flag\+Property\+Manager\+Private@{Qt\+Flag\+Property\+Manager\+Private}!m\+\_\+property\+To\+Flags@{m\+\_\+property\+To\+Flags}}
+\index{m\+\_\+property\+To\+Flags@{m\+\_\+property\+To\+Flags}!Qt\+Flag\+Property\+Manager\+Private@{Qt\+Flag\+Property\+Manager\+Private}}
+\subsubsection[{m\+\_\+property\+To\+Flags}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Map$<$const {\bf Qt\+Property} $\ast$, Q\+List$<${\bf Qt\+Property} $\ast$$>$ $>$ Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+property\+To\+Flags}\label{classQtFlagPropertyManagerPrivate_a8a2132441007d02992289e2f95d48693}
+
+
+Referenced by Qt\+Flag\+Property\+Manager\+::initialize\+Property(), Qt\+Flag\+Property\+Manager\+::set\+Flag\+Names(), Qt\+Flag\+Property\+Manager\+::set\+Value(), and Qt\+Flag\+Property\+Manager\+::uninitialize\+Property().
+
+\index{Qt\+Flag\+Property\+Manager\+Private@{Qt\+Flag\+Property\+Manager\+Private}!m\+\_\+values@{m\+\_\+values}}
+\index{m\+\_\+values@{m\+\_\+values}!Qt\+Flag\+Property\+Manager\+Private@{Qt\+Flag\+Property\+Manager\+Private}}
+\subsubsection[{m\+\_\+values}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Property\+Value\+Map} Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+values}\label{classQtFlagPropertyManagerPrivate_a042838be20f0c6e9ffa2ebaabded3e3b}
+
+
+Referenced by Qt\+Flag\+Property\+Manager\+::flag\+Names(), Qt\+Flag\+Property\+Manager\+::initialize\+Property(), Qt\+Flag\+Property\+Manager\+::set\+Flag\+Names(), Qt\+Flag\+Property\+Manager\+::set\+Value(), Qt\+Flag\+Property\+Manager\+::uninitialize\+Property(), Qt\+Flag\+Property\+Manager\+::value(), and Qt\+Flag\+Property\+Manager\+::value\+Text().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtpropertymanager.\+cpp}\end{DoxyCompactItemize}

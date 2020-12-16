@@ -1,0 +1,343 @@
+\section{Qt\+Enum\+Property\+Manager Class Reference}
+\label{classQtEnumPropertyManager}\index{Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}}
+
+
+The \doxyref{Qt\+Enum\+Property\+Manager}{p.}{classQtEnumPropertyManager} provides and manages enum properties.  
+
+
+
+
+{\ttfamily \#include $<$qtpropertymanager.\+h$>$}
+
+Inheritance diagram for Qt\+Enum\+Property\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classQtEnumPropertyManager}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf set\+Value} ({\bf Qt\+Property} $\ast$property, int val)
+\item 
+void {\bf set\+Enum\+Names} ({\bf Qt\+Property} $\ast$property, const Q\+String\+List \&names)
+\item 
+void {\bf set\+Enum\+Icons} ({\bf Qt\+Property} $\ast$property, const Q\+Map$<$ int, Q\+Icon $>$ \&icons)
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf value\+Changed} ({\bf Qt\+Property} $\ast$property, int val)
+\item 
+void {\bf enum\+Names\+Changed} ({\bf Qt\+Property} $\ast$property, const Q\+String\+List \&names)
+\item 
+void {\bf enum\+Icons\+Changed} ({\bf Qt\+Property} $\ast$property, const Q\+Map$<$ int, Q\+Icon $>$ \&icons)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Qt\+Enum\+Property\+Manager} (Q\+Object $\ast$parent=0)
+\item 
+{\bf $\sim$\+Qt\+Enum\+Property\+Manager} ()
+\item 
+int {\bf value} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+Q\+String\+List {\bf enum\+Names} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+Q\+Map$<$ int, Q\+Icon $>$ {\bf enum\+Icons} (const {\bf Qt\+Property} $\ast$property) const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String {\bf value\+Text} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+Q\+Icon {\bf value\+Icon} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+virtual void {\bf initialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\item 
+virtual void {\bf uninitialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Each enum property has an associated list of enum names which can be retrieved using the \doxyref{enum\+Names()}{p.}{classQtEnumPropertyManager_a6019930db4d20d1f28babf34cc33c3d3} function, and set using the corresponding \doxyref{set\+Enum\+Names()}{p.}{classQtEnumPropertyManager_a6cdbee64ff4e2174e68e8a52acfd6a49} function. An enum property\textquotesingle{}s value is represented by an index in this list, and can be retrieved and set using the \doxyref{value()}{p.}{classQtEnumPropertyManager_a6ce3bf541ecb3a48a017b520488500c4} and \doxyref{set\+Value()}{p.}{classQtEnumPropertyManager_a2687a8ff63fdfe89290f330aa9f71ccb} slots respectively.
+
+Each enum value can also have an associated icon. The mapping from values to icons can be set using the \doxyref{set\+Enum\+Icons()}{p.}{classQtEnumPropertyManager_a14a47ec5109c7a333cb83971aeb8f835} function and queried with the \doxyref{enum\+Icons()}{p.}{classQtEnumPropertyManager_a64a0637df02059a95b95c61c5f981fb9} function.
+
+In addition, \doxyref{Qt\+Enum\+Property\+Manager}{p.}{classQtEnumPropertyManager} provides the \doxyref{value\+Changed()}{p.}{classQtEnumPropertyManager_aa18c16533e9d538faa78411a4d1b3191} signal which is emitted whenever a property created by this manager changes. The \doxyref{enum\+Names\+Changed()}{p.}{classQtEnumPropertyManager_a479c11e32a02eda3461e9b573c79dde5} or \doxyref{enum\+Icons\+Changed()}{p.}{classQtEnumPropertyManager_a43e80c877ef4509d21dbb8a516d186e4} signal is emitted whenever the list of enum names or icons is altered.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager}, \doxyref{Qt\+Enum\+Editor\+Factory}{p.}{classQtEnumEditorFactory} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}!Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}}
+\index{Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}!Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}}
+\subsubsection[{Qt\+Enum\+Property\+Manager(\+Q\+Object $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Enum\+Property\+Manager\+::\+Qt\+Enum\+Property\+Manager (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classQtEnumPropertyManager_a257f174b2cfc4a5731558ed18ea0774e}
+Creates a manager with the given {\itshape parent}. \index{Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}!````~Qt\+Enum\+Property\+Manager@{$\sim$\+Qt\+Enum\+Property\+Manager}}
+\index{````~Qt\+Enum\+Property\+Manager@{$\sim$\+Qt\+Enum\+Property\+Manager}!Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}}
+\subsubsection[{$\sim$\+Qt\+Enum\+Property\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Enum\+Property\+Manager\+::$\sim$\+Qt\+Enum\+Property\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classQtEnumPropertyManager_af44367b7953cf373b05b462759e390e1}
+Destroys this manager, and all the properties it has created. 
+
+References Qt\+Abstract\+Property\+Manager\+::clear().
+
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}!enum\+Icons@{enum\+Icons}}
+\index{enum\+Icons@{enum\+Icons}!Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}}
+\subsubsection[{enum\+Icons(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Map$<$ int, Q\+Icon $>$ Qt\+Enum\+Property\+Manager\+::enum\+Icons (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtEnumPropertyManager_a64a0637df02059a95b95c61c5f981fb9}
+Returns the given {\itshape property\textquotesingle{}s} map of enum values to their icons.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{value()}{p.}{classQtEnumPropertyManager_a6ce3bf541ecb3a48a017b520488500c4}, \doxyref{set\+Enum\+Icons()}{p.}{classQtEnumPropertyManager_a14a47ec5109c7a333cb83971aeb8f835} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Enum\+Property\+Manager\+Private\+::\+Data\+::enum\+Icons, and Qt\+Enum\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+Referenced by Qt\+Enum\+Editor\+Factory\+::create\+Editor(), set\+Enum\+Icons(), and Qt\+Enum\+Editor\+Factory\+Private\+::slot\+Enum\+Names\+Changed().
+
+\index{Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}!enum\+Icons\+Changed@{enum\+Icons\+Changed}}
+\index{enum\+Icons\+Changed@{enum\+Icons\+Changed}!Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}}
+\subsubsection[{enum\+Icons\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Enum\+Property\+Manager\+::enum\+Icons\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Map$<$ int, Q\+Icon $>$ \&}]{icons}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtEnumPropertyManager_a43e80c877ef4509d21dbb8a516d186e4}
+This signal is emitted whenever a property created by this manager changes its enum icons, passing a pointer to the {\itshape property} and the new mapping of values to {\itshape icons} as parameters.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Enum\+Icons()}{p.}{classQtEnumPropertyManager_a14a47ec5109c7a333cb83971aeb8f835} 
+\end{DoxySeeAlso}
+
+
+Referenced by set\+Enum\+Icons().
+
+\index{Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}!enum\+Names@{enum\+Names}}
+\index{enum\+Names@{enum\+Names}!Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}}
+\subsubsection[{enum\+Names(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+String\+List Qt\+Enum\+Property\+Manager\+::enum\+Names (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtEnumPropertyManager_a6019930db4d20d1f28babf34cc33c3d3}
+Returns the given {\itshape property\textquotesingle{}s} list of enum names.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{value()}{p.}{classQtEnumPropertyManager_a6ce3bf541ecb3a48a017b520488500c4}, \doxyref{set\+Enum\+Names()}{p.}{classQtEnumPropertyManager_a6cdbee64ff4e2174e68e8a52acfd6a49} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Enum\+Property\+Manager\+Private\+::\+Data\+::enum\+Names, and Qt\+Enum\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+Referenced by Qt\+Enum\+Editor\+Factory\+::create\+Editor(), set\+Enum\+Names(), and Qt\+Enum\+Editor\+Factory\+Private\+::slot\+Enum\+Icons\+Changed().
+
+\index{Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}!enum\+Names\+Changed@{enum\+Names\+Changed}}
+\index{enum\+Names\+Changed@{enum\+Names\+Changed}!Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}}
+\subsubsection[{enum\+Names\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Enum\+Property\+Manager\+::enum\+Names\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+String\+List \&}]{names}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtEnumPropertyManager_a479c11e32a02eda3461e9b573c79dde5}
+This signal is emitted whenever a property created by this manager changes its enum names, passing a pointer to the {\itshape property} and the new {\itshape names} as parameters.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Enum\+Names()}{p.}{classQtEnumPropertyManager_a6cdbee64ff4e2174e68e8a52acfd6a49} 
+\end{DoxySeeAlso}
+
+
+Referenced by set\+Enum\+Names().
+
+\index{Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}!initialize\+Property@{initialize\+Property}}
+\index{initialize\+Property@{initialize\+Property}!Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}}
+\subsubsection[{initialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Enum\+Property\+Manager\+::initialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtEnumPropertyManager_a380337ab0aef61b9119f1eab20923e2e}
+
+
+Implements {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ab7501ecabc5285cb50d7ed91a2ef44fc}.
+
+
+
+References Qt\+Enum\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}!set\+Enum\+Icons@{set\+Enum\+Icons}}
+\index{set\+Enum\+Icons@{set\+Enum\+Icons}!Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}}
+\subsubsection[{set\+Enum\+Icons}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Enum\+Property\+Manager\+::set\+Enum\+Icons (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Map$<$ int, Q\+Icon $>$ \&}]{enum\+Icons}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtEnumPropertyManager_a14a47ec5109c7a333cb83971aeb8f835}
+Sets the given {\itshape property\textquotesingle{}s} map of enum values to their icons to {\itshape enum\+Icons}.
+
+Each enum value can have associated icon. This association is represented with passed {\itshape enum\+Icons} map.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{enum\+Names()}{p.}{classQtEnumPropertyManager_a6019930db4d20d1f28babf34cc33c3d3}, \doxyref{enum\+Names\+Changed()}{p.}{classQtEnumPropertyManager_a479c11e32a02eda3461e9b573c79dde5} 
+\end{DoxySeeAlso}
+
+
+References enum\+Icons(), enum\+Icons\+Changed(), Qt\+Enum\+Property\+Manager\+Private\+::m\+\_\+values, and Qt\+Abstract\+Property\+Manager\+::property\+Changed().
+
+
+
+Referenced by Qt\+Cursor\+Editor\+Factory\+::create\+Editor().
+
+\index{Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}!set\+Enum\+Names@{set\+Enum\+Names}}
+\index{set\+Enum\+Names@{set\+Enum\+Names}!Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}}
+\subsubsection[{set\+Enum\+Names}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Enum\+Property\+Manager\+::set\+Enum\+Names (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+String\+List \&}]{enum\+Names}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtEnumPropertyManager_a6cdbee64ff4e2174e68e8a52acfd6a49}
+Sets the given {\itshape property\textquotesingle{}s} list of enum names to {\itshape enum\+Names}. The {\itshape property\textquotesingle{}s} current value is reset to 0 indicating the first item of the list.
+
+If the specified {\itshape enum\+Names} list is empty, the {\itshape property\textquotesingle{}s} current value is set to -\/1.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{enum\+Names()}{p.}{classQtEnumPropertyManager_a6019930db4d20d1f28babf34cc33c3d3}, \doxyref{enum\+Names\+Changed()}{p.}{classQtEnumPropertyManager_a479c11e32a02eda3461e9b573c79dde5} 
+\end{DoxySeeAlso}
+
+
+References enum\+Names(), Qt\+Enum\+Property\+Manager\+Private\+::\+Data\+::enum\+Names, enum\+Names\+Changed(), Qt\+Enum\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Abstract\+Property\+Manager\+::property\+Changed(), Qt\+Enum\+Property\+Manager\+Private\+::\+Data\+::val, and value\+Changed().
+
+
+
+Referenced by Qt\+Cursor\+Editor\+Factory\+::create\+Editor(), Qt\+Locale\+Property\+Manager\+::initialize\+Property(), Qt\+Size\+Policy\+Property\+Manager\+::initialize\+Property(), Qt\+Font\+Property\+Manager\+::initialize\+Property(), Qt\+Locale\+Property\+Manager\+::set\+Value(), and Qt\+Font\+Property\+Manager\+Private\+::slot\+Font\+Database\+Delayed\+Change().
+
+\index{Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}}
+\subsubsection[{set\+Value}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Enum\+Property\+Manager\+::set\+Value (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtEnumPropertyManager_a2687a8ff63fdfe89290f330aa9f71ccb}
+Sets the value of the given {\itshape property} to {\itshape value}.
+
+The specified {\itshape value} must be less than the size of the given {\itshape property\textquotesingle{}s} \doxyref{enum\+Names()}{p.}{classQtEnumPropertyManager_a6019930db4d20d1f28babf34cc33c3d3} list, and larger than (or equal to) 0.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{value()}{p.}{classQtEnumPropertyManager_a6ce3bf541ecb3a48a017b520488500c4}, \doxyref{value\+Changed()}{p.}{classQtEnumPropertyManager_aa18c16533e9d538faa78411a4d1b3191} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Enum\+Property\+Manager\+Private\+::\+Data\+::enum\+Names, Qt\+Enum\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Abstract\+Property\+Manager\+::property\+Changed(), Qt\+Enum\+Property\+Manager\+Private\+::\+Data\+::val, and value\+Changed().
+
+
+
+Referenced by Qt\+Cursor\+Editor\+Factory\+::create\+Editor(), Qt\+Locale\+Property\+Manager\+::initialize\+Property(), Qt\+Size\+Policy\+Property\+Manager\+::initialize\+Property(), Qt\+Font\+Property\+Manager\+::initialize\+Property(), Qt\+Locale\+Property\+Manager\+::set\+Value(), Qt\+Size\+Policy\+Property\+Manager\+::set\+Value(), Qt\+Font\+Property\+Manager\+::set\+Value(), Qt\+Font\+Property\+Manager\+Private\+::slot\+Font\+Database\+Delayed\+Change(), Qt\+Cursor\+Editor\+Factory\+Private\+::slot\+Property\+Changed(), and Qt\+Enum\+Editor\+Factory\+Private\+::slot\+Set\+Value().
+
+\index{Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}!uninitialize\+Property@{uninitialize\+Property}}
+\index{uninitialize\+Property@{uninitialize\+Property}!Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}}
+\subsubsection[{uninitialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Enum\+Property\+Manager\+::uninitialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtEnumPropertyManager_a37c2cb2178dcc72995217dc1a2d389e7}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ad199337e1ac748eef077011d94ecd5b4}.
+
+
+
+References Qt\+Enum\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}!value@{value}}
+\index{value@{value}!Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}}
+\subsubsection[{value(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}int Qt\+Enum\+Property\+Manager\+::value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtEnumPropertyManager_a6ce3bf541ecb3a48a017b520488500c4}
+Returns the given {\itshape property\textquotesingle{}s} value which is an index in the list returned by \doxyref{enum\+Names()}{p.}{classQtEnumPropertyManager_a6019930db4d20d1f28babf34cc33c3d3}
+
+If the given property is not managed by this manager, this function returns -\/1.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{enum\+Names()}{p.}{classQtEnumPropertyManager_a6019930db4d20d1f28babf34cc33c3d3}, \doxyref{set\+Value()}{p.}{classQtEnumPropertyManager_a2687a8ff63fdfe89290f330aa9f71ccb} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Enum\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+Referenced by Qt\+Enum\+Editor\+Factory\+::create\+Editor(), Qt\+Enum\+Editor\+Factory\+Private\+::slot\+Enum\+Icons\+Changed(), Qt\+Enum\+Editor\+Factory\+Private\+::slot\+Enum\+Names\+Changed(), and Qt\+Font\+Property\+Manager\+Private\+::slot\+Font\+Database\+Delayed\+Change().
+
+\index{Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}!value\+Changed@{value\+Changed}}
+\index{value\+Changed@{value\+Changed}!Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}}
+\subsubsection[{value\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Enum\+Property\+Manager\+::value\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtEnumPropertyManager_aa18c16533e9d538faa78411a4d1b3191}
+This signal is emitted whenever a property created by this manager changes its value, passing a pointer to the {\itshape property} and the new {\itshape value} as parameters.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Value()}{p.}{classQtEnumPropertyManager_a2687a8ff63fdfe89290f330aa9f71ccb} 
+\end{DoxySeeAlso}
+
+
+Referenced by set\+Enum\+Names(), and set\+Value().
+
+\index{Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}!value\+Icon@{value\+Icon}}
+\index{value\+Icon@{value\+Icon}!Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}}
+\subsubsection[{value\+Icon(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Icon Qt\+Enum\+Property\+Manager\+::value\+Icon (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtEnumPropertyManager_a903a4a4acf78b63d13ae79bc9a47ef68}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_afaa976f67da37d80dde3d418994b2ec2}.
+
+
+
+References Qt\+Enum\+Property\+Manager\+Private\+::\+Data\+::enum\+Icons, Qt\+Enum\+Property\+Manager\+Private\+::m\+\_\+values, and Qt\+Enum\+Property\+Manager\+Private\+::\+Data\+::val.
+
+\index{Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}!value\+Text@{value\+Text}}
+\index{value\+Text@{value\+Text}!Qt\+Enum\+Property\+Manager@{Qt\+Enum\+Property\+Manager}}
+\subsubsection[{value\+Text(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Qt\+Enum\+Property\+Manager\+::value\+Text (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtEnumPropertyManager_a803c615591a0a4f94230e7bcc7b3adee}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_aa99cf98b6f1d9582245eb2f5168c5b21}.
+
+
+
+References Qt\+Enum\+Property\+Manager\+Private\+::\+Data\+::enum\+Names, Qt\+Enum\+Property\+Manager\+Private\+::m\+\_\+values, and Qt\+Enum\+Property\+Manager\+Private\+::\+Data\+::val.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtpropertymanager.\+h}\item 
+{\bf qtpropertymanager.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,113 @@
+\section{Qt\+Browser\+Item Class Reference}
+\label{classQtBrowserItem}\index{Qt\+Browser\+Item@{Qt\+Browser\+Item}}
+
+
+The \doxyref{Qt\+Browser\+Item}{p.}{classQtBrowserItem} class represents a property in a property browser instance.  
+
+
+
+
+{\ttfamily \#include $<$qtpropertybrowser.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Qt\+Property} $\ast$ {\bf property} () const 
+\item 
+{\bf Qt\+Browser\+Item} $\ast$ {\bf parent} () const 
+\item 
+Q\+List$<$ {\bf Qt\+Browser\+Item} $\ast$ $>$ {\bf children} () const 
+\item 
+{\bf Qt\+Abstract\+Property\+Browser} $\ast$ {\bf browser} () const 
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bf Qt\+Abstract\+Property\+Browser\+Private}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Browser items are created whenever a \doxyref{Qt\+Property}{p.}{classQtProperty} is inserted to the property browser. A \doxyref{Qt\+Browser\+Item}{p.}{classQtBrowserItem} uniquely identifies a browser\textquotesingle{}s item. Thus, if the same \doxyref{Qt\+Property}{p.}{classQtProperty} is inserted multiple times, each occurrence gets its own unique \doxyref{Qt\+Browser\+Item}{p.}{classQtBrowserItem}. The items are owned by \doxyref{Qt\+Abstract\+Property\+Browser}{p.}{classQtAbstractPropertyBrowser} and automatically deleted when they are removed from the browser.
+
+You can traverse a browser\textquotesingle{}s properties by calling \doxyref{parent()}{p.}{classQtBrowserItem_a4ac772c5b9b4601bd85a35ff06a8058f} and \doxyref{children()}{p.}{classQtBrowserItem_a19aec2ce6a6eeaf34eac0b36fbb33ede}. The property and the browser associated with an item are available as \doxyref{property()}{p.}{classQtBrowserItem_a8cfce687bc55a33defacbd321b3a77d2} and \doxyref{browser()}{p.}{classQtBrowserItem_aadd4f46f9df050fcb5fbcf4e8f769924}.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Browser}{p.}{classQtAbstractPropertyBrowser}, \doxyref{Qt\+Property}{p.}{classQtProperty} 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Browser\+Item@{Qt\+Browser\+Item}!browser@{browser}}
+\index{browser@{browser}!Qt\+Browser\+Item@{Qt\+Browser\+Item}}
+\subsubsection[{browser() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Qt\+Abstract\+Property\+Browser} $\ast$ Qt\+Browser\+Item\+::browser (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classQtBrowserItem_aadd4f46f9df050fcb5fbcf4e8f769924}
+Returns the property browser which owns {\itshape this} item. \index{Qt\+Browser\+Item@{Qt\+Browser\+Item}!children@{children}}
+\index{children@{children}!Qt\+Browser\+Item@{Qt\+Browser\+Item}}
+\subsubsection[{children() const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+List$<$ {\bf Qt\+Browser\+Item} $\ast$ $>$ Qt\+Browser\+Item\+::children (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classQtBrowserItem_a19aec2ce6a6eeaf34eac0b36fbb33ede}
+Returns the children items of {\itshape this} item. The properties reproduced from children items are always the same as reproduced from associated property\textquotesingle{} children, for example\+:
+
+
+\begin{DoxyCode}
+QtBrowserItem *item;
+QList<QtBrowserItem *> childrenItems = item->children();
+
+QList<QtProperty *> childrenProperties = item->property()->subProperties();
+\end{DoxyCode}
+
+
+The {\itshape children\+Items} list represents the same list as {\itshape children\+Properties}. 
+
+Referenced by Qt\+Abstract\+Property\+Browser\+Private\+::clear\+Index(), and Qt\+Abstract\+Property\+Browser\+Private\+::remove\+Browser\+Index().
+
+\index{Qt\+Browser\+Item@{Qt\+Browser\+Item}!parent@{parent}}
+\index{parent@{parent}!Qt\+Browser\+Item@{Qt\+Browser\+Item}}
+\subsubsection[{parent() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Qt\+Browser\+Item} $\ast$ Qt\+Browser\+Item\+::parent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classQtBrowserItem_a4ac772c5b9b4601bd85a35ff06a8058f}
+Returns the parent item of {\itshape this} item. Returns 0 if {\itshape this} item is associated with top-\/level property in item\textquotesingle{}s property browser.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{children()}{p.}{classQtBrowserItem_a19aec2ce6a6eeaf34eac0b36fbb33ede} 
+\end{DoxySeeAlso}
+
+
+Referenced by Qt\+Tree\+Property\+Browser\+Private\+::calculated\+Background\+Color(), Qt\+Abstract\+Property\+Browser\+Private\+::create\+Browser\+Indexes(), Qt\+Group\+Box\+Property\+Browser\+Private\+::property\+Inserted(), Qt\+Button\+Property\+Browser\+Private\+::property\+Inserted(), Qt\+Tree\+Property\+Browser\+Private\+::property\+Inserted(), Qt\+Abstract\+Property\+Browser\+Private\+::remove\+Browser\+Index(), and Qt\+Abstract\+Property\+Browser\+Private\+::remove\+Browser\+Indexes().
+
+\index{Qt\+Browser\+Item@{Qt\+Browser\+Item}!property@{property}}
+\index{property@{property}!Qt\+Browser\+Item@{Qt\+Browser\+Item}}
+\subsubsection[{property() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Qt\+Property} $\ast$ Qt\+Browser\+Item\+::property (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classQtBrowserItem_a8cfce687bc55a33defacbd321b3a77d2}
+Returns the property which is accosiated with this item. Note that several items can be associated with the same property instance in the same property browser.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Browser\+::items()}{p.}{classQtAbstractPropertyBrowser_aa92bb2920aaaa9b526a6edd0480da830} 
+\end{DoxySeeAlso}
+
+
+Referenced by Qt\+Abstract\+Property\+Browser\+Private\+::create\+Browser\+Indexes(), Qt\+Tree\+Property\+Browser\+Private\+::has\+Value(), Qt\+Tree\+Property\+Browser\+Private\+::index\+To\+Property(), Qt\+Group\+Box\+Property\+Browser\+Private\+::property\+Inserted(), Qt\+Button\+Property\+Browser\+Private\+::property\+Inserted(), Qt\+Abstract\+Property\+Browser\+Private\+::remove\+Browser\+Index(), and Qt\+Abstract\+Property\+Browser\+Private\+::remove\+Browser\+Indexes().
+
+
+
+\subsection{Friends And Related Function Documentation}
+\index{Qt\+Browser\+Item@{Qt\+Browser\+Item}!Qt\+Abstract\+Property\+Browser\+Private@{Qt\+Abstract\+Property\+Browser\+Private}}
+\index{Qt\+Abstract\+Property\+Browser\+Private@{Qt\+Abstract\+Property\+Browser\+Private}!Qt\+Browser\+Item@{Qt\+Browser\+Item}}
+\subsubsection[{Qt\+Abstract\+Property\+Browser\+Private}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Qt\+Abstract\+Property\+Browser\+Private}\hspace{0.3cm}{\ttfamily [friend]}}\label{classQtBrowserItem_a7059dba4bb3f92617c52a3623b81eb93}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtpropertybrowser.\+h}\item 
+{\bf qtpropertybrowser.\+cpp}\end{DoxyCompactItemize}

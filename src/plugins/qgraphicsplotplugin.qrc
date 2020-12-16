@@ -1,0 +1,8 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource>
+        <file>pixmaps/qgraphicsplot2.png</file>
+        <file>pixmaps/verticalscale.png</file>
+        <file>pixmaps/horizontalscale.png</file>
+    </qresource>
+</RCC>
+

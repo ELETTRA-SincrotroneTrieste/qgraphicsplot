@@ -1,0 +1,23 @@
+A graphical library that uses QGraphicsView/QGraphicsScene to draw graphs on a plot.
+
+To install it read the INSTALL.txt file in this directory.
+
+Known issues:
+	version 2.1.0: after a certain zoom level, grid is not correctly drawn.
+
+
+developer:
+
+giacomo.strangolino@elettra.trieste.it
+
+To link your applications to the library:
+
+-L/usr/local/qgraphicsplot/lib -lQGraphicsPlot
+
+where /usr/local/qgraphicsplot/lib may be different according to INSTALL_ROOT and
+LIB_DIR settings in qgraphicsplot.pro
+
+Documentation is installed in SHAREDIR directory specified in qgraphicsplot.pro
+
+Enjoy.
+

@@ -1,0 +1,129 @@
+\section{Qt\+Group\+Box\+Property\+Browser Class Reference}
+\label{classQtGroupBoxPropertyBrowser}\index{Qt\+Group\+Box\+Property\+Browser@{Qt\+Group\+Box\+Property\+Browser}}
+
+
+The \doxyref{Qt\+Group\+Box\+Property\+Browser}{p.}{classQtGroupBoxPropertyBrowser} class provides a Q\+Group\+Box based property browser.  
+
+
+
+
+{\ttfamily \#include $<$qtgroupboxpropertybrowser.\+h$>$}
+
+Inheritance diagram for Qt\+Group\+Box\+Property\+Browser\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classQtGroupBoxPropertyBrowser}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Qt\+Group\+Box\+Property\+Browser} (Q\+Widget $\ast$parent=0)
+\item 
+{\bf $\sim$\+Qt\+Group\+Box\+Property\+Browser} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void {\bf item\+Inserted} ({\bf Qt\+Browser\+Item} $\ast$item, {\bf Qt\+Browser\+Item} $\ast$after\+Item)
+\item 
+virtual void {\bf item\+Removed} ({\bf Qt\+Browser\+Item} $\ast$item)
+\item 
+virtual void {\bf item\+Changed} ({\bf Qt\+Browser\+Item} $\ast$item)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A property browser is a widget that enables the user to edit a given set of properties. Each property is represented by a label specifying the property\textquotesingle{}s name, and an editing widget (e.\+g. a line edit or a combobox) holding its value. A property can have zero or more subproperties.
+
+\doxyref{Qt\+Group\+Box\+Property\+Browser}{p.}{classQtGroupBoxPropertyBrowser} provides group boxes for all nested properties, i.\+e. subproperties are enclosed by a group box with the parent property\textquotesingle{}s name as its title. For example\+:
+
+Use the \doxyref{Qt\+Abstract\+Property\+Browser}{p.}{classQtAbstractPropertyBrowser} A\+PI to add, insert and remove properties from an instance of the \doxyref{Qt\+Group\+Box\+Property\+Browser}{p.}{classQtGroupBoxPropertyBrowser} class. The properties themselves are created and managed by implementations of the \doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager} class.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Tree\+Property\+Browser}{p.}{classQtTreePropertyBrowser}, \doxyref{Qt\+Abstract\+Property\+Browser}{p.}{classQtAbstractPropertyBrowser} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Qt\+Group\+Box\+Property\+Browser@{Qt\+Group\+Box\+Property\+Browser}!Qt\+Group\+Box\+Property\+Browser@{Qt\+Group\+Box\+Property\+Browser}}
+\index{Qt\+Group\+Box\+Property\+Browser@{Qt\+Group\+Box\+Property\+Browser}!Qt\+Group\+Box\+Property\+Browser@{Qt\+Group\+Box\+Property\+Browser}}
+\subsubsection[{Qt\+Group\+Box\+Property\+Browser(\+Q\+Widget $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Group\+Box\+Property\+Browser\+::\+Qt\+Group\+Box\+Property\+Browser (
+\begin{DoxyParamCaption}
+\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classQtGroupBoxPropertyBrowser_acc124cdbd225ab926ef76f402e6c7ba6}
+Creates a property browser with the given {\itshape parent}. 
+
+References Qt\+Group\+Box\+Property\+Browser\+Private\+::init().
+
+\index{Qt\+Group\+Box\+Property\+Browser@{Qt\+Group\+Box\+Property\+Browser}!````~Qt\+Group\+Box\+Property\+Browser@{$\sim$\+Qt\+Group\+Box\+Property\+Browser}}
+\index{````~Qt\+Group\+Box\+Property\+Browser@{$\sim$\+Qt\+Group\+Box\+Property\+Browser}!Qt\+Group\+Box\+Property\+Browser@{Qt\+Group\+Box\+Property\+Browser}}
+\subsubsection[{$\sim$\+Qt\+Group\+Box\+Property\+Browser()}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Group\+Box\+Property\+Browser\+::$\sim$\+Qt\+Group\+Box\+Property\+Browser (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classQtGroupBoxPropertyBrowser_aadc4854c70ebdc28f0a6d6f75a2e8b61}
+Destroys this property browser.
+
+Note that the properties that were inserted into this browser are {\itshape not} destroyed since they may still be used in other browsers. The properties are owned by the manager that created them.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Property}{p.}{classQtProperty}, \doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager} 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Group\+Box\+Property\+Browser@{Qt\+Group\+Box\+Property\+Browser}!item\+Changed@{item\+Changed}}
+\index{item\+Changed@{item\+Changed}!Qt\+Group\+Box\+Property\+Browser@{Qt\+Group\+Box\+Property\+Browser}}
+\subsubsection[{item\+Changed(\+Qt\+Browser\+Item $\ast$item)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Group\+Box\+Property\+Browser\+::item\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Browser\+Item} $\ast$}]{item}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtGroupBoxPropertyBrowser_a6f4c574cb33e14b1ddffb3808adda4bd}
+
+
+Implements {\bf Qt\+Abstract\+Property\+Browser} \doxyref{}{p.}{classQtAbstractPropertyBrowser_a222c0033b0585cecf2a0717826f6e96b}.
+
+
+
+References Qt\+Group\+Box\+Property\+Browser\+Private\+::property\+Changed().
+
+\index{Qt\+Group\+Box\+Property\+Browser@{Qt\+Group\+Box\+Property\+Browser}!item\+Inserted@{item\+Inserted}}
+\index{item\+Inserted@{item\+Inserted}!Qt\+Group\+Box\+Property\+Browser@{Qt\+Group\+Box\+Property\+Browser}}
+\subsubsection[{item\+Inserted(\+Qt\+Browser\+Item $\ast$item, Qt\+Browser\+Item $\ast$after\+Item)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Group\+Box\+Property\+Browser\+::item\+Inserted (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Browser\+Item} $\ast$}]{item, }
+\item[{{\bf Qt\+Browser\+Item} $\ast$}]{after\+Item}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtGroupBoxPropertyBrowser_aab2d19bb4a199bfd6cd1073d90fabdb6}
+
+
+Implements {\bf Qt\+Abstract\+Property\+Browser} \doxyref{}{p.}{classQtAbstractPropertyBrowser_a62ec622f3c0381141a206441941b7e67}.
+
+
+
+References Qt\+Group\+Box\+Property\+Browser\+Private\+::property\+Inserted().
+
+\index{Qt\+Group\+Box\+Property\+Browser@{Qt\+Group\+Box\+Property\+Browser}!item\+Removed@{item\+Removed}}
+\index{item\+Removed@{item\+Removed}!Qt\+Group\+Box\+Property\+Browser@{Qt\+Group\+Box\+Property\+Browser}}
+\subsubsection[{item\+Removed(\+Qt\+Browser\+Item $\ast$item)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Group\+Box\+Property\+Browser\+::item\+Removed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Browser\+Item} $\ast$}]{item}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtGroupBoxPropertyBrowser_aac744e3f7f6c420bca656ed63bfa7ffb}
+
+
+Implements {\bf Qt\+Abstract\+Property\+Browser} \doxyref{}{p.}{classQtAbstractPropertyBrowser_ad605abd88d30b906e85e920d64727a9e}.
+
+
+
+References Qt\+Group\+Box\+Property\+Browser\+Private\+::property\+Removed().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtgroupboxpropertybrowser.\+h}\item 
+{\bf qtgroupboxpropertybrowser.\+cpp}\end{DoxyCompactItemize}

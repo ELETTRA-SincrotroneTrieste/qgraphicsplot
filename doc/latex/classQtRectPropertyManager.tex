@@ -1,0 +1,274 @@
+\section{Qt\+Rect\+Property\+Manager Class Reference}
+\label{classQtRectPropertyManager}\index{Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}}
+
+
+The \doxyref{Qt\+Rect\+Property\+Manager}{p.}{classQtRectPropertyManager} provides and manages Q\+Rect properties.  
+
+
+
+
+{\ttfamily \#include $<$qtpropertymanager.\+h$>$}
+
+Inheritance diagram for Qt\+Rect\+Property\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classQtRectPropertyManager}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf set\+Value} ({\bf Qt\+Property} $\ast$property, const Q\+Rect \&val)
+\item 
+void {\bf set\+Constraint} ({\bf Qt\+Property} $\ast$property, const Q\+Rect \&{\bf constraint})
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf value\+Changed} ({\bf Qt\+Property} $\ast$property, const Q\+Rect \&val)
+\item 
+void {\bf constraint\+Changed} ({\bf Qt\+Property} $\ast$property, const Q\+Rect \&{\bf constraint})
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Qt\+Rect\+Property\+Manager} (Q\+Object $\ast$parent=0)
+\item 
+{\bf $\sim$\+Qt\+Rect\+Property\+Manager} ()
+\item 
+{\bf Qt\+Int\+Property\+Manager} $\ast$ {\bf sub\+Int\+Property\+Manager} () const 
+\item 
+Q\+Rect {\bf value} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+Q\+Rect {\bf constraint} (const {\bf Qt\+Property} $\ast$property) const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String {\bf value\+Text} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+virtual void {\bf initialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\item 
+virtual void {\bf uninitialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A rectangle property has nested {\itshape x}, {\itshape y}, {\itshape width} and {\itshape height} subproperties. The top-\/level property\textquotesingle{}s value can be retrieved using the \doxyref{value()}{p.}{classQtRectPropertyManager_a858f9fc7e0aa01612f8d78258ef6c8a7} function, and set using the \doxyref{set\+Value()}{p.}{classQtRectPropertyManager_a407029ec29077e974452c1a3318cb261} slot.
+
+The subproperties are created by a \doxyref{Qt\+Int\+Property\+Manager}{p.}{classQtIntPropertyManager} object. This manager can be retrieved using the \doxyref{sub\+Int\+Property\+Manager()}{p.}{classQtRectPropertyManager_a58fe4307cd200083b6315d171a39b88c} function. In order to provide editing widgets for the subproperties in a property browser widget, this manager must be associated with an editor factory.
+
+A rectangle property also has a constraint rectangle which can be retrieved using the \doxyref{constraint()}{p.}{classQtRectPropertyManager_aa68218abec0dfc12814813df7a9f12d6} function, and set using the \doxyref{set\+Constraint()}{p.}{classQtRectPropertyManager_a1c3f251de141136dbd5feafd485652b1} slot.
+
+In addition, \doxyref{Qt\+Rect\+Property\+Manager}{p.}{classQtRectPropertyManager} provides the \doxyref{value\+Changed()}{p.}{classQtRectPropertyManager_af1aff19ae99196778d6b545ba01908f0} signal which is emitted whenever a property created by this manager changes, and the \doxyref{constraint\+Changed()}{p.}{classQtRectPropertyManager_a4de6d6274fb1124a2d8f71e3436645e0} signal which is emitted whenever such a property changes its constraint rectangle.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager}, \doxyref{Qt\+Int\+Property\+Manager}{p.}{classQtIntPropertyManager}, \doxyref{Qt\+Rect\+F\+Property\+Manager}{p.}{classQtRectFPropertyManager} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}!Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}}
+\index{Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}!Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}}
+\subsubsection[{Qt\+Rect\+Property\+Manager(\+Q\+Object $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Rect\+Property\+Manager\+::\+Qt\+Rect\+Property\+Manager (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classQtRectPropertyManager_abd505c279c2de344f0455dadcd28a7af}
+Creates a manager with the given {\itshape parent}. 
+
+References Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+int\+Property\+Manager, Qt\+Abstract\+Property\+Manager\+::property\+Destroyed(), and value\+Changed().
+
+\index{Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}!````~Qt\+Rect\+Property\+Manager@{$\sim$\+Qt\+Rect\+Property\+Manager}}
+\index{````~Qt\+Rect\+Property\+Manager@{$\sim$\+Qt\+Rect\+Property\+Manager}!Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}}
+\subsubsection[{$\sim$\+Qt\+Rect\+Property\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Rect\+Property\+Manager\+::$\sim$\+Qt\+Rect\+Property\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classQtRectPropertyManager_a36e60e2235b74b5b9b7e48db7e6b6170}
+Destroys this manager, and all the properties it has created. 
+
+References Qt\+Abstract\+Property\+Manager\+::clear().
+
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}!constraint@{constraint}}
+\index{constraint@{constraint}!Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}}
+\subsubsection[{constraint(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Rect Qt\+Rect\+Property\+Manager\+::constraint (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtRectPropertyManager_aa68218abec0dfc12814813df7a9f12d6}
+Returns the given {\itshape property\textquotesingle{}s} constraining rectangle. If returned value is null Q\+Rect it means there is no constraint applied.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{value()}{p.}{classQtRectPropertyManager_a858f9fc7e0aa01612f8d78258ef6c8a7}, \doxyref{set\+Constraint()}{p.}{classQtRectPropertyManager_a1c3f251de141136dbd5feafd485652b1} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Rect\+Property\+Manager\+Private\+::\+Data\+::constraint, and Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}!constraint\+Changed@{constraint\+Changed}}
+\index{constraint\+Changed@{constraint\+Changed}!Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}}
+\subsubsection[{constraint\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Rect\+Property\+Manager\+::constraint\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Rect \&}]{constraint}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtRectPropertyManager_a4de6d6274fb1124a2d8f71e3436645e0}
+This signal is emitted whenever property changes its constraint rectangle, passing a pointer to the {\itshape property} and the new {\itshape constraint} rectangle as parameters.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Constraint()}{p.}{classQtRectPropertyManager_a1c3f251de141136dbd5feafd485652b1} 
+\end{DoxySeeAlso}
+
+
+Referenced by set\+Constraint().
+
+\index{Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}!initialize\+Property@{initialize\+Property}}
+\index{initialize\+Property@{initialize\+Property}!Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}}
+\subsubsection[{initialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Rect\+Property\+Manager\+::initialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtRectPropertyManager_a7ef8e45d21bf2c9556d8bd46d2adee99}
+
+
+Implements {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ab7501ecabc5285cb50d7ed91a2ef44fc}.
+
+
+
+References Qt\+Abstract\+Property\+Manager\+::add\+Property(), Qt\+Property\+::add\+Sub\+Property(), Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+h\+To\+Property, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+int\+Property\+Manager, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+property\+ToH, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+property\+ToW, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+property\+ToX, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+property\+ToY, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+w\+To\+Property, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+x\+To\+Property, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+y\+To\+Property, Qt\+Int\+Property\+Manager\+::set\+Minimum(), Qt\+Property\+::set\+Property\+Name(), and Qt\+Int\+Property\+Manager\+::set\+Value().
+
+\index{Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}!set\+Constraint@{set\+Constraint}}
+\index{set\+Constraint@{set\+Constraint}!Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}}
+\subsubsection[{set\+Constraint}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Rect\+Property\+Manager\+::set\+Constraint (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Rect \&}]{constraint}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtRectPropertyManager_a1c3f251de141136dbd5feafd485652b1}
+Sets the given {\itshape property\textquotesingle{}s} constraining rectangle to {\itshape constraint}.
+
+When setting the constraint, the current value is adjusted if necessary (ensuring that the current rectangle value is inside the constraint). In order to reset the constraint pass a null Q\+Rect value.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Value()}{p.}{classQtRectPropertyManager_a407029ec29077e974452c1a3318cb261}, \doxyref{constraint()}{p.}{classQtRectPropertyManager_aa68218abec0dfc12814813df7a9f12d6}, \doxyref{constraint\+Changed()}{p.}{classQtRectPropertyManager_a4de6d6274fb1124a2d8f71e3436645e0} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Rect\+Property\+Manager\+Private\+::\+Data\+::constraint, constraint\+Changed(), Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Abstract\+Property\+Manager\+::property\+Changed(), Qt\+Rect\+Property\+Manager\+Private\+::set\+Constraint(), Qt\+Rect\+Property\+Manager\+Private\+::\+Data\+::val, and value\+Changed().
+
+\index{Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}}
+\subsubsection[{set\+Value}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Rect\+Property\+Manager\+::set\+Value (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Rect \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtRectPropertyManager_a407029ec29077e974452c1a3318cb261}
+Sets the value of the given {\itshape property} to {\itshape value}. Nested properties are updated automatically.
+
+If the specified {\itshape value} is not inside the given {\itshape property\textquotesingle{}s} constraining rectangle, the value is adjusted accordingly to fit within the constraint.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{value()}{p.}{classQtRectPropertyManager_a858f9fc7e0aa01612f8d78258ef6c8a7}, \doxyref{set\+Constraint()}{p.}{classQtRectPropertyManager_a1c3f251de141136dbd5feafd485652b1}, \doxyref{value\+Changed()}{p.}{classQtRectPropertyManager_af1aff19ae99196778d6b545ba01908f0} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Rect\+Property\+Manager\+Private\+::\+Data\+::constraint, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+int\+Property\+Manager, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+property\+ToH, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+property\+ToW, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+property\+ToX, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+property\+ToY, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Abstract\+Property\+Manager\+::property\+Changed(), Qt\+Int\+Property\+Manager\+::set\+Value(), Qt\+Rect\+Property\+Manager\+Private\+::\+Data\+::val, and value\+Changed().
+
+\index{Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}!sub\+Int\+Property\+Manager@{sub\+Int\+Property\+Manager}}
+\index{sub\+Int\+Property\+Manager@{sub\+Int\+Property\+Manager}!Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}}
+\subsubsection[{sub\+Int\+Property\+Manager() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Qt\+Int\+Property\+Manager} $\ast$ Qt\+Rect\+Property\+Manager\+::sub\+Int\+Property\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classQtRectPropertyManager_a58fe4307cd200083b6315d171a39b88c}
+Returns the manager that creates the nested {\itshape x}, {\itshape y}, {\itshape width} and {\itshape height} subproperties.
+
+In order to provide editing widgets for the mentioned subproperties in a property browser widget, this manager must be associated with an editor factory.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Browser\+::set\+Factory\+For\+Manager()}{p.}{classQtAbstractPropertyBrowser_a952b5b393e83f16253033fa4a9f5ea89} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+int\+Property\+Manager.
+
+
+
+Referenced by Qt\+Variant\+Property\+Manager\+::\+Qt\+Variant\+Property\+Manager().
+
+\index{Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}!uninitialize\+Property@{uninitialize\+Property}}
+\index{uninitialize\+Property@{uninitialize\+Property}!Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}}
+\subsubsection[{uninitialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Rect\+Property\+Manager\+::uninitialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtRectPropertyManager_a468b488ed9a198946c8f730e2127e8f3}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ad199337e1ac748eef077011d94ecd5b4}.
+
+
+
+References Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+h\+To\+Property, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+property\+ToH, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+property\+ToW, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+property\+ToX, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+property\+ToY, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+w\+To\+Property, Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+x\+To\+Property, and Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+y\+To\+Property.
+
+\index{Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}!value@{value}}
+\index{value@{value}!Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}}
+\subsubsection[{value(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Rect Qt\+Rect\+Property\+Manager\+::value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtRectPropertyManager_a858f9fc7e0aa01612f8d78258ef6c8a7}
+Returns the given {\itshape property\textquotesingle{}s} value.
+
+If the given {\itshape property} is not managed by this manager, this function returns an invalid rectangle.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Value()}{p.}{classQtRectPropertyManager_a407029ec29077e974452c1a3318cb261}, \doxyref{constraint()}{p.}{classQtRectPropertyManager_aa68218abec0dfc12814813df7a9f12d6} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}!value\+Changed@{value\+Changed}}
+\index{value\+Changed@{value\+Changed}!Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}}
+\subsubsection[{value\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Rect\+Property\+Manager\+::value\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Rect \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtRectPropertyManager_af1aff19ae99196778d6b545ba01908f0}
+This signal is emitted whenever a property created by this manager changes its value, passing a pointer to the {\itshape property} and the new {\itshape value} as parameters.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Value()}{p.}{classQtRectPropertyManager_a407029ec29077e974452c1a3318cb261} 
+\end{DoxySeeAlso}
+
+
+Referenced by Qt\+Rect\+Property\+Manager(), set\+Constraint(), and set\+Value().
+
+\index{Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}!value\+Text@{value\+Text}}
+\index{value\+Text@{value\+Text}!Qt\+Rect\+Property\+Manager@{Qt\+Rect\+Property\+Manager}}
+\subsubsection[{value\+Text(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Qt\+Rect\+Property\+Manager\+::value\+Text (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtRectPropertyManager_acce435cbc11a33e47bc9ca63b3c523aa}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_aa99cf98b6f1d9582245eb2f5168c5b21}.
+
+
+
+References Qt\+Rect\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtpropertymanager.\+h}\item 
+{\bf qtpropertymanager.\+cpp}\end{DoxyCompactItemize}

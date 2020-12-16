@@ -1,0 +1,276 @@
+\section{Qt\+Flag\+Property\+Manager Class Reference}
+\label{classQtFlagPropertyManager}\index{Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}}
+
+
+The \doxyref{Qt\+Flag\+Property\+Manager}{p.}{classQtFlagPropertyManager} provides and manages flag properties.  
+
+
+
+
+{\ttfamily \#include $<$qtpropertymanager.\+h$>$}
+
+Inheritance diagram for Qt\+Flag\+Property\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classQtFlagPropertyManager}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf set\+Value} ({\bf Qt\+Property} $\ast$property, int val)
+\item 
+void {\bf set\+Flag\+Names} ({\bf Qt\+Property} $\ast$property, const Q\+String\+List \&names)
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf value\+Changed} ({\bf Qt\+Property} $\ast$property, int val)
+\item 
+void {\bf flag\+Names\+Changed} ({\bf Qt\+Property} $\ast$property, const Q\+String\+List \&names)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Qt\+Flag\+Property\+Manager} (Q\+Object $\ast$parent=0)
+\item 
+{\bf $\sim$\+Qt\+Flag\+Property\+Manager} ()
+\item 
+{\bf Qt\+Bool\+Property\+Manager} $\ast$ {\bf sub\+Bool\+Property\+Manager} () const 
+\item 
+int {\bf value} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+Q\+String\+List {\bf flag\+Names} (const {\bf Qt\+Property} $\ast$property) const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String {\bf value\+Text} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+virtual void {\bf initialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\item 
+virtual void {\bf uninitialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Each flag property has an associated list of flag names which can be retrieved using the \doxyref{flag\+Names()}{p.}{classQtFlagPropertyManager_a765ffaee7976dcb1de6a494d22088dff} function, and set using the corresponding \doxyref{set\+Flag\+Names()}{p.}{classQtFlagPropertyManager_ac9a69f02f5b95265dde11182b22584b1} function.
+
+The flag manager provides properties with nested boolean subproperties representing each flag, i.\+e. a flag property\textquotesingle{}s value is the binary combination of the subproperties\textquotesingle{} values. A property\textquotesingle{}s value can be retrieved and set using the \doxyref{value()}{p.}{classQtFlagPropertyManager_ad67ba0980ad4b64627948423eed0a672} and \doxyref{set\+Value()}{p.}{classQtFlagPropertyManager_aad7c51a700c985b1bbad8aa6cfcbf22a} slots respectively. The combination of flags is represented by single int value -\/ that\textquotesingle{}s why it\textquotesingle{}s possible to store up to 32 independent flags in one flag property.
+
+The subproperties are created by a \doxyref{Qt\+Bool\+Property\+Manager}{p.}{classQtBoolPropertyManager} object. This manager can be retrieved using the \doxyref{sub\+Bool\+Property\+Manager()}{p.}{classQtFlagPropertyManager_adb39f20e04ec53278a2d39f871c411b3} function. In order to provide editing widgets for the subproperties in a property browser widget, this manager must be associated with an editor factory.
+
+In addition, \doxyref{Qt\+Flag\+Property\+Manager}{p.}{classQtFlagPropertyManager} provides the \doxyref{value\+Changed()}{p.}{classQtFlagPropertyManager_ac503903cd623bd5b2a02883b490b0859} signal which is emitted whenever a property created by this manager changes, and the \doxyref{flag\+Names\+Changed()}{p.}{classQtFlagPropertyManager_a5392ae06be8dee42100e8a159dadd135} signal which is emitted whenever the list of flag names is altered.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager}, \doxyref{Qt\+Bool\+Property\+Manager}{p.}{classQtBoolPropertyManager} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}!Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}}
+\index{Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}!Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}}
+\subsubsection[{Qt\+Flag\+Property\+Manager(\+Q\+Object $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Flag\+Property\+Manager\+::\+Qt\+Flag\+Property\+Manager (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classQtFlagPropertyManager_a32aade733faa88a50178cf44fd120ab8}
+Creates a manager with the given {\itshape parent}. 
+
+References Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+bool\+Property\+Manager, Qt\+Abstract\+Property\+Manager\+::property\+Destroyed(), and value\+Changed().
+
+\index{Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}!````~Qt\+Flag\+Property\+Manager@{$\sim$\+Qt\+Flag\+Property\+Manager}}
+\index{````~Qt\+Flag\+Property\+Manager@{$\sim$\+Qt\+Flag\+Property\+Manager}!Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}}
+\subsubsection[{$\sim$\+Qt\+Flag\+Property\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Flag\+Property\+Manager\+::$\sim$\+Qt\+Flag\+Property\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classQtFlagPropertyManager_a25a5f9cd0f8d88bdab5c5b20bc0d890d}
+Destroys this manager, and all the properties it has created. 
+
+References Qt\+Abstract\+Property\+Manager\+::clear().
+
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}!flag\+Names@{flag\+Names}}
+\index{flag\+Names@{flag\+Names}!Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}}
+\subsubsection[{flag\+Names(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+String\+List Qt\+Flag\+Property\+Manager\+::flag\+Names (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtFlagPropertyManager_a765ffaee7976dcb1de6a494d22088dff}
+Returns the given {\itshape property\textquotesingle{}s} list of flag names.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{value()}{p.}{classQtFlagPropertyManager_ad67ba0980ad4b64627948423eed0a672}, \doxyref{set\+Flag\+Names()}{p.}{classQtFlagPropertyManager_ac9a69f02f5b95265dde11182b22584b1} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Flag\+Property\+Manager\+Private\+::\+Data\+::flag\+Names, and Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+Referenced by set\+Flag\+Names().
+
+\index{Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}!flag\+Names\+Changed@{flag\+Names\+Changed}}
+\index{flag\+Names\+Changed@{flag\+Names\+Changed}!Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}}
+\subsubsection[{flag\+Names\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Flag\+Property\+Manager\+::flag\+Names\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+String\+List \&}]{names}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtFlagPropertyManager_a5392ae06be8dee42100e8a159dadd135}
+This signal is emitted whenever a property created by this manager changes its flag names, passing a pointer to the {\itshape property} and the new {\itshape names} as parameters.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Flag\+Names()}{p.}{classQtFlagPropertyManager_ac9a69f02f5b95265dde11182b22584b1} 
+\end{DoxySeeAlso}
+
+
+Referenced by set\+Flag\+Names().
+
+\index{Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}!initialize\+Property@{initialize\+Property}}
+\index{initialize\+Property@{initialize\+Property}!Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}}
+\subsubsection[{initialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Flag\+Property\+Manager\+::initialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtFlagPropertyManager_af3f71baec1c6d1324bec3b625ea2fec3}
+
+
+Implements {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ab7501ecabc5285cb50d7ed91a2ef44fc}.
+
+
+
+References Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+property\+To\+Flags, and Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}!set\+Flag\+Names@{set\+Flag\+Names}}
+\index{set\+Flag\+Names@{set\+Flag\+Names}!Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}}
+\subsubsection[{set\+Flag\+Names}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Flag\+Property\+Manager\+::set\+Flag\+Names (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+String\+List \&}]{flag\+Names}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtFlagPropertyManager_ac9a69f02f5b95265dde11182b22584b1}
+Sets the given {\itshape property\textquotesingle{}s} list of flag names to {\itshape flag\+Names}. The property\textquotesingle{}s current value is reset to 0 indicating the first item of the list.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{flag\+Names()}{p.}{classQtFlagPropertyManager_a765ffaee7976dcb1de6a494d22088dff}, \doxyref{flag\+Names\+Changed()}{p.}{classQtFlagPropertyManager_a5392ae06be8dee42100e8a159dadd135} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Abstract\+Property\+Manager\+::add\+Property(), flag\+Names(), Qt\+Flag\+Property\+Manager\+Private\+::\+Data\+::flag\+Names, flag\+Names\+Changed(), Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+bool\+Property\+Manager, Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+flag\+To\+Property, Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+property\+To\+Flags, Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Abstract\+Property\+Manager\+::property\+Changed(), Qt\+Property\+::set\+Property\+Name(), Qt\+Flag\+Property\+Manager\+Private\+::\+Data\+::val, and value\+Changed().
+
+\index{Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}}
+\subsubsection[{set\+Value}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Flag\+Property\+Manager\+::set\+Value (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtFlagPropertyManager_aad7c51a700c985b1bbad8aa6cfcbf22a}
+Sets the value of the given {\itshape property} to {\itshape value}. Nested properties are updated automatically.
+
+The specified {\itshape value} must be less than the binary combination of the property\textquotesingle{}s \doxyref{flag\+Names()}{p.}{classQtFlagPropertyManager_a765ffaee7976dcb1de6a494d22088dff} list size (i.\+e. less than 2 n, where {\ttfamily n} is the size of the list) and larger than (or equal to) 0.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{value()}{p.}{classQtFlagPropertyManager_ad67ba0980ad4b64627948423eed0a672}, \doxyref{value\+Changed()}{p.}{classQtFlagPropertyManager_ac503903cd623bd5b2a02883b490b0859} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Flag\+Property\+Manager\+Private\+::\+Data\+::flag\+Names, Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+bool\+Property\+Manager, Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+property\+To\+Flags, Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Abstract\+Property\+Manager\+::property\+Changed(), Qt\+Bool\+Property\+Manager\+::set\+Value(), Qt\+Flag\+Property\+Manager\+Private\+::\+Data\+::val, and value\+Changed().
+
+\index{Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}!sub\+Bool\+Property\+Manager@{sub\+Bool\+Property\+Manager}}
+\index{sub\+Bool\+Property\+Manager@{sub\+Bool\+Property\+Manager}!Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}}
+\subsubsection[{sub\+Bool\+Property\+Manager() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Qt\+Bool\+Property\+Manager} $\ast$ Qt\+Flag\+Property\+Manager\+::sub\+Bool\+Property\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classQtFlagPropertyManager_adb39f20e04ec53278a2d39f871c411b3}
+Returns the manager that produces the nested boolean subproperties representing each flag.
+
+In order to provide editing widgets for the subproperties in a property browser widget, this manager must be associated with an editor factory.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Browser\+::set\+Factory\+For\+Manager()}{p.}{classQtAbstractPropertyBrowser_a952b5b393e83f16253033fa4a9f5ea89} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+bool\+Property\+Manager.
+
+
+
+Referenced by Qt\+Variant\+Property\+Manager\+::\+Qt\+Variant\+Property\+Manager().
+
+\index{Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}!uninitialize\+Property@{uninitialize\+Property}}
+\index{uninitialize\+Property@{uninitialize\+Property}!Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}}
+\subsubsection[{uninitialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Flag\+Property\+Manager\+::uninitialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtFlagPropertyManager_a06e6ef0fab89e39576438bc10b3a464a}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ad199337e1ac748eef077011d94ecd5b4}.
+
+
+
+References Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+flag\+To\+Property, Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+property\+To\+Flags, and Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}!value@{value}}
+\index{value@{value}!Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}}
+\subsubsection[{value(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}int Qt\+Flag\+Property\+Manager\+::value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtFlagPropertyManager_ad67ba0980ad4b64627948423eed0a672}
+Returns the given {\itshape property\textquotesingle{}s} value.
+
+If the given property is not managed by this manager, this function returns 0.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{flag\+Names()}{p.}{classQtFlagPropertyManager_a765ffaee7976dcb1de6a494d22088dff}, \doxyref{set\+Value()}{p.}{classQtFlagPropertyManager_aad7c51a700c985b1bbad8aa6cfcbf22a} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}!value\+Changed@{value\+Changed}}
+\index{value\+Changed@{value\+Changed}!Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}}
+\subsubsection[{value\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Flag\+Property\+Manager\+::value\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtFlagPropertyManager_ac503903cd623bd5b2a02883b490b0859}
+This signal is emitted whenever a property created by this manager changes its value, passing a pointer to the {\itshape property} and the new {\itshape value} as parameters.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Value()}{p.}{classQtFlagPropertyManager_aad7c51a700c985b1bbad8aa6cfcbf22a} 
+\end{DoxySeeAlso}
+
+
+Referenced by Qt\+Flag\+Property\+Manager(), set\+Flag\+Names(), and set\+Value().
+
+\index{Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}!value\+Text@{value\+Text}}
+\index{value\+Text@{value\+Text}!Qt\+Flag\+Property\+Manager@{Qt\+Flag\+Property\+Manager}}
+\subsubsection[{value\+Text(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Qt\+Flag\+Property\+Manager\+::value\+Text (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtFlagPropertyManager_a864f4ec2abb83e214bad6a46d71adfe4}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_aa99cf98b6f1d9582245eb2f5168c5b21}.
+
+
+
+References Qt\+Flag\+Property\+Manager\+Private\+::\+Data\+::flag\+Names, Qt\+Flag\+Property\+Manager\+Private\+::m\+\_\+values, and Qt\+Flag\+Property\+Manager\+Private\+::\+Data\+::val.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtpropertymanager.\+h}\item 
+{\bf qtpropertymanager.\+cpp}\end{DoxyCompactItemize}

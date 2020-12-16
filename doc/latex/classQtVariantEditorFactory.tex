@@ -1,0 +1,169 @@
+\section{Qt\+Variant\+Editor\+Factory Class Reference}
+\label{classQtVariantEditorFactory}\index{Qt\+Variant\+Editor\+Factory@{Qt\+Variant\+Editor\+Factory}}
+
+
+The \doxyref{Qt\+Variant\+Editor\+Factory}{p.}{classQtVariantEditorFactory} class provides widgets for properties created by \doxyref{Qt\+Variant\+Property\+Manager}{p.}{classQtVariantPropertyManager} objects.  
+
+
+
+
+{\ttfamily \#include $<$qtvariantproperty.\+h$>$}
+
+Inheritance diagram for Qt\+Variant\+Editor\+Factory\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classQtVariantEditorFactory}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Qt\+Variant\+Editor\+Factory} (Q\+Object $\ast$parent=0)
+\item 
+{\bf $\sim$\+Qt\+Variant\+Editor\+Factory} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf connect\+Property\+Manager} ({\bf Qt\+Variant\+Property\+Manager} $\ast$manager)
+\item 
+Q\+Widget $\ast$ {\bf create\+Editor} ({\bf Qt\+Variant\+Property\+Manager} $\ast$manager, {\bf Qt\+Property} $\ast$property, Q\+Widget $\ast$parent)
+\item 
+Q\+Widget $\ast$ {\bf create\+Editor} ({\bf Qt\+Property} $\ast$property, Q\+Widget $\ast$parent)
+\item 
+void {\bf disconnect\+Property\+Manager} ({\bf Qt\+Variant\+Property\+Manager} $\ast$manager)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The variant factory provides the following widgets for the specified property types\+:
+
+Property Type  Widget   {\ttfamily int}  Q\+Spin\+Box   {\ttfamily double}  Q\+Double\+Spin\+Box   {\ttfamily bool}  Q\+Check\+Box   Q\+String  Q\+Line\+Edit   Q\+Date  Q\+Date\+Edit   Q\+Time  Q\+Time\+Edit   Q\+Date\+Time  Q\+Date\+Time\+Edit   Q\+Key\+Sequence  customized editor   Q\+Char  customized editor   {\ttfamily enum}  Q\+Combo\+Box   Q\+Cursor  Q\+Combo\+Box 
+
+Note that \doxyref{Qt\+Variant\+Property\+Manager}{p.}{classQtVariantPropertyManager} supports several additional property types for which the \doxyref{Qt\+Variant\+Editor\+Factory}{p.}{classQtVariantEditorFactory} class does not provide editing widgets, e.\+g. Q\+Point and Q\+Size. To provide widgets for other types using the variant approach, derive from the \doxyref{Qt\+Variant\+Editor\+Factory}{p.}{classQtVariantEditorFactory} class.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Editor\+Factory}{p.}{classQtAbstractEditorFactory}, \doxyref{Qt\+Variant\+Property\+Manager}{p.}{classQtVariantPropertyManager} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Qt\+Variant\+Editor\+Factory@{Qt\+Variant\+Editor\+Factory}!Qt\+Variant\+Editor\+Factory@{Qt\+Variant\+Editor\+Factory}}
+\index{Qt\+Variant\+Editor\+Factory@{Qt\+Variant\+Editor\+Factory}!Qt\+Variant\+Editor\+Factory@{Qt\+Variant\+Editor\+Factory}}
+\subsubsection[{Qt\+Variant\+Editor\+Factory(\+Q\+Object $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Variant\+Editor\+Factory\+::\+Qt\+Variant\+Editor\+Factory (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classQtVariantEditorFactory_a84c6699f57c817e3ea8f3f2892e12171}
+Creates a factory with the given {\itshape parent}. 
+
+References Qt\+Variant\+Property\+Manager\+::enum\+Type\+Id(), Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+char\+Editor\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+check\+Box\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+color\+Editor\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+combo\+Box\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+cursor\+Editor\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+date\+Edit\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+date\+Time\+Edit\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+double\+Spin\+Box\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+factory\+To\+Type, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+font\+Editor\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+key\+Sequence\+Editor\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+line\+Edit\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+spin\+Box\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+time\+Edit\+Factory, and Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+type\+To\+Factory.
+
+\index{Qt\+Variant\+Editor\+Factory@{Qt\+Variant\+Editor\+Factory}!````~Qt\+Variant\+Editor\+Factory@{$\sim$\+Qt\+Variant\+Editor\+Factory}}
+\index{````~Qt\+Variant\+Editor\+Factory@{$\sim$\+Qt\+Variant\+Editor\+Factory}!Qt\+Variant\+Editor\+Factory@{Qt\+Variant\+Editor\+Factory}}
+\subsubsection[{$\sim$\+Qt\+Variant\+Editor\+Factory()}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Variant\+Editor\+Factory\+::$\sim$\+Qt\+Variant\+Editor\+Factory (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classQtVariantEditorFactory_a6a239b16c59abfc18783a5d2509399c9}
+Destroys this factory, and all the widgets it has created. 
+
+\subsection{Member Function Documentation}
+\index{Qt\+Variant\+Editor\+Factory@{Qt\+Variant\+Editor\+Factory}!connect\+Property\+Manager@{connect\+Property\+Manager}}
+\index{connect\+Property\+Manager@{connect\+Property\+Manager}!Qt\+Variant\+Editor\+Factory@{Qt\+Variant\+Editor\+Factory}}
+\subsubsection[{connect\+Property\+Manager(\+Qt\+Variant\+Property\+Manager $\ast$manager)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Variant\+Editor\+Factory\+::connect\+Property\+Manager (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Variant\+Property\+Manager} $\ast$}]{manager}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtVariantEditorFactory_a36f7a8818ed9c724e2dbece9254e2abc}
+Connects this factory to the given {\itshape manager\textquotesingle{}s} signals. The Property\+Manager type is a template argument class, and represents the chosen \doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager} subclass.
+
+This function is used internally by the \doxyref{add\+Property\+Manager()}{p.}{classQtAbstractEditorFactory_af32e5e5341a42399841c97c0e82f1f5c} function, and makes it possible to update an editing widget when the associated property\textquotesingle{}s data changes. This is typically done in custom slots responding to the signals emitted by the property\textquotesingle{}s manager, e.\+g. \doxyref{Qt\+Int\+Property\+Manager\+::value\+Changed()}{p.}{classQtIntPropertyManager_a524990cc950be2174854c0150f906776} and \doxyref{Qt\+Int\+Property\+Manager\+::range\+Changed()}{p.}{classQtIntPropertyManager_a2e89b90fb975144bad068d9eee7c2095}.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{property\+Managers()}{p.}{classQtAbstractEditorFactory_a62c833c60837abdc41c4a8e416b96b63}, \doxyref{disconnect\+Property\+Manager()}{p.}{classQtVariantEditorFactory_af9ba546afcb67b51c0f124c871ce93e2} 
+\end{DoxySeeAlso}
+
+
+Implements {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Variant\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_acc1d86b1041a3ff043e8aef756316081}.
+
+
+
+References Qt\+Abstract\+Editor\+Factory$<$ Property\+Manager $>$\+::add\+Property\+Manager(), Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+char\+Editor\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+check\+Box\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+color\+Editor\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+combo\+Box\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+cursor\+Editor\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+date\+Edit\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+date\+Time\+Edit\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+double\+Spin\+Box\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+font\+Editor\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+key\+Sequence\+Editor\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+line\+Edit\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+spin\+Box\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+time\+Edit\+Factory, Qt\+Font\+Property\+Manager\+::sub\+Bool\+Property\+Manager(), Qt\+Size\+Policy\+Property\+Manager\+::sub\+Enum\+Property\+Manager(), Qt\+Font\+Property\+Manager\+::sub\+Enum\+Property\+Manager(), Qt\+Size\+Policy\+Property\+Manager\+::sub\+Int\+Property\+Manager(), Qt\+Font\+Property\+Manager\+::sub\+Int\+Property\+Manager(), and Qt\+Color\+Property\+Manager\+::sub\+Int\+Property\+Manager().
+
+\index{Qt\+Variant\+Editor\+Factory@{Qt\+Variant\+Editor\+Factory}!create\+Editor@{create\+Editor}}
+\index{create\+Editor@{create\+Editor}!Qt\+Variant\+Editor\+Factory@{Qt\+Variant\+Editor\+Factory}}
+\subsubsection[{create\+Editor(\+Qt\+Variant\+Property\+Manager $\ast$manager, Qt\+Property $\ast$property, Q\+Widget $\ast$parent)}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Widget $\ast$ Qt\+Variant\+Editor\+Factory\+::create\+Editor (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Variant\+Property\+Manager} $\ast$}]{manager, }
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{Q\+Widget $\ast$}]{parent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtVariantEditorFactory_a62231fcd3777237784ec2327974c163f}
+Creates an editing widget with the given {\itshape parent} for the specified {\itshape property} created by the given {\itshape manager}. The Property\+Manager type is a template argument class, and represents the chosen \doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager} subclass.
+
+This function must be implemented in derived classes\+: It is recommended to store a pointer to the widget and map it to the given {\itshape property}, since the widget must be updated whenever the associated property\textquotesingle{}s data changes. This is typically done in custom slots responding to the signals emitted by the property\textquotesingle{}s manager, e.\+g. \doxyref{Qt\+Int\+Property\+Manager\+::value\+Changed()}{p.}{classQtIntPropertyManager_a524990cc950be2174854c0150f906776} and \doxyref{Qt\+Int\+Property\+Manager\+::range\+Changed()}{p.}{classQtIntPropertyManager_a2e89b90fb975144bad068d9eee7c2095}.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{connect\+Property\+Manager()}{p.}{classQtVariantEditorFactory_a36f7a8818ed9c724e2dbece9254e2abc} 
+\end{DoxySeeAlso}
+
+
+Implements {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Variant\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a28b47d69e6ce7ee3410c1ba44b23ff18}.
+
+
+
+References Qt\+Abstract\+Editor\+Factory\+Base\+::create\+Editor(), Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+type\+To\+Factory, Qt\+Variant\+Property\+Manager\+::property\+Type(), and wrapped\+Property().
+
+\index{Qt\+Variant\+Editor\+Factory@{Qt\+Variant\+Editor\+Factory}!create\+Editor@{create\+Editor}}
+\index{create\+Editor@{create\+Editor}!Qt\+Variant\+Editor\+Factory@{Qt\+Variant\+Editor\+Factory}}
+\subsubsection[{create\+Editor(\+Qt\+Property $\ast$property, Q\+Widget $\ast$parent)}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Widget $\ast$ Qt\+Variant\+Editor\+Factory\+::create\+Editor (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{Q\+Widget $\ast$}]{parent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtVariantEditorFactory_af761bbd5d9bb08c837ef6c5b9faa1146}
+Creates an editing widget (with the given {\itshape parent}) for the given {\itshape property}.
+
+This function is reimplemented in \doxyref{Qt\+Abstract\+Editor\+Factory}{p.}{classQtAbstractEditorFactory} template class which also provides a pure virtual convenience overload of this function enabling access to the property\textquotesingle{}s manager.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Editor\+Factory\+::create\+Editor()}{p.}{classQtAbstractEditorFactory_a5386f2a9e2d641ce88feaaa5f78fa33a} 
+\end{DoxySeeAlso}
+
+
+Implements {\bf Qt\+Abstract\+Editor\+Factory\+Base} \doxyref{}{p.}{classQtAbstractEditorFactoryBase_aecea70732c941a1d992a61179389e9a2}.
+
+
+
+References Qt\+Abstract\+Editor\+Factory$<$ Property\+Manager $>$\+::create\+Editor().
+
+\index{Qt\+Variant\+Editor\+Factory@{Qt\+Variant\+Editor\+Factory}!disconnect\+Property\+Manager@{disconnect\+Property\+Manager}}
+\index{disconnect\+Property\+Manager@{disconnect\+Property\+Manager}!Qt\+Variant\+Editor\+Factory@{Qt\+Variant\+Editor\+Factory}}
+\subsubsection[{disconnect\+Property\+Manager(\+Qt\+Variant\+Property\+Manager $\ast$manager)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Variant\+Editor\+Factory\+::disconnect\+Property\+Manager (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Variant\+Property\+Manager} $\ast$}]{manager}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtVariantEditorFactory_af9ba546afcb67b51c0f124c871ce93e2}
+Disconnects this factory from the given {\itshape manager\textquotesingle{}s} signals. The Property\+Manager type is a template argument class, and represents the chosen \doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager} subclass.
+
+This function is used internally by the \doxyref{remove\+Property\+Manager()}{p.}{classQtAbstractEditorFactory_a287d46dfa42baa38c8d2d34afc697432} function.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{property\+Managers()}{p.}{classQtAbstractEditorFactory_a62c833c60837abdc41c4a8e416b96b63}, \doxyref{connect\+Property\+Manager()}{p.}{classQtVariantEditorFactory_a36f7a8818ed9c724e2dbece9254e2abc} 
+\end{DoxySeeAlso}
+
+
+Implements {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Variant\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a39ea7ae0ca4bc7a56b5483f0a16f94ae}.
+
+
+
+References Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+char\+Editor\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+check\+Box\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+color\+Editor\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+combo\+Box\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+cursor\+Editor\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+date\+Edit\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+date\+Time\+Edit\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+double\+Spin\+Box\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+font\+Editor\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+key\+Sequence\+Editor\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+line\+Edit\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+spin\+Box\+Factory, Qt\+Variant\+Editor\+Factory\+Private\+::m\+\_\+time\+Edit\+Factory, Qt\+Abstract\+Editor\+Factory$<$ Property\+Manager $>$\+::remove\+Property\+Manager(), Qt\+Font\+Property\+Manager\+::sub\+Bool\+Property\+Manager(), Qt\+Size\+Policy\+Property\+Manager\+::sub\+Enum\+Property\+Manager(), Qt\+Font\+Property\+Manager\+::sub\+Enum\+Property\+Manager(), Qt\+Size\+Policy\+Property\+Manager\+::sub\+Int\+Property\+Manager(), Qt\+Font\+Property\+Manager\+::sub\+Int\+Property\+Manager(), and Qt\+Color\+Property\+Manager\+::sub\+Int\+Property\+Manager().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtvariantproperty.\+h}\item 
+{\bf qtvariantproperty.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,130 @@
+\section{Qt\+Date\+Time\+Edit\+Factory Class Reference}
+\label{classQtDateTimeEditFactory}\index{Qt\+Date\+Time\+Edit\+Factory@{Qt\+Date\+Time\+Edit\+Factory}}
+
+
+The \doxyref{Qt\+Date\+Time\+Edit\+Factory}{p.}{classQtDateTimeEditFactory} class provides Q\+Date\+Time\+Edit widgets for properties created by \doxyref{Qt\+Date\+Time\+Property\+Manager}{p.}{classQtDateTimePropertyManager} objects.  
+
+
+
+
+{\ttfamily \#include $<$qteditorfactory.\+h$>$}
+
+Inheritance diagram for Qt\+Date\+Time\+Edit\+Factory\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classQtDateTimeEditFactory}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Qt\+Date\+Time\+Edit\+Factory} (Q\+Object $\ast$parent=0)
+\item 
+{\bf $\sim$\+Qt\+Date\+Time\+Edit\+Factory} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf connect\+Property\+Manager} ({\bf Qt\+Date\+Time\+Property\+Manager} $\ast$manager)
+\item 
+Q\+Widget $\ast$ {\bf create\+Editor} ({\bf Qt\+Date\+Time\+Property\+Manager} $\ast$manager, {\bf Qt\+Property} $\ast$property, Q\+Widget $\ast$parent)
+\item 
+void {\bf disconnect\+Property\+Manager} ({\bf Qt\+Date\+Time\+Property\+Manager} $\ast$manager)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Editor\+Factory}{p.}{classQtAbstractEditorFactory}, \doxyref{Qt\+Date\+Time\+Property\+Manager}{p.}{classQtDateTimePropertyManager} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Qt\+Date\+Time\+Edit\+Factory@{Qt\+Date\+Time\+Edit\+Factory}!Qt\+Date\+Time\+Edit\+Factory@{Qt\+Date\+Time\+Edit\+Factory}}
+\index{Qt\+Date\+Time\+Edit\+Factory@{Qt\+Date\+Time\+Edit\+Factory}!Qt\+Date\+Time\+Edit\+Factory@{Qt\+Date\+Time\+Edit\+Factory}}
+\subsubsection[{Qt\+Date\+Time\+Edit\+Factory(\+Q\+Object $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Date\+Time\+Edit\+Factory\+::\+Qt\+Date\+Time\+Edit\+Factory (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classQtDateTimeEditFactory_a16aefb6de3d4ac393c38ac09157aacd7}
+Creates a factory with the given {\itshape parent}. \index{Qt\+Date\+Time\+Edit\+Factory@{Qt\+Date\+Time\+Edit\+Factory}!````~Qt\+Date\+Time\+Edit\+Factory@{$\sim$\+Qt\+Date\+Time\+Edit\+Factory}}
+\index{````~Qt\+Date\+Time\+Edit\+Factory@{$\sim$\+Qt\+Date\+Time\+Edit\+Factory}!Qt\+Date\+Time\+Edit\+Factory@{Qt\+Date\+Time\+Edit\+Factory}}
+\subsubsection[{$\sim$\+Qt\+Date\+Time\+Edit\+Factory()}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Date\+Time\+Edit\+Factory\+::$\sim$\+Qt\+Date\+Time\+Edit\+Factory (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classQtDateTimeEditFactory_a540af42c9701d5194be55fe10f2481b5}
+Destroys this factory, and all the widgets it has created. 
+
+References Editor\+Factory\+Private$<$ Editor $>$\+::m\+\_\+editor\+To\+Property.
+
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Date\+Time\+Edit\+Factory@{Qt\+Date\+Time\+Edit\+Factory}!connect\+Property\+Manager@{connect\+Property\+Manager}}
+\index{connect\+Property\+Manager@{connect\+Property\+Manager}!Qt\+Date\+Time\+Edit\+Factory@{Qt\+Date\+Time\+Edit\+Factory}}
+\subsubsection[{connect\+Property\+Manager(\+Qt\+Date\+Time\+Property\+Manager $\ast$manager)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Date\+Time\+Edit\+Factory\+::connect\+Property\+Manager (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Date\+Time\+Property\+Manager} $\ast$}]{manager}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtDateTimeEditFactory_abbe1d65d1dcafc359bf08f920e1fa881}
+Connects this factory to the given {\itshape manager\textquotesingle{}s} signals. The Property\+Manager type is a template argument class, and represents the chosen \doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager} subclass.
+
+This function is used internally by the \doxyref{add\+Property\+Manager()}{p.}{classQtAbstractEditorFactory_af32e5e5341a42399841c97c0e82f1f5c} function, and makes it possible to update an editing widget when the associated property\textquotesingle{}s data changes. This is typically done in custom slots responding to the signals emitted by the property\textquotesingle{}s manager, e.\+g. \doxyref{Qt\+Int\+Property\+Manager\+::value\+Changed()}{p.}{classQtIntPropertyManager_a524990cc950be2174854c0150f906776} and \doxyref{Qt\+Int\+Property\+Manager\+::range\+Changed()}{p.}{classQtIntPropertyManager_a2e89b90fb975144bad068d9eee7c2095}.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{property\+Managers()}{p.}{classQtAbstractEditorFactory_a62c833c60837abdc41c4a8e416b96b63}, \doxyref{disconnect\+Property\+Manager()}{p.}{classQtDateTimeEditFactory_a771880b048e5b19772eb1c709944f912} 
+\end{DoxySeeAlso}
+
+
+Implements {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Date\+Time\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_acc1d86b1041a3ff043e8aef756316081}.
+
+\index{Qt\+Date\+Time\+Edit\+Factory@{Qt\+Date\+Time\+Edit\+Factory}!create\+Editor@{create\+Editor}}
+\index{create\+Editor@{create\+Editor}!Qt\+Date\+Time\+Edit\+Factory@{Qt\+Date\+Time\+Edit\+Factory}}
+\subsubsection[{create\+Editor(\+Qt\+Date\+Time\+Property\+Manager $\ast$manager, Qt\+Property $\ast$property, Q\+Widget $\ast$parent)}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Widget $\ast$ Qt\+Date\+Time\+Edit\+Factory\+::create\+Editor (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Date\+Time\+Property\+Manager} $\ast$}]{manager, }
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{Q\+Widget $\ast$}]{parent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtDateTimeEditFactory_a63df3ed55f8f7a3eb58f4900a58081f2}
+Creates an editing widget with the given {\itshape parent} for the specified {\itshape property} created by the given {\itshape manager}. The Property\+Manager type is a template argument class, and represents the chosen \doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager} subclass.
+
+This function must be implemented in derived classes\+: It is recommended to store a pointer to the widget and map it to the given {\itshape property}, since the widget must be updated whenever the associated property\textquotesingle{}s data changes. This is typically done in custom slots responding to the signals emitted by the property\textquotesingle{}s manager, e.\+g. \doxyref{Qt\+Int\+Property\+Manager\+::value\+Changed()}{p.}{classQtIntPropertyManager_a524990cc950be2174854c0150f906776} and \doxyref{Qt\+Int\+Property\+Manager\+::range\+Changed()}{p.}{classQtIntPropertyManager_a2e89b90fb975144bad068d9eee7c2095}.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{connect\+Property\+Manager()}{p.}{classQtDateTimeEditFactory_abbe1d65d1dcafc359bf08f920e1fa881} 
+\end{DoxySeeAlso}
+
+
+Implements {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Date\+Time\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a28b47d69e6ce7ee3410c1ba44b23ff18}.
+
+
+
+References Editor\+Factory\+Private$<$ Editor $>$\+::create\+Editor(), and Qt\+Date\+Time\+Property\+Manager\+::value().
+
+\index{Qt\+Date\+Time\+Edit\+Factory@{Qt\+Date\+Time\+Edit\+Factory}!disconnect\+Property\+Manager@{disconnect\+Property\+Manager}}
+\index{disconnect\+Property\+Manager@{disconnect\+Property\+Manager}!Qt\+Date\+Time\+Edit\+Factory@{Qt\+Date\+Time\+Edit\+Factory}}
+\subsubsection[{disconnect\+Property\+Manager(\+Qt\+Date\+Time\+Property\+Manager $\ast$manager)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Date\+Time\+Edit\+Factory\+::disconnect\+Property\+Manager (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Date\+Time\+Property\+Manager} $\ast$}]{manager}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtDateTimeEditFactory_a771880b048e5b19772eb1c709944f912}
+Disconnects this factory from the given {\itshape manager\textquotesingle{}s} signals. The Property\+Manager type is a template argument class, and represents the chosen \doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager} subclass.
+
+This function is used internally by the \doxyref{remove\+Property\+Manager()}{p.}{classQtAbstractEditorFactory_a287d46dfa42baa38c8d2d34afc697432} function.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{property\+Managers()}{p.}{classQtAbstractEditorFactory_a62c833c60837abdc41c4a8e416b96b63}, \doxyref{connect\+Property\+Manager()}{p.}{classQtDateTimeEditFactory_abbe1d65d1dcafc359bf08f920e1fa881} 
+\end{DoxySeeAlso}
+
+
+Implements {\bf Qt\+Abstract\+Editor\+Factory$<$ Qt\+Date\+Time\+Property\+Manager $>$} \doxyref{}{p.}{classQtAbstractEditorFactory_a39ea7ae0ca4bc7a56b5483f0a16f94ae}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qteditorfactory.\+h}\item 
+{\bf qteditorfactory.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,264 @@
+\section{Qt\+Variant\+Property Class Reference}
+\label{classQtVariantProperty}\index{Qt\+Variant\+Property@{Qt\+Variant\+Property}}
+
+
+The \doxyref{Qt\+Variant\+Property}{p.}{classQtVariantProperty} class is a convenience class handling Q\+Variant based properties.  
+
+
+
+
+{\ttfamily \#include $<$qtvariantproperty.\+h$>$}
+
+Inheritance diagram for Qt\+Variant\+Property\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classQtVariantProperty}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf $\sim$\+Qt\+Variant\+Property} ()
+\item 
+Q\+Variant {\bf value} () const 
+\item 
+Q\+Variant {\bf attribute\+Value} (const Q\+String \&attribute) const 
+\item 
+int {\bf value\+Type} () const 
+\item 
+int {\bf property\+Type} () const 
+\item 
+virtual bool {\bf compare} ({\bf Qt\+Property} $\ast$other\+Property) const 
+\item 
+void {\bf set\+Value} (const Q\+Variant \&{\bf value})
+\item 
+void {\bf set\+Attribute} (const Q\+String \&attribute, const Q\+Variant \&{\bf value})
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Qt\+Variant\+Property} ({\bf Qt\+Variant\+Property\+Manager} $\ast$manager)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bf Qt\+Variant\+Property\+Manager}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Qt\+Variant\+Property}{p.}{classQtVariantProperty} provides additional A\+PI\+: A property\textquotesingle{}s type, value type, attribute values and current value can easily be retrieved using the \doxyref{property\+Type()}{p.}{classQtVariantProperty_a61984558f141a6e63d9f0e4e05ae86f3}, \doxyref{value\+Type()}{p.}{classQtVariantProperty_a2350051e47036111c188f914fffc85ae}, \doxyref{attribute\+Value()}{p.}{classQtVariantProperty_a293f3e6b57ad40647b7cb41441d99357} and \doxyref{value()}{p.}{classQtVariantProperty_ac75f95a1a93d510e5920fa7733647320} functions respectively. In addition, the attribute values and the current value can be set using the corresponding \doxyref{set\+Value()}{p.}{classQtVariantProperty_aec9dbb18fc48903f6c217a8c3b9a3e69} and \doxyref{set\+Attribute()}{p.}{classQtVariantProperty_a906f63c5230a99ec0ccefc872ee83de8} functions.
+
+For example, instead of writing\+:
+
+
+\begin{DoxyCode}
+QtVariantPropertyManager *variantPropertyManager;
+QtProperty *property;
+
+variantPropertyManager->setValue(property, 10);
+\end{DoxyCode}
+
+
+you can write\+:
+
+
+\begin{DoxyCode}
+QtVariantPropertyManager *variantPropertyManager;
+QtVariantProperty *property;
+
+\textcolor{keyword}{property}->setValue(10);
+\end{DoxyCode}
+
+
+\doxyref{Qt\+Variant\+Property}{p.}{classQtVariantProperty} instances can only be created by the \doxyref{Qt\+Variant\+Property\+Manager}{p.}{classQtVariantPropertyManager} class.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Property}{p.}{classQtProperty}, \doxyref{Qt\+Variant\+Property\+Manager}{p.}{classQtVariantPropertyManager}, \doxyref{Qt\+Variant\+Editor\+Factory}{p.}{classQtVariantEditorFactory} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Qt\+Variant\+Property@{Qt\+Variant\+Property}!````~Qt\+Variant\+Property@{$\sim$\+Qt\+Variant\+Property}}
+\index{````~Qt\+Variant\+Property@{$\sim$\+Qt\+Variant\+Property}!Qt\+Variant\+Property@{Qt\+Variant\+Property}}
+\subsubsection[{$\sim$\+Qt\+Variant\+Property()}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Variant\+Property\+::$\sim$\+Qt\+Variant\+Property (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classQtVariantProperty_af2de8dd4a7f3346b1d225bc1035ffe0f}
+Destroys this property.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Property\+::$\sim$\+Qt\+Property()}{p.}{classQtProperty_ad2fa73fc0aaae8937c675e91369685ca} 
+\end{DoxySeeAlso}
+\index{Qt\+Variant\+Property@{Qt\+Variant\+Property}!Qt\+Variant\+Property@{Qt\+Variant\+Property}}
+\index{Qt\+Variant\+Property@{Qt\+Variant\+Property}!Qt\+Variant\+Property@{Qt\+Variant\+Property}}
+\subsubsection[{Qt\+Variant\+Property(\+Qt\+Variant\+Property\+Manager $\ast$manager)}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Variant\+Property\+::\+Qt\+Variant\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Variant\+Property\+Manager} $\ast$}]{manager}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classQtVariantProperty_af03736128bc3e53aaaa0155db42ce774}
+Creates a variant property using the given {\itshape manager}.
+
+Do not use this constructor to create variant property instances; use the \doxyref{Qt\+Variant\+Property\+Manager\+::add\+Property()}{p.}{classQtVariantPropertyManager_a82c785789a85a4e037ab34f19f786486} function instead. This constructor is used internally by the \doxyref{Qt\+Variant\+Property\+Manager\+::create\+Property()}{p.}{classQtVariantPropertyManager_aaf65c2a926e9028b8118ab58cde202ab} function.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Variant\+Property\+Manager}{p.}{classQtVariantPropertyManager} 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Variant\+Property@{Qt\+Variant\+Property}!attribute\+Value@{attribute\+Value}}
+\index{attribute\+Value@{attribute\+Value}!Qt\+Variant\+Property@{Qt\+Variant\+Property}}
+\subsubsection[{attribute\+Value(const Q\+String \&attribute) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Variant Qt\+Variant\+Property\+::attribute\+Value (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{attribute}
+\end{DoxyParamCaption}
+) const}\label{classQtVariantProperty_a293f3e6b57ad40647b7cb41441d99357}
+Returns this property\textquotesingle{}s value for the specified {\itshape attribute}.
+
+\doxyref{Qt\+Variant\+Property\+Manager}{p.}{classQtVariantPropertyManager} provides a couple of related functions\+: \{\doxyref{Qt\+Variant\+Property\+Manager\+::attributes()}{p.}{classQtVariantPropertyManager_a2a0d1f4d5f3955128acd50a58668b34a}\}\{attributes()\} and \{\doxyref{Qt\+Variant\+Property\+Manager\+::attribute\+Type()}{p.}{classQtVariantPropertyManager_a8bf265fc0e22bc20f813570ab618da36}\}\{attribute\+Type()\}.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Attribute()}{p.}{classQtVariantProperty_a906f63c5230a99ec0ccefc872ee83de8} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Variant\+Property\+Manager\+::attribute\+Value(), and Qt\+Variant\+Property\+Private\+::manager.
+
+
+
+Referenced by Qt\+Variant\+Property\+Manager\+::add\+Property().
+
+\index{Qt\+Variant\+Property@{Qt\+Variant\+Property}!compare@{compare}}
+\index{compare@{compare}!Qt\+Variant\+Property@{Qt\+Variant\+Property}}
+\subsubsection[{compare(\+Qt\+Property $\ast$other\+Property) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Qt\+Variant\+Property\+::compare (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{other\+Property}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\label{classQtVariantProperty_a42825d122e97de4e33aa3d8073c11cad}
+Returns True if this property is equal to {\itshape other\+Property} 
+
+The list of parent or sub properties are not considered in the comparison. 
+
+Reimplemented from {\bf Qt\+Property} \doxyref{}{p.}{classQtProperty_a8c7b9e6b663eafc2235e6dbe78090dde}.
+
+
+
+References Qt\+Property\+::compare(), value(), and value\+Type().
+
+\index{Qt\+Variant\+Property@{Qt\+Variant\+Property}!property\+Type@{property\+Type}}
+\index{property\+Type@{property\+Type}!Qt\+Variant\+Property@{Qt\+Variant\+Property}}
+\subsubsection[{property\+Type() const }]{\setlength{\rightskip}{0pt plus 5cm}int Qt\+Variant\+Property\+::property\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classQtVariantProperty_a61984558f141a6e63d9f0e4e05ae86f3}
+Returns this property\textquotesingle{}s type.
+
+\doxyref{Qt\+Variant\+Property\+Manager}{p.}{classQtVariantPropertyManager} provides several related functions\+: \{\doxyref{Qt\+Variant\+Property\+Manager\+::enum\+Type\+Id()}{p.}{classQtVariantPropertyManager_a98a1551f0e64e3cd1046c752b95e1e24}\}\{enum\+Type\+Id()\}, \{\doxyref{Qt\+Variant\+Property\+Manager\+::flag\+Type\+Id()}{p.}{classQtVariantPropertyManager_afcc62378daeb0426889a5b91d63dd524}\}\{flag\+Type\+Id()\} and \{\doxyref{Qt\+Variant\+Property\+Manager\+::group\+Type\+Id()}{p.}{classQtVariantPropertyManager_a5192bc3d88c56894ae14442e29c949f9}\}\{group\+Type\+Id()\}.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{value\+Type()}{p.}{classQtVariantProperty_a2350051e47036111c188f914fffc85ae} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Variant\+Property\+Private\+::manager, and Qt\+Variant\+Property\+Manager\+::property\+Type().
+
+
+
+Referenced by Qt\+Variant\+Property\+Manager\+::add\+Property().
+
+\index{Qt\+Variant\+Property@{Qt\+Variant\+Property}!set\+Attribute@{set\+Attribute}}
+\index{set\+Attribute@{set\+Attribute}!Qt\+Variant\+Property@{Qt\+Variant\+Property}}
+\subsubsection[{set\+Attribute(const Q\+String \&attribute, const Q\+Variant \&value)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Variant\+Property\+::set\+Attribute (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{attribute, }
+\item[{const Q\+Variant \&}]{value}
+\end{DoxyParamCaption}
+)}\label{classQtVariantProperty_a906f63c5230a99ec0ccefc872ee83de8}
+Sets the {\itshape attribute} of property to {\itshape value}.
+
+\doxyref{Qt\+Variant\+Property\+Manager}{p.}{classQtVariantPropertyManager} provides the related \{\doxyref{Qt\+Variant\+Property\+Manager\+::set\+Attribute()}{p.}{classQtVariantPropertyManager_a55adf195cb65c4bab2aee1ee8d973582}\}\{\doxyref{set\+Attribute()}{p.}{classQtVariantProperty_a906f63c5230a99ec0ccefc872ee83de8}\} function.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{attribute\+Value()}{p.}{classQtVariantProperty_a293f3e6b57ad40647b7cb41441d99357} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Variant\+Property\+Private\+::manager, and Qt\+Variant\+Property\+Manager\+::set\+Attribute().
+
+\index{Qt\+Variant\+Property@{Qt\+Variant\+Property}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Qt\+Variant\+Property@{Qt\+Variant\+Property}}
+\subsubsection[{set\+Value(const Q\+Variant \&value)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Variant\+Property\+::set\+Value (
+\begin{DoxyParamCaption}
+\item[{const Q\+Variant \&}]{value}
+\end{DoxyParamCaption}
+)}\label{classQtVariantProperty_aec9dbb18fc48903f6c217a8c3b9a3e69}
+Sets the value of this property to {\itshape value}.
+
+The specified {\itshape value} must be of the type returned by \doxyref{value\+Type()}{p.}{classQtVariantProperty_a2350051e47036111c188f914fffc85ae}, or of a type that can be converted to \doxyref{value\+Type()}{p.}{classQtVariantProperty_a2350051e47036111c188f914fffc85ae} using the Q\+Variant\+::can\+Convert() function; otherwise this function does nothing.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{value()}{p.}{classQtVariantProperty_ac75f95a1a93d510e5920fa7733647320} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Variant\+Property\+Private\+::manager, and Qt\+Variant\+Property\+Manager\+::set\+Value().
+
+
+
+Referenced by Object\+Property\+Manager\+::set\+Objects().
+
+\index{Qt\+Variant\+Property@{Qt\+Variant\+Property}!value@{value}}
+\index{value@{value}!Qt\+Variant\+Property@{Qt\+Variant\+Property}}
+\subsubsection[{value() const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Variant Qt\+Variant\+Property\+::value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classQtVariantProperty_ac75f95a1a93d510e5920fa7733647320}
+Returns the property\textquotesingle{}s current value.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{value\+Type()}{p.}{classQtVariantProperty_a2350051e47036111c188f914fffc85ae}, \doxyref{set\+Value()}{p.}{classQtVariantProperty_aec9dbb18fc48903f6c217a8c3b9a3e69} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Variant\+Property\+Private\+::manager, and Qt\+Variant\+Property\+Manager\+::value().
+
+
+
+Referenced by Qt\+Variant\+Property\+Manager\+::add\+Property(), and compare().
+
+\index{Qt\+Variant\+Property@{Qt\+Variant\+Property}!value\+Type@{value\+Type}}
+\index{value\+Type@{value\+Type}!Qt\+Variant\+Property@{Qt\+Variant\+Property}}
+\subsubsection[{value\+Type() const }]{\setlength{\rightskip}{0pt plus 5cm}int Qt\+Variant\+Property\+::value\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classQtVariantProperty_a2350051e47036111c188f914fffc85ae}
+Returns the type of this property\textquotesingle{}s value.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{property\+Type()}{p.}{classQtVariantProperty_a61984558f141a6e63d9f0e4e05ae86f3} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Variant\+Property\+Private\+::manager, and Qt\+Variant\+Property\+Manager\+::value\+Type().
+
+
+
+Referenced by compare().
+
+
+
+\subsection{Friends And Related Function Documentation}
+\index{Qt\+Variant\+Property@{Qt\+Variant\+Property}!Qt\+Variant\+Property\+Manager@{Qt\+Variant\+Property\+Manager}}
+\index{Qt\+Variant\+Property\+Manager@{Qt\+Variant\+Property\+Manager}!Qt\+Variant\+Property@{Qt\+Variant\+Property}}
+\subsubsection[{Qt\+Variant\+Property\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Qt\+Variant\+Property\+Manager}\hspace{0.3cm}{\ttfamily [friend]}}\label{classQtVariantProperty_aa0fc1a673dd49d198c221547897ed12f}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtvariantproperty.\+h}\item 
+{\bf qtvariantproperty.\+cpp}\end{DoxyCompactItemize}

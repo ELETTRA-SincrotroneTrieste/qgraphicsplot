@@ -1,0 +1,155 @@
+\doxysection{qgraphicsplotmacros.\+h File Reference}
+\label{qgraphicsplotmacros_8h}\index{qgraphicsplotmacros.h@{qgraphicsplotmacros.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ pwarn}(x,  args...)~do \{ if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{printf(\char`\"{}\textbackslash{}e[1;33m$\ast$ \textbackslash{}e[0;4mwarning\textbackslash{}e[0m\+: \char`\"{}), printf(x, \#\#args), printf(\char`\"{}\textbackslash{}n\char`\"{}); \} \}while(0)
+\item 
+\#define \textbf{ perr}(x,  args...)~do \{  if(!getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+N\+O\+P\+R\+I\+N\+T\+\_\+\+E\+R\+R\+O\+RS\char`\"{})) \{fprintf(stderr, \char`\"{}\textbackslash{}e[1;31m$\ast$ \textbackslash{}e[0;4merror\textbackslash{}e[0m\+: \char`\"{}); printf(x, \#\#args); printf(\char`\"{}\textbackslash{}n\char`\"{});\} \}while(0)
+\item 
+\#define \textbf{ pinfo}(x,  args...)~do \{  if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{printf(\char`\"{}\textbackslash{}e[1;35m$\ast$ \textbackslash{}e[0;4minfo\textbackslash{}e[0m\+: \char`\"{}), printf(x, \#\#args), printf(\char`\"{}\textbackslash{}n\char`\"{}); \} \}while(0)
+\item 
+\#define \textbf{ pinfononl}(x,  args...)~do \{  if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{printf(\char`\"{}\textbackslash{}e[1;35m$\ast$ \textbackslash{}e[0;4minfo\textbackslash{}e[0m\+: \char`\"{}), printf(x, \#\#args); \} \}while(0)
+\item 
+\#define \textbf{ pok}(x,  args...)~do \{  if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{printf(\char`\"{}\textbackslash{}033[1;32m$\ast$ \textbackslash{}033[0m\char`\"{}), printf(x, \#\#args), printf(\char`\"{}\textbackslash{}n\char`\"{}); \} \}while(0)
+\item 
+\#define \textbf{ padd}(x,  args...)~do \{ if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{printf(\char`\"{}\textbackslash{}033[1;32m+ \textbackslash{}033[0m\char`\"{}), printf(x, \#\#args), printf(\char`\"{}\textbackslash{}n\char`\"{}); \} \}while(0)
+\item 
+\#define \textbf{ pwrn}(x,  args...)~do \{ if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{printf(\char`\"{}\textbackslash{}033[1;33m$\ast$ \textbackslash{}033[0m\char`\"{}), printf(x, \#\#args), printf(\char`\"{}\textbackslash{}n\char`\"{}); \} \}while(0)
+\item 
+\#define \textbf{ pdelete}(x,  args...)~do \{   if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{printf(\char`\"{}\textbackslash{}e[1;32mX \textbackslash{}e[0m\char`\"{}), printf(x, \#\#args), printf(\char`\"{}\textbackslash{}n\char`\"{}); \} \}while(0)
+\item 
+\#define \textbf{ pnodelete}(x,  args...)~do \{ if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{ printf(\char`\"{}\textbackslash{}e[1;31mX \textbackslash{}e[0m\char`\"{}), printf(x, \#\#args), printf(\char`\"{}\textbackslash{}n\char`\"{}); \} \}while(0)
+\item 
+\#define \textbf{ pstep}(x,  args...)~do \{ if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{ printf(\char`\"{}   \textbackslash{}e[0;37m-\/\textbackslash{}e[0m \char`\"{}), printf(x, \#\#args), printf(\char`\"{}\textbackslash{}n\char`\"{}); \} \}while(0)
+\item 
+\#define \textbf{ pstepl2}(x,  args ...)~do \{  if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{ printf(\char`\"{}    \textbackslash{}e[0;37m-\/\textbackslash{}e[0m \char`\"{}), printf(x, \#\#args), printf(\char`\"{}\textbackslash{}n\char`\"{}); \} \}while(0)
+\item 
+\#define \textbf{ qprintf}(x,  args ...)~do  \{  if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+Q\+P\+R\+I\+N\+TF\char`\"{})) \{printf(x, \#\#args); \} \}while(0)
+\item 
+\#define \textbf{ qstoc}(x)~x.\+to\+Std\+String().c\+\_\+str()
+\item 
+\#define \textbf{ qslisttoc}(x)~do \{ if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{ printf(\char`\"{}  \{ \char`\"{}); for(int i = 0; i $<$ x.\+size(); i++) printf(\char`\"{}\textbackslash{}\char`\"{}\%s\textbackslash{}\char`\"{}, \char`\"{}, \textbf{ qstoc}(x[i])); printf(\char`\"{}\textbackslash{}b\textbackslash{}b \}\textbackslash{}n\char`\"{}); \} \}while(0)
+\item 
+\#define \textbf{ qobjinfo}(o)~o-\/$>$meta\+Object()-\/$>$class\+Name()
+\item 
+\#define \textbf{ qobjname}(o)~o-\/$>$object\+Name().to\+Std\+String().c\+\_\+str()
+\item 
+\#define \textbf{ objinfo}(o)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{qgraphicsplotmacros_8h_ac8d242bfa2f105c297988ba928657f38}} 
+\index{qgraphicsplotmacros.h@{qgraphicsplotmacros.h}!objinfo@{objinfo}}
+\index{objinfo@{objinfo}!qgraphicsplotmacros.h@{qgraphicsplotmacros.h}}
+\doxysubsubsection{objinfo}
+{\footnotesize\ttfamily \#define objinfo(\begin{DoxyParamCaption}\item[{}]{o }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                      QString(\textcolor{stringliteral}{"{}\%1 \(\backslash\)"{}\%2\(\backslash\)"{}"{}}).arg(((o != NULL \&\& o-\/>metaObject() != NULL \&\& \(\backslash\)}
+\DoxyCodeLine{                        o-\/>metaObject()-\/>className() != NULL) ?  o-\/>metaObject()-\/>className() \(\backslash\)}
+\DoxyCodeLine{                        : QString(\textcolor{stringliteral}{"{}object or meta object is null\(\backslash\)n   -\/ Please create a proxy reader or writer passing a QObject not null to obtain class name and object name here.\(\backslash\)n  "{}}))) \(\backslash\)}
+\DoxyCodeLine{                        .arg(((o != NULL) ?  (o-\/>objectName()) :  \(\backslash\)}
+\DoxyCodeLine{                         QString(\textcolor{stringliteral}{"{}object is null"{}}))).toStdString().c\_str()}
+
+\end{DoxyCode}
+\mbox{\label{qgraphicsplotmacros_8h_a4f5772a1a56a9c487661e2eac1211170}} 
+\index{qgraphicsplotmacros.h@{qgraphicsplotmacros.h}!padd@{padd}}
+\index{padd@{padd}!qgraphicsplotmacros.h@{qgraphicsplotmacros.h}}
+\doxysubsubsection{padd}
+{\footnotesize\ttfamily \#define padd(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{ if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{printf(\char`\"{}\textbackslash{}033[1;32m+ \textbackslash{}033[0m\char`\"{}), printf(x, \#\#args), printf(\char`\"{}\textbackslash{}n\char`\"{}); \} \}while(0)}
+
+\mbox{\label{qgraphicsplotmacros_8h_a629905ebf3b84e70ff80248220fdc7a4}} 
+\index{qgraphicsplotmacros.h@{qgraphicsplotmacros.h}!pdelete@{pdelete}}
+\index{pdelete@{pdelete}!qgraphicsplotmacros.h@{qgraphicsplotmacros.h}}
+\doxysubsubsection{pdelete}
+{\footnotesize\ttfamily \#define pdelete(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{   if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{printf(\char`\"{}\textbackslash{}e[1;32mX \textbackslash{}e[0m\char`\"{}), printf(x, \#\#args), printf(\char`\"{}\textbackslash{}n\char`\"{}); \} \}while(0)}
+
+\mbox{\label{qgraphicsplotmacros_8h_ace3ed8e68957fe0cd2c27043cc5137db}} 
+\index{qgraphicsplotmacros.h@{qgraphicsplotmacros.h}!perr@{perr}}
+\index{perr@{perr}!qgraphicsplotmacros.h@{qgraphicsplotmacros.h}}
+\doxysubsubsection{perr}
+{\footnotesize\ttfamily \#define perr(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{  if(!getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+N\+O\+P\+R\+I\+N\+T\+\_\+\+E\+R\+R\+O\+RS\char`\"{})) \{fprintf(stderr, \char`\"{}\textbackslash{}e[1;31m$\ast$ \textbackslash{}e[0;4merror\textbackslash{}e[0m\+: \char`\"{}); printf(x, \#\#args); printf(\char`\"{}\textbackslash{}n\char`\"{});\} \}while(0)}
+
+\mbox{\label{qgraphicsplotmacros_8h_a37ed5c66e8f587b69c2259ebad99c7fd}} 
+\index{qgraphicsplotmacros.h@{qgraphicsplotmacros.h}!pinfo@{pinfo}}
+\index{pinfo@{pinfo}!qgraphicsplotmacros.h@{qgraphicsplotmacros.h}}
+\doxysubsubsection{pinfo}
+{\footnotesize\ttfamily \#define pinfo(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{  if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{printf(\char`\"{}\textbackslash{}e[1;35m$\ast$ \textbackslash{}e[0;4minfo\textbackslash{}e[0m\+: \char`\"{}), printf(x, \#\#args), printf(\char`\"{}\textbackslash{}n\char`\"{}); \} \}while(0)}
+
+\mbox{\label{qgraphicsplotmacros_8h_a0665727f97705ec782a9335536553544}} 
+\index{qgraphicsplotmacros.h@{qgraphicsplotmacros.h}!pinfononl@{pinfononl}}
+\index{pinfononl@{pinfononl}!qgraphicsplotmacros.h@{qgraphicsplotmacros.h}}
+\doxysubsubsection{pinfononl}
+{\footnotesize\ttfamily \#define pinfononl(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{  if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{printf(\char`\"{}\textbackslash{}e[1;35m$\ast$ \textbackslash{}e[0;4minfo\textbackslash{}e[0m\+: \char`\"{}), printf(x, \#\#args); \} \}while(0)}
+
+\mbox{\label{qgraphicsplotmacros_8h_a07375e928e7781c676858907a01c58f9}} 
+\index{qgraphicsplotmacros.h@{qgraphicsplotmacros.h}!pnodelete@{pnodelete}}
+\index{pnodelete@{pnodelete}!qgraphicsplotmacros.h@{qgraphicsplotmacros.h}}
+\doxysubsubsection{pnodelete}
+{\footnotesize\ttfamily \#define pnodelete(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{ if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{ printf(\char`\"{}\textbackslash{}e[1;31mX \textbackslash{}e[0m\char`\"{}), printf(x, \#\#args), printf(\char`\"{}\textbackslash{}n\char`\"{}); \} \}while(0)}
+
+\mbox{\label{qgraphicsplotmacros_8h_a39ff6a69cab3361eff591af2b06da1d7}} 
+\index{qgraphicsplotmacros.h@{qgraphicsplotmacros.h}!pok@{pok}}
+\index{pok@{pok}!qgraphicsplotmacros.h@{qgraphicsplotmacros.h}}
+\doxysubsubsection{pok}
+{\footnotesize\ttfamily \#define pok(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{  if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{printf(\char`\"{}\textbackslash{}033[1;32m$\ast$ \textbackslash{}033[0m\char`\"{}), printf(x, \#\#args), printf(\char`\"{}\textbackslash{}n\char`\"{}); \} \}while(0)}
+
+\mbox{\label{qgraphicsplotmacros_8h_a209efc85150409f79a8428d2be995253}} 
+\index{qgraphicsplotmacros.h@{qgraphicsplotmacros.h}!pstep@{pstep}}
+\index{pstep@{pstep}!qgraphicsplotmacros.h@{qgraphicsplotmacros.h}}
+\doxysubsubsection{pstep}
+{\footnotesize\ttfamily \#define pstep(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{ if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{ printf(\char`\"{}   \textbackslash{}e[0;37m-\/\textbackslash{}e[0m \char`\"{}), printf(x, \#\#args), printf(\char`\"{}\textbackslash{}n\char`\"{}); \} \}while(0)}
+
+\mbox{\label{qgraphicsplotmacros_8h_adda51ef96fe1d06c27b36c925c78e7b9}} 
+\index{qgraphicsplotmacros.h@{qgraphicsplotmacros.h}!pstepl2@{pstepl2}}
+\index{pstepl2@{pstepl2}!qgraphicsplotmacros.h@{qgraphicsplotmacros.h}}
+\doxysubsubsection{pstepl2}
+{\footnotesize\ttfamily \#define pstepl2(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args ... }\end{DoxyParamCaption})~do \{  if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{ printf(\char`\"{}    \textbackslash{}e[0;37m-\/\textbackslash{}e[0m \char`\"{}), printf(x, \#\#args), printf(\char`\"{}\textbackslash{}n\char`\"{}); \} \}while(0)}
+
+\mbox{\label{qgraphicsplotmacros_8h_ad2d2f62f77d9c9e41ab9ffd6865d2f70}} 
+\index{qgraphicsplotmacros.h@{qgraphicsplotmacros.h}!pwarn@{pwarn}}
+\index{pwarn@{pwarn}!qgraphicsplotmacros.h@{qgraphicsplotmacros.h}}
+\doxysubsubsection{pwarn}
+{\footnotesize\ttfamily \#define pwarn(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{ if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{printf(\char`\"{}\textbackslash{}e[1;33m$\ast$ \textbackslash{}e[0;4mwarning\textbackslash{}e[0m\+: \char`\"{}), printf(x, \#\#args), printf(\char`\"{}\textbackslash{}n\char`\"{}); \} \}while(0)}
+
+\mbox{\label{qgraphicsplotmacros_8h_a85f070529c6affbda603114e7382c43d}} 
+\index{qgraphicsplotmacros.h@{qgraphicsplotmacros.h}!pwrn@{pwrn}}
+\index{pwrn@{pwrn}!qgraphicsplotmacros.h@{qgraphicsplotmacros.h}}
+\doxysubsubsection{pwrn}
+{\footnotesize\ttfamily \#define pwrn(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{ if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{printf(\char`\"{}\textbackslash{}033[1;33m$\ast$ \textbackslash{}033[0m\char`\"{}), printf(x, \#\#args), printf(\char`\"{}\textbackslash{}n\char`\"{}); \} \}while(0)}
+
+\mbox{\label{qgraphicsplotmacros_8h_a22166b48145c760514384122f0944fc9}} 
+\index{qgraphicsplotmacros.h@{qgraphicsplotmacros.h}!qobjinfo@{qobjinfo}}
+\index{qobjinfo@{qobjinfo}!qgraphicsplotmacros.h@{qgraphicsplotmacros.h}}
+\doxysubsubsection{qobjinfo}
+{\footnotesize\ttfamily \#define qobjinfo(\begin{DoxyParamCaption}\item[{}]{o }\end{DoxyParamCaption})~o-\/$>$meta\+Object()-\/$>$class\+Name()}
+
+\mbox{\label{qgraphicsplotmacros_8h_ade229e426fdc3192097eb3e004b92241}} 
+\index{qgraphicsplotmacros.h@{qgraphicsplotmacros.h}!qobjname@{qobjname}}
+\index{qobjname@{qobjname}!qgraphicsplotmacros.h@{qgraphicsplotmacros.h}}
+\doxysubsubsection{qobjname}
+{\footnotesize\ttfamily \#define qobjname(\begin{DoxyParamCaption}\item[{}]{o }\end{DoxyParamCaption})~o-\/$>$object\+Name().to\+Std\+String().c\+\_\+str()}
+
+\mbox{\label{qgraphicsplotmacros_8h_a158f7d040a78c4543428c447bbd22d16}} 
+\index{qgraphicsplotmacros.h@{qgraphicsplotmacros.h}!qprintf@{qprintf}}
+\index{qprintf@{qprintf}!qgraphicsplotmacros.h@{qgraphicsplotmacros.h}}
+\doxysubsubsection{qprintf}
+{\footnotesize\ttfamily \#define qprintf(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args ... }\end{DoxyParamCaption})~do  \{  if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+Q\+P\+R\+I\+N\+TF\char`\"{})) \{printf(x, \#\#args); \} \}while(0)}
+
+\mbox{\label{qgraphicsplotmacros_8h_a1cdbb911ee6e92927d29f9703e8da728}} 
+\index{qgraphicsplotmacros.h@{qgraphicsplotmacros.h}!qslisttoc@{qslisttoc}}
+\index{qslisttoc@{qslisttoc}!qgraphicsplotmacros.h@{qgraphicsplotmacros.h}}
+\doxysubsubsection{qslisttoc}
+{\footnotesize\ttfamily \#define qslisttoc(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~do \{ if(getenv(\char`\"{}Q\+T\+A\+N\+G\+O\+\_\+\+P\+R\+I\+NT\char`\"{})) \{ printf(\char`\"{}  \{ \char`\"{}); for(int i = 0; i $<$ x.\+size(); i++) printf(\char`\"{}\textbackslash{}\char`\"{}\%s\textbackslash{}\char`\"{}, \char`\"{}, \textbf{ qstoc}(x[i])); printf(\char`\"{}\textbackslash{}b\textbackslash{}b \}\textbackslash{}n\char`\"{}); \} \}while(0)}
+
+\mbox{\label{qgraphicsplotmacros_8h_a9dd05eb69076bf30477384c6b7ca8605}} 
+\index{qgraphicsplotmacros.h@{qgraphicsplotmacros.h}!qstoc@{qstoc}}
+\index{qstoc@{qstoc}!qgraphicsplotmacros.h@{qgraphicsplotmacros.h}}
+\doxysubsubsection{qstoc}
+{\footnotesize\ttfamily \#define qstoc(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~x.\+to\+Std\+String().c\+\_\+str()}
+

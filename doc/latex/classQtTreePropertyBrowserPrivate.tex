@@ -1,0 +1,384 @@
+\section{Qt\+Tree\+Property\+Browser\+Private Class Reference}
+\label{classQtTreePropertyBrowserPrivate}\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Qt\+Tree\+Property\+Browser\+Private} ()
+\item 
+void {\bf init} (Q\+Widget $\ast$parent)
+\item 
+void {\bf property\+Inserted} ({\bf Qt\+Browser\+Item} $\ast$index, {\bf Qt\+Browser\+Item} $\ast$after\+Index)
+\item 
+void {\bf property\+Removed} ({\bf Qt\+Browser\+Item} $\ast$index)
+\item 
+void {\bf property\+Changed} ({\bf Qt\+Browser\+Item} $\ast$index)
+\item 
+Q\+Widget $\ast$ {\bf create\+Editor} ({\bf Qt\+Property} $\ast$property, Q\+Widget $\ast$parent) const 
+\item 
+{\bf Qt\+Property} $\ast$ {\bf index\+To\+Property} (const Q\+Model\+Index \&index) const 
+\item 
+Q\+Tree\+Widget\+Item $\ast$ {\bf index\+To\+Item} (const Q\+Model\+Index \&index) const 
+\item 
+{\bf Qt\+Browser\+Item} $\ast$ {\bf index\+To\+Browser\+Item} (const Q\+Model\+Index \&index) const 
+\item 
+bool {\bf last\+Column} (int column) const 
+\item 
+void {\bf disable\+Item} (Q\+Tree\+Widget\+Item $\ast$item) const 
+\item 
+void {\bf enable\+Item} (Q\+Tree\+Widget\+Item $\ast$item) const 
+\item 
+bool {\bf has\+Value} (Q\+Tree\+Widget\+Item $\ast$item) const 
+\item 
+void {\bf slot\+Collapsed} (const Q\+Model\+Index \&index)
+\item 
+void {\bf slot\+Expanded} (const Q\+Model\+Index \&index)
+\item 
+Q\+Color {\bf calculated\+Background\+Color} ({\bf Qt\+Browser\+Item} $\ast$item) const 
+\item 
+{\bf Qt\+Property\+Editor\+View} $\ast$ {\bf tree\+Widget} () const 
+\item 
+bool {\bf mark\+Properties\+Without\+Value} () const 
+\item 
+{\bf Qt\+Browser\+Item} $\ast$ {\bf current\+Item} () const 
+\item 
+void {\bf set\+Current\+Item} ({\bf Qt\+Browser\+Item} $\ast$browser\+Item, bool block)
+\item 
+void {\bf edit\+Item} ({\bf Qt\+Browser\+Item} $\ast$browser\+Item)
+\item 
+void {\bf slot\+Current\+Browser\+Item\+Changed} ({\bf Qt\+Browser\+Item} $\ast$item)
+\item 
+void {\bf slot\+Current\+Tree\+Item\+Changed} (Q\+Tree\+Widget\+Item $\ast$new\+Item, Q\+Tree\+Widget\+Item $\ast$)
+\item 
+Q\+Tree\+Widget\+Item $\ast$ {\bf edited\+Item} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{Qt\+Tree\+Property\+Browser\+Private()}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Tree\+Property\+Browser\+Private\+::\+Qt\+Tree\+Property\+Browser\+Private (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classQtTreePropertyBrowserPrivate_abe26fe3eaf6b2f1514efd00c2a3accb7}
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!calculated\+Background\+Color@{calculated\+Background\+Color}}
+\index{calculated\+Background\+Color@{calculated\+Background\+Color}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{calculated\+Background\+Color(\+Qt\+Browser\+Item $\ast$item) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Color Qt\+Tree\+Property\+Browser\+Private\+::calculated\+Background\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Browser\+Item} $\ast$}]{item}
+\end{DoxyParamCaption}
+) const}\label{classQtTreePropertyBrowserPrivate_ab8392bd2c5e5819de3c72293409a1204}
+
+
+References Qt\+Browser\+Item\+::parent().
+
+
+
+Referenced by Qt\+Tree\+Property\+Browser\+::calculated\+Background\+Color(), create\+Editor(), and Qt\+Property\+Editor\+View\+::draw\+Row().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!create\+Editor@{create\+Editor}}
+\index{create\+Editor@{create\+Editor}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{create\+Editor(\+Qt\+Property $\ast$property, Q\+Widget $\ast$parent) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Widget$\ast$ Qt\+Tree\+Property\+Browser\+Private\+::create\+Editor (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{Q\+Widget $\ast$}]{parent}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classQtTreePropertyBrowserPrivate_a15f35a1335acb3f4ac0f4287a477bbc1}
+
+
+References calculated\+Background\+Color(), Qt\+Abstract\+Property\+Browser\+::create\+Editor(), disable\+Item(), enable\+Item(), has\+Value(), index\+To\+Browser\+Item(), index\+To\+Item(), index\+To\+Property(), last\+Column(), slot\+Collapsed(), and slot\+Expanded().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!current\+Item@{current\+Item}}
+\index{current\+Item@{current\+Item}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{current\+Item() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Qt\+Browser\+Item} $\ast$ Qt\+Tree\+Property\+Browser\+Private\+::current\+Item (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classQtTreePropertyBrowserPrivate_ad31325c1d4f9c3116dcfd37b0a9e88d4}
+
+
+Referenced by mark\+Properties\+Without\+Value(), and slot\+Current\+Browser\+Item\+Changed().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!disable\+Item@{disable\+Item}}
+\index{disable\+Item@{disable\+Item}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{disable\+Item(\+Q\+Tree\+Widget\+Item $\ast$item) const }]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Tree\+Property\+Browser\+Private\+::disable\+Item (
+\begin{DoxyParamCaption}
+\item[{Q\+Tree\+Widget\+Item $\ast$}]{item}
+\end{DoxyParamCaption}
+) const}\label{classQtTreePropertyBrowserPrivate_a2c50ab638a295ee0fe750290f66b77f3}
+
+
+References Qt\+Property\+Editor\+Delegate\+::close\+Editor().
+
+
+
+Referenced by create\+Editor(), and property\+Changed().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!edited\+Item@{edited\+Item}}
+\index{edited\+Item@{edited\+Item}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{edited\+Item() const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Tree\+Widget\+Item $\ast$ Qt\+Tree\+Property\+Browser\+Private\+::edited\+Item (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classQtTreePropertyBrowserPrivate_ad49907fe6e92322912ff9238bc035e7d}
+
+
+References Qt\+Property\+Editor\+Delegate\+::edited\+Item().
+
+
+
+Referenced by Qt\+Property\+Editor\+View\+::key\+Press\+Event(), mark\+Properties\+Without\+Value(), and Qt\+Property\+Editor\+View\+::mouse\+Press\+Event().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!edit\+Item@{edit\+Item}}
+\index{edit\+Item@{edit\+Item}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{edit\+Item(\+Qt\+Browser\+Item $\ast$browser\+Item)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Tree\+Property\+Browser\+Private\+::edit\+Item (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Browser\+Item} $\ast$}]{browser\+Item}
+\end{DoxyParamCaption}
+)}\label{classQtTreePropertyBrowserPrivate_aa49a60cabda8f7f18da0984cb186a10d}
+
+
+Referenced by Qt\+Tree\+Property\+Browser\+::edit\+Item(), and mark\+Properties\+Without\+Value().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!enable\+Item@{enable\+Item}}
+\index{enable\+Item@{enable\+Item}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{enable\+Item(\+Q\+Tree\+Widget\+Item $\ast$item) const }]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Tree\+Property\+Browser\+Private\+::enable\+Item (
+\begin{DoxyParamCaption}
+\item[{Q\+Tree\+Widget\+Item $\ast$}]{item}
+\end{DoxyParamCaption}
+) const}\label{classQtTreePropertyBrowserPrivate_a2fc839d46f6732e1b09710210ac4ae62}
+
+
+Referenced by create\+Editor(), and property\+Changed().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!has\+Value@{has\+Value}}
+\index{has\+Value@{has\+Value}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{has\+Value(\+Q\+Tree\+Widget\+Item $\ast$item) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Qt\+Tree\+Property\+Browser\+Private\+::has\+Value (
+\begin{DoxyParamCaption}
+\item[{Q\+Tree\+Widget\+Item $\ast$}]{item}
+\end{DoxyParamCaption}
+) const}\label{classQtTreePropertyBrowserPrivate_a2db190a2a694cbf8a25271a0198f88c3}
+
+
+References Qt\+Property\+::has\+Value(), and Qt\+Browser\+Item\+::property().
+
+
+
+Referenced by create\+Editor(), and Qt\+Property\+Editor\+View\+::mouse\+Press\+Event().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!index\+To\+Browser\+Item@{index\+To\+Browser\+Item}}
+\index{index\+To\+Browser\+Item@{index\+To\+Browser\+Item}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{index\+To\+Browser\+Item(const Q\+Model\+Index \&index) const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Qt\+Browser\+Item} $\ast$ Qt\+Tree\+Property\+Browser\+Private\+::index\+To\+Browser\+Item (
+\begin{DoxyParamCaption}
+\item[{const Q\+Model\+Index \&}]{index}
+\end{DoxyParamCaption}
+) const}\label{classQtTreePropertyBrowserPrivate_a85bf3f25c1eb7bea177210ee262ce026}
+
+
+References Qt\+Property\+Editor\+View\+::index\+To\+Item().
+
+
+
+Referenced by create\+Editor(), and Qt\+Property\+Editor\+View\+::draw\+Row().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!index\+To\+Item@{index\+To\+Item}}
+\index{index\+To\+Item@{index\+To\+Item}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{index\+To\+Item(const Q\+Model\+Index \&index) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Tree\+Widget\+Item $\ast$ Qt\+Tree\+Property\+Browser\+Private\+::index\+To\+Item (
+\begin{DoxyParamCaption}
+\item[{const Q\+Model\+Index \&}]{index}
+\end{DoxyParamCaption}
+) const}\label{classQtTreePropertyBrowserPrivate_a70ca95a06b2fb53d03ebfbc182175cbb}
+
+
+References Qt\+Property\+Editor\+View\+::index\+To\+Item().
+
+
+
+Referenced by create\+Editor(), slot\+Collapsed(), and slot\+Expanded().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!index\+To\+Property@{index\+To\+Property}}
+\index{index\+To\+Property@{index\+To\+Property}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{index\+To\+Property(const Q\+Model\+Index \&index) const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Qt\+Property} $\ast$ Qt\+Tree\+Property\+Browser\+Private\+::index\+To\+Property (
+\begin{DoxyParamCaption}
+\item[{const Q\+Model\+Index \&}]{index}
+\end{DoxyParamCaption}
+) const}\label{classQtTreePropertyBrowserPrivate_a0576ba30168e645d1f9be870005bd8c3}
+
+
+References Qt\+Property\+Editor\+View\+::index\+To\+Item(), and Qt\+Browser\+Item\+::property().
+
+
+
+Referenced by create\+Editor(), and Qt\+Property\+Editor\+View\+::draw\+Row().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!init@{init}}
+\index{init@{init}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{init(\+Q\+Widget $\ast$parent)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Tree\+Property\+Browser\+Private\+::init (
+\begin{DoxyParamCaption}
+\item[{Q\+Widget $\ast$}]{parent}
+\end{DoxyParamCaption}
+)}\label{classQtTreePropertyBrowserPrivate_a7e42dbab880b384e8410ae0108855754}
+
+
+References draw\+Indicator\+Icon(), Qt\+Property\+Editor\+View\+::set\+Editor\+Private(), Qt\+Property\+Editor\+Delegate\+::set\+Editor\+Private(), slot\+Collapsed(), slot\+Current\+Tree\+Item\+Changed(), and slot\+Expanded().
+
+
+
+Referenced by Qt\+Tree\+Property\+Browser\+::\+Qt\+Tree\+Property\+Browser().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!last\+Column@{last\+Column}}
+\index{last\+Column@{last\+Column}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{last\+Column(int column) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Qt\+Tree\+Property\+Browser\+Private\+::last\+Column (
+\begin{DoxyParamCaption}
+\item[{int}]{column}
+\end{DoxyParamCaption}
+) const}\label{classQtTreePropertyBrowserPrivate_a2cb6a902e9d97a098915c59dbd54190c}
+
+
+Referenced by create\+Editor().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!mark\+Properties\+Without\+Value@{mark\+Properties\+Without\+Value}}
+\index{mark\+Properties\+Without\+Value@{mark\+Properties\+Without\+Value}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{mark\+Properties\+Without\+Value() const }]{\setlength{\rightskip}{0pt plus 5cm}bool Qt\+Tree\+Property\+Browser\+Private\+::mark\+Properties\+Without\+Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classQtTreePropertyBrowserPrivate_a9c640e093d4138569b8587583074d500}
+
+
+References current\+Item(), edited\+Item(), edit\+Item(), set\+Current\+Item(), slot\+Current\+Browser\+Item\+Changed(), and slot\+Current\+Tree\+Item\+Changed().
+
+
+
+Referenced by Qt\+Property\+Editor\+View\+::draw\+Row(), Qt\+Property\+Editor\+View\+::mouse\+Press\+Event(), and property\+Changed().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!property\+Changed@{property\+Changed}}
+\index{property\+Changed@{property\+Changed}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{property\+Changed(\+Qt\+Browser\+Item $\ast$index)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Tree\+Property\+Browser\+Private\+::property\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Browser\+Item} $\ast$}]{index}
+\end{DoxyParamCaption}
+)}\label{classQtTreePropertyBrowserPrivate_a29c6d431193d045c5908db4f3f14fe9d}
+
+
+References disable\+Item(), enable\+Item(), and mark\+Properties\+Without\+Value().
+
+
+
+Referenced by Qt\+Tree\+Property\+Browser\+::item\+Changed().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!property\+Inserted@{property\+Inserted}}
+\index{property\+Inserted@{property\+Inserted}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{property\+Inserted(\+Qt\+Browser\+Item $\ast$index, Qt\+Browser\+Item $\ast$after\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Tree\+Property\+Browser\+Private\+::property\+Inserted (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Browser\+Item} $\ast$}]{index, }
+\item[{{\bf Qt\+Browser\+Item} $\ast$}]{after\+Index}
+\end{DoxyParamCaption}
+)}\label{classQtTreePropertyBrowserPrivate_a720f21a40d0c0fc1d95cf433f92f3846}
+
+
+References Qt\+Browser\+Item\+::parent().
+
+
+
+Referenced by Qt\+Tree\+Property\+Browser\+::item\+Inserted().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!property\+Removed@{property\+Removed}}
+\index{property\+Removed@{property\+Removed}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{property\+Removed(\+Qt\+Browser\+Item $\ast$index)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Tree\+Property\+Browser\+Private\+::property\+Removed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Browser\+Item} $\ast$}]{index}
+\end{DoxyParamCaption}
+)}\label{classQtTreePropertyBrowserPrivate_aec7c83d7073b29d8409e2ba95b642235}
+
+
+Referenced by Qt\+Tree\+Property\+Browser\+::item\+Removed().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!set\+Current\+Item@{set\+Current\+Item}}
+\index{set\+Current\+Item@{set\+Current\+Item}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{set\+Current\+Item(\+Qt\+Browser\+Item $\ast$browser\+Item, bool block)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Tree\+Property\+Browser\+Private\+::set\+Current\+Item (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Browser\+Item} $\ast$}]{browser\+Item, }
+\item[{bool}]{block}
+\end{DoxyParamCaption}
+)}\label{classQtTreePropertyBrowserPrivate_a0ca4ca0a965a932821d0d0cf72361297}
+
+
+Referenced by mark\+Properties\+Without\+Value(), and slot\+Current\+Browser\+Item\+Changed().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!slot\+Collapsed@{slot\+Collapsed}}
+\index{slot\+Collapsed@{slot\+Collapsed}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{slot\+Collapsed(const Q\+Model\+Index \&index)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Tree\+Property\+Browser\+Private\+::slot\+Collapsed (
+\begin{DoxyParamCaption}
+\item[{const Q\+Model\+Index \&}]{index}
+\end{DoxyParamCaption}
+)}\label{classQtTreePropertyBrowserPrivate_abb5661ef7a292bcd4830eb007d265dc5}
+
+
+References Qt\+Tree\+Property\+Browser\+::collapsed(), and index\+To\+Item().
+
+
+
+Referenced by create\+Editor(), and init().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!slot\+Current\+Browser\+Item\+Changed@{slot\+Current\+Browser\+Item\+Changed}}
+\index{slot\+Current\+Browser\+Item\+Changed@{slot\+Current\+Browser\+Item\+Changed}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{slot\+Current\+Browser\+Item\+Changed(\+Qt\+Browser\+Item $\ast$item)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Tree\+Property\+Browser\+Private\+::slot\+Current\+Browser\+Item\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Browser\+Item} $\ast$}]{item}
+\end{DoxyParamCaption}
+)}\label{classQtTreePropertyBrowserPrivate_a28cb28ce8e825607e8aabea89a76b1c8}
+
+
+References current\+Item(), and set\+Current\+Item().
+
+
+
+Referenced by mark\+Properties\+Without\+Value().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!slot\+Current\+Tree\+Item\+Changed@{slot\+Current\+Tree\+Item\+Changed}}
+\index{slot\+Current\+Tree\+Item\+Changed@{slot\+Current\+Tree\+Item\+Changed}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{slot\+Current\+Tree\+Item\+Changed(\+Q\+Tree\+Widget\+Item $\ast$new\+Item, Q\+Tree\+Widget\+Item $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Tree\+Property\+Browser\+Private\+::slot\+Current\+Tree\+Item\+Changed (
+\begin{DoxyParamCaption}
+\item[{Q\+Tree\+Widget\+Item $\ast$}]{new\+Item, }
+\item[{Q\+Tree\+Widget\+Item $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{classQtTreePropertyBrowserPrivate_a55ac9d929b279bddfd43e7c1fe7d4d11}
+
+
+References Qt\+Abstract\+Property\+Browser\+::set\+Current\+Item().
+
+
+
+Referenced by init(), and mark\+Properties\+Without\+Value().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!slot\+Expanded@{slot\+Expanded}}
+\index{slot\+Expanded@{slot\+Expanded}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{slot\+Expanded(const Q\+Model\+Index \&index)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Tree\+Property\+Browser\+Private\+::slot\+Expanded (
+\begin{DoxyParamCaption}
+\item[{const Q\+Model\+Index \&}]{index}
+\end{DoxyParamCaption}
+)}\label{classQtTreePropertyBrowserPrivate_ae0572b7cee5c40d3695ff0b377489a1a}
+
+
+References Qt\+Tree\+Property\+Browser\+::expanded(), and index\+To\+Item().
+
+
+
+Referenced by create\+Editor(), and init().
+
+\index{Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}!tree\+Widget@{tree\+Widget}}
+\index{tree\+Widget@{tree\+Widget}!Qt\+Tree\+Property\+Browser\+Private@{Qt\+Tree\+Property\+Browser\+Private}}
+\subsubsection[{tree\+Widget() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Qt\+Property\+Editor\+View}$\ast$ Qt\+Tree\+Property\+Browser\+Private\+::tree\+Widget (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classQtTreePropertyBrowserPrivate_a8ed7dacbd2d2e283a188fef85abe70c3}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qttreepropertybrowser.\+cpp}\end{DoxyCompactItemize}

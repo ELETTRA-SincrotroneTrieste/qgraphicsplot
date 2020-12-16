@@ -1,0 +1,274 @@
+\section{Qt\+Point\+F\+Property\+Manager Class Reference}
+\label{classQtPointFPropertyManager}\index{Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}}
+
+
+The \doxyref{Qt\+Point\+F\+Property\+Manager}{p.}{classQtPointFPropertyManager} provides and manages Q\+PointF properties.  
+
+
+
+
+{\ttfamily \#include $<$qtpropertymanager.\+h$>$}
+
+Inheritance diagram for Qt\+Point\+F\+Property\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classQtPointFPropertyManager}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf set\+Value} ({\bf Qt\+Property} $\ast$property, const Q\+PointF \&val)
+\item 
+void {\bf set\+Decimals} ({\bf Qt\+Property} $\ast$property, int prec)
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf value\+Changed} ({\bf Qt\+Property} $\ast$property, const Q\+PointF \&val)
+\item 
+void {\bf decimals\+Changed} ({\bf Qt\+Property} $\ast$property, int prec)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Qt\+Point\+F\+Property\+Manager} (Q\+Object $\ast$parent=0)
+\item 
+{\bf $\sim$\+Qt\+Point\+F\+Property\+Manager} ()
+\item 
+{\bf Qt\+Double\+Property\+Manager} $\ast$ {\bf sub\+Double\+Property\+Manager} () const 
+\item 
+Q\+PointF {\bf value} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+int {\bf decimals} (const {\bf Qt\+Property} $\ast$property) const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String {\bf value\+Text} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+virtual void {\bf initialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\item 
+virtual void {\bf uninitialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A point property has nested {\itshape x} and {\itshape y} subproperties. The top-\/level property\textquotesingle{}s value can be retrieved using the \doxyref{value()}{p.}{classQtPointFPropertyManager_ae875d0712ffd73978cd8220e3eef1960} function, and set using the \doxyref{set\+Value()}{p.}{classQtPointFPropertyManager_a6a6c35723f2eb0598052a29078f78a18} slot.
+
+The subproperties are created by a \doxyref{Qt\+Double\+Property\+Manager}{p.}{classQtDoublePropertyManager} object. This manager can be retrieved using the \doxyref{sub\+Double\+Property\+Manager()}{p.}{classQtPointFPropertyManager_a682126563042030b9ba4b370d8f19b05} function. In order to provide editing widgets for the subproperties in a property browser widget, this manager must be associated with an editor factory.
+
+In addition, \doxyref{Qt\+Point\+F\+Property\+Manager}{p.}{classQtPointFPropertyManager} provides the \doxyref{value\+Changed()}{p.}{classQtPointFPropertyManager_a30f3c6bcce08c1d011bfa3fafe3bff10} signal which is emitted whenever a property created by this manager changes.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager}, \doxyref{Qt\+Double\+Property\+Manager}{p.}{classQtDoublePropertyManager}, \doxyref{Qt\+Point\+Property\+Manager}{p.}{classQtPointPropertyManager} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}!Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}}
+\index{Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}!Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}}
+\subsubsection[{Qt\+Point\+F\+Property\+Manager(\+Q\+Object $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Point\+F\+Property\+Manager\+::\+Qt\+Point\+F\+Property\+Manager (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classQtPointFPropertyManager_a36e360f9933c09ff308f988a6764b3d1}
+Creates a manager with the given {\itshape parent}. 
+
+References Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+double\+Property\+Manager, Qt\+Abstract\+Property\+Manager\+::property\+Destroyed(), and value\+Changed().
+
+\index{Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}!````~Qt\+Point\+F\+Property\+Manager@{$\sim$\+Qt\+Point\+F\+Property\+Manager}}
+\index{````~Qt\+Point\+F\+Property\+Manager@{$\sim$\+Qt\+Point\+F\+Property\+Manager}!Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}}
+\subsubsection[{$\sim$\+Qt\+Point\+F\+Property\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Point\+F\+Property\+Manager\+::$\sim$\+Qt\+Point\+F\+Property\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classQtPointFPropertyManager_ad90ca69a2a3346e8448e6528fce14e6d}
+Destroys this manager, and all the properties it has created. 
+
+References Qt\+Abstract\+Property\+Manager\+::clear().
+
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}!decimals@{decimals}}
+\index{decimals@{decimals}!Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}}
+\subsubsection[{decimals(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}int Qt\+Point\+F\+Property\+Manager\+::decimals (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtPointFPropertyManager_a10392e47d596ce0fc6278f0e9de82fdc}
+Returns the given {\itshape property\textquotesingle{}s} precision, in decimals.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Decimals()}{p.}{classQtPointFPropertyManager_a39cd901ee0bbfaafeba3b0b44b8a407e} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Point\+F\+Property\+Manager\+Private\+::\+Data\+::decimals, and Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+Referenced by initialize\+Property().
+
+\index{Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}!decimals\+Changed@{decimals\+Changed}}
+\index{decimals\+Changed@{decimals\+Changed}!Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}}
+\subsubsection[{decimals\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Point\+F\+Property\+Manager\+::decimals\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{int}]{prec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtPointFPropertyManager_a34eb23ceff54c1326314446d5f5153c0}
+This signal is emitted whenever a property created by this manager changes its precision of value, passing a pointer to the {\itshape property} and the new {\itshape prec} value
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Decimals()}{p.}{classQtPointFPropertyManager_a39cd901ee0bbfaafeba3b0b44b8a407e} 
+\end{DoxySeeAlso}
+
+
+Referenced by set\+Decimals().
+
+\index{Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}!initialize\+Property@{initialize\+Property}}
+\index{initialize\+Property@{initialize\+Property}!Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}}
+\subsubsection[{initialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Point\+F\+Property\+Manager\+::initialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtPointFPropertyManager_a93d70b66ddea00a1973d077826e7e5b7}
+
+
+Implements {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ab7501ecabc5285cb50d7ed91a2ef44fc}.
+
+
+
+References Qt\+Abstract\+Property\+Manager\+::add\+Property(), Qt\+Property\+::add\+Sub\+Property(), decimals(), Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+double\+Property\+Manager, Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+property\+ToX, Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+property\+ToY, Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+x\+To\+Property, Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+y\+To\+Property, Qt\+Double\+Property\+Manager\+::set\+Decimals(), Qt\+Property\+::set\+Property\+Name(), and Qt\+Double\+Property\+Manager\+::set\+Value().
+
+\index{Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}!set\+Decimals@{set\+Decimals}}
+\index{set\+Decimals@{set\+Decimals}!Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}}
+\subsubsection[{set\+Decimals}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Point\+F\+Property\+Manager\+::set\+Decimals (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{int}]{prec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtPointFPropertyManager_a39cd901ee0bbfaafeba3b0b44b8a407e}
+Sets the precision of the given {\itshape property} to {\itshape prec}.
+
+The valid decimal range is 0-\/13. The default is 2.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{decimals()}{p.}{classQtPointFPropertyManager_a10392e47d596ce0fc6278f0e9de82fdc} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Point\+F\+Property\+Manager\+Private\+::\+Data\+::decimals, decimals\+Changed(), Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+double\+Property\+Manager, Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+property\+ToX, Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+property\+ToY, Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+values, and Qt\+Double\+Property\+Manager\+::set\+Decimals().
+
+\index{Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}}
+\subsubsection[{set\+Value}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Point\+F\+Property\+Manager\+::set\+Value (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+PointF \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtPointFPropertyManager_a6a6c35723f2eb0598052a29078f78a18}
+Sets the value of the given {\itshape property} to {\itshape value}. Nested properties are updated automatically.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{value()}{p.}{classQtPointFPropertyManager_ae875d0712ffd73978cd8220e3eef1960}, \doxyref{value\+Changed()}{p.}{classQtPointFPropertyManager_a30f3c6bcce08c1d011bfa3fafe3bff10} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+double\+Property\+Manager, Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+property\+ToX, Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+property\+ToY, Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Abstract\+Property\+Manager\+::property\+Changed(), Qt\+Double\+Property\+Manager\+::set\+Value(), and value\+Changed().
+
+\index{Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}!sub\+Double\+Property\+Manager@{sub\+Double\+Property\+Manager}}
+\index{sub\+Double\+Property\+Manager@{sub\+Double\+Property\+Manager}!Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}}
+\subsubsection[{sub\+Double\+Property\+Manager() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Qt\+Double\+Property\+Manager} $\ast$ Qt\+Point\+F\+Property\+Manager\+::sub\+Double\+Property\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classQtPointFPropertyManager_a682126563042030b9ba4b370d8f19b05}
+Returns the manager that creates the nested {\itshape x} and {\itshape y} subproperties.
+
+In order to provide editing widgets for the subproperties in a property browser widget, this manager must be associated with an editor factory.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Browser\+::set\+Factory\+For\+Manager()}{p.}{classQtAbstractPropertyBrowser_a952b5b393e83f16253033fa4a9f5ea89} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+double\+Property\+Manager.
+
+
+
+Referenced by Qt\+Variant\+Property\+Manager\+::\+Qt\+Variant\+Property\+Manager().
+
+\index{Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}!uninitialize\+Property@{uninitialize\+Property}}
+\index{uninitialize\+Property@{uninitialize\+Property}!Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}}
+\subsubsection[{uninitialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Point\+F\+Property\+Manager\+::uninitialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtPointFPropertyManager_a73c4cbf770536c0d22e2d95f3fc454ac}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ad199337e1ac748eef077011d94ecd5b4}.
+
+
+
+References Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+property\+ToX, Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+property\+ToY, Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+x\+To\+Property, and Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+y\+To\+Property.
+
+\index{Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}!value@{value}}
+\index{value@{value}!Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}}
+\subsubsection[{value(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+PointF Qt\+Point\+F\+Property\+Manager\+::value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtPointFPropertyManager_ae875d0712ffd73978cd8220e3eef1960}
+Returns the given {\itshape property\textquotesingle{}s} value.
+
+If the given {\itshape property} is not managed by this manager, this function returns a point with coordinates (0, 0).
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Value()}{p.}{classQtPointFPropertyManager_a6a6c35723f2eb0598052a29078f78a18} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}!value\+Changed@{value\+Changed}}
+\index{value\+Changed@{value\+Changed}!Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}}
+\subsubsection[{value\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Point\+F\+Property\+Manager\+::value\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+PointF \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtPointFPropertyManager_a30f3c6bcce08c1d011bfa3fafe3bff10}
+This signal is emitted whenever a property created by this manager changes its value, passing a pointer to the {\itshape property} and the new {\itshape value} as parameters.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Value()}{p.}{classQtPointFPropertyManager_a6a6c35723f2eb0598052a29078f78a18} 
+\end{DoxySeeAlso}
+
+
+Referenced by Qt\+Point\+F\+Property\+Manager(), and set\+Value().
+
+\index{Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}!value\+Text@{value\+Text}}
+\index{value\+Text@{value\+Text}!Qt\+Point\+F\+Property\+Manager@{Qt\+Point\+F\+Property\+Manager}}
+\subsubsection[{value\+Text(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Qt\+Point\+F\+Property\+Manager\+::value\+Text (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtPointFPropertyManager_ac8421111e17f3d5aaff8a58600e72fff}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_aa99cf98b6f1d9582245eb2f5168c5b21}.
+
+
+
+References Qt\+Point\+F\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtpropertymanager.\+h}\item 
+{\bf qtpropertymanager.\+cpp}\end{DoxyCompactItemize}

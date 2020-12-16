@@ -1,0 +1,163 @@
+\section{Qt\+Rect\+F\+Property\+Manager\+Private Class Reference}
+\label{classQtRectFPropertyManagerPrivate}\index{Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf Data}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Q\+Map$<$ const {\bf Qt\+Property} $\ast$, {\bf Data} $>$ {\bf Property\+Value\+Map}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf slot\+Double\+Changed} ({\bf Qt\+Property} $\ast$property, double value)
+\item 
+void {\bf slot\+Property\+Destroyed} ({\bf Qt\+Property} $\ast$property)
+\item 
+void {\bf set\+Constraint} ({\bf Qt\+Property} $\ast$property, const Q\+RectF \&constraint, const Q\+RectF \&val)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Property\+Value\+Map} {\bf m\+\_\+values}
+\item 
+{\bf Qt\+Double\+Property\+Manager} $\ast$ {\bf m\+\_\+double\+Property\+Manager}
+\item 
+Q\+Map$<$ const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$ $>$ {\bf m\+\_\+property\+ToX}
+\item 
+Q\+Map$<$ const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$ $>$ {\bf m\+\_\+property\+ToY}
+\item 
+Q\+Map$<$ const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$ $>$ {\bf m\+\_\+property\+ToW}
+\item 
+Q\+Map$<$ const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$ $>$ {\bf m\+\_\+property\+ToH}
+\item 
+Q\+Map$<$ const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$ $>$ {\bf m\+\_\+x\+To\+Property}
+\item 
+Q\+Map$<$ const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$ $>$ {\bf m\+\_\+y\+To\+Property}
+\item 
+Q\+Map$<$ const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$ $>$ {\bf m\+\_\+w\+To\+Property}
+\item 
+Q\+Map$<$ const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$ $>$ {\bf m\+\_\+h\+To\+Property}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\index{Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}!Property\+Value\+Map@{Property\+Value\+Map}}
+\index{Property\+Value\+Map@{Property\+Value\+Map}!Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}}
+\subsubsection[{Property\+Value\+Map}]{\setlength{\rightskip}{0pt plus 5cm}typedef Q\+Map$<$const {\bf Qt\+Property} $\ast$, {\bf Data}$>$ {\bf Qt\+Rect\+F\+Property\+Manager\+Private\+::\+Property\+Value\+Map}}\label{classQtRectFPropertyManagerPrivate_ac218b6df7e1190fa50a3292cfbdfe7ce}
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}!set\+Constraint@{set\+Constraint}}
+\index{set\+Constraint@{set\+Constraint}!Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}}
+\subsubsection[{set\+Constraint(\+Qt\+Property $\ast$property, const Q\+Rect\+F \&constraint, const Q\+Rect\+F \&val)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Rect\+F\+Property\+Manager\+Private\+::set\+Constraint (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+RectF \&}]{constraint, }
+\item[{const Q\+RectF \&}]{val}
+\end{DoxyParamCaption}
+)}\label{classQtRectFPropertyManagerPrivate_aaf56dcef5691385679a7a1686e773cf3}
+
+
+Referenced by Qt\+Rect\+F\+Property\+Manager\+::set\+Constraint().
+
+\index{Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}!slot\+Double\+Changed@{slot\+Double\+Changed}}
+\index{slot\+Double\+Changed@{slot\+Double\+Changed}!Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}}
+\subsubsection[{slot\+Double\+Changed(\+Qt\+Property $\ast$property, double value)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Rect\+F\+Property\+Manager\+Private\+::slot\+Double\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)}\label{classQtRectFPropertyManagerPrivate_a7f47819a8ce01586b90a96da364d9dab}
+
+
+References Qt\+Rect\+F\+Property\+Manager\+Private\+::\+Data\+::constraint, and Qt\+Rect\+F\+Property\+Manager\+Private\+::\+Data\+::val.
+
+\index{Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}!slot\+Property\+Destroyed@{slot\+Property\+Destroyed}}
+\index{slot\+Property\+Destroyed@{slot\+Property\+Destroyed}!Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}}
+\subsubsection[{slot\+Property\+Destroyed(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Rect\+F\+Property\+Manager\+Private\+::slot\+Property\+Destroyed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)}\label{classQtRectFPropertyManagerPrivate_ab5531ac8354be886116d4ebfb43350d1}
+
+
+\subsection{Member Data Documentation}
+\index{Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}!m\+\_\+double\+Property\+Manager@{m\+\_\+double\+Property\+Manager}}
+\index{m\+\_\+double\+Property\+Manager@{m\+\_\+double\+Property\+Manager}!Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}}
+\subsubsection[{m\+\_\+double\+Property\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Qt\+Double\+Property\+Manager}$\ast$ Qt\+Rect\+F\+Property\+Manager\+Private\+::m\+\_\+double\+Property\+Manager}\label{classQtRectFPropertyManagerPrivate_aef5bdd44325fb447778e86d090b82f3b}
+
+
+Referenced by Qt\+Rect\+F\+Property\+Manager\+::initialize\+Property(), Qt\+Rect\+F\+Property\+Manager\+::\+Qt\+Rect\+F\+Property\+Manager(), Qt\+Rect\+F\+Property\+Manager\+::set\+Decimals(), Qt\+Rect\+F\+Property\+Manager\+::set\+Value(), and Qt\+Rect\+F\+Property\+Manager\+::sub\+Double\+Property\+Manager().
+
+\index{Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}!m\+\_\+h\+To\+Property@{m\+\_\+h\+To\+Property}}
+\index{m\+\_\+h\+To\+Property@{m\+\_\+h\+To\+Property}!Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}}
+\subsubsection[{m\+\_\+h\+To\+Property}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Map$<$const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$$>$ Qt\+Rect\+F\+Property\+Manager\+Private\+::m\+\_\+h\+To\+Property}\label{classQtRectFPropertyManagerPrivate_ae1d3770a65774c70de4c0e879f4cc7be}
+
+
+Referenced by Qt\+Rect\+F\+Property\+Manager\+::initialize\+Property(), and Qt\+Rect\+F\+Property\+Manager\+::uninitialize\+Property().
+
+\index{Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}!m\+\_\+property\+ToH@{m\+\_\+property\+ToH}}
+\index{m\+\_\+property\+ToH@{m\+\_\+property\+ToH}!Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}}
+\subsubsection[{m\+\_\+property\+ToH}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Map$<$const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$$>$ Qt\+Rect\+F\+Property\+Manager\+Private\+::m\+\_\+property\+ToH}\label{classQtRectFPropertyManagerPrivate_ade4ebc540d8addbcd4030c16c786a287}
+
+
+Referenced by Qt\+Rect\+F\+Property\+Manager\+::initialize\+Property(), Qt\+Rect\+F\+Property\+Manager\+::set\+Decimals(), Qt\+Rect\+F\+Property\+Manager\+::set\+Value(), and Qt\+Rect\+F\+Property\+Manager\+::uninitialize\+Property().
+
+\index{Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}!m\+\_\+property\+ToW@{m\+\_\+property\+ToW}}
+\index{m\+\_\+property\+ToW@{m\+\_\+property\+ToW}!Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}}
+\subsubsection[{m\+\_\+property\+ToW}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Map$<$const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$$>$ Qt\+Rect\+F\+Property\+Manager\+Private\+::m\+\_\+property\+ToW}\label{classQtRectFPropertyManagerPrivate_ae3b6d2611360a0fe19082d5a80440da9}
+
+
+Referenced by Qt\+Rect\+F\+Property\+Manager\+::initialize\+Property(), Qt\+Rect\+F\+Property\+Manager\+::set\+Decimals(), Qt\+Rect\+F\+Property\+Manager\+::set\+Value(), and Qt\+Rect\+F\+Property\+Manager\+::uninitialize\+Property().
+
+\index{Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}!m\+\_\+property\+ToX@{m\+\_\+property\+ToX}}
+\index{m\+\_\+property\+ToX@{m\+\_\+property\+ToX}!Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}}
+\subsubsection[{m\+\_\+property\+ToX}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Map$<$const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$$>$ Qt\+Rect\+F\+Property\+Manager\+Private\+::m\+\_\+property\+ToX}\label{classQtRectFPropertyManagerPrivate_ade69a4eb8876b77dc6fb70fdea707e42}
+
+
+Referenced by Qt\+Rect\+F\+Property\+Manager\+::initialize\+Property(), Qt\+Rect\+F\+Property\+Manager\+::set\+Decimals(), Qt\+Rect\+F\+Property\+Manager\+::set\+Value(), and Qt\+Rect\+F\+Property\+Manager\+::uninitialize\+Property().
+
+\index{Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}!m\+\_\+property\+ToY@{m\+\_\+property\+ToY}}
+\index{m\+\_\+property\+ToY@{m\+\_\+property\+ToY}!Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}}
+\subsubsection[{m\+\_\+property\+ToY}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Map$<$const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$$>$ Qt\+Rect\+F\+Property\+Manager\+Private\+::m\+\_\+property\+ToY}\label{classQtRectFPropertyManagerPrivate_a9664f079a315373999320feb7bb82014}
+
+
+Referenced by Qt\+Rect\+F\+Property\+Manager\+::initialize\+Property(), Qt\+Rect\+F\+Property\+Manager\+::set\+Decimals(), Qt\+Rect\+F\+Property\+Manager\+::set\+Value(), and Qt\+Rect\+F\+Property\+Manager\+::uninitialize\+Property().
+
+\index{Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}!m\+\_\+values@{m\+\_\+values}}
+\index{m\+\_\+values@{m\+\_\+values}!Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}}
+\subsubsection[{m\+\_\+values}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Property\+Value\+Map} Qt\+Rect\+F\+Property\+Manager\+Private\+::m\+\_\+values}\label{classQtRectFPropertyManagerPrivate_a8d9914644529d9666a95196c5ec56ecc}
+
+
+Referenced by Qt\+Rect\+F\+Property\+Manager\+::constraint(), Qt\+Rect\+F\+Property\+Manager\+::decimals(), Qt\+Rect\+F\+Property\+Manager\+::initialize\+Property(), Qt\+Rect\+F\+Property\+Manager\+::set\+Constraint(), Qt\+Rect\+F\+Property\+Manager\+::set\+Decimals(), Qt\+Rect\+F\+Property\+Manager\+::set\+Value(), Qt\+Rect\+F\+Property\+Manager\+::uninitialize\+Property(), Qt\+Rect\+F\+Property\+Manager\+::value(), and Qt\+Rect\+F\+Property\+Manager\+::value\+Text().
+
+\index{Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}!m\+\_\+w\+To\+Property@{m\+\_\+w\+To\+Property}}
+\index{m\+\_\+w\+To\+Property@{m\+\_\+w\+To\+Property}!Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}}
+\subsubsection[{m\+\_\+w\+To\+Property}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Map$<$const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$$>$ Qt\+Rect\+F\+Property\+Manager\+Private\+::m\+\_\+w\+To\+Property}\label{classQtRectFPropertyManagerPrivate_ab3958ad05b8ee25a05cd4a73b3706ca5}
+
+
+Referenced by Qt\+Rect\+F\+Property\+Manager\+::initialize\+Property(), and Qt\+Rect\+F\+Property\+Manager\+::uninitialize\+Property().
+
+\index{Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}!m\+\_\+x\+To\+Property@{m\+\_\+x\+To\+Property}}
+\index{m\+\_\+x\+To\+Property@{m\+\_\+x\+To\+Property}!Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}}
+\subsubsection[{m\+\_\+x\+To\+Property}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Map$<$const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$$>$ Qt\+Rect\+F\+Property\+Manager\+Private\+::m\+\_\+x\+To\+Property}\label{classQtRectFPropertyManagerPrivate_a1919f327977cbc8e5e8c5f63552452bd}
+
+
+Referenced by Qt\+Rect\+F\+Property\+Manager\+::initialize\+Property(), and Qt\+Rect\+F\+Property\+Manager\+::uninitialize\+Property().
+
+\index{Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}!m\+\_\+y\+To\+Property@{m\+\_\+y\+To\+Property}}
+\index{m\+\_\+y\+To\+Property@{m\+\_\+y\+To\+Property}!Qt\+Rect\+F\+Property\+Manager\+Private@{Qt\+Rect\+F\+Property\+Manager\+Private}}
+\subsubsection[{m\+\_\+y\+To\+Property}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Map$<$const {\bf Qt\+Property} $\ast$, {\bf Qt\+Property} $\ast$$>$ Qt\+Rect\+F\+Property\+Manager\+Private\+::m\+\_\+y\+To\+Property}\label{classQtRectFPropertyManagerPrivate_a42cf996789a0541076f40879bf6fd98a}
+
+
+Referenced by Qt\+Rect\+F\+Property\+Manager\+::initialize\+Property(), and Qt\+Rect\+F\+Property\+Manager\+::uninitialize\+Property().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtpropertymanager.\+cpp}\end{DoxyCompactItemize}

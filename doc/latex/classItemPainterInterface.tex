@@ -1,0 +1,195 @@
+\doxysection{Item\+Painter\+Interface Class Reference}
+\label{classItemPainterInterface}\index{ItemPainterInterface@{ItemPainterInterface}}
+
+
+A class that can be installed in a \doxyref{Curve\+Item}{p.}{classCurveItem} which is delegated to drawing.  
+
+
+
+
+{\ttfamily \#include $<$itempainterinterface.\+h$>$}
+
+Inheritance diagram for Item\+Painter\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.414141cm]{classItemPainterInterface}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ Type} \{ \newline
+\textbf{ Line} = 0, 
+\textbf{ Dot}, 
+\textbf{ Cross}, 
+\textbf{ Histogram}, 
+\newline
+\textbf{ Step}, 
+\textbf{ Pie}, 
+\textbf{ Circle\+Item\+Set}, 
+\textbf{ User} = 100
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Item\+Painter\+Interface} ()
+\item 
+virtual \textbf{ $\sim$\+Item\+Painter\+Interface} ()
+\item 
+virtual void \textbf{ draw} (\textbf{ Scene\+Curve} $\ast$curve, \textbf{ Plot\+Scene\+Widget} $\ast$plot, Q\+Painter $\ast$painter, const Q\+Style\+Option\+Graphics\+Item $\ast$option, Q\+Widget $\ast$widget=0)=0
+\begin{DoxyCompactList}\small\item\em the drawing method. \end{DoxyCompactList}\item 
+virtual \textbf{ Curve\+Item} $\ast$ \textbf{ curve\+Item} () const =0
+\item 
+virtual Q\+SizeF \textbf{ element\+Size} () const =0
+\begin{DoxyCompactList}\small\item\em the size of each drawn element \end{DoxyCompactList}\item 
+virtual int \textbf{ type} () const =0
+\item 
+virtual Q\+Pen \textbf{ pen} () const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\label{classItemPainterInterface_ae88f88a2f68fe3905d667b324b615462}} 
+\index{ItemPainterInterface@{ItemPainterInterface}!Type@{Type}}
+\index{Type@{Type}!ItemPainterInterface@{ItemPainterInterface}}
+\doxysubsubsection{Type}
+{\footnotesize\ttfamily enum \textbf{ Item\+Painter\+Interface\+::\+Type}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Line@{Line}!ItemPainterInterface@{ItemPainterInterface}}\index{ItemPainterInterface@{ItemPainterInterface}!Line@{Line}}}\mbox{\label{classItemPainterInterface_ae88f88a2f68fe3905d667b324b615462a27afddafee34ad572908f6e8e68f408e}} 
+Line&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Dot@{Dot}!ItemPainterInterface@{ItemPainterInterface}}\index{ItemPainterInterface@{ItemPainterInterface}!Dot@{Dot}}}\mbox{\label{classItemPainterInterface_ae88f88a2f68fe3905d667b324b615462a2b30b46463ba724e0bf295cc05690e92}} 
+Dot&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Cross@{Cross}!ItemPainterInterface@{ItemPainterInterface}}\index{ItemPainterInterface@{ItemPainterInterface}!Cross@{Cross}}}\mbox{\label{classItemPainterInterface_ae88f88a2f68fe3905d667b324b615462a221586231339e51dc5c02d150f0960b5}} 
+Cross&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Histogram@{Histogram}!ItemPainterInterface@{ItemPainterInterface}}\index{ItemPainterInterface@{ItemPainterInterface}!Histogram@{Histogram}}}\mbox{\label{classItemPainterInterface_ae88f88a2f68fe3905d667b324b615462a2ad3cff63f6f853779465d0384e46ef4}} 
+Histogram&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Step@{Step}!ItemPainterInterface@{ItemPainterInterface}}\index{ItemPainterInterface@{ItemPainterInterface}!Step@{Step}}}\mbox{\label{classItemPainterInterface_ae88f88a2f68fe3905d667b324b615462ae5bc74400a0254d745940c6095472338}} 
+Step&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Pie@{Pie}!ItemPainterInterface@{ItemPainterInterface}}\index{ItemPainterInterface@{ItemPainterInterface}!Pie@{Pie}}}\mbox{\label{classItemPainterInterface_ae88f88a2f68fe3905d667b324b615462a85cb97287edbae0d73a08c79c362b9e2}} 
+Pie&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CircleItemSet@{CircleItemSet}!ItemPainterInterface@{ItemPainterInterface}}\index{ItemPainterInterface@{ItemPainterInterface}!CircleItemSet@{CircleItemSet}}}\mbox{\label{classItemPainterInterface_ae88f88a2f68fe3905d667b324b615462aaa3138d11bee90840af6c4f85dc55136}} 
+Circle\+Item\+Set&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{User@{User}!ItemPainterInterface@{ItemPainterInterface}}\index{ItemPainterInterface@{ItemPainterInterface}!User@{User}}}\mbox{\label{classItemPainterInterface_ae88f88a2f68fe3905d667b324b615462a17461b1fb3acf1f916d578d95f861038}} 
+User&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classItemPainterInterface_a1f9b77c19bfe1ec295838528d70a461e}} 
+\index{ItemPainterInterface@{ItemPainterInterface}!ItemPainterInterface@{ItemPainterInterface}}
+\index{ItemPainterInterface@{ItemPainterInterface}!ItemPainterInterface@{ItemPainterInterface}}
+\doxysubsubsection{ItemPainterInterface()}
+{\footnotesize\ttfamily Item\+Painter\+Interface\+::\+Item\+Painter\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\label{classItemPainterInterface_a2413892edd59523c938298b037d3344a}} 
+\index{ItemPainterInterface@{ItemPainterInterface}!````~ItemPainterInterface@{$\sim$ItemPainterInterface}}
+\index{````~ItemPainterInterface@{$\sim$ItemPainterInterface}!ItemPainterInterface@{ItemPainterInterface}}
+\doxysubsubsection{$\sim$ItemPainterInterface()}
+{\footnotesize\ttfamily virtual Item\+Painter\+Interface\+::$\sim$\+Item\+Painter\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classItemPainterInterface_a789d5f06890eea0696bd545f6147beb9}} 
+\index{ItemPainterInterface@{ItemPainterInterface}!curveItem@{curveItem}}
+\index{curveItem@{curveItem}!ItemPainterInterface@{ItemPainterInterface}}
+\doxysubsubsection{curveItem()}
+{\footnotesize\ttfamily virtual \textbf{ Curve\+Item}$\ast$ Item\+Painter\+Interface\+::curve\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \textbf{ Steps\+Painter} \doxyref{}{p.}{classStepsPainter_a6f413744385e78f28d08945e86f5521f}, \textbf{ Line\+Painter} \doxyref{}{p.}{classLinePainter_a8b39159575be6a43d85d491a8a4a24ad}, \textbf{ Histogram\+Painter} \doxyref{}{p.}{classHistogramPainter_aaca5073f0178254aec17556e86fb9b7e}, \textbf{ Dots\+Painter} \doxyref{}{p.}{classDotsPainter_ab7d4b95b9532291182bcb46d04449c03}, \textbf{ Circle\+Item\+Set} \doxyref{}{p.}{classCircleItemSet_a054953837837143ed4eaea46c6b875d7}, and \textbf{ Circle\+Item\+Set} \doxyref{}{p.}{classCircleItemSet_a2e4a3b0a8e385d143e556d8379f5c8d3}.
+
+\mbox{\label{classItemPainterInterface_a46c979807ac7a76377a89210455f62a5}} 
+\index{ItemPainterInterface@{ItemPainterInterface}!draw@{draw}}
+\index{draw@{draw}!ItemPainterInterface@{ItemPainterInterface}}
+\doxysubsubsection{draw()}
+{\footnotesize\ttfamily virtual void Item\+Painter\+Interface\+::draw (\begin{DoxyParamCaption}\item[{\textbf{ Scene\+Curve} $\ast$}]{curve,  }\item[{\textbf{ Plot\+Scene\+Widget} $\ast$}]{plot,  }\item[{Q\+Painter $\ast$}]{painter,  }\item[{const Q\+Style\+Option\+Graphics\+Item $\ast$}]{option,  }\item[{Q\+Widget $\ast$}]{widget = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+This method is invoked by \doxyref{Curve\+Item}{p.}{classCurveItem} inside paint method. You can obtain the points of the curve in scene coordinates by calling curve-\/$>$points and the size of the points by means of curve-\/$>$data\+Size. It may be necessary to call painter-\/$>$save() and painter-\/$>$restore() at the beginning and end of the drawing. Each draw method of each installed \doxyref{Item\+Painter\+Interface}{p.}{classItemPainterInterface} is actually invoked in sequence without saving and restoring the painter state for you.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Curve\+Item}{p.}{classCurveItem} 
+
+\doxyref{Line\+Painter}{p.}{classLinePainter} 
+
+\doxyref{Dots\+Painter}{p.}{classDotsPainter} 
+\end{DoxySeeAlso}
+
+
+Implemented in \textbf{ Steps\+Painter} \doxyref{}{p.}{classStepsPainter_ae97d1bc6dca2ee80d6b69e0f200f0ff6}, \textbf{ Line\+Painter} \doxyref{}{p.}{classLinePainter_ac2b1b502aacf1dfffa3a5e16aa895617}, \textbf{ Histogram\+Painter} \doxyref{}{p.}{classHistogramPainter_a4aa7a90c6f0dd07a2064074c2b1d6fe6}, \textbf{ Dots\+Painter} \doxyref{}{p.}{classDotsPainter_a13f2df771ddc44c37f92febe8f2e0e8c}, \textbf{ Circle\+Item\+Set} \doxyref{}{p.}{classCircleItemSet_ab727efff3723b1cc40f1d2da270c6490}, and \textbf{ Circle\+Item\+Set} \doxyref{}{p.}{classCircleItemSet_a94da67e7dbc60ebb423c0de0f89245b5}.
+
+
+
+Referenced by Curve\+Item\+::paint().
+
+\mbox{\label{classItemPainterInterface_a56701b8b651536062e271311831a3ea7}} 
+\index{ItemPainterInterface@{ItemPainterInterface}!elementSize@{elementSize}}
+\index{elementSize@{elementSize}!ItemPainterInterface@{ItemPainterInterface}}
+\doxysubsubsection{elementSize()}
+{\footnotesize\ttfamily virtual Q\+SizeF Item\+Painter\+Interface\+::element\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+This size is used by the classes that use \doxyref{Item\+Painter\+Interface}{p.}{classItemPainterInterface} to know how much extra space is needed in order to calculate the bounding rect of the \doxyref{Curve\+Item}{p.}{classCurveItem} or other geometrical properties.
+
+For instance, if you are drawing circles, then this method should return the radius of the circle, so that \doxyref{Curve\+Item}{p.}{classCurveItem} knows how much space has to be added to the curve bounds in order to correcly draw the items.
+
+If you are drawing lines, then this size can be 0x0 since the connecting lines do not require extra space to be calculated. If you use a particular pen width, then you may want to return its width in order to be sure that \doxyref{Curve\+Item}{p.}{classCurveItem} takes care of this space.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Curve\+Item}{p.}{classCurveItem} 
+\end{DoxySeeAlso}
+
+
+Implemented in \textbf{ Steps\+Painter} \doxyref{}{p.}{classStepsPainter_a2e5aa1527762d329e4a546eab6c33f48}, \textbf{ Line\+Painter} \doxyref{}{p.}{classLinePainter_a304a0f14ae921e30a8abbf9a18e210c5}, \textbf{ Histogram\+Painter} \doxyref{}{p.}{classHistogramPainter_a205f74ede82a38d83b98a86b46c28967}, \textbf{ Dots\+Painter} \doxyref{}{p.}{classDotsPainter_a0e93a2b824e2d1c8127c7a1409cb0c0a}, \textbf{ Circle\+Item\+Set} \doxyref{}{p.}{classCircleItemSet_acaf7f7a62a896996dd4ee422a310afb7}, and \textbf{ Circle\+Item\+Set} \doxyref{}{p.}{classCircleItemSet_a0fcdfc1856778983f11bdec0149d1f19}.
+
+
+
+Referenced by Curve\+Item\+::item\+About\+To\+Be\+Removed(), and Curve\+Item\+::item\+Added().
+
+\mbox{\label{classItemPainterInterface_a3e8917ac7bf813cde52ce852d062d5fd}} 
+\index{ItemPainterInterface@{ItemPainterInterface}!pen@{pen}}
+\index{pen@{pen}!ItemPainterInterface@{ItemPainterInterface}}
+\doxysubsubsection{pen()}
+{\footnotesize\ttfamily virtual Q\+Pen Item\+Painter\+Interface\+::pen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \textbf{ Steps\+Painter} \doxyref{}{p.}{classStepsPainter_ad4c0e03d82a717dcdbe82652230943f4}, \textbf{ Line\+Painter} \doxyref{}{p.}{classLinePainter_a67ac95bd3bb90f6a108a339bee81b9d2}, \textbf{ Histogram\+Painter} \doxyref{}{p.}{classHistogramPainter_ad79ef3714eb9c6a3350a48b36d1acbfd}, and \textbf{ Dots\+Painter} \doxyref{}{p.}{classDotsPainter_a0fea6ba334debdaaa0a751a8fddfd382}.
+
+
+
+Referenced by Ext\+Scale\+Plot\+Scene\+Widget\+::add\+External\+Scale(), and Legend\+Item\+::get\+Color().
+
+\mbox{\label{classItemPainterInterface_a1fbe17f4940d8da17764e772b35e7dd7}} 
+\index{ItemPainterInterface@{ItemPainterInterface}!type@{type}}
+\index{type@{type}!ItemPainterInterface@{ItemPainterInterface}}
+\doxysubsubsection{type()}
+{\footnotesize\ttfamily virtual int Item\+Painter\+Interface\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \textbf{ Steps\+Painter} \doxyref{}{p.}{classStepsPainter_a94aadf752025e68cf5d089bbc5a2aa36}, \textbf{ Line\+Painter} \doxyref{}{p.}{classLinePainter_ab8cf0d82bd8f3e419c4635c4089d5d46}, \textbf{ Histogram\+Painter} \doxyref{}{p.}{classHistogramPainter_a1add5039a36f58e743710dfb54e413ec}, \textbf{ Dots\+Painter} \doxyref{}{p.}{classDotsPainter_ab78dbe7bc7478c85685cb314258d1f2f}, and \textbf{ Circle\+Item\+Set} \doxyref{}{p.}{classCircleItemSet_abf1a4ce310544ceda35c6b63578b97d6}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ itempainterinterface.\+h}\end{DoxyCompactItemize}

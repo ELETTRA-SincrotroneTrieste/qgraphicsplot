@@ -1,0 +1,194 @@
+\section{Qt\+Time\+Property\+Manager Class Reference}
+\label{classQtTimePropertyManager}\index{Qt\+Time\+Property\+Manager@{Qt\+Time\+Property\+Manager}}
+
+
+The \doxyref{Qt\+Time\+Property\+Manager}{p.}{classQtTimePropertyManager} provides and manages Q\+Time properties.  
+
+
+
+
+{\ttfamily \#include $<$qtpropertymanager.\+h$>$}
+
+Inheritance diagram for Qt\+Time\+Property\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classQtTimePropertyManager}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf set\+Value} ({\bf Qt\+Property} $\ast$property, const Q\+Time \&val)
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf value\+Changed} ({\bf Qt\+Property} $\ast$property, const Q\+Time \&val)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Qt\+Time\+Property\+Manager} (Q\+Object $\ast$parent=0)
+\item 
+{\bf $\sim$\+Qt\+Time\+Property\+Manager} ()
+\item 
+Q\+Time {\bf value} (const {\bf Qt\+Property} $\ast$property) const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String {\bf value\+Text} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+virtual void {\bf initialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\item 
+virtual void {\bf uninitialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A time property\textquotesingle{}s value can be retrieved using the \doxyref{value()}{p.}{classQtTimePropertyManager_a264573824c0fb805e924097bd1b3ea16} function, and set using the \doxyref{set\+Value()}{p.}{classQtTimePropertyManager_a7e3b29bff17c5210c7cb7cebecfa1ec2} slot.
+
+In addition, \doxyref{Qt\+Time\+Property\+Manager}{p.}{classQtTimePropertyManager} provides the \doxyref{value\+Changed()}{p.}{classQtTimePropertyManager_a124666acfe564a8ef3ce333b11108d8f} signal which is emitted whenever a property created by this manager changes.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager}, \doxyref{Qt\+Time\+Edit\+Factory}{p.}{classQtTimeEditFactory} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Qt\+Time\+Property\+Manager@{Qt\+Time\+Property\+Manager}!Qt\+Time\+Property\+Manager@{Qt\+Time\+Property\+Manager}}
+\index{Qt\+Time\+Property\+Manager@{Qt\+Time\+Property\+Manager}!Qt\+Time\+Property\+Manager@{Qt\+Time\+Property\+Manager}}
+\subsubsection[{Qt\+Time\+Property\+Manager(\+Q\+Object $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Time\+Property\+Manager\+::\+Qt\+Time\+Property\+Manager (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classQtTimePropertyManager_a2db40b830cc2e0686552348309af74ed}
+Creates a manager with the given {\itshape parent}. 
+
+References Qt\+Time\+Property\+Manager\+Private\+::m\+\_\+format.
+
+\index{Qt\+Time\+Property\+Manager@{Qt\+Time\+Property\+Manager}!````~Qt\+Time\+Property\+Manager@{$\sim$\+Qt\+Time\+Property\+Manager}}
+\index{````~Qt\+Time\+Property\+Manager@{$\sim$\+Qt\+Time\+Property\+Manager}!Qt\+Time\+Property\+Manager@{Qt\+Time\+Property\+Manager}}
+\subsubsection[{$\sim$\+Qt\+Time\+Property\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Time\+Property\+Manager\+::$\sim$\+Qt\+Time\+Property\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classQtTimePropertyManager_a3e66b690f991026feccfaa7590f1ae67}
+Destroys this manager, and all the properties it has created. 
+
+References Qt\+Abstract\+Property\+Manager\+::clear().
+
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Time\+Property\+Manager@{Qt\+Time\+Property\+Manager}!initialize\+Property@{initialize\+Property}}
+\index{initialize\+Property@{initialize\+Property}!Qt\+Time\+Property\+Manager@{Qt\+Time\+Property\+Manager}}
+\subsubsection[{initialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Time\+Property\+Manager\+::initialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtTimePropertyManager_a46bc4d2834231fe8494ed3d93560d700}
+
+
+Implements {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ab7501ecabc5285cb50d7ed91a2ef44fc}.
+
+
+
+References Qt\+Time\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Time\+Property\+Manager@{Qt\+Time\+Property\+Manager}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Qt\+Time\+Property\+Manager@{Qt\+Time\+Property\+Manager}}
+\subsubsection[{set\+Value}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Time\+Property\+Manager\+::set\+Value (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Time \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtTimePropertyManager_a7e3b29bff17c5210c7cb7cebecfa1ec2}
+Sets the value of the given {\itshape property} to {\itshape value}.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{value()}{p.}{classQtTimePropertyManager_a264573824c0fb805e924097bd1b3ea16}, \doxyref{value\+Changed()}{p.}{classQtTimePropertyManager_a124666acfe564a8ef3ce333b11108d8f} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Time\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Abstract\+Property\+Manager\+::property\+Changed(), and value\+Changed().
+
+
+
+Referenced by Qt\+Time\+Edit\+Factory\+Private\+::slot\+Set\+Value().
+
+\index{Qt\+Time\+Property\+Manager@{Qt\+Time\+Property\+Manager}!uninitialize\+Property@{uninitialize\+Property}}
+\index{uninitialize\+Property@{uninitialize\+Property}!Qt\+Time\+Property\+Manager@{Qt\+Time\+Property\+Manager}}
+\subsubsection[{uninitialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Time\+Property\+Manager\+::uninitialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtTimePropertyManager_a3219bae9a9c145e02adf21d0d5a5773e}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ad199337e1ac748eef077011d94ecd5b4}.
+
+
+
+References Qt\+Time\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Time\+Property\+Manager@{Qt\+Time\+Property\+Manager}!value@{value}}
+\index{value@{value}!Qt\+Time\+Property\+Manager@{Qt\+Time\+Property\+Manager}}
+\subsubsection[{value(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Time Qt\+Time\+Property\+Manager\+::value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtTimePropertyManager_a264573824c0fb805e924097bd1b3ea16}
+Returns the given {\itshape property\textquotesingle{}s} value.
+
+If the given property is not managed by this manager, this function returns an invalid time object.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Value()}{p.}{classQtTimePropertyManager_a7e3b29bff17c5210c7cb7cebecfa1ec2} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Time\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+Referenced by Qt\+Time\+Edit\+Factory\+::create\+Editor().
+
+\index{Qt\+Time\+Property\+Manager@{Qt\+Time\+Property\+Manager}!value\+Changed@{value\+Changed}}
+\index{value\+Changed@{value\+Changed}!Qt\+Time\+Property\+Manager@{Qt\+Time\+Property\+Manager}}
+\subsubsection[{value\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Time\+Property\+Manager\+::value\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Time \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtTimePropertyManager_a124666acfe564a8ef3ce333b11108d8f}
+This signal is emitted whenever a property created by this manager changes its value, passing a pointer to the {\itshape property} and the new {\itshape value} as parameters.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Value()}{p.}{classQtTimePropertyManager_a7e3b29bff17c5210c7cb7cebecfa1ec2} 
+\end{DoxySeeAlso}
+
+
+Referenced by set\+Value().
+
+\index{Qt\+Time\+Property\+Manager@{Qt\+Time\+Property\+Manager}!value\+Text@{value\+Text}}
+\index{value\+Text@{value\+Text}!Qt\+Time\+Property\+Manager@{Qt\+Time\+Property\+Manager}}
+\subsubsection[{value\+Text(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Qt\+Time\+Property\+Manager\+::value\+Text (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtTimePropertyManager_a0bb8d9bfe88ac3aa93defefd369769e2}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_aa99cf98b6f1d9582245eb2f5168c5b21}.
+
+
+
+References Qt\+Time\+Property\+Manager\+Private\+::m\+\_\+format, and Qt\+Time\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtpropertymanager.\+h}\item 
+{\bf qtpropertymanager.\+cpp}\end{DoxyCompactItemize}

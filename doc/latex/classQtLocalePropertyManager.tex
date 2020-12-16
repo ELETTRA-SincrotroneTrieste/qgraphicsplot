@@ -1,0 +1,212 @@
+\section{Qt\+Locale\+Property\+Manager Class Reference}
+\label{classQtLocalePropertyManager}\index{Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}}
+
+
+The \doxyref{Qt\+Locale\+Property\+Manager}{p.}{classQtLocalePropertyManager} provides and manages Q\+Locale properties.  
+
+
+
+
+{\ttfamily \#include $<$qtpropertymanager.\+h$>$}
+
+Inheritance diagram for Qt\+Locale\+Property\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classQtLocalePropertyManager}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf set\+Value} ({\bf Qt\+Property} $\ast$property, const Q\+Locale \&val)
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf value\+Changed} ({\bf Qt\+Property} $\ast$property, const Q\+Locale \&val)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Qt\+Locale\+Property\+Manager} (Q\+Object $\ast$parent=0)
+\item 
+{\bf $\sim$\+Qt\+Locale\+Property\+Manager} ()
+\item 
+{\bf Qt\+Enum\+Property\+Manager} $\ast$ {\bf sub\+Enum\+Property\+Manager} () const 
+\item 
+Q\+Locale {\bf value} (const {\bf Qt\+Property} $\ast$property) const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String {\bf value\+Text} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+virtual void {\bf initialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\item 
+virtual void {\bf uninitialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A locale property has nested {\itshape language} and {\itshape country} subproperties. The top-\/level property\textquotesingle{}s value can be retrieved using the \doxyref{value()}{p.}{classQtLocalePropertyManager_abded91083a69cd875f9aa585b0c808cd} function, and set using the \doxyref{set\+Value()}{p.}{classQtLocalePropertyManager_acc0660fa1d6e9bb101b8617ad586f519} slot.
+
+The subproperties are created by \doxyref{Qt\+Enum\+Property\+Manager}{p.}{classQtEnumPropertyManager} object. These submanager can be retrieved using the \doxyref{sub\+Enum\+Property\+Manager()}{p.}{classQtLocalePropertyManager_a340e2726c6b1d9e46d7e32bc594bfcb2} function. In order to provide editing widgets for the subproperties in a property browser widget, this manager must be associated with editor factory.
+
+In addition, \doxyref{Qt\+Locale\+Property\+Manager}{p.}{classQtLocalePropertyManager} provides the \doxyref{value\+Changed()}{p.}{classQtLocalePropertyManager_a19237ddbcec233ecb7d68549398650bf} signal which is emitted whenever a property created by this manager changes.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager}, \doxyref{Qt\+Enum\+Property\+Manager}{p.}{classQtEnumPropertyManager} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}!Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}}
+\index{Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}!Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}}
+\subsubsection[{Qt\+Locale\+Property\+Manager(\+Q\+Object $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Locale\+Property\+Manager\+::\+Qt\+Locale\+Property\+Manager (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classQtLocalePropertyManager_a9fd3bb2a6ab0ad820a21d14e30d199ae}
+Creates a manager with the given {\itshape parent}. 
+
+References Qt\+Locale\+Property\+Manager\+Private\+::m\+\_\+enum\+Property\+Manager, Qt\+Abstract\+Property\+Manager\+::property\+Destroyed(), and value\+Changed().
+
+\index{Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}!````~Qt\+Locale\+Property\+Manager@{$\sim$\+Qt\+Locale\+Property\+Manager}}
+\index{````~Qt\+Locale\+Property\+Manager@{$\sim$\+Qt\+Locale\+Property\+Manager}!Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}}
+\subsubsection[{$\sim$\+Qt\+Locale\+Property\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Locale\+Property\+Manager\+::$\sim$\+Qt\+Locale\+Property\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classQtLocalePropertyManager_a359723d9b075fed5a414af242b0523de}
+Destroys this manager, and all the properties it has created. 
+
+References Qt\+Abstract\+Property\+Manager\+::clear().
+
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}!initialize\+Property@{initialize\+Property}}
+\index{initialize\+Property@{initialize\+Property}!Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}}
+\subsubsection[{initialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Locale\+Property\+Manager\+::initialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtLocalePropertyManager_aba1f7221a566326fd45550425aadf86c}
+
+
+Implements {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ab7501ecabc5285cb50d7ed91a2ef44fc}.
+
+
+
+References Qt\+Abstract\+Property\+Manager\+::add\+Property(), Qt\+Property\+::add\+Sub\+Property(), Qt\+Locale\+Property\+Manager\+Private\+::m\+\_\+country\+To\+Property, Qt\+Locale\+Property\+Manager\+Private\+::m\+\_\+enum\+Property\+Manager, Qt\+Locale\+Property\+Manager\+Private\+::m\+\_\+language\+To\+Property, Qt\+Locale\+Property\+Manager\+Private\+::m\+\_\+property\+To\+Country, Qt\+Locale\+Property\+Manager\+Private\+::m\+\_\+property\+To\+Language, Qt\+Locale\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Enum\+Property\+Manager\+::set\+Enum\+Names(), Qt\+Property\+::set\+Property\+Name(), and Qt\+Enum\+Property\+Manager\+::set\+Value().
+
+\index{Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}}
+\subsubsection[{set\+Value}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Locale\+Property\+Manager\+::set\+Value (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Locale \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtLocalePropertyManager_acc0660fa1d6e9bb101b8617ad586f519}
+Sets the value of the given {\itshape property} to {\itshape value}. Nested properties are updated automatically.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{value()}{p.}{classQtLocalePropertyManager_abded91083a69cd875f9aa585b0c808cd}, \doxyref{value\+Changed()}{p.}{classQtLocalePropertyManager_a19237ddbcec233ecb7d68549398650bf} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Locale\+Property\+Manager\+Private\+::m\+\_\+enum\+Property\+Manager, Qt\+Locale\+Property\+Manager\+Private\+::m\+\_\+property\+To\+Country, Qt\+Locale\+Property\+Manager\+Private\+::m\+\_\+property\+To\+Language, Qt\+Locale\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Abstract\+Property\+Manager\+::property\+Changed(), Qt\+Enum\+Property\+Manager\+::set\+Enum\+Names(), Qt\+Enum\+Property\+Manager\+::set\+Value(), and value\+Changed().
+
+\index{Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}!sub\+Enum\+Property\+Manager@{sub\+Enum\+Property\+Manager}}
+\index{sub\+Enum\+Property\+Manager@{sub\+Enum\+Property\+Manager}!Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}}
+\subsubsection[{sub\+Enum\+Property\+Manager() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Qt\+Enum\+Property\+Manager} $\ast$ Qt\+Locale\+Property\+Manager\+::sub\+Enum\+Property\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classQtLocalePropertyManager_a340e2726c6b1d9e46d7e32bc594bfcb2}
+Returns the manager that creates the nested {\itshape language} and {\itshape country} subproperties.
+
+In order to provide editing widgets for the mentioned subproperties in a property browser widget, this manager must be associated with an editor factory.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Browser\+::set\+Factory\+For\+Manager()}{p.}{classQtAbstractPropertyBrowser_a952b5b393e83f16253033fa4a9f5ea89} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Locale\+Property\+Manager\+Private\+::m\+\_\+enum\+Property\+Manager.
+
+
+
+Referenced by Qt\+Variant\+Property\+Manager\+::\+Qt\+Variant\+Property\+Manager().
+
+\index{Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}!uninitialize\+Property@{uninitialize\+Property}}
+\index{uninitialize\+Property@{uninitialize\+Property}!Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}}
+\subsubsection[{uninitialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Locale\+Property\+Manager\+::uninitialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtLocalePropertyManager_af87544cd8b7869ebb9489d50aa34cdb6}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ad199337e1ac748eef077011d94ecd5b4}.
+
+
+
+References Qt\+Locale\+Property\+Manager\+Private\+::m\+\_\+country\+To\+Property, Qt\+Locale\+Property\+Manager\+Private\+::m\+\_\+language\+To\+Property, Qt\+Locale\+Property\+Manager\+Private\+::m\+\_\+property\+To\+Country, Qt\+Locale\+Property\+Manager\+Private\+::m\+\_\+property\+To\+Language, and Qt\+Locale\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}!value@{value}}
+\index{value@{value}!Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}}
+\subsubsection[{value(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Locale Qt\+Locale\+Property\+Manager\+::value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtLocalePropertyManager_abded91083a69cd875f9aa585b0c808cd}
+Returns the given {\itshape property\textquotesingle{}s} value.
+
+If the given property is not managed by this manager, this function returns the default locale.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Value()}{p.}{classQtLocalePropertyManager_acc0660fa1d6e9bb101b8617ad586f519} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Locale\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}!value\+Changed@{value\+Changed}}
+\index{value\+Changed@{value\+Changed}!Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}}
+\subsubsection[{value\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Locale\+Property\+Manager\+::value\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Locale \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtLocalePropertyManager_a19237ddbcec233ecb7d68549398650bf}
+This signal is emitted whenever a property created by this manager changes its value, passing a pointer to the {\itshape property} and the new {\itshape value} as parameters.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Value()}{p.}{classQtLocalePropertyManager_acc0660fa1d6e9bb101b8617ad586f519} 
+\end{DoxySeeAlso}
+
+
+Referenced by Qt\+Locale\+Property\+Manager(), and set\+Value().
+
+\index{Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}!value\+Text@{value\+Text}}
+\index{value\+Text@{value\+Text}!Qt\+Locale\+Property\+Manager@{Qt\+Locale\+Property\+Manager}}
+\subsubsection[{value\+Text(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Qt\+Locale\+Property\+Manager\+::value\+Text (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtLocalePropertyManager_a078c5eaeaf6bed6d0466e57f438b615b}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_aa99cf98b6f1d9582245eb2f5168c5b21}.
+
+
+
+References Qt\+Locale\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtpropertymanager.\+h}\item 
+{\bf qtpropertymanager.\+cpp}\end{DoxyCompactItemize}

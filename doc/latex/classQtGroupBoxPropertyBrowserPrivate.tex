@@ -1,0 +1,131 @@
+\section{Qt\+Group\+Box\+Property\+Browser\+Private Class Reference}
+\label{classQtGroupBoxPropertyBrowserPrivate}\index{Qt\+Group\+Box\+Property\+Browser\+Private@{Qt\+Group\+Box\+Property\+Browser\+Private}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf Widget\+Item}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf init} (Q\+Widget $\ast$parent)
+\item 
+void {\bf property\+Inserted} ({\bf Qt\+Browser\+Item} $\ast$index, {\bf Qt\+Browser\+Item} $\ast$after\+Index)
+\item 
+void {\bf property\+Removed} ({\bf Qt\+Browser\+Item} $\ast$index)
+\item 
+void {\bf property\+Changed} ({\bf Qt\+Browser\+Item} $\ast$index)
+\item 
+Q\+Widget $\ast$ {\bf create\+Editor} ({\bf Qt\+Property} $\ast$property, Q\+Widget $\ast$parent) const 
+\item 
+void {\bf slot\+Editor\+Destroyed} ()
+\item 
+void {\bf slot\+Update} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Group\+Box\+Property\+Browser\+Private@{Qt\+Group\+Box\+Property\+Browser\+Private}!create\+Editor@{create\+Editor}}
+\index{create\+Editor@{create\+Editor}!Qt\+Group\+Box\+Property\+Browser\+Private@{Qt\+Group\+Box\+Property\+Browser\+Private}}
+\subsubsection[{create\+Editor(\+Qt\+Property $\ast$property, Q\+Widget $\ast$parent) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Widget$\ast$ Qt\+Group\+Box\+Property\+Browser\+Private\+::create\+Editor (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{Q\+Widget $\ast$}]{parent}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classQtGroupBoxPropertyBrowserPrivate_a7d6acf0aebb9f825f4d945b142e88f62}
+
+
+References Qt\+Abstract\+Property\+Browser\+::create\+Editor(), slot\+Editor\+Destroyed(), and slot\+Update().
+
+
+
+Referenced by property\+Inserted().
+
+\index{Qt\+Group\+Box\+Property\+Browser\+Private@{Qt\+Group\+Box\+Property\+Browser\+Private}!init@{init}}
+\index{init@{init}!Qt\+Group\+Box\+Property\+Browser\+Private@{Qt\+Group\+Box\+Property\+Browser\+Private}}
+\subsubsection[{init(\+Q\+Widget $\ast$parent)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Group\+Box\+Property\+Browser\+Private\+::init (
+\begin{DoxyParamCaption}
+\item[{Q\+Widget $\ast$}]{parent}
+\end{DoxyParamCaption}
+)}\label{classQtGroupBoxPropertyBrowserPrivate_a9356efff09bd5631756f428f2310c7c5}
+
+
+Referenced by Qt\+Group\+Box\+Property\+Browser\+::\+Qt\+Group\+Box\+Property\+Browser().
+
+\index{Qt\+Group\+Box\+Property\+Browser\+Private@{Qt\+Group\+Box\+Property\+Browser\+Private}!property\+Changed@{property\+Changed}}
+\index{property\+Changed@{property\+Changed}!Qt\+Group\+Box\+Property\+Browser\+Private@{Qt\+Group\+Box\+Property\+Browser\+Private}}
+\subsubsection[{property\+Changed(\+Qt\+Browser\+Item $\ast$index)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Group\+Box\+Property\+Browser\+Private\+::property\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Browser\+Item} $\ast$}]{index}
+\end{DoxyParamCaption}
+)}\label{classQtGroupBoxPropertyBrowserPrivate_a3a3428c1cbea1eb3f7acd719951e1f0c}
+
+
+References Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::group\+Box, Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::label, Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::widget, and Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::widget\+Label.
+
+
+
+Referenced by Qt\+Group\+Box\+Property\+Browser\+::item\+Changed().
+
+\index{Qt\+Group\+Box\+Property\+Browser\+Private@{Qt\+Group\+Box\+Property\+Browser\+Private}!property\+Inserted@{property\+Inserted}}
+\index{property\+Inserted@{property\+Inserted}!Qt\+Group\+Box\+Property\+Browser\+Private@{Qt\+Group\+Box\+Property\+Browser\+Private}}
+\subsubsection[{property\+Inserted(\+Qt\+Browser\+Item $\ast$index, Qt\+Browser\+Item $\ast$after\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Group\+Box\+Property\+Browser\+Private\+::property\+Inserted (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Browser\+Item} $\ast$}]{index, }
+\item[{{\bf Qt\+Browser\+Item} $\ast$}]{after\+Index}
+\end{DoxyParamCaption}
+)}\label{classQtGroupBoxPropertyBrowserPrivate_a26d0f8291954a3bcf96b03b28ac58eee}
+
+
+References Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::children, create\+Editor(), Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::group\+Box, Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::label, Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::layout, Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::line, Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::parent, Qt\+Browser\+Item\+::parent(), Qt\+Browser\+Item\+::property(), slot\+Editor\+Destroyed(), Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::widget, Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::\+Widget\+Item(), and Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::widget\+Label.
+
+
+
+Referenced by Qt\+Group\+Box\+Property\+Browser\+::item\+Inserted().
+
+\index{Qt\+Group\+Box\+Property\+Browser\+Private@{Qt\+Group\+Box\+Property\+Browser\+Private}!property\+Removed@{property\+Removed}}
+\index{property\+Removed@{property\+Removed}!Qt\+Group\+Box\+Property\+Browser\+Private@{Qt\+Group\+Box\+Property\+Browser\+Private}}
+\subsubsection[{property\+Removed(\+Qt\+Browser\+Item $\ast$index)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Group\+Box\+Property\+Browser\+Private\+::property\+Removed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Browser\+Item} $\ast$}]{index}
+\end{DoxyParamCaption}
+)}\label{classQtGroupBoxPropertyBrowserPrivate_a39909951f535a2fa0b6a80720cbcdd28}
+
+
+References Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::children, Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::group\+Box, Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::label, Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::layout, Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::line, Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::parent, Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::widget, and Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::widget\+Label.
+
+
+
+Referenced by Qt\+Group\+Box\+Property\+Browser\+::item\+Removed().
+
+\index{Qt\+Group\+Box\+Property\+Browser\+Private@{Qt\+Group\+Box\+Property\+Browser\+Private}!slot\+Editor\+Destroyed@{slot\+Editor\+Destroyed}}
+\index{slot\+Editor\+Destroyed@{slot\+Editor\+Destroyed}!Qt\+Group\+Box\+Property\+Browser\+Private@{Qt\+Group\+Box\+Property\+Browser\+Private}}
+\subsubsection[{slot\+Editor\+Destroyed()}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Group\+Box\+Property\+Browser\+Private\+::slot\+Editor\+Destroyed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classQtGroupBoxPropertyBrowserPrivate_a01bc9332fa34017a4956d7d5db5b8453}
+
+
+Referenced by create\+Editor(), and property\+Inserted().
+
+\index{Qt\+Group\+Box\+Property\+Browser\+Private@{Qt\+Group\+Box\+Property\+Browser\+Private}!slot\+Update@{slot\+Update}}
+\index{slot\+Update@{slot\+Update}!Qt\+Group\+Box\+Property\+Browser\+Private@{Qt\+Group\+Box\+Property\+Browser\+Private}}
+\subsubsection[{slot\+Update()}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Group\+Box\+Property\+Browser\+Private\+::slot\+Update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classQtGroupBoxPropertyBrowserPrivate_a524af97d7342c7b5cc19e546c167bfbe}
+
+
+References Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::children, Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::group\+Box, Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::label, Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::layout, Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::parent, Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::widget, and Qt\+Group\+Box\+Property\+Browser\+Private\+::\+Widget\+Item\+::widget\+Label.
+
+
+
+Referenced by create\+Editor().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtgroupboxpropertybrowser.\+cpp}\end{DoxyCompactItemize}

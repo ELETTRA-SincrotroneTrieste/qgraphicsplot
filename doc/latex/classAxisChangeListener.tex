@@ -1,0 +1,176 @@
+\doxysection{Axis\+Change\+Listener Class Reference}
+\label{classAxisChangeListener}\index{AxisChangeListener@{AxisChangeListener}}
+
+
+A listener for axis change events.  
+
+
+
+
+{\ttfamily \#include $<$axischangelistener.\+h$>$}
+
+Inheritance diagram for Axis\+Change\+Listener\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.285714cm]{classAxisChangeListener}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Axis\+Change\+Listener} ()
+\item 
+virtual void \textbf{ x\+Axis\+Bounds\+Changed} (double lower, double upper)=0
+\begin{DoxyCompactList}\small\item\em x axis bounds notification \end{DoxyCompactList}\item 
+virtual void \textbf{ y\+Axis\+Bounds\+Changed} (double lower, double upper)=0
+\begin{DoxyCompactList}\small\item\em y axis bounds notification \end{DoxyCompactList}\item 
+virtual void \textbf{ axis\+Autoscale\+Changed} (\textbf{ Scale\+Item\+::\+Orientation} o, bool autoscale)=0
+\begin{DoxyCompactList}\small\item\em x axis auto scale property change notification \end{DoxyCompactList}\item 
+virtual void \textbf{ canvas\+Rect\+Changed} (const Q\+RectF \&new\+Rect)=0
+\begin{DoxyCompactList}\small\item\em notifies when the canvas area changes. \end{DoxyCompactList}\item 
+virtual void \textbf{ tick\+Step\+Len\+Changed} (double value)=0
+\begin{DoxyCompactList}\small\item\em notifies listeners about tick step len changes. \end{DoxyCompactList}\item 
+virtual void \textbf{ labels\+Format\+Changed} (const Q\+String \&new\+Format)=0
+\begin{DoxyCompactList}\small\item\em when the labels format changes, labels\+Format\+Changed is used \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implement this interface in a subclass in order to receive \doxyref{Scale\+Item}{p.}{classScaleItem} events, such as bound changes and auto scale property changes.
+
+Install your object by calling \doxyref{Scale\+Item\+::install\+Axis\+Change\+Listener}{p.}{classScaleItem_a82750bf62d448d1587621880873afdd1} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classAxisChangeListener_a2255f8f636a989986842cbb955d6f016}} 
+\index{AxisChangeListener@{AxisChangeListener}!AxisChangeListener@{AxisChangeListener}}
+\index{AxisChangeListener@{AxisChangeListener}!AxisChangeListener@{AxisChangeListener}}
+\doxysubsubsection{AxisChangeListener()}
+{\footnotesize\ttfamily Axis\+Change\+Listener\+::\+Axis\+Change\+Listener (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classAxisChangeListener_a0ba77e9333823d2f6e8d2855298e98c2}} 
+\index{AxisChangeListener@{AxisChangeListener}!axisAutoscaleChanged@{axisAutoscaleChanged}}
+\index{axisAutoscaleChanged@{axisAutoscaleChanged}!AxisChangeListener@{AxisChangeListener}}
+\doxysubsubsection{axisAutoscaleChanged()}
+{\footnotesize\ttfamily virtual void Axis\+Change\+Listener\+::axis\+Autoscale\+Changed (\begin{DoxyParamCaption}\item[{\textbf{ Scale\+Item\+::\+Orientation}}]{o,  }\item[{bool}]{autoscale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & the \doxyref{Scale\+Item\+::\+Orientation}{p.}{classScaleItem_a07dbbb1994bc29ca8c9f46a132a0e3dd} property that helps you find out which axis (x or y) has changed its property.\\
+\hline
+{\em autoscale} & true autoscale is enabled. \\
+\hline
+{\em autoscale} & false autoscale is disabled. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \textbf{ Q\+Graphics\+Zoomer} \doxyref{}{p.}{classQGraphicsZoomer_abbdc6c23a8468210b5b5c9febf2c8f4d}, \textbf{ Target\+Item} \doxyref{}{p.}{classTargetItem_ab284643661fb4a98d28795bd1ab4e3d8}, \textbf{ External\+Scale\+Widget} \doxyref{}{p.}{classExternalScaleWidget_a03370d8911b63071c9f3bb5344e1855e}, and \textbf{ Scene\+Curve} \doxyref{}{p.}{classSceneCurve_acb9f0f4d80cc57e7edb25d7c817ca592}.
+
+
+
+Referenced by Scale\+Item\+::set\+Axis\+Autoscale\+Enabled().
+
+\mbox{\label{classAxisChangeListener_a0da790f01216e2de20aad59a322c0068}} 
+\index{AxisChangeListener@{AxisChangeListener}!canvasRectChanged@{canvasRectChanged}}
+\index{canvasRectChanged@{canvasRectChanged}!AxisChangeListener@{AxisChangeListener}}
+\doxysubsubsection{canvasRectChanged()}
+{\footnotesize\ttfamily virtual void Axis\+Change\+Listener\+::canvas\+Rect\+Changed (\begin{DoxyParamCaption}\item[{const Q\+RectF \&}]{new\+Rect }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+In some cases, when the axis is placed on the right or at the bottom of the plot, the labels might require more space, and the plot area must be reduced.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Rect} & the new rectangle \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \textbf{ Q\+Graphics\+Zoomer} \doxyref{}{p.}{classQGraphicsZoomer_a84b958ef0229c0f6fe7d769d32f7b80f}, \textbf{ Target\+Item} \doxyref{}{p.}{classTargetItem_a0c1241685f4d26636109ad2614c904c4}, \textbf{ External\+Scale\+Widget} \doxyref{}{p.}{classExternalScaleWidget_adbb83c82e6fbddc11f6d423a700c3f85}, and \textbf{ Scene\+Curve} \doxyref{}{p.}{classSceneCurve_a534b5cf4a04be53aba30c692b82bf81e}.
+
+
+
+Referenced by Scale\+Item\+::paint().
+
+\mbox{\label{classAxisChangeListener_aded1a2f535f770ded583ebd689841ee7}} 
+\index{AxisChangeListener@{AxisChangeListener}!labelsFormatChanged@{labelsFormatChanged}}
+\index{labelsFormatChanged@{labelsFormatChanged}!AxisChangeListener@{AxisChangeListener}}
+\doxysubsubsection{labelsFormatChanged()}
+{\footnotesize\ttfamily virtual void Axis\+Change\+Listener\+::labels\+Format\+Changed (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{new\+Format }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Scale\+Item}{p.}{classScaleItem} 
+\end{DoxySeeAlso}
+
+
+Implemented in \textbf{ External\+Scale\+Widget} \doxyref{}{p.}{classExternalScaleWidget_a8f3c7504e6d8bbbfe4ffe419be08559c}, \textbf{ Q\+Graphics\+Zoomer} \doxyref{}{p.}{classQGraphicsZoomer_a5ff9ebe527fe4e7e2c1dc37f026908f5}, \textbf{ Target\+Item} \doxyref{}{p.}{classTargetItem_a573b62d42101431dd10a4bc51aa646ca}, and \textbf{ Scene\+Curve} \doxyref{}{p.}{classSceneCurve_a3fa0e17059d5209390f27d7c1b67ef95}.
+
+
+
+Referenced by Scale\+Item\+::update\+Labels\+Format().
+
+\mbox{\label{classAxisChangeListener_ad164cf2d365c6536a513d504e77d9626}} 
+\index{AxisChangeListener@{AxisChangeListener}!tickStepLenChanged@{tickStepLenChanged}}
+\index{tickStepLenChanged@{tickStepLenChanged}!AxisChangeListener@{AxisChangeListener}}
+\doxysubsubsection{tickStepLenChanged()}
+{\footnotesize\ttfamily virtual void Axis\+Change\+Listener\+::tick\+Step\+Len\+Changed (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+The tick step len can be tuned by a property in a \doxyref{Scale\+Item}{p.}{classScaleItem} or let it be automatically calculated by \doxyref{Scale\+Item}{p.}{classScaleItem}. \begin{DoxySeeAlso}{See also}
+\doxyref{Scale\+Item}{p.}{classScaleItem} 
+\end{DoxySeeAlso}
+
+
+Implemented in \textbf{ Q\+Graphics\+Zoomer} \doxyref{}{p.}{classQGraphicsZoomer_a379225667f648967ced5cc31a565e496}, \textbf{ Target\+Item} \doxyref{}{p.}{classTargetItem_af4949357c0bf6bfee9783e6b26a5971c}, \textbf{ Scene\+Curve} \doxyref{}{p.}{classSceneCurve_accdfc11cefba094783d206a747abc0f1}, and \textbf{ External\+Scale\+Widget} \doxyref{}{p.}{classExternalScaleWidget_aac44ace2566fde42a2d0a30e4dbe6151}.
+
+
+
+Referenced by Scale\+Item\+::set\+Tick\+Step\+Len(), and Scale\+Item\+::update\+Step\+Len().
+
+\mbox{\label{classAxisChangeListener_a9e9e54365613740fecfdb5fec51f13f5}} 
+\index{AxisChangeListener@{AxisChangeListener}!xAxisBoundsChanged@{xAxisBoundsChanged}}
+\index{xAxisBoundsChanged@{xAxisBoundsChanged}!AxisChangeListener@{AxisChangeListener}}
+\doxysubsubsection{xAxisBoundsChanged()}
+{\footnotesize\ttfamily virtual void Axis\+Change\+Listener\+::x\+Axis\+Bounds\+Changed (\begin{DoxyParamCaption}\item[{double}]{lower,  }\item[{double}]{upper }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower} & the new lower bound \\
+\hline
+{\em upper} & the new upper bound \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \textbf{ Q\+Graphics\+Zoomer} \doxyref{}{p.}{classQGraphicsZoomer_a82173792e90b8aec513f65cb29613a1c}, \textbf{ Target\+Item} \doxyref{}{p.}{classTargetItem_a8776009af96a70213ce6d9cb9d513e31}, \textbf{ Scene\+Curve} \doxyref{}{p.}{classSceneCurve_afe81740867d6077a9632b3f8b289f11e}, and \textbf{ External\+Scale\+Widget} \doxyref{}{p.}{classExternalScaleWidget_ac61d983973979b2d97503eb8b799ddf0}.
+
+
+
+Referenced by Scale\+Item\+::m\+Notify\+Bounds\+Changed(), and Scale\+Item\+::set\+Bounds\+From\+Curves().
+
+\mbox{\label{classAxisChangeListener_aa02ec8c122600f6fd95940a8361a48ef}} 
+\index{AxisChangeListener@{AxisChangeListener}!yAxisBoundsChanged@{yAxisBoundsChanged}}
+\index{yAxisBoundsChanged@{yAxisBoundsChanged}!AxisChangeListener@{AxisChangeListener}}
+\doxysubsubsection{yAxisBoundsChanged()}
+{\footnotesize\ttfamily virtual void Axis\+Change\+Listener\+::y\+Axis\+Bounds\+Changed (\begin{DoxyParamCaption}\item[{double}]{lower,  }\item[{double}]{upper }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower} & the new lower bound \\
+\hline
+{\em upper} & the new upper bound \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \textbf{ Q\+Graphics\+Zoomer} \doxyref{}{p.}{classQGraphicsZoomer_a81cf0db1aded8b0f101d5563509285a1}, \textbf{ Target\+Item} \doxyref{}{p.}{classTargetItem_a8b64c9b65306d3f16a3e2b19e5378121}, \textbf{ Scene\+Curve} \doxyref{}{p.}{classSceneCurve_acf97b41ae0c657b8f1aa027ec4870213}, and \textbf{ External\+Scale\+Widget} \doxyref{}{p.}{classExternalScaleWidget_ac45edbee4b893faaf3f13dd28efa58ce}.
+
+
+
+Referenced by Scale\+Item\+::m\+Notify\+Bounds\+Changed(), and Scale\+Item\+::set\+Bounds\+From\+Curves().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ axischangelistener.\+h}\end{DoxyCompactItemize}

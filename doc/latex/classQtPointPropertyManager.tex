@@ -1,0 +1,212 @@
+\section{Qt\+Point\+Property\+Manager Class Reference}
+\label{classQtPointPropertyManager}\index{Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}}
+
+
+The \doxyref{Qt\+Point\+Property\+Manager}{p.}{classQtPointPropertyManager} provides and manages Q\+Point properties.  
+
+
+
+
+{\ttfamily \#include $<$qtpropertymanager.\+h$>$}
+
+Inheritance diagram for Qt\+Point\+Property\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classQtPointPropertyManager}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf set\+Value} ({\bf Qt\+Property} $\ast$property, const Q\+Point \&val)
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf value\+Changed} ({\bf Qt\+Property} $\ast$property, const Q\+Point \&val)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Qt\+Point\+Property\+Manager} (Q\+Object $\ast$parent=0)
+\item 
+{\bf $\sim$\+Qt\+Point\+Property\+Manager} ()
+\item 
+{\bf Qt\+Int\+Property\+Manager} $\ast$ {\bf sub\+Int\+Property\+Manager} () const 
+\item 
+Q\+Point {\bf value} (const {\bf Qt\+Property} $\ast$property) const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String {\bf value\+Text} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+virtual void {\bf initialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\item 
+virtual void {\bf uninitialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A point property has nested {\itshape x} and {\itshape y} subproperties. The top-\/level property\textquotesingle{}s value can be retrieved using the \doxyref{value()}{p.}{classQtPointPropertyManager_a6f617d39fc178ee6a5e4d12a9679ed4a} function, and set using the \doxyref{set\+Value()}{p.}{classQtPointPropertyManager_afcb764ec969c22f0131ac1151d669896} slot.
+
+The subproperties are created by a \doxyref{Qt\+Int\+Property\+Manager}{p.}{classQtIntPropertyManager} object. This manager can be retrieved using the \doxyref{sub\+Int\+Property\+Manager()}{p.}{classQtPointPropertyManager_a4d0cb1a2119f0980e502976162533b15} function. In order to provide editing widgets for the subproperties in a property browser widget, this manager must be associated with an editor factory.
+
+In addition, \doxyref{Qt\+Point\+Property\+Manager}{p.}{classQtPointPropertyManager} provides the \doxyref{value\+Changed()}{p.}{classQtPointPropertyManager_aa3a62c11c816a93684449ae1128ff933} signal which is emitted whenever a property created by this manager changes.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager}, \doxyref{Qt\+Int\+Property\+Manager}{p.}{classQtIntPropertyManager}, \doxyref{Qt\+Point\+F\+Property\+Manager}{p.}{classQtPointFPropertyManager} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}!Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}}
+\index{Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}!Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}}
+\subsubsection[{Qt\+Point\+Property\+Manager(\+Q\+Object $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Point\+Property\+Manager\+::\+Qt\+Point\+Property\+Manager (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classQtPointPropertyManager_aac1f0b8e98ec65f94c458f7477d0d6d1}
+Creates a manager with the given {\itshape parent}. 
+
+References Qt\+Point\+Property\+Manager\+Private\+::m\+\_\+int\+Property\+Manager, Qt\+Abstract\+Property\+Manager\+::property\+Destroyed(), and value\+Changed().
+
+\index{Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}!````~Qt\+Point\+Property\+Manager@{$\sim$\+Qt\+Point\+Property\+Manager}}
+\index{````~Qt\+Point\+Property\+Manager@{$\sim$\+Qt\+Point\+Property\+Manager}!Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}}
+\subsubsection[{$\sim$\+Qt\+Point\+Property\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Point\+Property\+Manager\+::$\sim$\+Qt\+Point\+Property\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classQtPointPropertyManager_a20f3848178c58668308ca4d8eadce8d6}
+Destroys this manager, and all the properties it has created. 
+
+References Qt\+Abstract\+Property\+Manager\+::clear().
+
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}!initialize\+Property@{initialize\+Property}}
+\index{initialize\+Property@{initialize\+Property}!Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}}
+\subsubsection[{initialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Point\+Property\+Manager\+::initialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtPointPropertyManager_a5ae6d35655a2d0f514a87ded1f2fd6b5}
+
+
+Implements {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ab7501ecabc5285cb50d7ed91a2ef44fc}.
+
+
+
+References Qt\+Abstract\+Property\+Manager\+::add\+Property(), Qt\+Property\+::add\+Sub\+Property(), Qt\+Point\+Property\+Manager\+Private\+::m\+\_\+int\+Property\+Manager, Qt\+Point\+Property\+Manager\+Private\+::m\+\_\+property\+ToX, Qt\+Point\+Property\+Manager\+Private\+::m\+\_\+property\+ToY, Qt\+Point\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Point\+Property\+Manager\+Private\+::m\+\_\+x\+To\+Property, Qt\+Point\+Property\+Manager\+Private\+::m\+\_\+y\+To\+Property, Qt\+Property\+::set\+Property\+Name(), and Qt\+Int\+Property\+Manager\+::set\+Value().
+
+\index{Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}}
+\subsubsection[{set\+Value}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Point\+Property\+Manager\+::set\+Value (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Point \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classQtPointPropertyManager_afcb764ec969c22f0131ac1151d669896}
+Sets the value of the given {\itshape property} to {\itshape value}. Nested properties are updated automatically.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{value()}{p.}{classQtPointPropertyManager_a6f617d39fc178ee6a5e4d12a9679ed4a}, \doxyref{value\+Changed()}{p.}{classQtPointPropertyManager_aa3a62c11c816a93684449ae1128ff933} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Point\+Property\+Manager\+Private\+::m\+\_\+int\+Property\+Manager, Qt\+Point\+Property\+Manager\+Private\+::m\+\_\+property\+ToX, Qt\+Point\+Property\+Manager\+Private\+::m\+\_\+property\+ToY, Qt\+Point\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Abstract\+Property\+Manager\+::property\+Changed(), Qt\+Int\+Property\+Manager\+::set\+Value(), and value\+Changed().
+
+\index{Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}!sub\+Int\+Property\+Manager@{sub\+Int\+Property\+Manager}}
+\index{sub\+Int\+Property\+Manager@{sub\+Int\+Property\+Manager}!Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}}
+\subsubsection[{sub\+Int\+Property\+Manager() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Qt\+Int\+Property\+Manager} $\ast$ Qt\+Point\+Property\+Manager\+::sub\+Int\+Property\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classQtPointPropertyManager_a4d0cb1a2119f0980e502976162533b15}
+Returns the manager that creates the nested {\itshape x} and {\itshape y} subproperties.
+
+In order to provide editing widgets for the subproperties in a property browser widget, this manager must be associated with an editor factory.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Browser\+::set\+Factory\+For\+Manager()}{p.}{classQtAbstractPropertyBrowser_a952b5b393e83f16253033fa4a9f5ea89} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Point\+Property\+Manager\+Private\+::m\+\_\+int\+Property\+Manager.
+
+
+
+Referenced by Qt\+Variant\+Property\+Manager\+::\+Qt\+Variant\+Property\+Manager().
+
+\index{Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}!uninitialize\+Property@{uninitialize\+Property}}
+\index{uninitialize\+Property@{uninitialize\+Property}!Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}}
+\subsubsection[{uninitialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Point\+Property\+Manager\+::uninitialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtPointPropertyManager_a418630d38b451fec72d09622bbc9dcaa}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_ad199337e1ac748eef077011d94ecd5b4}.
+
+
+
+References Qt\+Point\+Property\+Manager\+Private\+::m\+\_\+property\+ToX, Qt\+Point\+Property\+Manager\+Private\+::m\+\_\+property\+ToY, Qt\+Point\+Property\+Manager\+Private\+::m\+\_\+values, Qt\+Point\+Property\+Manager\+Private\+::m\+\_\+x\+To\+Property, and Qt\+Point\+Property\+Manager\+Private\+::m\+\_\+y\+To\+Property.
+
+\index{Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}!value@{value}}
+\index{value@{value}!Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}}
+\subsubsection[{value(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Point Qt\+Point\+Property\+Manager\+::value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const}\label{classQtPointPropertyManager_a6f617d39fc178ee6a5e4d12a9679ed4a}
+Returns the given {\itshape property\textquotesingle{}s} value.
+
+If the given {\itshape property} is not managed by this manager, this function returns a point with coordinates (0, 0).
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Value()}{p.}{classQtPointPropertyManager_afcb764ec969c22f0131ac1151d669896} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Point\+Property\+Manager\+Private\+::m\+\_\+values.
+
+\index{Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}!value\+Changed@{value\+Changed}}
+\index{value\+Changed@{value\+Changed}!Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}}
+\subsubsection[{value\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Point\+Property\+Manager\+::value\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{const Q\+Point \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtPointPropertyManager_aa3a62c11c816a93684449ae1128ff933}
+This signal is emitted whenever a property created by this manager changes its value, passing a pointer to the {\itshape property} and the new {\itshape value} as parameters.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Value()}{p.}{classQtPointPropertyManager_afcb764ec969c22f0131ac1151d669896} 
+\end{DoxySeeAlso}
+
+
+Referenced by Qt\+Point\+Property\+Manager(), and set\+Value().
+
+\index{Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}!value\+Text@{value\+Text}}
+\index{value\+Text@{value\+Text}!Qt\+Point\+Property\+Manager@{Qt\+Point\+Property\+Manager}}
+\subsubsection[{value\+Text(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Qt\+Point\+Property\+Manager\+::value\+Text (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtPointPropertyManager_ab5cefa3137a39bf742e804c6c3ad2d7c}
+
+
+Reimplemented from {\bf Qt\+Abstract\+Property\+Manager} \doxyref{}{p.}{classQtAbstractPropertyManager_aa99cf98b6f1d9582245eb2f5168c5b21}.
+
+
+
+References Qt\+Point\+Property\+Manager\+Private\+::m\+\_\+values.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtpropertymanager.\+h}\item 
+{\bf qtpropertymanager.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,248 @@
+\doxysection{Axes\+Manager Class Reference}
+\label{classAxesManager}\index{AxesManager@{AxesManager}}
+
+
+Manages the axes of a \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget}.  
+
+
+
+
+{\ttfamily \#include $<$axesmanager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Axes\+Manager} ()
+\begin{DoxyCompactList}\small\item\em The constructor. It takes no parameters. \end{DoxyCompactList}\item 
+void \textbf{ add\+Couple} (const \textbf{ Axis\+Couple} \&c)
+\item 
+void \textbf{ remove\+Couple} (const \textbf{ Axis\+Couple} \&c)
+\item 
+void \textbf{ remove\+Duplicate\+Couples} ()
+\item 
+\textbf{ Scale\+Item} $\ast$ \textbf{ get\+Axis} (\textbf{ Scale\+Item\+::\+Id} axis\+Id) const
+\begin{DoxyCompactList}\small\item\em returns the \doxyref{Scale\+Item}{p.}{classScaleItem} with the axis id passed as parameter \end{DoxyCompactList}\item 
+Q\+List$<$ \textbf{ Axis\+Couple} $>$ \& \textbf{ get\+Axis\+Couples} ()
+\begin{DoxyCompactList}\small\item\em returns the list of axis couples in the plot. \end{DoxyCompactList}\item 
+Q\+List$<$ \textbf{ Scale\+Item} $\ast$ $>$ \textbf{ get\+All\+Axes} () const
+\begin{DoxyCompactList}\small\item\em returns a list of all the axes in the \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} \end{DoxyCompactList}\item 
+Q\+List$<$ \textbf{ Scale\+Item} $\ast$ $>$ \textbf{ get\+Axes} (bool all, \textbf{ Scale\+Item\+::\+Orientation} o) const
+\begin{DoxyCompactList}\small\item\em Returns a list of axes with the specified orientation, or all axes is all is true. \end{DoxyCompactList}\item 
+void \textbf{ clear\+Axes} (bool all, \textbf{ Scale\+Item\+::\+Orientation} o)
+\item 
+\textbf{ Scale\+Item} $\ast$ \textbf{ get\+Associated\+Axis} (\textbf{ Scale\+Item\+::\+Id} other\+Axis)
+\begin{DoxyCompactList}\small\item\em Given an axis, identified by its Id, this method finds and returns the {\bfseries{first}} axis associated to the other\+Axis axis. \end{DoxyCompactList}\item 
+Q\+Pair$<$ double, double $>$ \textbf{ get\+Origin\+Pos\+Percentage} (\textbf{ Scale\+Item\+::\+Id} one\+Axis\+Id, \textbf{ Scale\+Item\+::\+Id} other\+Axis\+Id, bool $\ast$ok)
+\begin{DoxyCompactList}\small\item\em given two axes, this method looks for the couple inside the \doxyref{Axis\+Couple}{p.}{classAxisCouple} list and returns the associated origin. \end{DoxyCompactList}\item 
+\textbf{ Axis\+Couple} $\ast$ \textbf{ find\+Incomplete\+Couple} (\textbf{ Scale\+Item} $\ast$item)
+\begin{DoxyCompactList}\small\item\em Returns true if an incomplete couple has been found, false otherwise. \end{DoxyCompactList}\item 
+int \textbf{ count} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+List$<$ \textbf{ Axis\+Couple} $>$ \textbf{ axes}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classAxesManager_a38074004b9a723d30f22c71af1c4e77a}} 
+\index{AxesManager@{AxesManager}!AxesManager@{AxesManager}}
+\index{AxesManager@{AxesManager}!AxesManager@{AxesManager}}
+\doxysubsubsection{AxesManager()}
+{\footnotesize\ttfamily Axes\+Manager\+::\+Axes\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructed and used by \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget}. You can retrieve a reference by calling \doxyref{Plot\+Scene\+Widget\+::axes\+Manager}{p.}{classPlotSceneWidget_abb30bbfeb652ff693c64195eaecde25a}.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classAxesManager_af612a8c56e607b650cc388f05333aa5c}} 
+\index{AxesManager@{AxesManager}!addCouple@{addCouple}}
+\index{addCouple@{addCouple}!AxesManager@{AxesManager}}
+\doxysubsubsection{addCouple()}
+{\footnotesize\ttfamily void Axes\+Manager\+::add\+Couple (\begin{DoxyParamCaption}\item[{const \textbf{ Axis\+Couple} \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+References axes.
+
+\mbox{\label{classAxesManager_a60b409932bf205fb9d08eaffdd56b259}} 
+\index{AxesManager@{AxesManager}!clearAxes@{clearAxes}}
+\index{clearAxes@{clearAxes}!AxesManager@{AxesManager}}
+\doxysubsubsection{clearAxes()}
+{\footnotesize\ttfamily void Axes\+Manager\+::clear\+Axes (\begin{DoxyParamCaption}\item[{bool}]{all,  }\item[{\textbf{ Scale\+Item\+::\+Orientation}}]{o }\end{DoxyParamCaption})}
+
+
+
+References axes, Scale\+Item\+::\+Horizontal, remove\+Duplicate\+Couples(), Scale\+Item\+::\+Vertical, Axis\+Couple\+::x\+Axis, and Axis\+Couple\+::y\+Axis.
+
+\mbox{\label{classAxesManager_a6d5fa153e4e835946d5c71bd48ab0ef9}} 
+\index{AxesManager@{AxesManager}!count@{count}}
+\index{count@{count}!AxesManager@{AxesManager}}
+\doxysubsubsection{count()}
+{\footnotesize\ttfamily int Axes\+Manager\+::count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+References axes.
+
+\mbox{\label{classAxesManager_a1190eb1736ecff7c243f57d48792c981}} 
+\index{AxesManager@{AxesManager}!findIncompleteCouple@{findIncompleteCouple}}
+\index{findIncompleteCouple@{findIncompleteCouple}!AxesManager@{AxesManager}}
+\doxysubsubsection{findIncompleteCouple()}
+{\footnotesize\ttfamily \textbf{ Axis\+Couple} $\ast$ Axes\+Manager\+::find\+Incomplete\+Couple (\begin{DoxyParamCaption}\item[{\textbf{ Scale\+Item} $\ast$}]{item }\end{DoxyParamCaption})}
+
+An incomplete couple is an \doxyref{Axis\+Couple}{p.}{classAxisCouple} that has just one of the two axis not N\+U\+LL. 
+
+References axes, Axis\+Couple\+::x\+Axis, and Axis\+Couple\+::y\+Axis.
+
+\mbox{\label{classAxesManager_a0575e53e78c6937239536b42cd8aae9d}} 
+\index{AxesManager@{AxesManager}!getAllAxes@{getAllAxes}}
+\index{getAllAxes@{getAllAxes}!AxesManager@{AxesManager}}
+\doxysubsubsection{getAllAxes()}
+{\footnotesize\ttfamily Q\+List$<$ \textbf{ Scale\+Item} $\ast$ $>$ Axes\+Manager\+::get\+All\+Axes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+For each \doxyref{Axis\+Couple}{p.}{classAxisCouple} in the \doxyref{Plot\+Scene\+Widget}{p.}{classPlotSceneWidget}, it returns its x and y \doxyref{Scale\+Item}{p.}{classScaleItem} references. 
+
+References axes, Axis\+Couple\+::x\+Axis, and Axis\+Couple\+::y\+Axis.
+
+
+
+Referenced by get\+Axes().
+
+\mbox{\label{classAxesManager_a1b014b46d44c0bc1c8f04ec043fae1f9}} 
+\index{AxesManager@{AxesManager}!getAssociatedAxis@{getAssociatedAxis}}
+\index{getAssociatedAxis@{getAssociatedAxis}!AxesManager@{AxesManager}}
+\doxysubsubsection{getAssociatedAxis()}
+{\footnotesize\ttfamily \textbf{ Scale\+Item} $\ast$ Axes\+Manager\+::get\+Associated\+Axis (\begin{DoxyParamCaption}\item[{\textbf{ Scale\+Item\+::\+Id}}]{other\+Axis\+Id }\end{DoxyParamCaption})}
+
+given an axis with other\+Axis\+Id as id, this method returns the associated axis
+
+\doxyparagraph*{Note}
+
+If one axis is shared through different couples, (for instance an x axis common between two distinct y axes), then the associated axis in the first couple in the list is returned. 
+
+\begin{DoxyReturn}{Returns}
+the axis associated to the axis identified by other\+Axis\+Id.
+\end{DoxyReturn}
+Axes are coupled in two. This method returns the one coupled with other\+Axis\+Id 
+
+References axes, Scale\+Item\+::axis\+Id(), Axis\+Couple\+::x\+Axis, and Axis\+Couple\+::y\+Axis.
+
+\mbox{\label{classAxesManager_ac3cf90b7f87015da6da3b4f4cb5d36fb}} 
+\index{AxesManager@{AxesManager}!getAxes@{getAxes}}
+\index{getAxes@{getAxes}!AxesManager@{AxesManager}}
+\doxysubsubsection{getAxes()}
+{\footnotesize\ttfamily Q\+List$<$ \textbf{ Scale\+Item} $\ast$ $>$ Axes\+Manager\+::get\+Axes (\begin{DoxyParamCaption}\item[{bool}]{all,  }\item[{\textbf{ Scale\+Item\+::\+Orientation}}]{o }\end{DoxyParamCaption}) const}
+
+
+
+References get\+All\+Axes(), and Scale\+Item\+::orientation().
+
+\mbox{\label{classAxesManager_a6634a8897271777e1df11c6bc7f6dd98}} 
+\index{AxesManager@{AxesManager}!getAxis@{getAxis}}
+\index{getAxis@{getAxis}!AxesManager@{AxesManager}}
+\doxysubsubsection{getAxis()}
+{\footnotesize\ttfamily \textbf{ Scale\+Item} $\ast$ Axes\+Manager\+::get\+Axis (\begin{DoxyParamCaption}\item[{\textbf{ Scale\+Item\+::\+Id}}]{axis\+Id }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyParams}{Parameters}
+{\em axis\+Id} & the id of the axis you want to retrieve\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the \doxyref{Scale\+Item}{p.}{classScaleItem} with the specified axis\+Id. 
+
+N\+U\+LL if no \doxyref{Scale\+Item}{p.}{classScaleItem} was found with the specified axis\+Id 
+\end{DoxyReturn}
+
+
+References axes, Scale\+Item\+::axis\+Id(), Axis\+Couple\+::x\+Axis, and Axis\+Couple\+::y\+Axis.
+
+\mbox{\label{classAxesManager_a90d1e576427dbbfa66cee4c6590222cb}} 
+\index{AxesManager@{AxesManager}!getAxisCouples@{getAxisCouples}}
+\index{getAxisCouples@{getAxisCouples}!AxesManager@{AxesManager}}
+\doxysubsubsection{getAxisCouples()}
+{\footnotesize\ttfamily Q\+List$<$\textbf{ Axis\+Couple}$>$\& Axes\+Manager\+::get\+Axis\+Couples (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the list of axis couples in the plot. 
+\end{DoxyReturn}
+
+
+References axes.
+
+\mbox{\label{classAxesManager_a72aa1efabf584584c60a21e77847eba1}} 
+\index{AxesManager@{AxesManager}!getOriginPosPercentage@{getOriginPosPercentage}}
+\index{getOriginPosPercentage@{getOriginPosPercentage}!AxesManager@{AxesManager}}
+\doxysubsubsection{getOriginPosPercentage()}
+{\footnotesize\ttfamily Q\+Pair$<$ double, double $>$ Axes\+Manager\+::get\+Origin\+Pos\+Percentage (\begin{DoxyParamCaption}\item[{\textbf{ Scale\+Item\+::\+Id}}]{one\+Axis\+Id,  }\item[{\textbf{ Scale\+Item\+::\+Id}}]{other\+Axis\+Id,  }\item[{bool $\ast$}]{ok }\end{DoxyParamCaption})}
+
+Given the axis id of two axes, it returns a pair of double representing the position, given in terms of percentage, of the x and y axis with respect to the scene.
+
+
+\begin{DoxyParams}{Parameters}
+{\em one\+Axis\+Id} & one of the axis id to look for \\
+\hline
+{\em other\+Axis\+Id} & the other axis id to look for (the order is irrelevant) \\
+\hline
+{\em a} & compulsory parameter used to test whether the two axes are associated and the origin is defined.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the point representing the origin between the axes xA and yA, if they belong to the same couple. Returns N\+U\+LL if the two axes do not belong to the same couple.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{get\+Associated\+Axis}{p.}{classAxesManager_a1b014b46d44c0bc1c8f04ec043fae1f9} 
+\end{DoxySeeAlso}
+
+
+References axes, Scale\+Item\+::axis\+Id(), Axis\+Couple\+::x\+Axis, Axis\+Couple\+::x\+Origin\+Pos\+Percentage, Axis\+Couple\+::y\+Axis, and Axis\+Couple\+::y\+Origin\+Pos\+Percentage.
+
+\mbox{\label{classAxesManager_af5f503fce133769a972db20b04d9d5bf}} 
+\index{AxesManager@{AxesManager}!removeCouple@{removeCouple}}
+\index{removeCouple@{removeCouple}!AxesManager@{AxesManager}}
+\doxysubsubsection{removeCouple()}
+{\footnotesize\ttfamily void Axes\+Manager\+::remove\+Couple (\begin{DoxyParamCaption}\item[{const \textbf{ Axis\+Couple} \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+References axes.
+
+\mbox{\label{classAxesManager_a534ccf9896b0f3e76490a91e47b33028}} 
+\index{AxesManager@{AxesManager}!removeDuplicateCouples@{removeDuplicateCouples}}
+\index{removeDuplicateCouples@{removeDuplicateCouples}!AxesManager@{AxesManager}}
+\doxysubsubsection{removeDuplicateCouples()}
+{\footnotesize\ttfamily void Axes\+Manager\+::remove\+Duplicate\+Couples (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+References axes.
+
+
+
+Referenced by clear\+Axes().
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classAxesManager_a83160646be01b3a49aafd6a2cdd9d0b6}} 
+\index{AxesManager@{AxesManager}!axes@{axes}}
+\index{axes@{axes}!AxesManager@{AxesManager}}
+\doxysubsubsection{axes}
+{\footnotesize\ttfamily Q\+List$<$\textbf{ Axis\+Couple}$>$ Axes\+Manager\+::axes}
+
+
+
+Referenced by add\+Couple(), clear\+Axes(), count(), find\+Incomplete\+Couple(), get\+All\+Axes(), get\+Associated\+Axis(), get\+Axis(), get\+Axis\+Couples(), get\+Origin\+Pos\+Percentage(), remove\+Couple(), and remove\+Duplicate\+Couples().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ axesmanager.\+h}\item 
+\textbf{ axesmanager.\+cpp}\end{DoxyCompactItemize}

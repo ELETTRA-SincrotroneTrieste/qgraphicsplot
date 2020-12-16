@@ -1,0 +1,153 @@
+\section{Tree\+View\+Axes Class Reference}
+\label{classTreeViewAxes}\index{Tree\+View\+Axes@{Tree\+View\+Axes}}
+
+
+{\ttfamily \#include $<$treeviewaxes.\+h$>$}
+
+Inheritance diagram for Tree\+View\+Axes\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTreeViewAxes}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf Columns} \{ {\bf Col\+Name}, 
+{\bf Col\+Y\+Axis}
+ \}
+\item 
+enum {\bf Custom\+Roles} \{ {\bf Axis\+Cnt\+Role} = Qt\+:\+:User\+Role + 1
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Tree\+View\+Axes} (Q\+Widget $\ast$parent=N\+U\+LL)
+\item 
+void {\bf set\+Axis\+Count} (int count, {\bf Scale\+Orientation\+::\+Type} o)
+\item 
+int {\bf axis\+Count} ({\bf Scale\+Orientation\+::\+Type} o) const 
+\item 
+void {\bf add\+Item} (const Q\+String \&src)
+\item 
+void {\bf remove\+Item} (const Q\+String \&src)
+\item 
+Q\+List$<$ {\bf Curve\+Options} $>$ {\bf get\+Curve\+Options} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\index{Tree\+View\+Axes@{Tree\+View\+Axes}!Columns@{Columns}}
+\index{Columns@{Columns}!Tree\+View\+Axes@{Tree\+View\+Axes}}
+\subsubsection[{Columns}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Tree\+View\+Axes\+::\+Columns}}\label{classTreeViewAxes_abda138aa9ae49f537eb558f15ed53400}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Col\+Name@{Col\+Name}!Tree\+View\+Axes@{Tree\+View\+Axes}}\index{Tree\+View\+Axes@{Tree\+View\+Axes}!Col\+Name@{Col\+Name}}\item[{\em 
+Col\+Name\label{classTreeViewAxes_abda138aa9ae49f537eb558f15ed53400a9ef0418091f3ab90eaab20d600d8a3a1}
+}]\index{Col\+Y\+Axis@{Col\+Y\+Axis}!Tree\+View\+Axes@{Tree\+View\+Axes}}\index{Tree\+View\+Axes@{Tree\+View\+Axes}!Col\+Y\+Axis@{Col\+Y\+Axis}}\item[{\em 
+Col\+Y\+Axis\label{classTreeViewAxes_abda138aa9ae49f537eb558f15ed53400a92d90b8952d0fa660ec6623dc79d7b0f}
+}]\end{description}
+\end{Desc}
+\index{Tree\+View\+Axes@{Tree\+View\+Axes}!Custom\+Roles@{Custom\+Roles}}
+\index{Custom\+Roles@{Custom\+Roles}!Tree\+View\+Axes@{Tree\+View\+Axes}}
+\subsubsection[{Custom\+Roles}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Tree\+View\+Axes\+::\+Custom\+Roles}}\label{classTreeViewAxes_abd89f61909a5c4c00d2a7e4f5e2d90de}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Axis\+Cnt\+Role@{Axis\+Cnt\+Role}!Tree\+View\+Axes@{Tree\+View\+Axes}}\index{Tree\+View\+Axes@{Tree\+View\+Axes}!Axis\+Cnt\+Role@{Axis\+Cnt\+Role}}\item[{\em 
+Axis\+Cnt\+Role\label{classTreeViewAxes_abd89f61909a5c4c00d2a7e4f5e2d90dea78cf34d446bc4492391b04542a122c8e}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Tree\+View\+Axes@{Tree\+View\+Axes}!Tree\+View\+Axes@{Tree\+View\+Axes}}
+\index{Tree\+View\+Axes@{Tree\+View\+Axes}!Tree\+View\+Axes@{Tree\+View\+Axes}}
+\subsubsection[{Tree\+View\+Axes(\+Q\+Widget $\ast$parent=\+N\+U\+L\+L)}]{\setlength{\rightskip}{0pt plus 5cm}Tree\+View\+Axes\+::\+Tree\+View\+Axes (
+\begin{DoxyParamCaption}
+\item[{Q\+Widget $\ast$}]{parent = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}\label{classTreeViewAxes_a14c3e717f463cb5a6e41015e12bcaa77}
+
+
+References Elettra\+::blue, Col\+Y\+Axis, Elettra\+::cyan, Elettra\+::dark\+Cyan, Elettra\+::dark\+Green, Elettra\+::dark\+Red, Elettra\+::green, Scale\+Orientation\+::\+Horizontal, Elettra\+::red, set\+Axis\+Count(), Scale\+Orientation\+::\+Vertical, and Elettra\+::yellow.
+
+
+
+\subsection{Member Function Documentation}
+\index{Tree\+View\+Axes@{Tree\+View\+Axes}!add\+Item@{add\+Item}}
+\index{add\+Item@{add\+Item}!Tree\+View\+Axes@{Tree\+View\+Axes}}
+\subsubsection[{add\+Item(const Q\+String \&src)}]{\setlength{\rightskip}{0pt plus 5cm}void Tree\+View\+Axes\+::add\+Item (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{src}
+\end{DoxyParamCaption}
+)}\label{classTreeViewAxes_a56e21ef330595934525b4728b85bf08c}
+
+
+References axis\+Count(), Axes\+Data\+Model\+::\+Col\+Name, Axes\+Data\+Model\+::\+Col\+Y\+Axis, Col\+Y\+Axis, Axes\+Data\+Model\+::data(), Axes\+Data\+Model\+::row\+Count(), and Axes\+Data\+Model\+::set\+Data().
+
+
+
+Referenced by Axis\+Conf\+Widget\+::add\+Item().
+
+\index{Tree\+View\+Axes@{Tree\+View\+Axes}!axis\+Count@{axis\+Count}}
+\index{axis\+Count@{axis\+Count}!Tree\+View\+Axes@{Tree\+View\+Axes}}
+\subsubsection[{axis\+Count(\+Scale\+Orientation\+::\+Type o) const }]{\setlength{\rightskip}{0pt plus 5cm}int Tree\+View\+Axes\+::axis\+Count (
+\begin{DoxyParamCaption}
+\item[{{\bf Scale\+Orientation\+::\+Type}}]{o}
+\end{DoxyParamCaption}
+) const}\label{classTreeViewAxes_a145eec68dd05a1bb0f3eb91c124fd1e2}
+
+
+References Col\+Y\+Axis, and Scale\+Orientation\+::\+Horizontal.
+
+
+
+Referenced by Axis\+Conf\+Widget\+::add\+Configurable\+Objects(), add\+Item(), and Axis\+Conf\+Widget\+::axis\+Count().
+
+\index{Tree\+View\+Axes@{Tree\+View\+Axes}!get\+Curve\+Options@{get\+Curve\+Options}}
+\index{get\+Curve\+Options@{get\+Curve\+Options}!Tree\+View\+Axes@{Tree\+View\+Axes}}
+\subsubsection[{get\+Curve\+Options() const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+List$<$ {\bf Curve\+Options} $>$ Tree\+View\+Axes\+::get\+Curve\+Options (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classTreeViewAxes_a5467510623050f51b5899303bc860fc0}
+
+
+References Axes\+Data\+Model\+::get\+Data().
+
+
+
+Referenced by Axis\+Conf\+Widget\+::add\+Configurable\+Objects().
+
+\index{Tree\+View\+Axes@{Tree\+View\+Axes}!remove\+Item@{remove\+Item}}
+\index{remove\+Item@{remove\+Item}!Tree\+View\+Axes@{Tree\+View\+Axes}}
+\subsubsection[{remove\+Item(const Q\+String \&src)}]{\setlength{\rightskip}{0pt plus 5cm}void Tree\+View\+Axes\+::remove\+Item (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{src}
+\end{DoxyParamCaption}
+)}\label{classTreeViewAxes_a23a38398a4d62b6b8ca59514ef03cfd2}
+\index{Tree\+View\+Axes@{Tree\+View\+Axes}!set\+Axis\+Count@{set\+Axis\+Count}}
+\index{set\+Axis\+Count@{set\+Axis\+Count}!Tree\+View\+Axes@{Tree\+View\+Axes}}
+\subsubsection[{set\+Axis\+Count(int count, Scale\+Orientation\+::\+Type o)}]{\setlength{\rightskip}{0pt plus 5cm}void Tree\+View\+Axes\+::set\+Axis\+Count (
+\begin{DoxyParamCaption}
+\item[{int}]{count, }
+\item[{{\bf Scale\+Orientation\+::\+Type}}]{o}
+\end{DoxyParamCaption}
+)}\label{classTreeViewAxes_a4152d9236d7795e14dc4cdef43cd528b}
+
+
+References Col\+Y\+Axis, and Scale\+Orientation\+::\+Horizontal.
+
+
+
+Referenced by Axis\+Conf\+Widget\+::add\+Configurable\+Objects(), Axis\+Conf\+Widget\+::set\+Axis\+Count(), and Tree\+View\+Axes().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf treeviewaxes.\+h}\item 
+{\bf treeviewaxes.\+cpp}\end{DoxyCompactItemize}

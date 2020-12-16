@@ -1,0 +1,556 @@
+\doxysection{colors.\+h File Reference}
+\label{colors_8h}\index{colors.h@{colors.h}}
+{\ttfamily \#include $<$Q\+Color$>$}\newline
+{\ttfamily \#include $<$Q\+Dialog$>$}\newline
+{\ttfamily \#include $<$Q\+String\+List$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ E\+Color\+Set}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \textbf{ Elettra}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ E\+G\+R\+E\+EN}~Q\+Color(93, 234, 78)
+\item 
+\#define \textbf{ E\+Y\+E\+L\+L\+OW}~Q\+Color(247, 248, 156)
+\item 
+\#define \textbf{ E\+G\+R\+AY}~Q\+Color(209,207,204)
+\item 
+\#define \textbf{ E\+C\+Y\+AN}~Q\+Color(185,222,219)
+\item 
+\#define \textbf{ E\+R\+ED}~Q\+Color(250, 80, 80)
+\item 
+\#define \textbf{ E\+B\+L\+UE}~Q\+Color(100, 131, 201)
+\item 
+\#define \textbf{ E\+O\+R\+A\+N\+GE}~Q\+Color(243, 186, 109)
+\item 
+\#define \textbf{ E\+V\+I\+O\+L\+ET}~Q\+Color(200, 148, 208)
+\item 
+\#define \textbf{ E\+D\+A\+R\+K\+\_\+\+G\+R\+E\+EN}~Q\+Color(92, 151, 109)
+\item 
+\#define \textbf{ E\+M\+A\+R\+O\+ON}~Q\+Color(157, 137, 137)
+\item 
+\#define \textbf{ E\+P\+I\+NK}~Q\+Color(231, 182, 226)
+\item 
+\#define \textbf{ E\+F\+U\+C\+H\+S\+IA}~Q\+Color(240, 130, 228)
+\item 
+\#define \textbf{ E\+B\+L\+A\+CK}~Qt\+::black
+\item 
+\#define \textbf{ E\+L\+I\+G\+H\+T\+\_\+\+G\+R\+AY}~Q\+Color(236, 232, 232)
+\item 
+\#define \textbf{ E\+D\+A\+R\+K\+\_\+\+G\+R\+AY}~Q\+Color(155,155,155)
+\item 
+\#define \textbf{ E\+G\+R\+E\+E\+N\+W\+A\+T\+ER}~Q\+Color(153, 208, 194)
+\item 
+\#define \textbf{ E\+D\+I\+R\+T\+Y\+Y\+E\+L\+L\+OW}~Q\+Color(187, 192, 44)
+\item 
+\#define \textbf{ E\+B\+L\+U\+E\+G\+R\+AY}~Q\+Color(127, 135, 169)
+\item 
+\#define \textbf{ B\+O\+O\+S\+T\+E\+R\+C\+O\+L\+OR}~Q\+Color(205,230,255)
+\item 
+\#define \textbf{ E\+L\+E\+T\+T\+R\+A\+C\+O\+L\+OR}~Q\+Color(220,255,222)
+\item 
+\#define \textbf{ F\+E\+R\+M\+I\+C\+O\+L\+OR}~Q\+Color(224,230,230)
+\item 
+\#define \textbf{ K\+R\+ED}~Q\+Color(231, 35, 0)
+\item 
+\#define \textbf{ K\+R\+E\+D90\+S\+AT}~Q\+Color(231, 55, 23)
+\item 
+\#define \textbf{ K\+G\+R\+E\+EN}~Q\+Color(128, 195, 155)
+\item 
+\#define \textbf{ K\+D\+A\+R\+K\+G\+R\+E\+EN}~Q\+Color(0, 151, 84)
+\item 
+\#define \textbf{ K\+D\+A\+R\+K\+R\+ED}~Q\+Color(181, 0, 47)
+\item 
+\#define \textbf{ K\+B\+L\+UE}~Q\+Color(0, 148, 213)
+\item 
+\#define \textbf{ K\+D\+A\+R\+K\+B\+L\+UE}~Q\+Color(0, 113, 188)
+\item 
+\#define \textbf{ K\+V\+E\+R\+Y\+D\+A\+R\+K\+B\+L\+UE}~Q\+Color(0, 65, 136)
+\item 
+\#define \textbf{ K\+D\+A\+R\+K\+C\+Y\+AN}~Q\+Color(179, 221, 245)
+\item 
+\#define \textbf{ K\+C\+Y\+AN}~Q\+Color(197, 217, 240)
+\item 
+\#define \textbf{ K\+M\+A\+G\+E\+N\+TA}~Q\+Color(186, 144, 192)
+\item 
+\#define \textbf{ K\+P\+I\+NK}~Q\+Color(246, 207, 221)
+\item 
+\#define \textbf{ K\+D\+A\+R\+K\+P\+I\+NK}~Q\+Color(240, 164, 185)
+\item 
+\#define \textbf{ K\+V\+I\+O\+L\+ET}~Q\+Color(209, 176, 210)
+\item 
+\#define \textbf{ K\+D\+A\+R\+K\+V\+I\+O\+L\+ET}~Q\+Color(186, 144, 192)
+\item 
+\#define \textbf{ K\+V\+E\+R\+Y\+D\+A\+R\+K\+V\+I\+O\+L\+ET}~Q\+Color(155, 87, 159)
+\item 
+\#define \textbf{ K\+Y\+E\+L\+L\+OW}~Q\+Color(255, 245, 146)
+\item 
+\#define \textbf{ K\+D\+A\+R\+K\+Y\+E\+L\+L\+OW}~Q\+Color(255, 233, 68)
+\item 
+\#define \textbf{ K\+V\+E\+R\+Y\+D\+A\+R\+K\+Y\+E\+L\+L\+OW}~Q\+Color(245, 223, 58)
+\item 
+\#define \textbf{ K\+O\+R\+A\+N\+GE}~Q\+Color(249, 186, 7)
+\item 
+\#define \textbf{ K\+L\+I\+G\+H\+T\+G\+R\+AY}~Q\+Color(218, 221, 224)
+\item 
+\#define \textbf{ K\+G\+R\+AY}~Q\+Color(187, 191, 195)
+\item 
+\#define \textbf{ K\+D\+A\+R\+K\+G\+R\+AY}~Q\+Color(157, 161, 166)
+\item 
+\#define \textbf{ K\+A\+L\+M\+O\+S\+T\+B\+L\+A\+CK}~Q\+Color(109, 113, 121)
+\item 
+\#define \textbf{ K\+C\+A\+M\+EL}~Q\+Color(243, 223, 198)
+\item 
+\#define \textbf{ K\+M\+A\+R\+O\+ON}~Q\+Color(217, 174, 126)
+\item 
+\#define \textbf{ K\+D\+A\+R\+K\+M\+A\+R\+O\+ON}~Q\+Color(159, 95, 0)
+\item 
+\#define \textbf{ K\+D\+A\+R\+K\+W\+A\+T\+ER}~Q\+Color(164, 158, 205)
+\item 
+\#define \textbf{ K\+P\+I\+N\+K\+P\+IG}~Q\+Color(240, 164, 185)
+\item 
+\#define \textbf{ K\+G\+R\+A\+Y\+F\+E\+R\+M\+I\+H\+I\+G\+H\+L\+I\+G\+HT}~Q\+Color(154,160,160)
+\item 
+\#define \textbf{ K\+G\+R\+A\+Y\+F\+E\+R\+M\+I\+A\+L\+T\+E\+R\+N\+A\+T\+E\+B\+A\+SE}~Q\+Color(184,190,190)
+\item 
+\#define \textbf{ K\+B\+O\+O\+S\+T\+E\+R\+H\+I\+G\+H\+L\+I\+G\+HT}~Q\+Color(91,157,222)
+\item 
+\#define \textbf{ K\+B\+O\+O\+S\+T\+E\+R\+A\+L\+T\+E\+R\+N\+A\+T\+E\+B\+A\+SE}~Q\+Color(175,215,255)
+\item 
+\#define \textbf{ K\+E\+L\+E\+T\+T\+R\+A\+H\+I\+G\+H\+L\+I\+G\+HT}~Q\+Color(145,218,150)
+\item 
+\#define \textbf{ K\+E\+L\+E\+T\+T\+R\+A\+A\+L\+T\+E\+R\+N\+A\+T\+E\+B\+A\+SE}~Q\+Color(180,205,182)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ Elettra\+::colors} \{ \newline
+\textbf{ Elettra\+::white}, 
+\textbf{ Elettra\+::dark\+Gray}, 
+\textbf{ Elettra\+::gray}, 
+\textbf{ Elettra\+::light\+Gray}, 
+\newline
+\textbf{ Elettra\+::red}, 
+\textbf{ Elettra\+::dark\+Red}, 
+\textbf{ Elettra\+::dark\+Maroon}, 
+\textbf{ Elettra\+::maroon}, 
+\newline
+\textbf{ Elettra\+::camel}, 
+\textbf{ Elettra\+::orange}, 
+\textbf{ Elettra\+::yellow}, 
+\textbf{ Elettra\+::dirty\+Yellow}, 
+\newline
+\textbf{ Elettra\+::dark\+Yellow}, 
+\textbf{ Elettra\+::green}, 
+\textbf{ Elettra\+::green\+Water}, 
+\textbf{ Elettra\+::dark\+Green}, 
+\newline
+\textbf{ Elettra\+::cyan}, 
+\textbf{ Elettra\+::dark\+Cyan}, 
+\textbf{ Elettra\+::dark\+Water}, 
+\textbf{ Elettra\+::blue}, 
+\newline
+\textbf{ Elettra\+::dark\+Blue}, 
+\textbf{ Elettra\+::very\+Dark\+Blue}, 
+\textbf{ Elettra\+::blue\+Gray}, 
+\textbf{ Elettra\+::violet}, 
+\newline
+\textbf{ Elettra\+::dark\+Violet}, 
+\textbf{ Elettra\+::dark\+Pink}, 
+\textbf{ Elettra\+::pink}, 
+\textbf{ Elettra\+::pink\+Pig}, 
+\newline
+\textbf{ Elettra\+::fuchsia}, 
+\textbf{ Elettra\+::almost\+Black}, 
+\textbf{ Elettra\+::black}, 
+\textbf{ Elettra\+::booster\+Color}, 
+\newline
+\textbf{ Elettra\+::elettra\+Color}, 
+\textbf{ Elettra\+::fermi\+Color}, 
+\textbf{ Elettra\+::elettra\+Highlight}, 
+\textbf{ Elettra\+::elettra\+Alternate\+Base}, 
+\newline
+\textbf{ Elettra\+::booster\+Highlight}, 
+\textbf{ Elettra\+::booster\+Alternate\+Base}, 
+\textbf{ Elettra\+::fermi\+Highlight}, 
+\textbf{ Elettra\+::fermi\+Alternate\+Base}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Elettra\+::show\+Color\+Palette} ()
+\item 
+Q\+Color \textbf{ E\+Color} (int colorcode)
+\item 
+Q\+Color \textbf{ E\+Color} (const Q\+String \&color\+String)
+\item 
+Q\+Palette \textbf{ E\+Palette} (Q\+String)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{colors_8h_a52065541f963cd595a1df2f481486d73}} 
+\index{colors.h@{colors.h}!BOOSTERCOLOR@{BOOSTERCOLOR}}
+\index{BOOSTERCOLOR@{BOOSTERCOLOR}!colors.h@{colors.h}}
+\doxysubsubsection{BOOSTERCOLOR}
+{\footnotesize\ttfamily \#define B\+O\+O\+S\+T\+E\+R\+C\+O\+L\+OR~Q\+Color(205,230,255)}
+
+\mbox{\label{colors_8h_a6ff618fd3de5ab17d6e9700f034f4eaf}} 
+\index{colors.h@{colors.h}!EBLACK@{EBLACK}}
+\index{EBLACK@{EBLACK}!colors.h@{colors.h}}
+\doxysubsubsection{EBLACK}
+{\footnotesize\ttfamily \#define E\+B\+L\+A\+CK~Qt\+::black}
+
+\mbox{\label{colors_8h_a82d49a6c04108893805cb8331834b26d}} 
+\index{colors.h@{colors.h}!EBLUE@{EBLUE}}
+\index{EBLUE@{EBLUE}!colors.h@{colors.h}}
+\doxysubsubsection{EBLUE}
+{\footnotesize\ttfamily \#define E\+B\+L\+UE~Q\+Color(100, 131, 201)}
+
+\mbox{\label{colors_8h_aa41b660e895811347e583aa9821e2c50}} 
+\index{colors.h@{colors.h}!EBLUEGRAY@{EBLUEGRAY}}
+\index{EBLUEGRAY@{EBLUEGRAY}!colors.h@{colors.h}}
+\doxysubsubsection{EBLUEGRAY}
+{\footnotesize\ttfamily \#define E\+B\+L\+U\+E\+G\+R\+AY~Q\+Color(127, 135, 169)}
+
+\mbox{\label{colors_8h_a7c7b0b15cbed6eb80dd0dba2711ef6aa}} 
+\index{colors.h@{colors.h}!ECYAN@{ECYAN}}
+\index{ECYAN@{ECYAN}!colors.h@{colors.h}}
+\doxysubsubsection{ECYAN}
+{\footnotesize\ttfamily \#define E\+C\+Y\+AN~Q\+Color(185,222,219)}
+
+\mbox{\label{colors_8h_a65d432588eb3754c63cab41f777977db}} 
+\index{colors.h@{colors.h}!EDARK\_GRAY@{EDARK\_GRAY}}
+\index{EDARK\_GRAY@{EDARK\_GRAY}!colors.h@{colors.h}}
+\doxysubsubsection{EDARK\_GRAY}
+{\footnotesize\ttfamily \#define E\+D\+A\+R\+K\+\_\+\+G\+R\+AY~Q\+Color(155,155,155)}
+
+\mbox{\label{colors_8h_a2ddcb46270ed4c9b2c366b3295d60946}} 
+\index{colors.h@{colors.h}!EDARK\_GREEN@{EDARK\_GREEN}}
+\index{EDARK\_GREEN@{EDARK\_GREEN}!colors.h@{colors.h}}
+\doxysubsubsection{EDARK\_GREEN}
+{\footnotesize\ttfamily \#define E\+D\+A\+R\+K\+\_\+\+G\+R\+E\+EN~Q\+Color(92, 151, 109)}
+
+\mbox{\label{colors_8h_a937158e8fea9e219eb78f0136c4033c8}} 
+\index{colors.h@{colors.h}!EDIRTYYELLOW@{EDIRTYYELLOW}}
+\index{EDIRTYYELLOW@{EDIRTYYELLOW}!colors.h@{colors.h}}
+\doxysubsubsection{EDIRTYYELLOW}
+{\footnotesize\ttfamily \#define E\+D\+I\+R\+T\+Y\+Y\+E\+L\+L\+OW~Q\+Color(187, 192, 44)}
+
+\mbox{\label{colors_8h_a08ae059f24d288c941aa548737d43202}} 
+\index{colors.h@{colors.h}!EFUCHSIA@{EFUCHSIA}}
+\index{EFUCHSIA@{EFUCHSIA}!colors.h@{colors.h}}
+\doxysubsubsection{EFUCHSIA}
+{\footnotesize\ttfamily \#define E\+F\+U\+C\+H\+S\+IA~Q\+Color(240, 130, 228)}
+
+\mbox{\label{colors_8h_af313d595582809b703d34431e4aedb54}} 
+\index{colors.h@{colors.h}!EGRAY@{EGRAY}}
+\index{EGRAY@{EGRAY}!colors.h@{colors.h}}
+\doxysubsubsection{EGRAY}
+{\footnotesize\ttfamily \#define E\+G\+R\+AY~Q\+Color(209,207,204)}
+
+\mbox{\label{colors_8h_ae593b3ffdeea64a6d8291d456b1d6032}} 
+\index{colors.h@{colors.h}!EGREEN@{EGREEN}}
+\index{EGREEN@{EGREEN}!colors.h@{colors.h}}
+\doxysubsubsection{EGREEN}
+{\footnotesize\ttfamily \#define E\+G\+R\+E\+EN~Q\+Color(93, 234, 78)}
+
+\mbox{\label{colors_8h_a54399d83238866e4aa5f97a3402d9b04}} 
+\index{colors.h@{colors.h}!EGREENWATER@{EGREENWATER}}
+\index{EGREENWATER@{EGREENWATER}!colors.h@{colors.h}}
+\doxysubsubsection{EGREENWATER}
+{\footnotesize\ttfamily \#define E\+G\+R\+E\+E\+N\+W\+A\+T\+ER~Q\+Color(153, 208, 194)}
+
+\mbox{\label{colors_8h_ad72efc2c527e9a9f24d3ee967865a878}} 
+\index{colors.h@{colors.h}!ELETTRACOLOR@{ELETTRACOLOR}}
+\index{ELETTRACOLOR@{ELETTRACOLOR}!colors.h@{colors.h}}
+\doxysubsubsection{ELETTRACOLOR}
+{\footnotesize\ttfamily \#define E\+L\+E\+T\+T\+R\+A\+C\+O\+L\+OR~Q\+Color(220,255,222)}
+
+\mbox{\label{colors_8h_a15695a8e6a2cd70b0460495e00d4e72a}} 
+\index{colors.h@{colors.h}!ELIGHT\_GRAY@{ELIGHT\_GRAY}}
+\index{ELIGHT\_GRAY@{ELIGHT\_GRAY}!colors.h@{colors.h}}
+\doxysubsubsection{ELIGHT\_GRAY}
+{\footnotesize\ttfamily \#define E\+L\+I\+G\+H\+T\+\_\+\+G\+R\+AY~Q\+Color(236, 232, 232)}
+
+\mbox{\label{colors_8h_a6cc7c28ba9c928aa27122965eb29d4aa}} 
+\index{colors.h@{colors.h}!EMAROON@{EMAROON}}
+\index{EMAROON@{EMAROON}!colors.h@{colors.h}}
+\doxysubsubsection{EMAROON}
+{\footnotesize\ttfamily \#define E\+M\+A\+R\+O\+ON~Q\+Color(157, 137, 137)}
+
+\mbox{\label{colors_8h_aa2a3e75b687e9d0f447c11c6f8631741}} 
+\index{colors.h@{colors.h}!EORANGE@{EORANGE}}
+\index{EORANGE@{EORANGE}!colors.h@{colors.h}}
+\doxysubsubsection{EORANGE}
+{\footnotesize\ttfamily \#define E\+O\+R\+A\+N\+GE~Q\+Color(243, 186, 109)}
+
+\mbox{\label{colors_8h_aa934da340755ef508cc510c269a6746c}} 
+\index{colors.h@{colors.h}!EPINK@{EPINK}}
+\index{EPINK@{EPINK}!colors.h@{colors.h}}
+\doxysubsubsection{EPINK}
+{\footnotesize\ttfamily \#define E\+P\+I\+NK~Q\+Color(231, 182, 226)}
+
+\mbox{\label{colors_8h_a1131ea5d00576ce5b1c5a0850e715016}} 
+\index{colors.h@{colors.h}!ERED@{ERED}}
+\index{ERED@{ERED}!colors.h@{colors.h}}
+\doxysubsubsection{ERED}
+{\footnotesize\ttfamily \#define E\+R\+ED~Q\+Color(250, 80, 80)}
+
+\mbox{\label{colors_8h_af43a12257e5ba58943e93b894ae11892}} 
+\index{colors.h@{colors.h}!EVIOLET@{EVIOLET}}
+\index{EVIOLET@{EVIOLET}!colors.h@{colors.h}}
+\doxysubsubsection{EVIOLET}
+{\footnotesize\ttfamily \#define E\+V\+I\+O\+L\+ET~Q\+Color(200, 148, 208)}
+
+\mbox{\label{colors_8h_a92086fffff059c684d170f03882522d5}} 
+\index{colors.h@{colors.h}!EYELLOW@{EYELLOW}}
+\index{EYELLOW@{EYELLOW}!colors.h@{colors.h}}
+\doxysubsubsection{EYELLOW}
+{\footnotesize\ttfamily \#define E\+Y\+E\+L\+L\+OW~Q\+Color(247, 248, 156)}
+
+\mbox{\label{colors_8h_a5f48743e95324e7bef0d3d3d9f647cc1}} 
+\index{colors.h@{colors.h}!FERMICOLOR@{FERMICOLOR}}
+\index{FERMICOLOR@{FERMICOLOR}!colors.h@{colors.h}}
+\doxysubsubsection{FERMICOLOR}
+{\footnotesize\ttfamily \#define F\+E\+R\+M\+I\+C\+O\+L\+OR~Q\+Color(224,230,230)}
+
+\mbox{\label{colors_8h_ac07a068130cc068ef092a0d98610d670}} 
+\index{colors.h@{colors.h}!KALMOSTBLACK@{KALMOSTBLACK}}
+\index{KALMOSTBLACK@{KALMOSTBLACK}!colors.h@{colors.h}}
+\doxysubsubsection{KALMOSTBLACK}
+{\footnotesize\ttfamily \#define K\+A\+L\+M\+O\+S\+T\+B\+L\+A\+CK~Q\+Color(109, 113, 121)}
+
+\mbox{\label{colors_8h_a7d9ad22618bc8e9702c05f91cb87f3ba}} 
+\index{colors.h@{colors.h}!KBLUE@{KBLUE}}
+\index{KBLUE@{KBLUE}!colors.h@{colors.h}}
+\doxysubsubsection{KBLUE}
+{\footnotesize\ttfamily \#define K\+B\+L\+UE~Q\+Color(0, 148, 213)}
+
+\mbox{\label{colors_8h_ae144e18222afd63d7087a83f8981a737}} 
+\index{colors.h@{colors.h}!KBOOSTERALTERNATEBASE@{KBOOSTERALTERNATEBASE}}
+\index{KBOOSTERALTERNATEBASE@{KBOOSTERALTERNATEBASE}!colors.h@{colors.h}}
+\doxysubsubsection{KBOOSTERALTERNATEBASE}
+{\footnotesize\ttfamily \#define K\+B\+O\+O\+S\+T\+E\+R\+A\+L\+T\+E\+R\+N\+A\+T\+E\+B\+A\+SE~Q\+Color(175,215,255)}
+
+\mbox{\label{colors_8h_a8f82fc99d4d331008bc2fd1073f59e1a}} 
+\index{colors.h@{colors.h}!KBOOSTERHIGHLIGHT@{KBOOSTERHIGHLIGHT}}
+\index{KBOOSTERHIGHLIGHT@{KBOOSTERHIGHLIGHT}!colors.h@{colors.h}}
+\doxysubsubsection{KBOOSTERHIGHLIGHT}
+{\footnotesize\ttfamily \#define K\+B\+O\+O\+S\+T\+E\+R\+H\+I\+G\+H\+L\+I\+G\+HT~Q\+Color(91,157,222)}
+
+\mbox{\label{colors_8h_a6ab74ac795a40073904dbc718e3d464d}} 
+\index{colors.h@{colors.h}!KCAMEL@{KCAMEL}}
+\index{KCAMEL@{KCAMEL}!colors.h@{colors.h}}
+\doxysubsubsection{KCAMEL}
+{\footnotesize\ttfamily \#define K\+C\+A\+M\+EL~Q\+Color(243, 223, 198)}
+
+\mbox{\label{colors_8h_a0666afcb9046f9ce9bcb1b7a3d81ea15}} 
+\index{colors.h@{colors.h}!KCYAN@{KCYAN}}
+\index{KCYAN@{KCYAN}!colors.h@{colors.h}}
+\doxysubsubsection{KCYAN}
+{\footnotesize\ttfamily \#define K\+C\+Y\+AN~Q\+Color(197, 217, 240)}
+
+\mbox{\label{colors_8h_a9accd8de0f92348792b04705116dd52c}} 
+\index{colors.h@{colors.h}!KDARKBLUE@{KDARKBLUE}}
+\index{KDARKBLUE@{KDARKBLUE}!colors.h@{colors.h}}
+\doxysubsubsection{KDARKBLUE}
+{\footnotesize\ttfamily \#define K\+D\+A\+R\+K\+B\+L\+UE~Q\+Color(0, 113, 188)}
+
+\mbox{\label{colors_8h_aff2439c07845307d15e60eb04484c605}} 
+\index{colors.h@{colors.h}!KDARKCYAN@{KDARKCYAN}}
+\index{KDARKCYAN@{KDARKCYAN}!colors.h@{colors.h}}
+\doxysubsubsection{KDARKCYAN}
+{\footnotesize\ttfamily \#define K\+D\+A\+R\+K\+C\+Y\+AN~Q\+Color(179, 221, 245)}
+
+\mbox{\label{colors_8h_a773f3cef154b7189e14845c70eee266f}} 
+\index{colors.h@{colors.h}!KDARKGRAY@{KDARKGRAY}}
+\index{KDARKGRAY@{KDARKGRAY}!colors.h@{colors.h}}
+\doxysubsubsection{KDARKGRAY}
+{\footnotesize\ttfamily \#define K\+D\+A\+R\+K\+G\+R\+AY~Q\+Color(157, 161, 166)}
+
+\mbox{\label{colors_8h_ac8eac36b80ade3a7c79f789b2e34902c}} 
+\index{colors.h@{colors.h}!KDARKGREEN@{KDARKGREEN}}
+\index{KDARKGREEN@{KDARKGREEN}!colors.h@{colors.h}}
+\doxysubsubsection{KDARKGREEN}
+{\footnotesize\ttfamily \#define K\+D\+A\+R\+K\+G\+R\+E\+EN~Q\+Color(0, 151, 84)}
+
+\mbox{\label{colors_8h_a58ef2ce546da26194b9089fc7630f99d}} 
+\index{colors.h@{colors.h}!KDARKMAROON@{KDARKMAROON}}
+\index{KDARKMAROON@{KDARKMAROON}!colors.h@{colors.h}}
+\doxysubsubsection{KDARKMAROON}
+{\footnotesize\ttfamily \#define K\+D\+A\+R\+K\+M\+A\+R\+O\+ON~Q\+Color(159, 95, 0)}
+
+\mbox{\label{colors_8h_a6a17ebb2d8ce56e6e07662bdc1551c68}} 
+\index{colors.h@{colors.h}!KDARKPINK@{KDARKPINK}}
+\index{KDARKPINK@{KDARKPINK}!colors.h@{colors.h}}
+\doxysubsubsection{KDARKPINK}
+{\footnotesize\ttfamily \#define K\+D\+A\+R\+K\+P\+I\+NK~Q\+Color(240, 164, 185)}
+
+\mbox{\label{colors_8h_ac3729f202921d03a50e5c093b2ed55bd}} 
+\index{colors.h@{colors.h}!KDARKRED@{KDARKRED}}
+\index{KDARKRED@{KDARKRED}!colors.h@{colors.h}}
+\doxysubsubsection{KDARKRED}
+{\footnotesize\ttfamily \#define K\+D\+A\+R\+K\+R\+ED~Q\+Color(181, 0, 47)}
+
+\mbox{\label{colors_8h_abc0a1d539e290d150ea6877af8cdcfaf}} 
+\index{colors.h@{colors.h}!KDARKVIOLET@{KDARKVIOLET}}
+\index{KDARKVIOLET@{KDARKVIOLET}!colors.h@{colors.h}}
+\doxysubsubsection{KDARKVIOLET}
+{\footnotesize\ttfamily \#define K\+D\+A\+R\+K\+V\+I\+O\+L\+ET~Q\+Color(186, 144, 192)}
+
+\mbox{\label{colors_8h_ac92659f6e3e2fc276a0d4afb218bd1ad}} 
+\index{colors.h@{colors.h}!KDARKWATER@{KDARKWATER}}
+\index{KDARKWATER@{KDARKWATER}!colors.h@{colors.h}}
+\doxysubsubsection{KDARKWATER}
+{\footnotesize\ttfamily \#define K\+D\+A\+R\+K\+W\+A\+T\+ER~Q\+Color(164, 158, 205)}
+
+\mbox{\label{colors_8h_aa78902f4e16deeb8d1202a8eb55b5fee}} 
+\index{colors.h@{colors.h}!KDARKYELLOW@{KDARKYELLOW}}
+\index{KDARKYELLOW@{KDARKYELLOW}!colors.h@{colors.h}}
+\doxysubsubsection{KDARKYELLOW}
+{\footnotesize\ttfamily \#define K\+D\+A\+R\+K\+Y\+E\+L\+L\+OW~Q\+Color(255, 233, 68)}
+
+\mbox{\label{colors_8h_ab4e6b3a8b54b828796bdc72f798d2a8e}} 
+\index{colors.h@{colors.h}!KELETTRAALTERNATEBASE@{KELETTRAALTERNATEBASE}}
+\index{KELETTRAALTERNATEBASE@{KELETTRAALTERNATEBASE}!colors.h@{colors.h}}
+\doxysubsubsection{KELETTRAALTERNATEBASE}
+{\footnotesize\ttfamily \#define K\+E\+L\+E\+T\+T\+R\+A\+A\+L\+T\+E\+R\+N\+A\+T\+E\+B\+A\+SE~Q\+Color(180,205,182)}
+
+\mbox{\label{colors_8h_ab6f818e1350451a50a0377b597b56d7f}} 
+\index{colors.h@{colors.h}!KELETTRAHIGHLIGHT@{KELETTRAHIGHLIGHT}}
+\index{KELETTRAHIGHLIGHT@{KELETTRAHIGHLIGHT}!colors.h@{colors.h}}
+\doxysubsubsection{KELETTRAHIGHLIGHT}
+{\footnotesize\ttfamily \#define K\+E\+L\+E\+T\+T\+R\+A\+H\+I\+G\+H\+L\+I\+G\+HT~Q\+Color(145,218,150)}
+
+\mbox{\label{colors_8h_a6e2cf2c292a976ad7bc55de669a51f71}} 
+\index{colors.h@{colors.h}!KGRAY@{KGRAY}}
+\index{KGRAY@{KGRAY}!colors.h@{colors.h}}
+\doxysubsubsection{KGRAY}
+{\footnotesize\ttfamily \#define K\+G\+R\+AY~Q\+Color(187, 191, 195)}
+
+\mbox{\label{colors_8h_a71af2ac35126aa6230a95cf6ab437ab1}} 
+\index{colors.h@{colors.h}!KGRAYFERMIALTERNATEBASE@{KGRAYFERMIALTERNATEBASE}}
+\index{KGRAYFERMIALTERNATEBASE@{KGRAYFERMIALTERNATEBASE}!colors.h@{colors.h}}
+\doxysubsubsection{KGRAYFERMIALTERNATEBASE}
+{\footnotesize\ttfamily \#define K\+G\+R\+A\+Y\+F\+E\+R\+M\+I\+A\+L\+T\+E\+R\+N\+A\+T\+E\+B\+A\+SE~Q\+Color(184,190,190)}
+
+\mbox{\label{colors_8h_a6c05edfc7d527cc08115277a0bbf9a12}} 
+\index{colors.h@{colors.h}!KGRAYFERMIHIGHLIGHT@{KGRAYFERMIHIGHLIGHT}}
+\index{KGRAYFERMIHIGHLIGHT@{KGRAYFERMIHIGHLIGHT}!colors.h@{colors.h}}
+\doxysubsubsection{KGRAYFERMIHIGHLIGHT}
+{\footnotesize\ttfamily \#define K\+G\+R\+A\+Y\+F\+E\+R\+M\+I\+H\+I\+G\+H\+L\+I\+G\+HT~Q\+Color(154,160,160)}
+
+\mbox{\label{colors_8h_aac73788a7b14835469951296438ba1f3}} 
+\index{colors.h@{colors.h}!KGREEN@{KGREEN}}
+\index{KGREEN@{KGREEN}!colors.h@{colors.h}}
+\doxysubsubsection{KGREEN}
+{\footnotesize\ttfamily \#define K\+G\+R\+E\+EN~Q\+Color(128, 195, 155)}
+
+\mbox{\label{colors_8h_aa15d6866f5a88f22f009c5f182c83d96}} 
+\index{colors.h@{colors.h}!KLIGHTGRAY@{KLIGHTGRAY}}
+\index{KLIGHTGRAY@{KLIGHTGRAY}!colors.h@{colors.h}}
+\doxysubsubsection{KLIGHTGRAY}
+{\footnotesize\ttfamily \#define K\+L\+I\+G\+H\+T\+G\+R\+AY~Q\+Color(218, 221, 224)}
+
+\mbox{\label{colors_8h_a310cc4f1e6595f68300a2c4c5cc2f4a4}} 
+\index{colors.h@{colors.h}!KMAGENTA@{KMAGENTA}}
+\index{KMAGENTA@{KMAGENTA}!colors.h@{colors.h}}
+\doxysubsubsection{KMAGENTA}
+{\footnotesize\ttfamily \#define K\+M\+A\+G\+E\+N\+TA~Q\+Color(186, 144, 192)}
+
+\mbox{\label{colors_8h_ad1f2ec1c0581a73037ed2f5e395629b8}} 
+\index{colors.h@{colors.h}!KMAROON@{KMAROON}}
+\index{KMAROON@{KMAROON}!colors.h@{colors.h}}
+\doxysubsubsection{KMAROON}
+{\footnotesize\ttfamily \#define K\+M\+A\+R\+O\+ON~Q\+Color(217, 174, 126)}
+
+\mbox{\label{colors_8h_ab9ca6b589813b385fa4bf42560d97e95}} 
+\index{colors.h@{colors.h}!KORANGE@{KORANGE}}
+\index{KORANGE@{KORANGE}!colors.h@{colors.h}}
+\doxysubsubsection{KORANGE}
+{\footnotesize\ttfamily \#define K\+O\+R\+A\+N\+GE~Q\+Color(249, 186, 7)}
+
+\mbox{\label{colors_8h_a5692383aee624e6c6c8309dfe1b651f0}} 
+\index{colors.h@{colors.h}!KPINK@{KPINK}}
+\index{KPINK@{KPINK}!colors.h@{colors.h}}
+\doxysubsubsection{KPINK}
+{\footnotesize\ttfamily \#define K\+P\+I\+NK~Q\+Color(246, 207, 221)}
+
+\mbox{\label{colors_8h_adfebee207e6d87748bd8e2e53d3f1d2f}} 
+\index{colors.h@{colors.h}!KPINKPIG@{KPINKPIG}}
+\index{KPINKPIG@{KPINKPIG}!colors.h@{colors.h}}
+\doxysubsubsection{KPINKPIG}
+{\footnotesize\ttfamily \#define K\+P\+I\+N\+K\+P\+IG~Q\+Color(240, 164, 185)}
+
+\mbox{\label{colors_8h_a66290957baed5df3930ada4cb8caccf1}} 
+\index{colors.h@{colors.h}!KRED@{KRED}}
+\index{KRED@{KRED}!colors.h@{colors.h}}
+\doxysubsubsection{KRED}
+{\footnotesize\ttfamily \#define K\+R\+ED~Q\+Color(231, 35, 0)}
+
+\mbox{\label{colors_8h_a3ca1645030bc198370e3bbc646c15add}} 
+\index{colors.h@{colors.h}!KRED90SAT@{KRED90SAT}}
+\index{KRED90SAT@{KRED90SAT}!colors.h@{colors.h}}
+\doxysubsubsection{KRED90SAT}
+{\footnotesize\ttfamily \#define K\+R\+E\+D90\+S\+AT~Q\+Color(231, 55, 23)}
+
+\mbox{\label{colors_8h_a4b9418fc387b94b61052bb063a0c35d1}} 
+\index{colors.h@{colors.h}!KVERYDARKBLUE@{KVERYDARKBLUE}}
+\index{KVERYDARKBLUE@{KVERYDARKBLUE}!colors.h@{colors.h}}
+\doxysubsubsection{KVERYDARKBLUE}
+{\footnotesize\ttfamily \#define K\+V\+E\+R\+Y\+D\+A\+R\+K\+B\+L\+UE~Q\+Color(0, 65, 136)}
+
+\mbox{\label{colors_8h_a513ac3d47e6ece548f83403f50042314}} 
+\index{colors.h@{colors.h}!KVERYDARKVIOLET@{KVERYDARKVIOLET}}
+\index{KVERYDARKVIOLET@{KVERYDARKVIOLET}!colors.h@{colors.h}}
+\doxysubsubsection{KVERYDARKVIOLET}
+{\footnotesize\ttfamily \#define K\+V\+E\+R\+Y\+D\+A\+R\+K\+V\+I\+O\+L\+ET~Q\+Color(155, 87, 159)}
+
+\mbox{\label{colors_8h_af0e81261def31f5645d51a553cf821ef}} 
+\index{colors.h@{colors.h}!KVERYDARKYELLOW@{KVERYDARKYELLOW}}
+\index{KVERYDARKYELLOW@{KVERYDARKYELLOW}!colors.h@{colors.h}}
+\doxysubsubsection{KVERYDARKYELLOW}
+{\footnotesize\ttfamily \#define K\+V\+E\+R\+Y\+D\+A\+R\+K\+Y\+E\+L\+L\+OW~Q\+Color(245, 223, 58)}
+
+\mbox{\label{colors_8h_a19968b4729e87337ec26d10d8e07d09c}} 
+\index{colors.h@{colors.h}!KVIOLET@{KVIOLET}}
+\index{KVIOLET@{KVIOLET}!colors.h@{colors.h}}
+\doxysubsubsection{KVIOLET}
+{\footnotesize\ttfamily \#define K\+V\+I\+O\+L\+ET~Q\+Color(209, 176, 210)}
+
+\mbox{\label{colors_8h_a3650673f08955f1d30fc328ad0a3c9f4}} 
+\index{colors.h@{colors.h}!KYELLOW@{KYELLOW}}
+\index{KYELLOW@{KYELLOW}!colors.h@{colors.h}}
+\doxysubsubsection{KYELLOW}
+{\footnotesize\ttfamily \#define K\+Y\+E\+L\+L\+OW~Q\+Color(255, 245, 146)}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{colors_8h_ac47071f9e866a8b9a0e17a2d19c3aac0}} 
+\index{colors.h@{colors.h}!EColor@{EColor}}
+\index{EColor@{EColor}!colors.h@{colors.h}}
+\doxysubsubsection{EColor()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Q\+Color E\+Color (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{color\+String }\end{DoxyParamCaption})}
+
+\mbox{\label{colors_8h_a6c8d5ff4caf73ea2e851740ed981ddaf}} 
+\index{colors.h@{colors.h}!EColor@{EColor}}
+\index{EColor@{EColor}!colors.h@{colors.h}}
+\doxysubsubsection{EColor()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Q\+Color E\+Color (\begin{DoxyParamCaption}\item[{int}]{colorcode }\end{DoxyParamCaption})}
+
+This one returns the colour corresponding to the code passed as argument. \mbox{\label{colors_8h_a49595bae3712849c70e92882e2ec96e8}} 
+\index{colors.h@{colors.h}!EPalette@{EPalette}}
+\index{EPalette@{EPalette}!colors.h@{colors.h}}
+\doxysubsubsection{EPalette()}
+{\footnotesize\ttfamily Q\+Palette E\+Palette (\begin{DoxyParamCaption}\item[{Q\+String}]{ }\end{DoxyParamCaption})}
+

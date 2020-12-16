@@ -1,0 +1,394 @@
+\section{Qt\+Abstract\+Property\+Manager Class Reference}
+\label{classQtAbstractPropertyManager}\index{Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}}
+
+
+The \doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager} provides an interface for property managers.  
+
+
+
+
+{\ttfamily \#include $<$qtpropertybrowser.\+h$>$}
+
+Inheritance diagram for Qt\+Abstract\+Property\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{classQtAbstractPropertyManager}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf property\+Inserted} ({\bf Qt\+Property} $\ast$property, {\bf Qt\+Property} $\ast$parent, {\bf Qt\+Property} $\ast$after)
+\item 
+void {\bf property\+Changed} ({\bf Qt\+Property} $\ast$property)
+\item 
+void {\bf property\+Removed} ({\bf Qt\+Property} $\ast$property, {\bf Qt\+Property} $\ast$parent)
+\item 
+void {\bf property\+Destroyed} ({\bf Qt\+Property} $\ast$property)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Qt\+Abstract\+Property\+Manager} (Q\+Object $\ast$parent=0)
+\item 
+{\bf $\sim$\+Qt\+Abstract\+Property\+Manager} ()
+\item 
+Q\+Set$<$ {\bf Qt\+Property} $\ast$ $>$ {\bf properties} () const 
+\item 
+void {\bf clear} () const 
+\item 
+{\bf Qt\+Property} $\ast$ {\bf add\+Property} (const Q\+String \&name=Q\+String())
+\item 
+{\bf Qt\+Property} $\ast$ {\bf qt\+Property} (const Q\+String \&id) const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bf has\+Value} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+virtual Q\+Icon {\bf value\+Icon} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+virtual Q\+String {\bf value\+Text} (const {\bf Qt\+Property} $\ast$property) const 
+\item 
+virtual void {\bf initialize\+Property} ({\bf Qt\+Property} $\ast$property)=0
+\item 
+virtual void {\bf uninitialize\+Property} ({\bf Qt\+Property} $\ast$property)
+\item 
+virtual {\bf Qt\+Property} $\ast$ {\bf create\+Property} ()
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bf Qt\+Property}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A manager can create and manage properties of a given type, and is used in conjunction with the \doxyref{Qt\+Abstract\+Property\+Browser}{p.}{classQtAbstractPropertyBrowser} class.
+
+When using a property browser widget, the properties are created and managed by implementations of the \doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager} class. To ensure that the properties\textquotesingle{} values will be displayed using suitable editing widgets, the managers are associated with objects of \doxyref{Qt\+Abstract\+Editor\+Factory}{p.}{classQtAbstractEditorFactory} subclasses. The property browser will use these associations to determine which factories it should use to create the preferred editing widgets.
+
+The \doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager} class provides common functionality like creating a property using the \doxyref{add\+Property()}{p.}{classQtAbstractPropertyManager_abc5b894d6b9ba0441edebe561ca9f2f3} function, and retrieving the properties created by the manager using the \doxyref{properties()}{p.}{classQtAbstractPropertyManager_af10a7f87a398b2b49ece913baf46b1ec} function. The class also provides signals that are emitted when the manager\textquotesingle{}s properties change\+: \doxyref{property\+Inserted()}{p.}{classQtAbstractPropertyManager_a3e23d91d77fd1ad3657f5e12efd83839}, \doxyref{property\+Removed()}{p.}{classQtAbstractPropertyManager_ad80c2fd295b32b398c90bb85e145d4c0}, \doxyref{property\+Changed()}{p.}{classQtAbstractPropertyManager_a4dd203a9014a26e141b8a8f6b8c5e22d} and \doxyref{property\+Destroyed()}{p.}{classQtAbstractPropertyManager_a2aefea1236ae8c6451d58a87db3be309}.
+
+\doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager} subclasses are supposed to provide their own type specific A\+PI. Note that several ready-\/made implementations are available\+:
+
+\doxyref{Qt\+Bool\+Property\+Manager}{p.}{classQtBoolPropertyManager}  \doxyref{Qt\+Color\+Property\+Manager}{p.}{classQtColorPropertyManager}  \doxyref{Qt\+Date\+Property\+Manager}{p.}{classQtDatePropertyManager}  \doxyref{Qt\+Date\+Time\+Property\+Manager}{p.}{classQtDateTimePropertyManager}  \doxyref{Qt\+Double\+Property\+Manager}{p.}{classQtDoublePropertyManager}  \doxyref{Qt\+Enum\+Property\+Manager}{p.}{classQtEnumPropertyManager}  \doxyref{Qt\+Flag\+Property\+Manager}{p.}{classQtFlagPropertyManager}  \doxyref{Qt\+Font\+Property\+Manager}{p.}{classQtFontPropertyManager}  \doxyref{Qt\+Group\+Property\+Manager}{p.}{classQtGroupPropertyManager}  \doxyref{Qt\+Int\+Property\+Manager}{p.}{classQtIntPropertyManager}  \doxyref{Qt\+Point\+Property\+Manager}{p.}{classQtPointPropertyManager}  \doxyref{Qt\+Rect\+Property\+Manager}{p.}{classQtRectPropertyManager}  \doxyref{Qt\+Size\+Property\+Manager}{p.}{classQtSizePropertyManager}  \doxyref{Qt\+Size\+Policy\+Property\+Manager}{p.}{classQtSizePolicyPropertyManager}  \doxyref{Qt\+String\+Property\+Manager}{p.}{classQtStringPropertyManager}  \doxyref{Qt\+Time\+Property\+Manager}{p.}{classQtTimePropertyManager}  \doxyref{Qt\+Variant\+Property\+Manager}{p.}{classQtVariantPropertyManager} 
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Editor\+Factory\+Base}{p.}{classQtAbstractEditorFactoryBase}, \doxyref{Qt\+Abstract\+Property\+Browser}{p.}{classQtAbstractPropertyBrowser}, \doxyref{Qt\+Property}{p.}{classQtProperty} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}!Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}}
+\index{Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}!Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}}
+\subsubsection[{Qt\+Abstract\+Property\+Manager(\+Q\+Object $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Abstract\+Property\+Manager\+::\+Qt\+Abstract\+Property\+Manager (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{classQtAbstractPropertyManager_a9e5d9e58c0dcb3e1526241346f0e5f00}
+Creates an abstract property manager with the given {\itshape parent}. \index{Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}!````~Qt\+Abstract\+Property\+Manager@{$\sim$\+Qt\+Abstract\+Property\+Manager}}
+\index{````~Qt\+Abstract\+Property\+Manager@{$\sim$\+Qt\+Abstract\+Property\+Manager}!Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}}
+\subsubsection[{$\sim$\+Qt\+Abstract\+Property\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Qt\+Abstract\+Property\+Manager\+::$\sim$\+Qt\+Abstract\+Property\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classQtAbstractPropertyManager_a6e369a86114c6918bb31ae41b135b0e2}
+Destroys the manager. All properties created by the manager are destroyed. 
+
+References clear().
+
+
+
+\subsection{Member Function Documentation}
+\index{Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}!add\+Property@{add\+Property}}
+\index{add\+Property@{add\+Property}!Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}}
+\subsubsection[{add\+Property(const Q\+String \&name=\+Q\+String())}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Qt\+Property} $\ast$ Qt\+Abstract\+Property\+Manager\+::add\+Property (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{name = {\ttfamily QString()}}
+\end{DoxyParamCaption}
+)}\label{classQtAbstractPropertyManager_abc5b894d6b9ba0441edebe561ca9f2f3}
+Creates a property with the given {\itshape name} which then is owned by this manager.
+
+Internally, this function calls the \doxyref{create\+Property()}{p.}{classQtAbstractPropertyManager_ac7db11b00fc5384f9fc10eb8f02e3637} and \doxyref{initialize\+Property()}{p.}{classQtAbstractPropertyManager_ab7501ecabc5285cb50d7ed91a2ef44fc} functions.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{initialize\+Property()}{p.}{classQtAbstractPropertyManager_ab7501ecabc5285cb50d7ed91a2ef44fc}, \doxyref{properties()}{p.}{classQtAbstractPropertyManager_af10a7f87a398b2b49ece913baf46b1ec} 
+\end{DoxySeeAlso}
+
+
+References create\+Property(), initialize\+Property(), and Qt\+Abstract\+Property\+Manager\+Private\+::m\+\_\+properties.
+
+
+
+Referenced by Qt\+Variant\+Property\+Manager\+::add\+Property(), Qt\+Cursor\+Editor\+Factory\+::create\+Editor(), Qt\+Variant\+Property\+Manager\+::initialize\+Property(), Qt\+Locale\+Property\+Manager\+::initialize\+Property(), Qt\+Point\+Property\+Manager\+::initialize\+Property(), Qt\+Point\+F\+Property\+Manager\+::initialize\+Property(), Qt\+Size\+Property\+Manager\+::initialize\+Property(), Qt\+Size\+F\+Property\+Manager\+::initialize\+Property(), Qt\+Rect\+Property\+Manager\+::initialize\+Property(), Qt\+Rect\+F\+Property\+Manager\+::initialize\+Property(), Qt\+Size\+Policy\+Property\+Manager\+::initialize\+Property(), Qt\+Font\+Property\+Manager\+::initialize\+Property(), Qt\+Color\+Property\+Manager\+::initialize\+Property(), and Qt\+Flag\+Property\+Manager\+::set\+Flag\+Names().
+
+\index{Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}!clear@{clear}}
+\index{clear@{clear}!Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}}
+\subsubsection[{clear() const }]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Abstract\+Property\+Manager\+::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classQtAbstractPropertyManager_a7a193cbdaf05762c7a657f1e6c5d6664}
+Destroys all the properties that this manager has created.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{property\+Destroyed()}{p.}{classQtAbstractPropertyManager_a2aefea1236ae8c6451d58a87db3be309}, \doxyref{uninitialize\+Property()}{p.}{classQtAbstractPropertyManager_ad199337e1ac748eef077011d94ecd5b4} 
+\end{DoxySeeAlso}
+
+
+References properties().
+
+
+
+Referenced by Qt\+Variant\+Property\+Manager\+::set\+Properties(), $\sim$\+Qt\+Abstract\+Property\+Manager(), Qt\+Bool\+Property\+Manager\+::$\sim$\+Qt\+Bool\+Property\+Manager(), Qt\+Char\+Property\+Manager\+::$\sim$\+Qt\+Char\+Property\+Manager(), Qt\+Color\+Property\+Manager\+::$\sim$\+Qt\+Color\+Property\+Manager(), Qt\+Cursor\+Property\+Manager\+::$\sim$\+Qt\+Cursor\+Property\+Manager(), Qt\+Date\+Property\+Manager\+::$\sim$\+Qt\+Date\+Property\+Manager(), Qt\+Date\+Time\+Property\+Manager\+::$\sim$\+Qt\+Date\+Time\+Property\+Manager(), Qt\+Double\+Property\+Manager\+::$\sim$\+Qt\+Double\+Property\+Manager(), Qt\+Enum\+Property\+Manager\+::$\sim$\+Qt\+Enum\+Property\+Manager(), Qt\+Flag\+Property\+Manager\+::$\sim$\+Qt\+Flag\+Property\+Manager(), Qt\+Font\+Property\+Manager\+::$\sim$\+Qt\+Font\+Property\+Manager(), Qt\+Int\+Property\+Manager\+::$\sim$\+Qt\+Int\+Property\+Manager(), Qt\+Key\+Sequence\+Property\+Manager\+::$\sim$\+Qt\+Key\+Sequence\+Property\+Manager(), Qt\+Locale\+Property\+Manager\+::$\sim$\+Qt\+Locale\+Property\+Manager(), Qt\+Point\+F\+Property\+Manager\+::$\sim$\+Qt\+Point\+F\+Property\+Manager(), Qt\+Point\+Property\+Manager\+::$\sim$\+Qt\+Point\+Property\+Manager(), Qt\+Rect\+F\+Property\+Manager\+::$\sim$\+Qt\+Rect\+F\+Property\+Manager(), Qt\+Rect\+Property\+Manager\+::$\sim$\+Qt\+Rect\+Property\+Manager(), Qt\+Size\+F\+Property\+Manager\+::$\sim$\+Qt\+Size\+F\+Property\+Manager(), Qt\+Size\+Policy\+Property\+Manager\+::$\sim$\+Qt\+Size\+Policy\+Property\+Manager(), Qt\+Size\+Property\+Manager\+::$\sim$\+Qt\+Size\+Property\+Manager(), Qt\+String\+Property\+Manager\+::$\sim$\+Qt\+String\+Property\+Manager(), Qt\+Time\+Property\+Manager\+::$\sim$\+Qt\+Time\+Property\+Manager(), and Qt\+Variant\+Property\+Manager\+::$\sim$\+Qt\+Variant\+Property\+Manager().
+
+\index{Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}!create\+Property@{create\+Property}}
+\index{create\+Property@{create\+Property}!Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}}
+\subsubsection[{create\+Property()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Qt\+Property} $\ast$ Qt\+Abstract\+Property\+Manager\+::create\+Property (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtAbstractPropertyManager_ac7db11b00fc5384f9fc10eb8f02e3637}
+Creates a property.
+
+The base implementation produce \doxyref{Qt\+Property}{p.}{classQtProperty} instances; Reimplement this function to make this manager produce objects of a \doxyref{Qt\+Property}{p.}{classQtProperty} subclass.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{add\+Property()}{p.}{classQtAbstractPropertyManager_abc5b894d6b9ba0441edebe561ca9f2f3}, \doxyref{initialize\+Property()}{p.}{classQtAbstractPropertyManager_ab7501ecabc5285cb50d7ed91a2ef44fc} 
+\end{DoxySeeAlso}
+
+
+Reimplemented in {\bf Qt\+Variant\+Property\+Manager} \doxyref{}{p.}{classQtVariantPropertyManager_aaf65c2a926e9028b8118ab58cde202ab}.
+
+
+
+References Qt\+Property.
+
+
+
+Referenced by add\+Property().
+
+\index{Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}!has\+Value@{has\+Value}}
+\index{has\+Value@{has\+Value}!Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}}
+\subsubsection[{has\+Value(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Qt\+Abstract\+Property\+Manager\+::has\+Value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtAbstractPropertyManager_a6da2ba16bf6ed716d54efe81f118d3ca}
+Returns whether the given {\itshape property} has a value.
+
+The default implementation of this function returns true.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Property\+::has\+Value()}{p.}{classQtProperty_a2ac98d5e89936e65c8908043d6feaecb} 
+\end{DoxySeeAlso}
+
+
+Reimplemented in {\bf Qt\+Variant\+Property\+Manager} \doxyref{}{p.}{classQtVariantPropertyManager_a417980596344307405a06d76df7678aa}, and {\bf Qt\+Group\+Property\+Manager} \doxyref{}{p.}{classQtGroupPropertyManager_af26cb958379f283cad20b7f8affa6e37}.
+
+\index{Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}!initialize\+Property@{initialize\+Property}}
+\index{initialize\+Property@{initialize\+Property}!Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}}
+\subsubsection[{initialize\+Property(\+Qt\+Property $\ast$property)=0}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Abstract\+Property\+Manager\+::initialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\label{classQtAbstractPropertyManager_ab7501ecabc5285cb50d7ed91a2ef44fc}
+This function is called whenever a new valid property pointer has been created, passing the pointer as parameter.
+
+The purpose is to let the manager know that the {\itshape property} has been created so that it can provide additional attributes for the new property, e.\+g. \doxyref{Qt\+Int\+Property\+Manager}{p.}{classQtIntPropertyManager} adds  \{\doxyref{Qt\+Int\+Property\+Manager\+::value()}{p.}{classQtIntPropertyManager_abc2262d297496aff50d8cafa3e90b0ff}\}\{value\},  \{\doxyref{Qt\+Int\+Property\+Manager\+::minimum()}{p.}{classQtIntPropertyManager_acf24786c2e0990165cc69349d6acc580}\}\{minimum\} and  \{\doxyref{Qt\+Int\+Property\+Manager\+::maximum()}{p.}{classQtIntPropertyManager_a3277dc219e7689a0656420f472835ff1}\}\{maximum\} attributes. Since each manager subclass adds type specific attributes, this function is pure virtual and must be reimplemented when deriving from the \doxyref{Qt\+Abstract\+Property\+Manager}{p.}{classQtAbstractPropertyManager} class.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{add\+Property()}{p.}{classQtAbstractPropertyManager_abc5b894d6b9ba0441edebe561ca9f2f3}, \doxyref{create\+Property()}{p.}{classQtAbstractPropertyManager_ac7db11b00fc5384f9fc10eb8f02e3637} 
+\end{DoxySeeAlso}
+
+
+Implemented in {\bf Qt\+Cursor\+Property\+Manager} \doxyref{}{p.}{classQtCursorPropertyManager_a5b8e01747e6cb342b7aa702cdd0e0ca7}, {\bf Qt\+Color\+Property\+Manager} \doxyref{}{p.}{classQtColorPropertyManager_a3ed1db5091e4254e1c7cd84901fe493c}, {\bf Qt\+Font\+Property\+Manager} \doxyref{}{p.}{classQtFontPropertyManager_ae370c6b1cf871f95e72f9fd852239cf9}, {\bf Qt\+Size\+Policy\+Property\+Manager} \doxyref{}{p.}{classQtSizePolicyPropertyManager_ac721a0721079c7b9a379e168af071105}, {\bf Qt\+Flag\+Property\+Manager} \doxyref{}{p.}{classQtFlagPropertyManager_af3f71baec1c6d1324bec3b625ea2fec3}, {\bf Qt\+Enum\+Property\+Manager} \doxyref{}{p.}{classQtEnumPropertyManager_a380337ab0aef61b9119f1eab20923e2e}, {\bf Qt\+Rect\+F\+Property\+Manager} \doxyref{}{p.}{classQtRectFPropertyManager_afc07213056ce3d85b04155c9b4edbb12}, {\bf Qt\+Rect\+Property\+Manager} \doxyref{}{p.}{classQtRectPropertyManager_a7ef8e45d21bf2c9556d8bd46d2adee99}, {\bf Qt\+Size\+F\+Property\+Manager} \doxyref{}{p.}{classQtSizeFPropertyManager_ade99b4b3076e344ae230a6bceb9f5a0b}, {\bf Qt\+Size\+Property\+Manager} \doxyref{}{p.}{classQtSizePropertyManager_affbd5b7cfafc273b1af7b6e535de39ee}, {\bf Qt\+Point\+F\+Property\+Manager} \doxyref{}{p.}{classQtPointFPropertyManager_a93d70b66ddea00a1973d077826e7e5b7}, {\bf Qt\+Point\+Property\+Manager} \doxyref{}{p.}{classQtPointPropertyManager_a5ae6d35655a2d0f514a87ded1f2fd6b5}, {\bf Qt\+Locale\+Property\+Manager} \doxyref{}{p.}{classQtLocalePropertyManager_aba1f7221a566326fd45550425aadf86c}, {\bf Qt\+Char\+Property\+Manager} \doxyref{}{p.}{classQtCharPropertyManager_ae207515c3aae784975c7916768a18147}, {\bf Qt\+Key\+Sequence\+Property\+Manager} \doxyref{}{p.}{classQtKeySequencePropertyManager_a535348ab3ea71807535749f3b4cbee35}, {\bf Qt\+Date\+Time\+Property\+Manager} \doxyref{}{p.}{classQtDateTimePropertyManager_a6418659fcf52c0dfe5f1890dae3352e7}, {\bf Qt\+Time\+Property\+Manager} \doxyref{}{p.}{classQtTimePropertyManager_a46bc4d2834231fe8494ed3d93560d700}, {\bf Qt\+Date\+Property\+Manager} \doxyref{}{p.}{classQtDatePropertyManager_a92b385e207ae87190a6e04b2ce5cce9f}, {\bf Qt\+String\+Property\+Manager} \doxyref{}{p.}{classQtStringPropertyManager_a6e86cfa0182e704f50757f7a2cf4eb4c}, {\bf Qt\+Double\+Property\+Manager} \doxyref{}{p.}{classQtDoublePropertyManager_a5c5e24308b5e1449bc8a63073c9095bf}, {\bf Qt\+Bool\+Property\+Manager} \doxyref{}{p.}{classQtBoolPropertyManager_a758b13aa5589bf07c8afd86f5955b27a}, {\bf Qt\+Variant\+Property\+Manager} \doxyref{}{p.}{classQtVariantPropertyManager_a2b57de024031199e7d84caf917f5508d}, {\bf Qt\+Int\+Property\+Manager} \doxyref{}{p.}{classQtIntPropertyManager_a4fecf7bf63c97bab2204f8ebe329d9c7}, and {\bf Qt\+Group\+Property\+Manager} \doxyref{}{p.}{classQtGroupPropertyManager_a88a0f0bb93c6f2758ef327deb0b260be}.
+
+
+
+Referenced by add\+Property().
+
+\index{Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}!properties@{properties}}
+\index{properties@{properties}!Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}}
+\subsubsection[{properties() const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Set$<$ {\bf Qt\+Property} $\ast$ $>$ Qt\+Abstract\+Property\+Manager\+::properties (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classQtAbstractPropertyManager_af10a7f87a398b2b49ece913baf46b1ec}
+Returns the set of properties created by this manager.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{add\+Property()}{p.}{classQtAbstractPropertyManager_abc5b894d6b9ba0441edebe561ca9f2f3} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Abstract\+Property\+Manager\+Private\+::m\+\_\+properties.
+
+
+
+Referenced by clear().
+
+\index{Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}!property\+Changed@{property\+Changed}}
+\index{property\+Changed@{property\+Changed}!Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}}
+\subsubsection[{property\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Abstract\+Property\+Manager\+::property\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtAbstractPropertyManager_a4dd203a9014a26e141b8a8f6b8c5e22d}
+This signal is emitted whenever a property\textquotesingle{}s data changes, passing a pointer to the {\itshape property} as parameter.
+
+Note that signal is only emitted for properties that are created by this manager.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Browser\+::item\+Changed()}{p.}{classQtAbstractPropertyBrowser_a222c0033b0585cecf2a0717826f6e96b} 
+\end{DoxySeeAlso}
+
+
+Referenced by Qt\+Rect\+Property\+Manager\+::set\+Constraint(), Qt\+Rect\+F\+Property\+Manager\+::set\+Constraint(), Qt\+Enum\+Property\+Manager\+::set\+Enum\+Icons(), Qt\+Enum\+Property\+Manager\+::set\+Enum\+Names(), Qt\+Flag\+Property\+Manager\+::set\+Flag\+Names(), Qt\+Int\+Property\+Manager\+::set\+Maximum(), Qt\+Double\+Property\+Manager\+::set\+Maximum(), Qt\+Date\+Property\+Manager\+::set\+Maximum(), Qt\+Size\+Property\+Manager\+::set\+Maximum(), Qt\+Size\+F\+Property\+Manager\+::set\+Maximum(), Qt\+Int\+Property\+Manager\+::set\+Minimum(), Qt\+Double\+Property\+Manager\+::set\+Minimum(), Qt\+Date\+Property\+Manager\+::set\+Minimum(), Qt\+Size\+Property\+Manager\+::set\+Minimum(), Qt\+Size\+F\+Property\+Manager\+::set\+Minimum(), Qt\+Int\+Property\+Manager\+::set\+Range(), Qt\+Double\+Property\+Manager\+::set\+Range(), Qt\+Date\+Property\+Manager\+::set\+Range(), Qt\+Size\+Property\+Manager\+::set\+Range(), Qt\+Size\+F\+Property\+Manager\+::set\+Range(), Qt\+Int\+Property\+Manager\+::set\+Value(), Qt\+Bool\+Property\+Manager\+::set\+Value(), Qt\+Double\+Property\+Manager\+::set\+Value(), Qt\+String\+Property\+Manager\+::set\+Value(), Qt\+Date\+Property\+Manager\+::set\+Value(), Qt\+Time\+Property\+Manager\+::set\+Value(), Qt\+Date\+Time\+Property\+Manager\+::set\+Value(), Qt\+Key\+Sequence\+Property\+Manager\+::set\+Value(), Qt\+Char\+Property\+Manager\+::set\+Value(), Qt\+Locale\+Property\+Manager\+::set\+Value(), Qt\+Point\+Property\+Manager\+::set\+Value(), Qt\+Point\+F\+Property\+Manager\+::set\+Value(), Qt\+Size\+Property\+Manager\+::set\+Value(), Qt\+Size\+F\+Property\+Manager\+::set\+Value(), Qt\+Rect\+Property\+Manager\+::set\+Value(), Qt\+Rect\+F\+Property\+Manager\+::set\+Value(), Qt\+Enum\+Property\+Manager\+::set\+Value(), Qt\+Flag\+Property\+Manager\+::set\+Value(), Qt\+Size\+Policy\+Property\+Manager\+::set\+Value(), Qt\+Font\+Property\+Manager\+::set\+Value(), Qt\+Color\+Property\+Manager\+::set\+Value(), Qt\+Cursor\+Property\+Manager\+::set\+Value(), and Qt\+Variant\+Property\+Manager\+Private\+::value\+Changed().
+
+\index{Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}!property\+Destroyed@{property\+Destroyed}}
+\index{property\+Destroyed@{property\+Destroyed}!Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}}
+\subsubsection[{property\+Destroyed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Abstract\+Property\+Manager\+::property\+Destroyed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtAbstractPropertyManager_a2aefea1236ae8c6451d58a87db3be309}
+This signal is emitted when the specified {\itshape property} is about to be destroyed.
+
+Note that signal is only emitted for properties that are created by this manager.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{clear()}{p.}{classQtAbstractPropertyManager_a7a193cbdaf05762c7a657f1e6c5d6664}, \doxyref{uninitialize\+Property()}{p.}{classQtAbstractPropertyManager_ad199337e1ac748eef077011d94ecd5b4} 
+\end{DoxySeeAlso}
+
+
+Referenced by Qt\+Color\+Property\+Manager\+::\+Qt\+Color\+Property\+Manager(), Qt\+Flag\+Property\+Manager\+::\+Qt\+Flag\+Property\+Manager(), Qt\+Font\+Property\+Manager\+::\+Qt\+Font\+Property\+Manager(), Qt\+Locale\+Property\+Manager\+::\+Qt\+Locale\+Property\+Manager(), Qt\+Point\+F\+Property\+Manager\+::\+Qt\+Point\+F\+Property\+Manager(), Qt\+Point\+Property\+Manager\+::\+Qt\+Point\+Property\+Manager(), Qt\+Rect\+F\+Property\+Manager\+::\+Qt\+Rect\+F\+Property\+Manager(), Qt\+Rect\+Property\+Manager\+::\+Qt\+Rect\+Property\+Manager(), Qt\+Size\+F\+Property\+Manager\+::\+Qt\+Size\+F\+Property\+Manager(), Qt\+Size\+Policy\+Property\+Manager\+::\+Qt\+Size\+Policy\+Property\+Manager(), and Qt\+Size\+Property\+Manager\+::\+Qt\+Size\+Property\+Manager().
+
+\index{Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}!property\+Inserted@{property\+Inserted}}
+\index{property\+Inserted@{property\+Inserted}!Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}}
+\subsubsection[{property\+Inserted}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Abstract\+Property\+Manager\+::property\+Inserted (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{new\+Property, }
+\item[{{\bf Qt\+Property} $\ast$}]{parent\+Property, }
+\item[{{\bf Qt\+Property} $\ast$}]{preceding\+Property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtAbstractPropertyManager_a3e23d91d77fd1ad3657f5e12efd83839}
+This signal is emitted when a new subproperty is inserted into an existing property, passing pointers to the {\itshape new\+Property}, {\itshape parent\+Property} and {\itshape preceding\+Property} as parameters.
+
+If {\itshape preceding\+Property} is 0, the {\itshape new\+Property} was inserted at the beginning of the {\itshape parent\+Property\textquotesingle{}s} subproperties list.
+
+Note that signal is emitted only if the {\itshape parent\+Property} is created by this manager.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Browser\+::item\+Inserted()}{p.}{classQtAbstractPropertyBrowser_a62ec622f3c0381141a206441941b7e67} 
+\end{DoxySeeAlso}
+
+
+Referenced by Qt\+Variant\+Property\+Manager\+::\+Qt\+Variant\+Property\+Manager().
+
+\index{Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}!property\+Removed@{property\+Removed}}
+\index{property\+Removed@{property\+Removed}!Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}}
+\subsubsection[{property\+Removed}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Abstract\+Property\+Manager\+::property\+Removed (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property, }
+\item[{{\bf Qt\+Property} $\ast$}]{parent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classQtAbstractPropertyManager_ad80c2fd295b32b398c90bb85e145d4c0}
+This signal is emitted when a subproperty is removed, passing pointers to the removed {\itshape property} and the {\itshape parent} property as parameters.
+
+Note that signal is emitted only when the {\itshape parent} property is created by this manager.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Abstract\+Property\+Browser\+::item\+Removed()}{p.}{classQtAbstractPropertyBrowser_ad605abd88d30b906e85e920d64727a9e} 
+\end{DoxySeeAlso}
+
+
+Referenced by Qt\+Variant\+Property\+Manager\+::\+Qt\+Variant\+Property\+Manager().
+
+\index{Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}!qt\+Property@{qt\+Property}}
+\index{qt\+Property@{qt\+Property}!Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}}
+\subsubsection[{qt\+Property(const Q\+String \&id) const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Qt\+Property} $\ast$ Qt\+Abstract\+Property\+Manager\+::qt\+Property (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{id}
+\end{DoxyParamCaption}
+) const}\label{classQtAbstractPropertyManager_ab06d25c1648f8150d43e1c4d93e2267a}
+Return the \doxyref{Qt\+Property}{p.}{classQtProperty} object matching {\itshape id} or Null if any.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{add\+Property()}{p.}{classQtAbstractPropertyManager_abc5b894d6b9ba0441edebe561ca9f2f3}, set\+Property\+Id(const Q\+String\&), \doxyref{properties()}{p.}{classQtAbstractPropertyManager_af10a7f87a398b2b49ece913baf46b1ec} 
+\end{DoxySeeAlso}
+
+
+References Qt\+Abstract\+Property\+Manager\+Private\+::m\+\_\+properties, and Qt\+Property\+::property\+Id().
+
+\index{Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}!uninitialize\+Property@{uninitialize\+Property}}
+\index{uninitialize\+Property@{uninitialize\+Property}!Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}}
+\subsubsection[{uninitialize\+Property(\+Qt\+Property $\ast$property)}]{\setlength{\rightskip}{0pt plus 5cm}void Qt\+Abstract\+Property\+Manager\+::uninitialize\+Property (
+\begin{DoxyParamCaption}
+\item[{{\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtAbstractPropertyManager_ad199337e1ac748eef077011d94ecd5b4}
+This function is called just before the specified {\itshape property} is destroyed.
+
+The purpose is to let the property manager know that the {\itshape property} is being destroyed so that it can remove the property\textquotesingle{}s additional attributes.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{clear()}{p.}{classQtAbstractPropertyManager_a7a193cbdaf05762c7a657f1e6c5d6664}, \doxyref{property\+Destroyed()}{p.}{classQtAbstractPropertyManager_a2aefea1236ae8c6451d58a87db3be309} 
+\end{DoxySeeAlso}
+
+
+Reimplemented in {\bf Qt\+Cursor\+Property\+Manager} \doxyref{}{p.}{classQtCursorPropertyManager_afe6290923c1666152ae53016a11a48d3}, {\bf Qt\+Color\+Property\+Manager} \doxyref{}{p.}{classQtColorPropertyManager_a60a02ff7d7e1e5ac85a358eec04b16d5}, {\bf Qt\+Font\+Property\+Manager} \doxyref{}{p.}{classQtFontPropertyManager_a4ed2849900dd32f8a6a2f56f211be92a}, {\bf Qt\+Size\+Policy\+Property\+Manager} \doxyref{}{p.}{classQtSizePolicyPropertyManager_a5592c75fee18509747de4367c6fd4c49}, {\bf Qt\+Flag\+Property\+Manager} \doxyref{}{p.}{classQtFlagPropertyManager_a06e6ef0fab89e39576438bc10b3a464a}, {\bf Qt\+Enum\+Property\+Manager} \doxyref{}{p.}{classQtEnumPropertyManager_a37c2cb2178dcc72995217dc1a2d389e7}, {\bf Qt\+Rect\+F\+Property\+Manager} \doxyref{}{p.}{classQtRectFPropertyManager_a34a89c20404b3ebe23d6404d0c25268b}, {\bf Qt\+Rect\+Property\+Manager} \doxyref{}{p.}{classQtRectPropertyManager_a468b488ed9a198946c8f730e2127e8f3}, {\bf Qt\+Size\+F\+Property\+Manager} \doxyref{}{p.}{classQtSizeFPropertyManager_ae2fc90ab9183c10ed4ffbb179cadd622}, {\bf Qt\+Size\+Property\+Manager} \doxyref{}{p.}{classQtSizePropertyManager_ac0cea7899f1b5433973f0fad9d593fd5}, {\bf Qt\+Point\+F\+Property\+Manager} \doxyref{}{p.}{classQtPointFPropertyManager_a73c4cbf770536c0d22e2d95f3fc454ac}, {\bf Qt\+Point\+Property\+Manager} \doxyref{}{p.}{classQtPointPropertyManager_a418630d38b451fec72d09622bbc9dcaa}, {\bf Qt\+Locale\+Property\+Manager} \doxyref{}{p.}{classQtLocalePropertyManager_af87544cd8b7869ebb9489d50aa34cdb6}, {\bf Qt\+Char\+Property\+Manager} \doxyref{}{p.}{classQtCharPropertyManager_aed6afc266cd6120391f29b0747124d56}, {\bf Qt\+Key\+Sequence\+Property\+Manager} \doxyref{}{p.}{classQtKeySequencePropertyManager_aa2e4e15743b3cf77b3f37eb0fcee93b0}, {\bf Qt\+Date\+Time\+Property\+Manager} \doxyref{}{p.}{classQtDateTimePropertyManager_a359a346d314784221c2c7e64137bdffc}, {\bf Qt\+Time\+Property\+Manager} \doxyref{}{p.}{classQtTimePropertyManager_a3219bae9a9c145e02adf21d0d5a5773e}, {\bf Qt\+Date\+Property\+Manager} \doxyref{}{p.}{classQtDatePropertyManager_afc48022784f8277e9658cf26e511745a}, {\bf Qt\+String\+Property\+Manager} \doxyref{}{p.}{classQtStringPropertyManager_a046e5ee0df117af90a329a7726d64b00}, {\bf Qt\+Double\+Property\+Manager} \doxyref{}{p.}{classQtDoublePropertyManager_a7b7f5f82c57e094d68cc06590bd9be50}, {\bf Qt\+Bool\+Property\+Manager} \doxyref{}{p.}{classQtBoolPropertyManager_a8c420593cad72638c09fd5d277704c34}, {\bf Qt\+Variant\+Property\+Manager} \doxyref{}{p.}{classQtVariantPropertyManager_a32ebe02bae527da0b599f149fa47b073}, {\bf Qt\+Int\+Property\+Manager} \doxyref{}{p.}{classQtIntPropertyManager_ade1279551339ebcaad47f35ded9489a8}, and {\bf Qt\+Group\+Property\+Manager} \doxyref{}{p.}{classQtGroupPropertyManager_a5da3d766cbd3b92a7491522e4a5e1e9b}.
+
+\index{Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}!value\+Icon@{value\+Icon}}
+\index{value\+Icon@{value\+Icon}!Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}}
+\subsubsection[{value\+Icon(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+Icon Qt\+Abstract\+Property\+Manager\+::value\+Icon (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtAbstractPropertyManager_afaa976f67da37d80dde3d418994b2ec2}
+Returns an icon representing the current state of the given {\itshape property}.
+
+The default implementation of this function returns an invalid icon.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Property\+::value\+Icon()}{p.}{classQtProperty_ae1be1b52a375a5b781bc938f866da163} 
+\end{DoxySeeAlso}
+
+
+Reimplemented in {\bf Qt\+Cursor\+Property\+Manager} \doxyref{}{p.}{classQtCursorPropertyManager_a625c38cd079a45a567635a3432007106}, {\bf Qt\+Color\+Property\+Manager} \doxyref{}{p.}{classQtColorPropertyManager_a88a7a2c02a96c2da02e377e6799001e4}, {\bf Qt\+Font\+Property\+Manager} \doxyref{}{p.}{classQtFontPropertyManager_a0d83560095c9561c7bd74d1653e9aad3}, {\bf Qt\+Enum\+Property\+Manager} \doxyref{}{p.}{classQtEnumPropertyManager_a903a4a4acf78b63d13ae79bc9a47ef68}, {\bf Qt\+Bool\+Property\+Manager} \doxyref{}{p.}{classQtBoolPropertyManager_a3a794fd75e24095252dffb44168531bf}, and {\bf Qt\+Variant\+Property\+Manager} \doxyref{}{p.}{classQtVariantPropertyManager_a0a796b67e22e0ca8e6a09cef4c14acd3}.
+
+\index{Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}!value\+Text@{value\+Text}}
+\index{value\+Text@{value\+Text}!Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}}
+\subsubsection[{value\+Text(const Qt\+Property $\ast$property) const }]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Qt\+Abstract\+Property\+Manager\+::value\+Text (
+\begin{DoxyParamCaption}
+\item[{const {\bf Qt\+Property} $\ast$}]{property}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classQtAbstractPropertyManager_aa99cf98b6f1d9582245eb2f5168c5b21}
+Returns a string representing the current state of the given {\itshape property}.
+
+The default implementation of this function returns an empty string.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Qt\+Property\+::value\+Text()}{p.}{classQtProperty_a22b03edfd4b9cb8cc39c9c7af3390ebc} 
+\end{DoxySeeAlso}
+
+
+Reimplemented in {\bf Qt\+Cursor\+Property\+Manager} \doxyref{}{p.}{classQtCursorPropertyManager_a61d3abfd0a536a908e2acfc897b38b42}, {\bf Qt\+Color\+Property\+Manager} \doxyref{}{p.}{classQtColorPropertyManager_afba3549c2b192d117bcab72998395e91}, {\bf Qt\+Font\+Property\+Manager} \doxyref{}{p.}{classQtFontPropertyManager_a3576ebde81373f5c0fd55f2db03c5a65}, {\bf Qt\+Size\+Policy\+Property\+Manager} \doxyref{}{p.}{classQtSizePolicyPropertyManager_a53d82794e142255e721cda36f1a8e3cd}, {\bf Qt\+Flag\+Property\+Manager} \doxyref{}{p.}{classQtFlagPropertyManager_a864f4ec2abb83e214bad6a46d71adfe4}, {\bf Qt\+Enum\+Property\+Manager} \doxyref{}{p.}{classQtEnumPropertyManager_a803c615591a0a4f94230e7bcc7b3adee}, {\bf Qt\+Rect\+F\+Property\+Manager} \doxyref{}{p.}{classQtRectFPropertyManager_a719366d409ba9946464cf31db5369d13}, {\bf Qt\+Rect\+Property\+Manager} \doxyref{}{p.}{classQtRectPropertyManager_acce435cbc11a33e47bc9ca63b3c523aa}, {\bf Qt\+Size\+F\+Property\+Manager} \doxyref{}{p.}{classQtSizeFPropertyManager_a8d82644f7cb4b4b7a40a1bff1b1bd747}, {\bf Qt\+Size\+Property\+Manager} \doxyref{}{p.}{classQtSizePropertyManager_aaa0414ae375124021030687e0a54c61c}, {\bf Qt\+Point\+F\+Property\+Manager} \doxyref{}{p.}{classQtPointFPropertyManager_ac8421111e17f3d5aaff8a58600e72fff}, {\bf Qt\+Point\+Property\+Manager} \doxyref{}{p.}{classQtPointPropertyManager_ab5cefa3137a39bf742e804c6c3ad2d7c}, {\bf Qt\+Locale\+Property\+Manager} \doxyref{}{p.}{classQtLocalePropertyManager_a078c5eaeaf6bed6d0466e57f438b615b}, {\bf Qt\+Char\+Property\+Manager} \doxyref{}{p.}{classQtCharPropertyManager_a011cae66e8ae165586a550a29eeb4ae1}, {\bf Qt\+Key\+Sequence\+Property\+Manager} \doxyref{}{p.}{classQtKeySequencePropertyManager_add2465e1e34bfd12c64f322efd022346}, {\bf Qt\+Date\+Time\+Property\+Manager} \doxyref{}{p.}{classQtDateTimePropertyManager_a906f3a4c0505b8fda5c506cc2f29fcce}, {\bf Qt\+Time\+Property\+Manager} \doxyref{}{p.}{classQtTimePropertyManager_a0bb8d9bfe88ac3aa93defefd369769e2}, {\bf Qt\+Date\+Property\+Manager} \doxyref{}{p.}{classQtDatePropertyManager_a5ca8e795a7b0a7119d64ed7e8ebb4c3c}, {\bf Qt\+String\+Property\+Manager} \doxyref{}{p.}{classQtStringPropertyManager_a01d96a9c764bb41d5419db8dca1cd394}, {\bf Qt\+Double\+Property\+Manager} \doxyref{}{p.}{classQtDoublePropertyManager_a0fc1a084b9a16f860fb43fca41f0ce75}, {\bf Qt\+Bool\+Property\+Manager} \doxyref{}{p.}{classQtBoolPropertyManager_af994b96984fcd57e80430d00ed3840ed}, {\bf Qt\+Variant\+Property\+Manager} \doxyref{}{p.}{classQtVariantPropertyManager_a9c2eff6ed3ef5cf47c96d18f505d6b86}, and {\bf Qt\+Int\+Property\+Manager} \doxyref{}{p.}{classQtIntPropertyManager_a6d49f585aa4d0c9f9a25bc9731b3fbd3}.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\index{Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}!Qt\+Property@{Qt\+Property}}
+\index{Qt\+Property@{Qt\+Property}!Qt\+Abstract\+Property\+Manager@{Qt\+Abstract\+Property\+Manager}}
+\subsubsection[{Qt\+Property}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Qt\+Property}\hspace{0.3cm}{\ttfamily [friend]}}\label{classQtAbstractPropertyManager_adc25b7a00df81ad949e753be7a6fcbd3}
+
+
+Referenced by create\+Property().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+{\bf qtpropertybrowser.\+h}\item 
+{\bf qtpropertybrowser.\+cpp}\end{DoxyCompactItemize}

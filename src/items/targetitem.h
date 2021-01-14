@@ -52,6 +52,7 @@ public:
     }
 
     TargetItem(ScaleItem* xAxis, ScaleItem* yAxis, PlotSceneWidget* plot);
+    ~TargetItem();
 
     QColor circleColor() const;
 

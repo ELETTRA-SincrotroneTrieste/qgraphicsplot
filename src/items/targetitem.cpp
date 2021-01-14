@@ -57,6 +57,11 @@ TargetItem::TargetItem(ScaleItem* xAxis, ScaleItem* yAxis, PlotSceneWidget* plot
 
     d_ptr->xAxis->installAxisChangeListener(this);
     d_ptr->yAxis->installAxisChangeListener(this);
+    printf("\e[1;31mTargetItem.TargetItem: new item %p as axis change lis %p\e[0m\n", this, static_cast<AxisChangeListener *>(this));
+}
+
+TargetItem::~TargetItem() {
+
 }
 
 /** \brief Installs an ItemMoveListener implementation

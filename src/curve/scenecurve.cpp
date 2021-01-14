@@ -181,9 +181,7 @@ SceneCurve::SceneCurve(PlotSceneWidget *sceneWidget,
     canvasRectChanged(d_ptr->plot->plotRect());
 }
 
-SceneCurve::~SceneCurve()
-{
-    qDebug() << __FUNCTION__ << "deleting scene curve " << objectName();
+SceneCurve::~SceneCurve() {
 }
 
 QString SceneCurve::name() const

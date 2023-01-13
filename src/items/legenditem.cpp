@@ -65,8 +65,8 @@ void LegendItemPrivate::updateLongestCurveName()
     }
 }
 
-LegendItem::LegendItem(QGraphicsScene *) :
-    QGraphicsObject(0)
+LegendItem::LegendItem(QGraphicsItem *parent) :
+    QGraphicsObject(parent)
 {
     d_ptr = new LegendItemPrivate();
     d_ptr->width = 300;

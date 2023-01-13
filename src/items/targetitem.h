@@ -6,7 +6,7 @@
 
 class ItemMoveListener;
 class ScaleItem;
-class PlotSceneWidget;
+class QGraphicsPlotItem;
 class TargetItemPrivate;
 
 /** \brief A QGraphicsObject that can be moved and can be attached to a writer
@@ -51,7 +51,7 @@ public:
         return Type;
     }
 
-    TargetItem(ScaleItem* xAxis, ScaleItem* yAxis, PlotSceneWidget* plot);
+    TargetItem(ScaleItem* xAxis, ScaleItem* yAxis, QGraphicsPlotItem* plot);
     ~TargetItem();
 
     QColor circleColor() const;

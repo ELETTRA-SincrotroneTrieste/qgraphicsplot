@@ -147,7 +147,7 @@
   * @see HistogramPainter
   * @see ItemPainterInterface
   */
-SceneCurve::SceneCurve(PlotSceneWidget *sceneWidget,
+SceneCurve::SceneCurve(QGraphicsPlotItem *sceneWidget,
                        const QString &name,
                        ScaleItem *xAxis,
                        ScaleItem *yAxis) :
@@ -189,7 +189,7 @@ QString SceneCurve::name() const
     return d_ptr->name;
 }
 
-PlotSceneWidget* SceneCurve::plot() const
+QGraphicsPlotItem* SceneCurve::plot() const
 {
     return d_ptr->plot;
 }
@@ -426,10 +426,10 @@ void SceneCurve::setData(const QVector<double>& xData, const QVector<double> &yD
     else if(d_ptr->yAxis->axisAutoscaleEnabled())
         d_ptr->data->calculateYBounds();
 
-    if(!d_ptr->plot->manualSceneUpdate())
+//    if(!d_ptr->plot->manualSceneUpdate())
     {
-        foreach(CurveChangeListener *listener, d_ptr->itemChangeListeners)
-            listener->fullVectorUpdate();
+//        foreach(CurveChangeListener *listener, d_ptr->itemChangeListeners)
+//            listener->fullVectorUpdate();
     }
 }
 
@@ -455,10 +455,10 @@ void SceneCurve::addPoints(const QVector<double>& xData, const QVector<double> &
         else if(d_ptr->yAxis->axisAutoscaleEnabled())
             d_ptr->data->calculateYBounds();
 
-        if(!d_ptr->plot->manualSceneUpdate())
+//        if(!d_ptr->plot->manualSceneUpdate())
         {
-            foreach(CurveChangeListener *listener, d_ptr->itemChangeListeners)
-                listener->fullVectorUpdate();
+//            foreach(CurveChangeListener *listener, d_ptr->itemChangeListeners)
+//                listener->fullVectorUpdate();
         }
 
     }

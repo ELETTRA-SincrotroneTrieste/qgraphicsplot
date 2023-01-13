@@ -1,12 +1,14 @@
 #include "markeritem.h"
-#include "plotscenewidget.h"
+#include "qgraphicsplotitem.h"
 #include "markeritemprivate.h"
 #include "qgraphicsplotmacros.h"
 #include "colors.h"
 #include <math.h>
 #include <QMouseEvent>
+#include <QPainter>
 #include <QtDebug>
 #include <QStyleOptionGraphicsItem>
+#include <QGraphicsSceneMouseEvent>
 
 MarkerItem::MarkerItem(QGraphicsObject *parent) : QGraphicsObject(parent),
     MouseEventListener()
@@ -139,25 +141,21 @@ void MarkerItem::removeCurve(SceneCurve *c)
     d_ptr->closestCurves.removeAll(c);
 }
 
-void MarkerItem::mouseReleaseEvent(PlotSceneWidget* plot, QMouseEvent* e)
+void MarkerItem::mouseReleaseEvent(QGraphicsPlotItem* plot, QGraphicsSceneMouseEvent* e)
 {
-    if(e->button() == Qt::MidButton)
-    {
+    if(e->button() == Qt::MidButton) {
         setVisible(false);
-        plot->scene()->update();
     }
 }
 
-void MarkerItem::mouseDoubleClickEvent(PlotSceneWidget* plot, QMouseEvent* e)
+void MarkerItem::mouseDoubleClickEvent(QGraphicsPlotItem* plot, QGraphicsSceneMouseEvent* e)
 {
-    if(e->button() == Qt::LeftButton)
-    {
+    if(e->button() == Qt::LeftButton) {
         setVisible(false);
-        plot->scene()->update();
     }
 }
 
-void MarkerItem::mouseClickEvent(PlotSceneWidget *plot, const QPointF &pos)
+void MarkerItem::mouseClickEvent(QGraphicsPlotItem *plot, const QPointF &pos)
 {
     d_ptr->plot = plot;
     d_ptr->closestCurves = plot->getClosest(d_ptr->closestPoint, &d_ptr->closestIndex, pos);
@@ -174,9 +172,9 @@ void MarkerItem::mouseClickEvent(PlotSceneWidget *plot, const QPointF &pos)
      * and then show again. The bounding rect optimized in paint upon first
      * show may fall outside the new zoomed area.
      */
-    QTransform tran = plot->QGraphicsView::transform();
-    QPointF topLeft = plot->mapToScene(0, 0);
-    QPointF botRight = plot->mapToScene(plot->rect().bottom(), plot->rect().right());
+    QTransform tran = transform();
+    QPointF topLeft(0, 0); //  = plot->mapToScene(0, 0);
+    QPointF botRight = plot->mapToScene(plot->boundingRect().bottom(), plot->boundingRect().right());
     double x = topLeft.x();
     double y = topLeft.y();
     x = tran.m11() * x + tran.m21() * y + tran.dx();
@@ -193,18 +191,12 @@ void MarkerItem::mouseClickEvent(PlotSceneWidget *plot, const QPointF &pos)
     d_ptr->boundingRect = QRectF(newTopLeft, newBotRight);
 //    qDebug() << __FUNCTION__ << d_ptr->boundingRect;
 
-    plot->scene()->update();
+//    plot->scene()->update();
     setZValue(plot->getCurves().size() + 1);
 }
 
 void MarkerItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *w)
 {
-    QGraphicsView *view = NULL;
-    if(scene()->views().size() > 0)
-        view = scene()->views().first();
-//    if(view == NULL)
-//        return QGraphicsObject::paint(painter, option, w);
-
    // painter->setClipRect(option->exposedRect.toRect());
     QFont f = painter->font();
     f.setBold(true);
@@ -230,7 +222,7 @@ void MarkerItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
         double dy = curvePoint.y();
         double dx = curvePoint.x();
 
-        QTransform tran = view->transform();
+        QTransform tran = transform();
         dx = tran.m11() * dx + tran.m21() * dy + tran.dx();
         dy = tran.m22() * dy + tran.m12() * dx + tran.dy();
 
@@ -243,7 +235,7 @@ void MarkerItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
        // double w = aClosestCurve->scene()->sceneRect().width();
        // double h = aClosestCurve->scene()->sceneRect().height();
         double x = 0, y = 0;
-        QPointF topLeft = view->mapToScene(5, 5);
+        QPointF topLeft(5,5); // = view->mapToScene(5, 5);
         x = topLeft.x();
         y = topLeft.y();
         x = tran.m11() * x + tran.m21() * y + tran.dx();
@@ -264,7 +256,7 @@ void MarkerItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
                     curveName = c->name();
                 curveName = curveName.section('/', curveName.count('/') -1, curveName.count('/'));
                 txt = QString("%1 {%2} [%3]").arg(curveName).arg(sx).arg(sy);
-                txtW = fm.width(txt);
+                txtW = fm.horizontalAdvance(txt);
 
 //                if(d_ptr->closestPoint.x() > w / 2)
 //                    x = dx - txtW - d_ptr->radius;
@@ -301,7 +293,7 @@ void MarkerItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
         d_ptr->boundingRect =  (txtRSum.united(dotRect));
     }
 
-//   painter->drawRect(d_ptr->boundingRect);
+   painter->drawRect(d_ptr->boundingRect);
 
     painter->restore();
 }

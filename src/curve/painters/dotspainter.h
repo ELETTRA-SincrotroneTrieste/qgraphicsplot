@@ -6,6 +6,7 @@
 #include <QPen>
 
 class DotsPainterPrivate;
+class QPainter;
 
 class DotsPainter : public QObject, public ItemPainterInterface
 {
@@ -21,7 +22,6 @@ public:
     virtual ~DotsPainter();
 
     virtual void draw(SceneCurve *curve,
-                      PlotSceneWidget* plot,
                       QPainter *painter,
                       const QStyleOptionGraphicsItem * option,
                       QWidget * widget = 0);

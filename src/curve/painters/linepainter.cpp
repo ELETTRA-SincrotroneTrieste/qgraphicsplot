@@ -5,6 +5,8 @@
 #include "linepainterprivate.h"
 #include <QtDebug>
 #include <QStyleOptionGraphicsItem>
+#include <QPainter>
+#include <QPainter>
 #include "qgraphicsplotmacros.h"
 
 LinePainter::LinePainter(CurveItem *curveItem) : QObject(curveItem)
@@ -25,12 +27,9 @@ LinePainter::~LinePainter()
 }
 
 void LinePainter::draw(SceneCurve *curve,
-                  PlotSceneWidget* plot,
                   QPainter *painter,
                   const QStyleOptionGraphicsItem * ,
-                  QWidget * )
-{
-    Q_UNUSED(plot);
+                  QWidget * ) {
     int dataSiz = curve->dataSize();
     painter->setPen(d_ptr->pen);
     const QPointF *points = curve->points();
@@ -58,9 +57,10 @@ void LinePainter::draw(SceneCurve *curve,
         painter->setPen(invalidDataPen);
         foreach(double d, xInvalid)
         {
-            painter->drawLine(plot->transform(d, plot->scaleItem(curve->getXAxis()->axisId())), 0,
-                              plot->transform(d, plot->scaleItem(curve->getXAxis()->axisId())),
-                              painter->clipBoundingRect().height());
+            printf("%s \e[1;31mShould draw invalid points!!! \e[0m\n", __PRETTY_FUNCTION__);
+//            painter->drawLine(plot->transform(d, plot->scaleItem(curve->getXAxis()->axisId())), 0,
+//                              plot->transform(d, plot->scaleItem(curve->getXAxis()->axisId())),
+//                              painter->clipBoundingRect().height());
         }
         painter->setPen(d_ptr->pen);
     }

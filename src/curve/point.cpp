@@ -1,6 +1,6 @@
 #include "point.h"
 #include "pointprivate.h"
-#include "plotscenewidget.h"
+#include "qgraphicsplotitem.h"
 #include "itempainterinterface.h"
 #include "itempositionchangelistener.h"
 
@@ -58,7 +58,7 @@ void Point::setPos(qreal x, qreal y)
     d_ptr->pos = QPointF(x, y);
 }
 
-double Point::updateXPos(PlotSceneWidget *view)
+double Point::updateXPos(QGraphicsPlotItem *view)
 {
     double xp = 0.0;
     double x1 = d_ptr->xAxis->lowerBound();
@@ -72,7 +72,7 @@ double Point::updateXPos(PlotSceneWidget *view)
     return xp;
 }
 
-double Point::updateYPos(PlotSceneWidget *view)
+double Point::updateYPos(QGraphicsPlotItem *view)
 {
     double yp = 0.0;
     double y1 = d_ptr->yAxis->lowerBound();
@@ -87,7 +87,7 @@ double Point::updateYPos(PlotSceneWidget *view)
     return yp;
 }
 
-QPointF Point::updatePosition(PlotSceneWidget *view)
+QPointF Point::updatePosition(QGraphicsPlotItem *view)
 {
     QPointF pt(0,0);
 

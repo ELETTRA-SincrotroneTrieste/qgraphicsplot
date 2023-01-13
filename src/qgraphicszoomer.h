@@ -3,7 +3,7 @@
 
 #include <axischangelistener.h>
 
-class PlotSceneWidget;
+class QGraphicsPlotItem;
 class QGraphicsZoomerPrivate;
 class QRectF;
 class ScaleItem;
@@ -11,7 +11,7 @@ class ScaleItem;
 class QGraphicsZoomer :  public AxisChangeListener
 {
 public:
-    explicit QGraphicsZoomer(PlotSceneWidget *plot);
+    explicit QGraphicsZoomer(QGraphicsPlotItem *plot);
 
     void addScale(ScaleItem *scale);
 

@@ -3,6 +3,7 @@
 #include "../scenecurve.h"
 #include "../curveitem.h"
 #include "histogrampainterprivate.h"
+#include <QPainter>
 #include <QtDebug>
 
 HistogramPainter::HistogramPainter(CurveItem* curveItem) : QObject(curveItem)
@@ -19,70 +20,69 @@ HistogramPainter::HistogramPainter(CurveItem* curveItem) : QObject(curveItem)
 }
 
 void HistogramPainter::draw(SceneCurve *curve,
-                      PlotSceneWidget* plot,
                       QPainter *painter,
                       const QStyleOptionGraphicsItem * option,
                       QWidget * widget)
 {
-    Q_UNUSED(plot);
-    Q_UNUSED(widget);
-    Q_UNUSED(option);
-    int dataSiz = curve->dataSize();
-    if(dataSiz < 2)
-        return;
+    printf("%s \e[1;31m not implemented\e[0m\n", __PRETTY_FUNCTION__);
+//    Q_UNUSED(widget);
+//    Q_UNUSED(option);
+//    int dataSiz = curve->dataSize();
+//    if(dataSiz < 2)
+//        return;
 
- //   painter->save();
-    const QPointF *points = curve->points();
-    double x, y, yBaseLine;
-    double width;
-    if(d_ptr->autoWidth)
-        width = curve->getXAxis()->canvasWidth / (curve->dataSize() * 1.8);
-    else
-        width = d_ptr->width;
+// //   painter->save();
+//    const QPointF *points = curve->points();
+//    double x, y, yBaseLine;
+//    double width;
+//    if(d_ptr->autoWidth)
+//        width = curve->getXAxis()->canvasWidth / (curve->dataSize() * 1.8);
+//    else
+//        width = d_ptr->width;
 
-    if(d_ptr->colorHash.isEmpty())
-    {
-        painter->setBrush(d_ptr->brush);
-        painter->setPen(d_ptr->pen);
-    }
+//    if(d_ptr->colorHash.isEmpty())
+//    {
+//        painter->setBrush(d_ptr->brush);
+//        painter->setPen(d_ptr->pen);
+//    }
 
-    for(int i = 0; i < curve->dataSize(); i++)
-    {
-        x = points[i].x() - width/2.0;
-        y = points[i].y();
+//    for(int i = 0; i < curve->dataSize(); i++)
+//    {
+//        x = points[i].x() - width/2.0;
+//        y = points[i].y();
 
-        if(d_ptr->colorHash.contains(i))
-        {
-            painter->setPen(d_ptr->colorHash.value(i).darker());
-            painter->setBrush(d_ptr->colorHash.value(i));
-        }
+//        if(d_ptr->colorHash.contains(i))
+//        {
+//            painter->setPen(d_ptr->colorHash.value(i).darker());
+//            painter->setBrush(d_ptr->colorHash.value(i));
+//        }
 
-        yBaseLine = plot->transform(d_ptr->baseline, plot->yScaleItem());
-//        qDebug() << __FUNCTION__ << "yBaseline " << yBaseLine << "d_ptr->baseline" << d_ptr->baseline << "y"
-//                 << y << curve->getXAxis()->canvasWidth << curve->getXAxis()->canvasHeight;
+//        yBaseLine = plot->transform(d_ptr->baseline, plot->yScaleItem());
+////        qDebug() << __FUNCTION__ << "yBaseline " << yBaseLine << "d_ptr->baseline" << d_ptr->baseline << "y"
+////                 << y << curve->getXAxis()->canvasWidth << curve->getXAxis()->canvasHeight;
 
-        double x1 = plot->transform(plot->xScaleItem()->lowerBound(), plot->xScaleItem());
-        double x2 = plot->transform(plot->xScaleItem()->upperBound(), plot->xScaleItem());
+//        double x1 = plot->transform(plot->xScaleItem()->lowerBound(), plot->xScaleItem());
+//        double x2 = plot->transform(plot->xScaleItem()->upperBound(), plot->xScaleItem());
 
 
 
-        QColor rc = d_ptr->pen.color();
-        if(y > yBaseLine)
-        {
-            painter->setPen(rc);
-            painter->drawRect(x, yBaseLine, width, y - yBaseLine);
-        }
-        else
-        {
-            painter->setPen(rc);
-            painter->drawRect(x, y, width, yBaseLine - y);
-        }
+//        QColor rc = d_ptr->pen.color();
+//        if(y > yBaseLine)
+//        {
+//            painter->setPen(rc);
+//            painter->drawRect(x, yBaseLine, width, y - yBaseLine);
+//        }
+//        else
+//        {
+//            painter->setPen(rc);
+//            painter->drawRect(x, y, width, yBaseLine - y);
+//        }
 
-        /// TEST ///
-        /// painter->setPen(Qt::red);
-        /// painter->drawLine(x1, yBaseLine, x2, yBaseLine);
-    }
-  //  painter->restore();
+//        /// TEST ///
+//        /// painter->setPen(Qt::red);
+//        /// painter->drawLine(x1, yBaseLine, x2, yBaseLine);
+//    }
+//  //  painter->restore();
 }
 
 CurveItem* HistogramPainter::curveItem() const

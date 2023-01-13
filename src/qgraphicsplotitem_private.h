@@ -1,27 +1,30 @@
-#ifndef PLOTSCENEWIDGETPRIVATE_H
-#define PLOTSCENEWIDGETPRIVATE_H
+#ifndef QGRAPHICSPLOTITEMPRIVATE_H
+#define QGRAPHICSPLOTITEMPRIVATE_H
 
+#include <QHash>
 #include <QMap>
-#include "scaleitem.h"
+#include <QPointF>
+#include <QRectF>
+#include <QString>
 
+class QObject;
 class Point;
 class SceneCurve;
-class PlotSceneWidget;
+class QGraphicsPlotItem;
 class AxesManager;
 class PlotGeometryEventListener;
 class MouseEventListener;
 class QGraphicsZoomer;
 class LegendItem;
+class QMenu;
 
-class PlotSceneWidgetPrivate
+class QGraphicsPlotItemPrivate
 {
 public:
-    PlotSceneWidgetPrivate(PlotSceneWidget *view);
+    QGraphicsPlotItemPrivate();
 
     bool scaleOnResize, scaleOnScroll, mouseZoomEnabled;
-
     bool modifiedPaintEvent, scrollBarsEnabled;
-
     bool neverShown, sceneRectToWidgetGeometry;
 
     bool useGl;
@@ -53,8 +56,10 @@ public:
 
     LegendItem *legendItem;
 
+    QMenu *menu;
+
 private:
-    PlotSceneWidget *mView;
+    QGraphicsPlotItem *mView;
 
 
 };

@@ -9,7 +9,7 @@
 #include <QGraphicsScene>
 #include <QDateTime>
 #include <QPainter>
-#include "plotscenewidget.h"
+#include "qgraphicsplotitem.h"
 
 #include "qgraphicsplotmacros.h"
 #include <math.h>
@@ -42,13 +42,12 @@ ScaleItem::~ScaleItem()
   * ScaleItem::Id enum and use one of the predefined values or add others by yourself.
   *
   */
-ScaleItem::ScaleItem(Orientation o, PlotSceneWidget *view, ScaleItem::Id id)
-    : QGraphicsObject(0),
+ScaleItem::ScaleItem(Orientation o, QGraphicsObject *parent, ScaleItem::Id id)
+    : QGraphicsObject(parent),
       PlotGeometryEventListener()
 {
     d_ptr = new ScaleItemPrivate();
     d_ptr->orientation = o;
-    d_ptr->view = view;
     d_ptr->axisId = id;
     d_ptr->scaleLabelInterface = NULL;
     d_ptr->axisLabelsOutsideCanvas = false;
@@ -57,15 +56,15 @@ ScaleItem::ScaleItem(Orientation o, PlotSceneWidget *view, ScaleItem::Id id)
     d_ptr->maxLabelWidth = -1.0;
     d_ptr->labelHeight = 10;
     d_ptr->labelMargin = 5.0;
-    d_ptr->font = view->font();
+    d_ptr->font = scene()->font();
     d_ptr->axisTitleFont = d_ptr->font;
 
     d_ptr->axisTitleFont.setItalic(true);
     d_ptr->font.setPointSizeF(d_ptr->fontSize);
     /* Free Sans scales well */
     d_ptr->font.setFamily("FreeSans");
-    canvasWidth = view->plotRect().width();
-    canvasHeight = view->plotRect().height();
+    canvasWidth = parent->boundingRect().width();
+    canvasHeight = parent->boundingRect().height();
     d_ptr->actualTickStepLen = updateStepLen();
     if(o == Vertical)
     {
@@ -83,7 +82,7 @@ ScaleItem::ScaleItem(Orientation o, PlotSceneWidget *view, ScaleItem::Id id)
     /* if this axis is created after plot has been setup, then let the plot rect be
      * initialized from the current plot rect
      */
-    d_ptr->plotRect = view->plotRect();
+    d_ptr->plotRect = parent->boundingRect();
     this->setFlag(QGraphicsItem::ItemIgnoresTransformations, true);
 }
 
@@ -252,7 +251,7 @@ void ScaleItem::setBounds(double lowerBound, double upperBound)
             d_ptr->lowerBound = lowerBound;
             d_ptr->upperBound = upperBound;
 
-            d_ptr->view->boundsChanged();
+            d_ptr->plot_item->boundsChanged();
 
             /* needs to be called before updateLabelsFormat */
             updateStepLen();
@@ -291,7 +290,7 @@ void ScaleItem::setUpperBound(double ub)
     if(ub > d_ptr->lowerBound)
     {
         d_ptr->upperBound = ub;
-        d_ptr->view->boundsChanged();
+        d_ptr->plot_item->boundsChanged();
 
         /* needs to be called before mUpdateLabelsFormat */
         updateStepLen();
@@ -330,7 +329,7 @@ void ScaleItem::setLowerBound(double lb)
     if(lb < d_ptr->upperBound)
     {
         d_ptr->lowerBound = lb;
-        d_ptr->view->boundsChanged();
+        d_ptr->plot_item->boundsChanged();
 
         /* needs to be called before mUpdateLabelsFormat */
         updateStepLen();
@@ -730,7 +729,7 @@ void ScaleItem::adjustScaleBounds(double newMin, double newMax)
 
 void ScaleItem::affectingBoundsPointsRemoved()
 {
-    if(d_ptr->autoScale && !d_ptr->view->inZoom())
+    if(d_ptr->autoScale && !d_ptr->plot_item->inZoom())
     {
         printf("\e[0;32maffectingBoundsPointsRemoved().....\e[0m\n");
         /* must obtain again all maximum and minimum values from each curve */
@@ -885,9 +884,9 @@ void ScaleItem::updateLabelsCache()
     /* clear the labels cache */
     d_ptr->labelsCacheHash.clear();
 
-    ScaleItem *associatedAxis = d_ptr->view->associatedAxis(this->axisId());
+    ScaleItem *associatedAxis = d_ptr->plot_item->associatedAxis(this->axisId());
     if(associatedAxis)
-        originPosPercent = d_ptr->view->associatedOriginPosPercentage(associatedAxis->axisId(), d_ptr->axisId, &ok);
+        originPosPercent = d_ptr->plot_item->associatedOriginPosPercentage(associatedAxis->axisId(), d_ptr->axisId, &ok);
 
     if(d_ptr->orientation == Horizontal)
         originPercent = originPosPercent.first;
@@ -957,15 +956,16 @@ double ScaleItem::updateStepLen()
     }
     else
     {
+        printf("%s \e[1;31m check here\e[0m\n", __PRETTY_FUNCTION__);
         double span = d_ptr->upperBound - d_ptr->lowerBound;
-        double scale, factor, x;
+        double scale = 1.0, factor, x;
         switch(d_ptr->orientation)
         {
         case ScaleItem::Horizontal:
-            scale = d_ptr->view->QGraphicsView::transform().m11();
+//            scale = d_ptr->view->QGraphicsView::transform().m11();
             break;
         default:
-            scale = d_ptr->view->QGraphicsView::transform().m22();
+//            scale = d_ptr->view->QGraphicsView::transform().m22();
             break;
         }
 
@@ -998,7 +998,7 @@ double ScaleItem::updateStepLen()
 void ScaleItem::setBoundsFromCurves()
 {
     d_ptr->minMaxUnset = true;
-    QList<SceneCurve *> curves = d_ptr->view->curvesForAxes(d_ptr->axisId, d_ptr->orientation);
+    QList<SceneCurve *> curves = d_ptr->plot_item->curvesForAxes(d_ptr->axisId, d_ptr->orientation);
     if(!curves.size())
         return;
     int i;
@@ -1102,7 +1102,7 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
     QGraphicsView *view = NULL;
     if(scene()->views().size() > 0)
         view = scene()->views().first();
-    QTransform tran = view->transform();
+//    QTransform tran = view->transform();
 
 
     painter->setClipRect(option->exposedRect.toRect());
@@ -1114,7 +1114,7 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
 
     bool canvasRectChanged = false;
     QRectF rect = d_ptr->plotRect;
-    QRectF scaledRect = tran.mapRect(rect);
+    QRectF scaledRect = rect; // tran.mapRect(rect);
 
     canvasWidth = rect.width();
     canvasHeight = rect.height();
@@ -1143,7 +1143,7 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
     bool axisOutsideViewport = false;
     qreal xMaxLabelSpace = 0.0, yMaxLabelSpace = 0.0;
     qreal tickStepLen;
-    bool inZoom = d_ptr->view->inZoom();
+    bool inZoom = d_ptr->plot_item->inZoom();
     QString textLabel;
     QRectF txtRect(0, 0, 0, 0);
     painter->setFont(d_ptr->font);
@@ -1152,9 +1152,9 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
 
     bool ok;
     QPair<double, double> originPosPercent;
-    ScaleItem *associatedAxis = d_ptr->view->associatedAxis(this->axisId());
+    ScaleItem *associatedAxis = d_ptr->plot_item->associatedAxis(this->axisId());
     if(associatedAxis)
-        originPosPercent = d_ptr->view->associatedOriginPosPercentage(associatedAxis->axisId(), d_ptr->axisId, &ok);
+        originPosPercent = d_ptr->plot_item->associatedOriginPosPercentage(associatedAxis->axisId(), d_ptr->axisId, &ok);
 
     // printf("\e[1;36m origin of %d: %f\e[0m\n", axisId(), originPosPercent);
 
@@ -1227,7 +1227,7 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
 
         //        qDebug() << " plot rect efor " << plotRect;
         mappedRectLeft = yMaxLabelSpace;
-        rect.setLeft(yMaxLabelSpace / tran.m22());
+        rect.setLeft(yMaxLabelSpace /*/ tran.m22()*/);
         scaledRect.setLeft(mappedRectLeft);
         canvasRectChanged = true;
         //     qDebug() << "plotRectAdter " << plotRect;
@@ -1241,7 +1241,7 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
         //        qDebug() << __FUNCTION__ << "changing rect bottom of " << xMaxLabelSpace << tran.m11() << tran.m12() << tran.m21()
         //                 << tran.dx()
         //                 << (py0 + xMaxLabelSpace > mappedRectBottom);
-        qreal mappedXLabelSpace = xMaxLabelSpace / tran.m11();
+        qreal mappedXLabelSpace = xMaxLabelSpace /*/ tran.m11()*/;
         rect.setBottom(rect.bottom() - mappedXLabelSpace);
         canvasRectChanged = true;
     }
@@ -1264,7 +1264,6 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
         canvasHeight = rect.height();
     }
 
-    double prevx;
     switch(d_ptr->orientation)
     {
     case ScaleItem::Horizontal:
@@ -1304,7 +1303,6 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
             px = (scaledRect.width() - 1) * (x - x1) / (x2 - x1) + mappedRectLeft;
 
             //            printf("\e[1;32m dist from prev %.10f\e[0m, ", px - prevx);
-            prevx = px;
             if(d_ptr->gridEnabled && x != x0)/* x != x0 not to draw grid over axes */
             {
                 painter->setPen(gridPen);
@@ -1345,13 +1343,11 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
         /* draw ticks from origin backwards */
         d_ptr->mLastTickPos = (scaledRect.width() - 1) * (x0 - x1) / (x2 - x1) + mappedRectLeft;
         x = x0 - tickStepLen;
-        prevx = x1;
         while( x >= x1)
         {
             px = (scaledRect.width() - 1) * (x - x1)/ (x2 - x1) + mappedRectLeft;
 
             //            printf("\e[0;32m dist from prev %f\e[0m, ",  prevx - px);
-            prevx = px;
             /* 1. draw grid */
             if(d_ptr->gridEnabled)
             {
@@ -1576,7 +1572,7 @@ QRectF ScaleItem::boundingRect () const
     if(!view)
         return QRectF();
 
-    QTransform tran = view->transform();
+//    QTransform tran = view->transform();
 
 
     if(d_ptr->mNeedFullRedraw ||d_ptr->gridEnabled )
@@ -1585,12 +1581,13 @@ QRectF ScaleItem::boundingRect () const
             d_ptr->mNeedFullRedraw = false;
         //        if(d_ptr->orientation == ScaleItem::Vertical)
         //            printf("\e[1;32m returning sceneReact() \"%s\"\e[0m\n", qstoc(objectName()));
-        return tran.mapRect(scene()->sceneRect());
+//        return tran.mapRect(scene()->sceneRect());
+        return d_ptr->plot_item->plotRect();
     }
     //    else
     //        printf("\e[1;31m not returning scene rect!\e[0m\n");
 
-    QRectF plotR = tran.mapRect(d_ptr->view->plotRect());
+    QRectF plotR = d_ptr->plot_item->plotRect();
     qreal x = 0, w, y = 0, h;
     double x1 = d_ptr->lowerBound;
     double x2 = d_ptr->upperBound;
@@ -1600,9 +1597,9 @@ QRectF ScaleItem::boundingRect () const
     qreal px0, py0;
     bool ok;
     QPair<double, double> originPosPercent;
-    ScaleItem *associatedAxis = d_ptr->view->associatedAxis(this->axisId());
+    ScaleItem *associatedAxis = d_ptr->plot_item->associatedAxis(this->axisId());
     if(associatedAxis)
-        originPosPercent = d_ptr->view->associatedOriginPosPercentage(associatedAxis->axisId(), d_ptr->axisId, &ok);
+        originPosPercent = d_ptr->plot_item->associatedOriginPosPercentage(associatedAxis->axisId(), d_ptr->axisId, &ok);
 
     if(!associatedAxis || !ok)
     {

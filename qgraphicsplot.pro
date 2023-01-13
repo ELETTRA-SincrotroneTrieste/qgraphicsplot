@@ -19,6 +19,8 @@ isEmpty(prefix) {
 
 message("QGraphicsPlot: *** installation dir: \"$${INSTALL_ROOT}\". ***")
 
+libname=qgraphicsplot
+
 #
 # End customization
 #
@@ -29,8 +31,8 @@ contains(QT_VERSION,  "^4\\.[0-7]") {
         error("Use at least Qt 4.8. If you want to disable this error, modify this line in qgraphicsplot.pro")
 }
 
-# append a "-qt5" suffix to the library built with qt5
-lessThan(QT_MAJOR_VERSION, 5) {
+# append a "-qt6" suffix to the library built with qt5
+greaterThan(QT_MAJOR_VERSION, 5) {
     QTVER_SUFFIX = -qt$${QT_MAJOR_VERSION}
 } else {
     QTVER_SUFFIX =
@@ -59,16 +61,16 @@ TEMPLATE = lib
 
 #DEFINES += DEBUG_PAINT=1
 
-CONFIG += release
+CONFIG += debug
 
 DEFINES += QT_NO_DEBUG_OUTPUT
 
 
-VERSION_HEX = 0x020703
-VERSION = 2.7.3
-VER_MAJ = 2
-VER_MIN = 7
-VER_FIX = 3
+VERSION_HEX = 0x030000
+VERSION = 3.0.0
+VER_MAJ = 3
+VER_MIN = 0
+VER_FIX = 0
 
 DEFINES += QGRAPHICSPLOT_VERSION_STR=\"\\\"$${VERSION}\\\"\" \
     QGRAPHICSPLOT_VERSION=$${VERSION_HEX} \
@@ -80,7 +82,7 @@ DEFINES += QGRAPHICSPLOT_VERSION_STR=\"\\\"$${VERSION}\\\"\" \
     INSTALLROOT=\"\\\"$${INSTALL_ROOT}\\\"\"  \
     LIBDIR=\"\\\"$${LIBDIR}\\\"\"
 
-TARGET = QGraphicsPlot$${QTVER_SUFFIX}
+TARGET = $${libname}$${QTVER_SUFFIX}
 
 QMAKE_CXXFLAGS += -O3
 
@@ -109,7 +111,8 @@ INCLUDEPATH += . \
                src/curve/items
 
 # Input
-PUBLICHEADERS= src/plotscenewidget.h \
+PUBLICHEADERS= src/qgraphicsplotitem.h \
+            src/plotscenewidget.h \
            src/xyplotinterface.h \
            src/axes/axesmanager.h \
            src/axes/axiscouple.h \
@@ -147,7 +150,8 @@ PUBLICHEADERS= src/plotscenewidget.h \
     src/extscaleplotscenewidget/extscaleplotscenewidget.h \
     src/extscaleplotscenewidget/curvesmap.h
 
-HPRIVATES = src/plotscenewidget_private.h \
+HPRIVATES = src/qgraphicsplotitem_private.h \
+           src/plotscenewidget_private.h \
            src/axes/scaleitemprivate.h \
            src/curve/curveitemprivate.h \
            src/curve/scenecurveprivate.h \
@@ -163,12 +167,13 @@ HEADERS += $${HPRIVATES} \
     src/colorpalette.h \
     src/plotsaver/plotscenewidgetsaver.h \
     src/extscaleplotscenewidget/extscaleplotscenewidgetprivate.h \
-    src/curve/painters/stepspainterprivate.h
+    src/curve/painters/stepspainterprivate.h \
+    src/plotscenewidget.h
 
 HEADERS += $${PUBLICHEADERS}
 
-SOURCES += src/plotscenewidget.cpp \
-           src/plotscenewidget_private.cpp \
+SOURCES += \
+    src/plotscenewidget.cpp \
            src/axes/axesmanager.cpp \
            src/axes/axiscouple.cpp \
            src/axes/scaleitem.cpp \
@@ -197,6 +202,8 @@ SOURCES += src/plotscenewidget.cpp \
     src/curve/painters/circleitemset.cpp \
     src/curve/painters/histogrampainter.cpp \
     src/curve/painters/histogrampainterprivate.cpp \
+    src/qgraphicsplotitem.cpp \
+    src/qgraphicsplotitem_private.cpp \
     src/scalelabelinterface.cpp \
     src/scalelabels/timescalelabel.cpp \
     src/graphicsscene_private.cpp \
@@ -214,6 +221,9 @@ SOURCES += src/plotscenewidget.cpp \
 
 inc.files = $${PUBLICHEADERS}
 inc.path = $${INC_DIR}
+
+target.path=$${LIB_DIR}
+
 
 lib.path = $${LIB_DIR}
 lib.files = libQGraphicsPlot$${QTVER_SUFFIX}.so.$${VERSION}
@@ -237,7 +247,25 @@ doc.path = $${DOC_DIR}
 data.path       = $${SHAREDIR}/qgraphicsplot/data
 data.files = src/plotsaver/saveDataFormatHelp.html
 
-INSTALLS = inc lib doc data
+# generate pkg config file
+CONFIG += create_pc create_prl no_install_prl
+
+message("pkgconfig name $${libname} ")
+
+QMAKE_PKGCONFIG_NAME = $${libname}
+QMAKE_PKGCONFIG_DESCRIPTION = plot items to use in QGraphicsView
+QMAKE_PKGCONFIG_PREFIX = $${INSTALL_ROOT}
+QMAKE_PKGCONFIG_LIBDIR = $${target.path}
+QMAKE_PKGCONFIG_INCDIR = $${inc.path}
+QMAKE_PKGCONFIG_VERSION = $${VERSION}
+QMAKE_PKGCONFIG_DESTDIR = pkgconfig
+
+pkgconfig_f.path = $${LIB_DIR}/pkgconfig
+pkgconfig_f.files = pkgconfig/$${libname}.pc
+
+# INSTALLS = inc lib doc data
+
+INSTALLS = inc lib data pkgconfig_f
 
 OTHER_FILES += \
     INSTALL.txt

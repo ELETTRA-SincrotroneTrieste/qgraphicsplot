@@ -28,7 +28,7 @@ public:
 
     qreal axisLabelRotation;
 
-    PlotSceneWidget *view;
+    QGraphicsPlotItem *plot_item;
 
     qreal mLastTickPos;
 

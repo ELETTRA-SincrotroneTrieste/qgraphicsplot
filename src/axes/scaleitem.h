@@ -7,7 +7,7 @@
 #include <QDateTime>
 
 class ScaleItemPrivate;
-class PlotSceneWidget;
+class QGraphicsPlotItem;
 class AxisChangeListener;
 class ScaleLabelInterface;
 class QDateTime;
@@ -91,7 +91,7 @@ public:
 
     virtual ~ScaleItem();
 
-    ScaleItem(Orientation o, PlotSceneWidget *view, Id id);
+    ScaleItem(Orientation o, QGraphicsObject *parent, Id id);
 
     void setOrientation(Orientation o);
 

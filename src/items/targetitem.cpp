@@ -1,7 +1,7 @@
 #include "targetitem.h"
 #include "targetitemprivate.h"
 #include "../colors.h"
-#include "plotscenewidget.h"
+#include "qgraphicsplotitem.h"
 #include "itemmovelistener.h"
 #include <QPainter>
 #include <QStyleOptionGraphicsItem>
@@ -30,7 +30,7 @@
   * in order to automatically manage the object repositioning when the canvas plot rect
   * changes.
   */
-TargetItem::TargetItem(ScaleItem* xAxis, ScaleItem* yAxis, PlotSceneWidget* plot) :
+TargetItem::TargetItem(ScaleItem* xAxis, ScaleItem* yAxis, QGraphicsPlotItem* plot) :
     QGraphicsObject(NULL)
 {
     d_ptr = new TargetItemPrivate();

@@ -1,6 +1,6 @@
 #include "qgraphicszoomer.h"
 #include <scaleitem.h>
-#include <plotscenewidget.h>
+#include <qgraphicsplotitem.h>
 #include <QList>
 #include <QPair>
 #include <QRectF>
@@ -14,7 +14,7 @@
 class QGraphicsZoomerPrivate
 {
 public:
-    PlotSceneWidget* plot;
+    QGraphicsPlotItem* plot;
     bool inZoom;
 
     QSet<ScaleItem *> scaleItems;
@@ -28,7 +28,7 @@ QGraphicsZoomer::~QGraphicsZoomer()
         si->removeAxisChangeListener(this);
 }
 
-QGraphicsZoomer::QGraphicsZoomer(PlotSceneWidget *plot)
+QGraphicsZoomer::QGraphicsZoomer(QGraphicsPlotItem *plot)
 {
     d_ptr = new QGraphicsZoomerPrivate();
     d_ptr->plot = plot;

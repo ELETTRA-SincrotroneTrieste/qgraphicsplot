@@ -8,6 +8,7 @@
 #include "itempainterinterface.h"
 #include <QtDebug>
 #include <QStyleOptionGraphicsItem>
+#include <QPainter>
 
 /** \brief The constructor of this QGraphicsObject that connects the elements
            of the associated SceneCurve by means of lines.
@@ -170,9 +171,10 @@ void CurveItem::fullVectorUpdate()
 
 QRectF CurveItem::boundingRect() const
 {
-    QRectF br;
-    br = scene()->sceneRect();
-    return br;
+//    QRectF br;
+    return d_ptr->curve->plot()->boundingRect();
+//    br = scene()->sceneRect();
+//    return br;
 }
 
 void CurveItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -189,7 +191,7 @@ void CurveItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
     if(d_ptr->itemPainters.size())
     {
         foreach(ItemPainterInterface* ipi, d_ptr->itemPainters)
-            ipi->draw(d_ptr->curve, d_ptr->curve->plot(), painter, option, widget);
+            ipi->draw(d_ptr->curve, painter, option, widget);
     }
     else
         perr("CurveItem::paint(): no item painters installed!");

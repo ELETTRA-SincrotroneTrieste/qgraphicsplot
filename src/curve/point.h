@@ -2,7 +2,7 @@
 #define POINT_H
 
 class PointPrivate;
-class PlotSceneWidget;
+class QGraphicsPlotItem;
 class PointData;
 class ScaleItem;
 class ItemPositionChangeListener;
@@ -28,16 +28,16 @@ public:
 
     virtual ~Point();
 
-    double updateXPos(PlotSceneWidget *view);
+    double updateXPos(QGraphicsPlotItem *view);
 
-    double updateYPos(PlotSceneWidget *view);
+    double updateYPos(QGraphicsPlotItem *view);
 
     /** \brief calculates the position in scene coordinates according to the view
       *        geometry.
       *
       * Updates the internal position available through the pos call.
       */
-    QPointF updatePosition(PlotSceneWidget *view);
+    QPointF updatePosition(QGraphicsPlotItem *view);
 
     /** \brief returns the position of the point in scene coordinates
       *

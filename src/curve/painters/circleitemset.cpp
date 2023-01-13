@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <QStyleOptionGraphicsItem>
+#include <QPainter>
 
 CircleItemSet::~CircleItemSet()
 {
@@ -41,12 +42,10 @@ int CircleItemSet::type() const
 }
 
 void CircleItemSet::draw(SceneCurve *curve,
-                  PlotSceneWidget* plot,
                   QPainter *painter,
                   const QStyleOptionGraphicsItem * option,
                   QWidget * widget)
 {
-    Q_UNUSED(plot);
     Q_UNUSED(widget);
     int circleStep, radius;
     int itemCnt = curve->dataSize();

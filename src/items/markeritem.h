@@ -72,11 +72,11 @@ public:
 
     virtual ~MarkerItem();
 
-    virtual void mouseClickEvent(PlotSceneWidget *plot, const QPointF &pos);
+    virtual void mouseClickEvent(QGraphicsPlotItem *plot, const QPointF &pos);
 
-    virtual void mouseReleaseEvent(PlotSceneWidget* plot, QMouseEvent* e);
+    virtual void mouseReleaseEvent(QGraphicsPlotItem* plot, QGraphicsSceneMouseEvent* e);
 
-    virtual void mouseDoubleClickEvent(PlotSceneWidget *, QMouseEvent *);
+    virtual void mouseDoubleClickEvent(QGraphicsPlotItem *, QGraphicsSceneMouseEvent *);
 
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 

@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <QtDebug>
 #include <math.h>
+#include <QApplication>
 
 #include "curve/scenecurve.h"
 
@@ -43,7 +44,7 @@ XYSceneTest::XYSceneTest(QWidget *parent) :
      * of the plot and of the related objects.
      */
     qDebug() << "setto settings key " << qApp->applicationName();
-    ui->graphicsPlot->setSettingsKey(qApp->applicationName());
+//    ui->graphicsPlot->setSettingsKey(qApp->applicationName());
 
     QList<QColor> palette = QList<QColor> () << KDARKWATER << KDARKBLUE << KGRAY <<
                                                  KYELLOW << KCAMEL << KDARKCYAN <<
@@ -74,7 +75,7 @@ XYSceneTest::XYSceneTest(QWidget *parent) :
         /* each curve can be configured by the property dialog, so we must add each
          * curve to the list of configurable objects
          */
-        ui->graphicsPlot->addConfigurableObjects(c->name(), c);
+//        ui->graphicsPlot->addConfigurableObjects(c->name(), c);
 
         /* do we want the curves be represented by lines? */
         CurveItem *curveItem = new CurveItem(c);
@@ -82,7 +83,7 @@ XYSceneTest::XYSceneTest(QWidget *parent) :
         c->installCurveChangeListener(curveItem);
         LinePainter *lp = new LinePainter(curveItem);
         lp->setLineColor(palette.at(i % palette.size()));
-        ui->graphicsPlot->addConfigurableObjects(c->name() + " Properties", curveItem);
+//        ui->graphicsPlot->addConfigurableObjects(c->name() + " Properties", curveItem);
     }
 
     /* the following instructions start the timer to update the data */
@@ -108,7 +109,8 @@ XYSceneTest::XYSceneTest(QWidget *parent) :
     ///  ui->graphicsView->addConfigurableObjects("Circle Painter", circleItemSet);
 
     /* load from configuration files (QSettings managed) */
-    ui->graphicsPlot->loadConfigurationProperties();
+    printf("%s \e[1;31m loadConfigurationProperties is not called\e[0m\n", __PRETTY_FUNCTION__);
+//    ui->graphicsPlot->loadConfigurationProperties();
 
 
    // ui->graphicsPlot->yScaleItem()->setAxisAutoscaleEnabled(false);

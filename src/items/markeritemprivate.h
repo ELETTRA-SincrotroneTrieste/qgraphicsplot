@@ -7,7 +7,7 @@
 #include <QColor>
 
 class SceneCurve;
-class PlotSceneWidget;
+class QGraphicsPlotItem;
 
 class MarkerItemPrivate
 {
@@ -28,7 +28,7 @@ public:
 
     QColor borderColor, backgroundColor, textColor, pointBorderColor, pointColor;
 
-    PlotSceneWidget *plot;
+    QGraphicsPlotItem *plot;
 };
 
 #endif // MARKERITEMPRIVATE_H

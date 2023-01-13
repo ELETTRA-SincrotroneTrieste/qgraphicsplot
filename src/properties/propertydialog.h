@@ -4,13 +4,13 @@
 #include <QDialog>
 #include <QMap>
 
-class PlotSceneWidget;
+class QGraphicsPlotItem;
 
 class PropertyDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit PropertyDialog(PlotSceneWidget *sceneWidget);
+    explicit PropertyDialog(QGraphicsPlotItem *sceneWidget);
 
     virtual ~PropertyDialog();
 

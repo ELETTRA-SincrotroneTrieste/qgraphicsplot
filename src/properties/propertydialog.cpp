@@ -26,12 +26,12 @@
 #include <QTreeWidgetItem>
 #include <QScrollArea>
 #include <QSplitter>
-#include "plotscenewidget.h"
+#include "qgraphicsplotitem.h"
 #include "circleitemset.h"
 #include "scaleitem.h"
 
-PropertyDialog::PropertyDialog(PlotSceneWidget *sceneWidget) :
-    QDialog(sceneWidget)
+PropertyDialog::PropertyDialog(QGraphicsPlotItem *sceneWidget) :
+    QDialog(0)
 {
 
 }

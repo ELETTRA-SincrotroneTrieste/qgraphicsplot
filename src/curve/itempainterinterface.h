@@ -6,7 +6,7 @@ class QStyleOptionGraphicsItem;
 class QWidget;
 class Point;
 class SceneCurve;
-class PlotSceneWidget;
+class QGraphicsPlotItem;
 class QGraphicsObject;
 class CurveItem;
 class QPen;
@@ -46,7 +46,6 @@ public:
       * @see DotsPainter
       */
     virtual void draw(SceneCurve *curve,
-                      PlotSceneWidget* plot,
                       QPainter *painter,
                       const QStyleOptionGraphicsItem * option,
                       QWidget * widget = 0) = 0;

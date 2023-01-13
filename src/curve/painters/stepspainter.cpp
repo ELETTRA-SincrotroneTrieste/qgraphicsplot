@@ -1,12 +1,13 @@
 #include "stepspainter.h"
 #include "stepspainterprivate.h"
 #include <curveitem.h>
-#include <plotscenewidget.h>
+#include <qgraphicsplotitem.h>
 #include "../scenecurve.h"
 #include "../curveitem.h"
 #include "../data.h"
 #include <QtDebug>
 #include <QStyleOptionGraphicsItem>
+#include <QPainter>
 
 StepsPainter::StepsPainter(CurveItem *curveItem) :  QObject(curveItem)
 {
@@ -25,12 +26,10 @@ StepsPainter::~StepsPainter()
 }
 
 void StepsPainter::draw(SceneCurve *curve,
-                  PlotSceneWidget* plot,
                   QPainter *painter,
                   const QStyleOptionGraphicsItem * ,
                   QWidget * )
 {
-    Q_UNUSED(plot);
     int dataSiz = curve->dataSize();
     painter->setPen(d_ptr->pen);
     const QPointF *points = curve->points();
@@ -52,9 +51,10 @@ void StepsPainter::draw(SceneCurve *curve,
         painter->setPen(Qt::red);
         foreach(double d, xInvalid)
         {
-            painter->drawLine(plot->transform(d, plot->xScaleItem()), 0,
-                              plot->transform(d, plot->xScaleItem()),
-                              painter->clipBoundingRect().height());
+            printf("%s \e[1;31mdraw invalid values unimplemented\e[0m\n");
+//            painter->drawLine(plot->transform(d, plot->xScaleItem()), 0,
+//                              plot->transform(d, plot->xScaleItem()),
+//                              painter->clipBoundingRect().height());
         }
         painter->setPen(d_ptr->pen);
     }

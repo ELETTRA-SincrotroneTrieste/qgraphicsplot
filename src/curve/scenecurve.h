@@ -2,7 +2,7 @@
 #define SCENECURVE_H
 
 #include <QObject>
-#include <plotscenewidget.h>
+#include <qgraphicsplotitem.h>
 #include <axischangelistener.h>
 #include <data.h>
 
@@ -23,7 +23,7 @@ class SceneCurve : public QObject, public AxisChangeListener
 
 public:
 
-    explicit SceneCurve(PlotSceneWidget *sceneWidget,
+    explicit SceneCurve(QGraphicsPlotItem *sceneWidget,
                         const QString& name,
                         ScaleItem* xAxis,
                         ScaleItem* yAxis);
@@ -34,7 +34,7 @@ public:
       *        has been attached.
       *
       */
-    PlotSceneWidget* plot() const;
+    QGraphicsPlotItem* plot() const;
 
     /** \brief returns the QGraphicsScene used by the PlotSceneWidget.
       *

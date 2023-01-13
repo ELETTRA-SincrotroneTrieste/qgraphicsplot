@@ -1,9 +1,9 @@
 #ifndef MOUSEEVENTLISTENER_H
 #define MOUSEEVENTLISTENER_H
 
-class QMouseEvent;
+class QGraphicsSceneMouseEvent;
 class QPointF;
-class PlotSceneWidget;
+class QGraphicsPlotItem;
 
 /** \brief an abstract class that can be used to be notified when a mouse event takes place
   *
@@ -15,15 +15,15 @@ class MouseEventListener
 public:
     MouseEventListener() {}
 
-    virtual void mousePressEvent(PlotSceneWidget *, QMouseEvent *) {}
+    virtual void mousePressEvent(QGraphicsPlotItem *, QGraphicsSceneMouseEvent *) {}
 
-    virtual void mouseReleaseEvent(PlotSceneWidget *, QMouseEvent *) {}
+    virtual void mouseReleaseEvent(QGraphicsPlotItem *, QGraphicsSceneMouseEvent *) {}
 
-    virtual void mouseMoveEvent(PlotSceneWidget *, QMouseEvent *) {}
+    virtual void mouseMoveEvent(QGraphicsPlotItem *, QGraphicsSceneMouseEvent *) {}
 
-    virtual void mouseClickEvent(PlotSceneWidget *, const QPointF& ) {}
+    virtual void mouseClickEvent(QGraphicsPlotItem *, const QPointF& ) {}
 
-    virtual void mouseDoubleClickEvent(PlotSceneWidget *, QMouseEvent *) {}
+    virtual void mouseDoubleClickEvent(QGraphicsPlotItem *, QGraphicsSceneMouseEvent *) {}
 };
 
 #endif // MOUSEEVENTLISTENER_H

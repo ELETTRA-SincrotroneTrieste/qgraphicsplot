@@ -4,6 +4,8 @@
 
 include(../examples.pro)
 
+CONFIG += debug
+
 QT += widgets
 
 TEMPLATE = app
@@ -20,4 +22,4 @@ FORMS += \
 SOURCES += main.cpp \
     scalar.cpp
 
-LIBS += -L../.. -lQGraphicsPlot$${VER_SUFFIX}
+LIBS += -L../.. -lqgraphicsplot$${VER_SUFFIX}

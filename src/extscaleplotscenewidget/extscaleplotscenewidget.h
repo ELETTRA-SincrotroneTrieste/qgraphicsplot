@@ -3,7 +3,7 @@
 
 class ExtScalePlotSceneWidgetPrivate;
 class SceneCurve;
-class PlotSceneWidget;
+class QGraphicsPlotItem;
 class ScaleItem;
 
 #include <scaleitem.h>
@@ -22,7 +22,7 @@ public:
 
     void addExternalScale(ScaleItem *axis, SceneCurve *curve);
 
-    PlotSceneWidget *getPlot() const;
+    QGraphicsPlotItem *getPlot() const;
 
     void setMultiscale(bool multiscale);
 

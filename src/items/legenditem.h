@@ -33,7 +33,7 @@ class LegendItem : public QGraphicsObject
 
     Q_OBJECT
 public:
-    explicit LegendItem(QGraphicsScene *parent = 0);
+    explicit LegendItem(QGraphicsItem *parent);
 
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 

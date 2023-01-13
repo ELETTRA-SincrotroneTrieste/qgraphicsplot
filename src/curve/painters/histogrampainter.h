@@ -21,7 +21,6 @@ public:
     HistogramPainter(CurveItem* curveItem);
 
     virtual void draw(SceneCurve *curve,
-                      PlotSceneWidget* plot,
                       QPainter *painter,
                       const QStyleOptionGraphicsItem * option,
                       QWidget * widget = 0);

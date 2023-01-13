@@ -5,7 +5,7 @@
 #include <QPointF>
 
 class ItemMoveListener;
-class PlotSceneWidget;
+class QGraphicsPlotItem;
 class ScaleItem;
 
 class TargetItemPrivate
@@ -25,7 +25,7 @@ public:
 
     double innerRadius, outerRadius, radiusScaleDivider;
 
-    PlotSceneWidget *plot;
+    QGraphicsPlotItem *plot;
 
     ScaleItem* xAxis, *yAxis;
 

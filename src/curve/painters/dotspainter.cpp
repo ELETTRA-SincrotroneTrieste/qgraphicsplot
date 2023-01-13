@@ -3,6 +3,7 @@
 #include "../scenecurve.h"
 #include "../curveitem.h"
 #include "dotspainterprivate.h"
+#include <QPainter>
 
 DotsPainter::DotsPainter(CurveItem *curveItem) : QObject(curveItem)
 {
@@ -23,7 +24,6 @@ DotsPainter::~DotsPainter()
 }
 
 void DotsPainter::draw(SceneCurve *curve,
-                  PlotSceneWidget* plot,
                   QPainter *painter,
                   const QStyleOptionGraphicsItem * ,
                   QWidget * )
@@ -51,9 +51,10 @@ void DotsPainter::draw(SceneCurve *curve,
         painter->setPen(Qt::red);
         foreach(double d, xInvalid)
         {
-            painter->drawLine(plot->transform(d, plot->xScaleItem()), 0,
-                              plot->transform(d, plot->xScaleItem()),
-                              painter->clipBoundingRect().height());
+            printf("%s \e[1;31m check draw invalid points\e[0m\n", __PRETTY_FUNCTION__);
+//            painter->drawLine(plot->transform(d, plot->xScaleItem()), 0,
+//                              plot->transform(d, plot->xScaleItem()),
+//                              painter->clipBoundingRect().height());
         }
         painter->setPen(d_ptr->pen);
     }

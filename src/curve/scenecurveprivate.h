@@ -1,7 +1,7 @@
 #ifndef SCENECURVEPRIVATE_H
 #define SCENECURVEPRIVATE_H
 
-class PlotSceneWidget;
+class QGraphicsPlotItem;
 class Point;
 class ScaleItem;
 class CurveChangeListener;
@@ -20,7 +20,7 @@ class SceneCurvePrivate
 public:
     SceneCurvePrivate();
 
-    PlotSceneWidget *plot;
+    QGraphicsPlotItem *plot;
 
     int bufferSize;
 

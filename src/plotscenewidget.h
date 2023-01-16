@@ -6,6 +6,7 @@
 class PlotSceneWidgetPrivate;
 class ScaleItem;
 class SceneCurve;
+class QGraphicsPlotItem;
 
 class PlotSceneWidget : public QGraphicsView
 {
@@ -27,6 +28,7 @@ public:
 
     ScaleItem *xScaleItem() const;
     ScaleItem *yScaleItem() const;
+    QGraphicsPlotItem *plot() const;
 
     bool painterAntiAlias() const;
     bool smoothPixmapTransform() const;
@@ -57,6 +59,9 @@ public slots:
 
 private slots:
     void sceneRectChanged(const QRectF &r);
+
+protected:
+    void wheelEvent(QWheelEvent *event);
 
 private:
     PlotSceneWidgetPrivate *d;

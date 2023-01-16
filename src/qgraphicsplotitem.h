@@ -651,6 +651,7 @@ protected:
 
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr);
 
+    void update(const QRectF &area= QRectF());
 protected slots:
 
     void sceneRectChanged(const QRectF &);

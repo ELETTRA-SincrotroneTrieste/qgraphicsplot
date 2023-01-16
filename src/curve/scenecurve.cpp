@@ -398,19 +398,18 @@ Data *SceneCurve::data() const
 /** \brief Add a couple of points (x,y) to the curve
  *
  */
-void SceneCurve::addPoint(double x, double y)
+QRectF SceneCurve::addPoint(double x, double y)
 {
+    QRectF updateArea;
     /* remove items if the size is about to be greater than bufferSize */
     mCheckBufferSize();
-
     /* addPoint updates max and min of the curve */
     d_ptr->data->addPoint(x, y);
     d_ptr->data->scalarMode = true;
-
-    foreach(CurveChangeListener *listener, d_ptr->itemChangeListeners)
-    {
-        listener->itemAdded(Point(x, y));
+    foreach(CurveChangeListener *listener, d_ptr->itemChangeListeners) {
+        updateArea = updateArea.united(listener->itemAdded(Point(x, y)));
     }
+    return updateArea;
 }
 
 void SceneCurve::setData(const QVector<double>& xData, const QVector<double> &yData)
@@ -438,10 +437,11 @@ void SceneCurve::setData(const QVector<double>& xData, const QVector<double> &yD
  *
  * \note scalar data.
  */
-void SceneCurve::addPoints(const QVector<double>& xData, const QVector<double> &yData)
+QRectF SceneCurve::addPoints(const QVector<double>& xData, const QVector<double> &yData)
 {
+    QRectF updateArea;
     if(xData.size() == 1 && yData.size() == 1)
-        addPoint(xData.first(), yData.first());
+        updateArea = updateArea.united(addPoint(xData.first(), yData.first()));
     else
     {
         d_ptr->data->addPoints(xData, yData);
@@ -462,6 +462,7 @@ void SceneCurve::addPoints(const QVector<double>& xData, const QVector<double> &
         }
 
     }
+    return updateArea;
 }
 
 void SceneCurve::setData(const QVector<double> &yData)

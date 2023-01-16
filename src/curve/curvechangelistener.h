@@ -2,6 +2,7 @@
 #define CURVECHANGELISTENER_H
 
 class Point;
+class QRectF;
 class SceneCurve;
 
 class CurveChangeListener
@@ -9,11 +10,11 @@ class CurveChangeListener
 public:
     CurveChangeListener() {}
 
-    virtual void itemAdded(const Point &pt) = 0;
+    virtual QRectF itemAdded(const Point &pt) = 0;
 
     virtual void itemAboutToBeRemoved(const Point &pt) = 0;
 
-    virtual void itemRemoved(const Point &pt) = 0;
+    virtual QRectF itemRemoved(const Point &pt) = 0;
 
     virtual void fullVectorUpdate() = 0;
 

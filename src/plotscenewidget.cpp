@@ -6,6 +6,8 @@
 #include <graphicsscene.h>
 #include <QScrollBar>
 #include <QTimer>
+#include <QWheelEvent>
+#include <QtDebug>
 
 class PlotSceneWidgetPrivate {
 public:
@@ -27,6 +29,8 @@ PlotSceneWidget::PlotSceneWidget(QWidget *parent, bool useGl) : QGraphicsView(pa
         printf("\e[1;32m* \e[0musing openGL\n");
     }
 
+    qDebug() << __PRETTY_FUNCTION__ << "viewport update mode is " << viewportUpdateMode();
+
     /* set a scene rect because ScaleItem needs a fixed scene rect.
      * The scene rect will be updated on showEvent
      */
@@ -40,7 +44,10 @@ PlotSceneWidget::PlotSceneWidget(QWidget *parent, bool useGl) : QGraphicsView(pa
     setRenderHints( QPainter::SmoothPixmapTransform);
 
     d->scrollBarsEnabled = true;
-    d->ploti = new QGraphicsPlotItem(useGl, nullptr);
+    d->ploti = new QGraphicsPlotItem(nullptr);
+    d->ploti->setOriginPosPercentage(d->ploti->xScaleItem(), 0.0);
+    d->ploti->setOriginPosPercentage(d->ploti->yScaleItem(), 0.0);
+    d->ploti->setYAxisLabelsOutsideCanvas(true);
     scene->addItem(d->ploti);
 
     connect(scene, SIGNAL(sceneRectChanged(QRectF)), this, SLOT(sceneRectChanged(QRectF)));
@@ -60,6 +67,7 @@ PlotSceneWidget::PlotSceneWidget(QWidget *parent, bool useGl) : QGraphicsView(pa
 
     connect(this->verticalScrollBar(), SIGNAL(valueChanged(int)),
             this, SLOT(vScrollBarValueChanged(int)));
+    scene->update();
 }
 
 PlotSceneWidget::~PlotSceneWidget()
@@ -75,9 +83,58 @@ ScaleItem *PlotSceneWidget::yScaleItem() const {
     return d->ploti->yScaleItem();
 }
 
+QGraphicsPlotItem *PlotSceneWidget::plot() const {
+    return d->ploti;
+}
+
 void PlotSceneWidget::sceneRectChanged(const QRectF& r)
 {
+    scene()->update();
+}
 
+void PlotSceneWidget::wheelEvent(QWheelEvent *e)
+{
+        /* propagates the event to scene and items */
+        QGraphicsView::wheelEvent(e);
+        /* if an item accepts the event, do not process the wheel event */
+//        if(d_ptr->scaleOnScroll)
+        {
+            /* With version 2.3.0, zoom is managed changing the axes bounds
+             */
+            //        if(d_ptr->zoomer && d_ptr->zoomer->stackSize() > 1)
+            //        {
+            //            QRectF zoomRect = d_ptr->zoomer->unzoom();
+            //            if(zoomRect.isValid())
+            //            {
+            //                fitInView(zoomRect, Qt::KeepAspectRatio);
+            //                notifyPlotAreaChanged();
+            //            }
+            //        }
+            //        else
+            {
+                float dx, dy;
+                int d = e->delta();
+                /* save the first value of m11 and m22 transform matrix */
+//                if(d_ptr->firstScrollM11 < 0)
+//                {
+//                    QTransform t = QGraphicsView::transform();
+//                    d_ptr->firstScrollM11 = t.m11();
+//                    d_ptr->firstScrollM12 = t.m22();
+//                }
+                if(d > 0)
+                {
+                    dx = 1.25;
+                    dy = 1.25;
+                }
+                else
+                {
+                    dx = 1.0/1.25;
+                    dy = 1.0/1.25;
+                }
+                this->centerOn(e->pos());
+                scale(dx, dy);
+            }
+        }
 }
 
 

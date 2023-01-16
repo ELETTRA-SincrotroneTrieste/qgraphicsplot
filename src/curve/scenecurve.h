@@ -64,9 +64,9 @@ public:
       */
     QString name() const;
 
-    virtual void addPoint(double x, double y);
+    virtual QRectF addPoint(double x, double y);
 
-    virtual void addPoints(const QVector<double>& xData, const QVector<double> &yData);
+    virtual QRectF addPoints(const QVector<double>& xData, const QVector<double> &yData);
 
     Data *data() const;
 

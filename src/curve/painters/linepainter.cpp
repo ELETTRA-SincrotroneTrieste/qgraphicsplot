@@ -30,6 +30,12 @@ void LinePainter::draw(SceneCurve *curve,
                   QPainter *painter,
                   const QStyleOptionGraphicsItem * ,
                   QWidget * ) {
+    qDebug() << __PRETTY_FUNCTION__ << "paint rect" << painter->viewport() << "window" << painter->window();
+    QPen pen = painter->pen();
+    painter->drawRect(painter->viewport());
+    painter->setPen(Qt::red);
+    painter->drawRect(painter->window());
+    painter->setPen(pen);
     int dataSiz = curve->dataSize();
     painter->setPen(d_ptr->pen);
     const QPointF *points = curve->points();

@@ -42,48 +42,48 @@ ScaleItem::~ScaleItem()
   * ScaleItem::Id enum and use one of the predefined values or add others by yourself.
   *
   */
-ScaleItem::ScaleItem(Orientation o, QGraphicsObject *parent, ScaleItem::Id id)
-    : QGraphicsObject(parent),
-      PlotGeometryEventListener()
+ScaleItem::ScaleItem(Orientation o, QGraphicsPlotItem *parent, ScaleItem::Id id)
+    : QGraphicsObject(parent), PlotGeometryEventListener()
 {
-    d_ptr = new ScaleItemPrivate();
-    d_ptr->orientation = o;
-    d_ptr->axisId = id;
-    d_ptr->scaleLabelInterface = NULL;
-    d_ptr->axisLabelsOutsideCanvas = false;
-    d_ptr->tickWidth = 10;
-    d_ptr->axisLabelDist = d_ptr->tickWidth;
-    d_ptr->maxLabelWidth = -1.0;
-    d_ptr->labelHeight = 10;
-    d_ptr->labelMargin = 5.0;
-    d_ptr->font = scene()->font();
-    d_ptr->axisTitleFont = d_ptr->font;
+    d = new ScaleItemPrivate();
+    d->plot_item = parent;
+    d->orientation = o;
+    d->axisId = id;
+    d->scaleLabelInterface = NULL;
+    d->axisLabelsOutsideCanvas = false;
+    d->tickWidth = 10;
+    d->axisLabelDist = d->tickWidth;
+    d->maxLabelWidth = -1.0;
+    d->labelHeight = 10;
+    d->labelMargin = 5.0;
+    d->fontSize = 10.0;
+    d->axisTitleFont = d->font = QFont("FreeSans");
 
-    d_ptr->axisTitleFont.setItalic(true);
-    d_ptr->font.setPointSizeF(d_ptr->fontSize);
+    d->axisTitleFont.setItalic(true);
+    d->font.setPointSizeF(d->fontSize);
     /* Free Sans scales well */
-    d_ptr->font.setFamily("FreeSans");
+    d->font.setFamily("FreeSans");
     canvasWidth = parent->boundingRect().width();
     canvasHeight = parent->boundingRect().height();
-    d_ptr->actualTickStepLen = updateStepLen();
+    d->actualTickStepLen = updateStepLen();
     if(o == Vertical)
     {
-        d_ptr->axisTitleFont.setBold(true);
-        d_ptr->axisTitleFont.setPointSizeF(d_ptr->axisTitleFont.pointSizeF() + 1);
-        d_ptr->axisLabelRotation = 0.0;
+        d->axisTitleFont.setBold(true);
+        d->axisTitleFont.setPointSizeF(d->axisTitleFont.pointSizeF() + 1);
+        d->axisLabelRotation = 0.0;
         /* first draw Y axis, so that X axis labels are not covered by the Y axis
          * grid. Actually, X axis labels may be time scales and so it is ugly to
          * have them cut by the Y grid.
          */
         setZValue(-1);
     }
-    d_ptr->mAxisTitleHeight = 0.0;
-    d_ptr->mAxisTitleWidth = 0.0;
+    d->mAxisTitleHeight = 0.0;
+    d->mAxisTitleWidth = 0.0;
     /* if this axis is created after plot has been setup, then let the plot rect be
      * initialized from the current plot rect
      */
-    d_ptr->plotRect = parent->boundingRect();
-    this->setFlag(QGraphicsItem::ItemIgnoresTransformations, true);
+    d->plotRect = parent->boundingRect();
+//    this->setFlag(QGraphicsItem::ItemIgnoresTransformations, true);
 }
 
 /** \brief Install an AxisChangeListener in order to be notified when axis bounds change
@@ -96,24 +96,24 @@ void ScaleItem::installAxisChangeListener(AxisChangeListener *l)
 {
     qDebug() << __PRETTY_FUNCTION__ << l;
     /* add new listener */
-    d_ptr->axisChangeListeners.append(l);
+    d->axisChangeListeners.append(l);
 
     /* initialize each listener with the currently initialized data.
      * Actually, not all curves may be added at once; instead, curves
      * can be added at any point in time, and so they need be initialized
      * with the current canvas rect, bounds and autoscale properties
      */
-    l->canvasRectChanged(d_ptr->canvasRect);
-    if(d_ptr->orientation == Horizontal)
-        l->xAxisBoundsChanged(d_ptr->lowerBound, d_ptr->upperBound);
+    l->canvasRectChanged(d->canvasRect);
+    if(d->orientation == Horizontal)
+        l->xAxisBoundsChanged(d->lowerBound, d->upperBound);
     else
-        l->yAxisBoundsChanged(d_ptr->lowerBound, d_ptr->upperBound);
+        l->yAxisBoundsChanged(d->lowerBound, d->upperBound);
     /* listener (e.g. SceneCurve) will recalculate bounds if autoscale is enabled */
-    l->axisAutoscaleChanged(d_ptr->orientation, d_ptr->autoScale);
-    if(d_ptr->actualTickStepLen > -1)
-        l->tickStepLenChanged(d_ptr->actualTickStepLen);
-    if(!d_ptr->actualLabelsFormat.isEmpty())
-        l->labelsFormatChanged(d_ptr->actualLabelsFormat);
+    l->axisAutoscaleChanged(d->orientation, d->autoScale);
+    if(d->actualTickStepLen > -1)
+        l->tickStepLenChanged(d->actualTickStepLen);
+    if(!d->actualLabelsFormat.isEmpty())
+        l->labelsFormatChanged(d->actualLabelsFormat);
 }
 
 /** \brief returns the label associated to the value passed as parameter, if a ScaleLabelInterface
@@ -127,11 +127,11 @@ void ScaleItem::installAxisChangeListener(AxisChangeListener *l)
   */
 QString ScaleItem::label(double value) const
 {
-    if(d_ptr->scaleLabelInterface)
-        return d_ptr->scaleLabelInterface->label(value);
+    if(d->scaleLabelInterface)
+        return d->scaleLabelInterface->label(value);
 
     QString l;
-    l.sprintf(qstoc(d_ptr->actualLabelsFormat), value);
+    l.sprintf(qstoc(d->actualLabelsFormat), value);
     return l;
 }
 
@@ -150,7 +150,7 @@ QString ScaleItem::label(double value) const
   */
 void ScaleItem::installScaleLabelInterface(ScaleLabelInterface *iface)
 {
-    d_ptr->scaleLabelInterface = iface;
+    d->scaleLabelInterface = iface;
     this->updateLabelsCache();
     update();
 }
@@ -162,7 +162,7 @@ void ScaleItem::installScaleLabelInterface(ScaleLabelInterface *iface)
   */
 void ScaleItem::removeScaleLabelInterface()
 {
-    d_ptr->scaleLabelInterface = NULL;
+    d->scaleLabelInterface = NULL;
     update();
 }
 
@@ -175,27 +175,27 @@ void ScaleItem::removeScaleLabelInterface()
   */
 ScaleLabelInterface *ScaleItem::scaleLabelInterface() const
 {
-    return d_ptr->scaleLabelInterface;
+    return d->scaleLabelInterface;
 }
 
 void ScaleItem::removeAxisChangeListener(AxisChangeListener *l)
 {
-    d_ptr->axisChangeListeners.removeAll(l);
+    d->axisChangeListeners.removeAll(l);
 }
 
 void ScaleItem::setOrientation(Orientation o)
 {
-    d_ptr->orientation = o;
+    d->orientation = o;
 }
 
 ScaleItem::Orientation ScaleItem::orientation() const
 {
-    return d_ptr->orientation;
+    return d->orientation;
 }
 
 ScaleItem::Id ScaleItem::axisId() const
 {
-    return d_ptr->axisId;
+    return d->axisId;
 }
 
 /** \brief returns the upper bound (maximum value) of the scale
@@ -212,7 +212,7 @@ ScaleItem::Id ScaleItem::axisId() const
   */
 double ScaleItem::upperBound() const
 {
-    return d_ptr->upperBound;
+    return d->upperBound;
 }
 
 /** \brief returns the lower bound (minimum value) of the scale
@@ -229,7 +229,7 @@ double ScaleItem::upperBound() const
   */
 double ScaleItem::lowerBound() const
 {
-    return d_ptr->lowerBound;
+    return d->lowerBound;
 }
 
 
@@ -246,18 +246,18 @@ void ScaleItem::setBounds(double lowerBound, double upperBound)
 {
     if(lowerBound < upperBound)
     {
-        if(d_ptr->lowerBound != lowerBound || d_ptr->upperBound != upperBound)
+        if(d->lowerBound != lowerBound || d->upperBound != upperBound)
         {
-            d_ptr->lowerBound = lowerBound;
-            d_ptr->upperBound = upperBound;
+            d->lowerBound = lowerBound;
+            d->upperBound = upperBound;
 
-            d_ptr->plot_item->boundsChanged();
+            d->plot_item->boundsChanged();
 
             /* needs to be called before updateLabelsFormat */
             updateStepLen();
             /* once the tick step len is up to date, update labels format */
-            if(d_ptr->axisLabelsFormat.isEmpty()) /* avoid a function call if not needed */
-                updateLabelsFormat(d_ptr->axisLabelsFormat);
+            if(d->axisLabelsFormat.isEmpty()) /* avoid a function call if not needed */
+                updateLabelsFormat(d->axisLabelsFormat);
 
             mNotifyBoundsChanged();
 
@@ -287,17 +287,17 @@ void ScaleItem::setBounds(double lowerBound, double upperBound)
   */
 void ScaleItem::setUpperBound(double ub)
 {
-    if(ub > d_ptr->lowerBound)
+    if(ub > d->lowerBound)
     {
-        d_ptr->upperBound = ub;
-        d_ptr->plot_item->boundsChanged();
+        d->upperBound = ub;
+        d->plot_item->boundsChanged();
 
         /* needs to be called before mUpdateLabelsFormat */
         updateStepLen();
 
         /* once the tick step len is up to date, update labels format */
-        if(d_ptr->axisLabelsFormat.isEmpty()) /* avoid a function call if not needed */
-            updateLabelsFormat(d_ptr->axisLabelsFormat);
+        if(d->axisLabelsFormat.isEmpty()) /* avoid a function call if not needed */
+            updateLabelsFormat(d->axisLabelsFormat);
 
         mNotifyBoundsChanged();
 
@@ -310,7 +310,7 @@ void ScaleItem::setUpperBound(double ub)
     }
     else
         perr("ScaleItem::setUpperBound: upper bound must be greater than lower bound (which is %f)",
-             d_ptr->lowerBound);
+             d->lowerBound);
 }
 
 /** \brief sets the axis minimum value (lower bound)
@@ -326,16 +326,16 @@ void ScaleItem::setUpperBound(double ub)
   */
 void ScaleItem::setLowerBound(double lb)
 {
-    if(lb < d_ptr->upperBound)
+    if(lb < d->upperBound)
     {
-        d_ptr->lowerBound = lb;
-        d_ptr->plot_item->boundsChanged();
+        d->lowerBound = lb;
+        d->plot_item->boundsChanged();
 
         /* needs to be called before mUpdateLabelsFormat */
         updateStepLen();
         /* once the tick step len is up to date, update labels format */
-        if(d_ptr->axisLabelsFormat.isEmpty()) /* avoid a function call if not needed */
-            updateLabelsFormat(d_ptr->axisLabelsFormat);
+        if(d->axisLabelsFormat.isEmpty()) /* avoid a function call if not needed */
+            updateLabelsFormat(d->axisLabelsFormat);
 
         mNotifyBoundsChanged();
 
@@ -346,7 +346,7 @@ void ScaleItem::setLowerBound(double lb)
     }
     else
         perr("ScaleItem::setLowerBound: lower bound must be less than upper bound (which is %f)",
-             d_ptr->upperBound);
+             d->upperBound);
 
 }
 
@@ -360,22 +360,22 @@ void ScaleItem::setLowerBound(double lb)
  */
 void ScaleItem::setAutoscaleMargin(double spanPercent)
 {
-    d_ptr->autoscaleMargin = spanPercent;
+    d->autoscaleMargin = spanPercent;
 }
 
 double ScaleItem::autoscaleMargin() const
 {
-    return d_ptr->autoscaleMargin;
+    return d->autoscaleMargin;
 }
 
 void ScaleItem::mNotifyBoundsChanged()
 {
-    foreach(AxisChangeListener* l, d_ptr->axisChangeListeners)
+    foreach(AxisChangeListener* l, d->axisChangeListeners)
     {
-        if(d_ptr->orientation == Horizontal)
-            l->xAxisBoundsChanged(d_ptr->lowerBound, d_ptr->upperBound);
+        if(d->orientation == Horizontal)
+            l->xAxisBoundsChanged(d->lowerBound, d->upperBound);
         else
-            l->yAxisBoundsChanged(d_ptr->lowerBound, d_ptr->upperBound);
+            l->yAxisBoundsChanged(d->lowerBound, d->upperBound);
     }
 }
 
@@ -444,7 +444,7 @@ QDateTime ScaleItem::doubleToDateTime(double d) const
  */
 QDateTime ScaleItem::lowerBoundDateTime() const
 {
-    return doubleToDateTime(d_ptr->lowerBound);
+    return doubleToDateTime(d->lowerBound);
 }
 
 /** \brief returns the upper bound as a QDateTime object
@@ -454,7 +454,7 @@ QDateTime ScaleItem::lowerBoundDateTime() const
  */
 QDateTime ScaleItem::upperBoundDateTime() const
 {
-    return doubleToDateTime(d_ptr->upperBound);
+    return doubleToDateTime(d->upperBound);
 }
 
 /** \brief returns the value of the axisAutoscaleEnabled property
@@ -473,7 +473,7 @@ QDateTime ScaleItem::upperBoundDateTime() const
   */
 bool ScaleItem::axisAutoscaleEnabled() const
 {
-    return d_ptr->autoScale;
+    return d->autoScale;
 }
 
 /** \brief enables or disables the axis auto scaling
@@ -487,9 +487,9 @@ bool ScaleItem::axisAutoscaleEnabled() const
   */
 void ScaleItem::setAxisAutoscaleEnabled(bool en)
 {
-    d_ptr->autoScale = en;
-    foreach(AxisChangeListener* l, d_ptr->axisChangeListeners)
-        l->axisAutoscaleChanged(d_ptr->orientation, en);
+    d->autoScale = en;
+    foreach(AxisChangeListener* l, d->axisChangeListeners)
+        l->axisAutoscaleChanged(d->orientation, en);
     emit autoscaleEnabledChanged(en);
 }
 
@@ -503,7 +503,7 @@ void ScaleItem::setAxisAutoscaleEnabled(bool en)
   */
 double ScaleItem::axisLabelDist() const
 {
-    return d_ptr->axisLabelDist;
+    return d->axisLabelDist;
 }
 
 /** \brief sets the distance between the backbone and the start of the label's text.
@@ -511,10 +511,10 @@ double ScaleItem::axisLabelDist() const
   * @param d the distance, in scene coordinates, between the backbone and the start of text
   *        of each label.
   */
-void ScaleItem::setAxisLabelDist(double d)
+void ScaleItem::setAxisLabelDist(double dv)
 {
-    d_ptr->axisLabelDist = d;
-    scene()->update();
+    d->axisLabelDist = dv;
+    update();
 }
 
 /** \brief Places the axis labels outside the plot canvas, i.e. on the left of the canvas.
@@ -538,9 +538,9 @@ void ScaleItem::setAxisLabelDist(double d)
   */
 void ScaleItem::setAxisLabelsOutsideCanvas(bool outside)
 {
-    d_ptr->axisLabelsOutsideCanvas = outside;
-    scene()->update();
-    /// updateLabelsCache(); /* updates full scene */
+    d->axisLabelsOutsideCanvas = outside;
+    updateLabelsCache(); /* updates full scene */
+    update();
 }
 
 /** \brief returns the axisLabelsOutsideCanvas property.
@@ -555,7 +555,7 @@ void ScaleItem::setAxisLabelsOutsideCanvas(bool outside)
   */
 bool ScaleItem::axisLabelsOutsideCanvas() const
 {
-    return d_ptr->axisLabelsOutsideCanvas;
+    return d->axisLabelsOutsideCanvas;
 }
 
 /** \brief Returns the canvas rect, which is the rect where the curves
@@ -566,20 +566,20 @@ bool ScaleItem::axisLabelsOutsideCanvas() const
   */
 QRectF ScaleItem::canvasRect() const
 {
-    return d_ptr->canvasRect;
+    return d->canvasRect;
 }
 
 void ScaleItem::setTickStepLen(double sLen)
 {
-    d_ptr->tickStepLen = sLen;
+    d->tickStepLen = sLen;
     if(sLen != -1)
     {
-        d_ptr->actualTickStepLen = sLen;
-        foreach(AxisChangeListener* l, d_ptr->axisChangeListeners)
+        d->actualTickStepLen = sLen;
+        foreach(AxisChangeListener* l, d->axisChangeListeners)
             l->tickStepLenChanged(sLen);
     }
     else
-        d_ptr->actualTickStepLen = updateStepLen();
+        d->actualTickStepLen = updateStepLen();
 
     /* ok, after d_ptr->actualTickStepLen is up to date */
     updateLabelsCache();
@@ -589,35 +589,35 @@ void ScaleItem::setTickStepLen(double sLen)
 
 double ScaleItem::tickStepLen() const
 {
-    return d_ptr->tickStepLen;
+    return d->tickStepLen;
 }
 
 void ScaleItem::setAxisLabelsEnabled(bool en)
 {
-    d_ptr->labelsEnabled = en;
+    d->labelsEnabled = en;
     updateLabelsCache();
     prepareGeometryChange();
 }
 
 bool ScaleItem::axisLabelsEnabled() const
 {
-    return d_ptr->labelsEnabled;
+    return d->labelsEnabled;
 }
 
 void ScaleItem::setAxisLabelsRotation(double angle)
 {
-    d_ptr->axisLabelRotation = angle;
+    d->axisLabelRotation = angle;
     redraw();
 }
 
 double ScaleItem::axisLabelsRotation() const
 {
-    return d_ptr->axisLabelRotation;
+    return d->axisLabelRotation;
 }
 
 void ScaleItem::setAxisLabelsFormat(const QString& fmt)
 {
-    d_ptr->axisLabelsFormat = fmt;
+    d->axisLabelsFormat = fmt;
     updateLabelsFormat(fmt);
     updateLabelsCache();
     prepareGeometryChange();
@@ -625,111 +625,116 @@ void ScaleItem::setAxisLabelsFormat(const QString& fmt)
 
 QString ScaleItem::axisLabelsFormat() const
 {
-    return d_ptr->axisLabelsFormat;
+    return d->axisLabelsFormat;
 }
 
 void ScaleItem::setGridEnabled(bool en)
 {
-    d_ptr->gridEnabled = en;
+    d->gridEnabled = en;
     redraw();
 }
 
 bool ScaleItem::gridEnabled() const
 {
-    return d_ptr->gridEnabled;
+    return d->gridEnabled;
 }
 
 void ScaleItem::setGridColor(const QColor& c)
 {
-    d_ptr->gridColor = c;
+    d->gridColor = c;
     redraw();
 }
 
 void ScaleItem::setAxisColor(const QColor& c)
 {
-    d_ptr->axisColor = c;
+    d->axisColor = c;
     redraw();
 }
 
 QColor ScaleItem::axisColor() const
 {
-    return d_ptr->axisColor;
+    return d->axisColor;
 }
 
 QColor ScaleItem::gridColor() const
 {
-    return d_ptr->gridColor;
+    return d->gridColor;
 }
 
 void ScaleItem::setFont(const QFont& f)
 {
-    d_ptr->font = f;
+    d->font = f;
     updateLabelsCache();
-    scene()->update();
+    update();
 }
 
 QFont ScaleItem::font() const
 {
-    return d_ptr->font;
+    return d->font;
 }
 
 QFont ScaleItem::axisTitleFont() const
 {
-    return d_ptr->axisTitleFont;
+    return d->axisTitleFont;
 }
 
 QColor ScaleItem::axisTitleColor() const
 {
-    return d_ptr->axisTitleColor;
+    return d->axisTitleColor;
 }
 
 QString ScaleItem::axisTitle() const
 {
-    return d_ptr->axisTitle;
+    return d->axisTitle;
+}
+
+void ScaleItem::fullVectorUpdate()
+{
+
 }
 
 
 void ScaleItem::setAxisTitleFont(const QFont &fo)
 {
-    d_ptr->axisTitleFont = fo;
+    d->axisTitleFont = fo;
     /* not to calculate font metrics at every refresh */
     mRecalculateAxisTitleSize();
 }
 
 void ScaleItem::setAxisTitleColor(const QColor & co)
 {
-    d_ptr->axisTitleColor = co;
+    d->axisTitleColor = co;
 }
 
 void ScaleItem::setAxisTitle(const QString & ti)
 {
-    d_ptr->axisTitle = ti;
+    d->axisTitle = ti;
     mRecalculateAxisTitleSize();
 }
 
 
 double ScaleItem::maxLabelWidth() const
 {
-    return d_ptr->maxLabelWidth;
+    return d->maxLabelWidth;
 }
 
 void ScaleItem::adjustScaleBounds(double newMin, double newMax)
 {
-    double min = d_ptr->lowerBound;
-    double max = d_ptr->upperBound;
+    double min = d->lowerBound;
+    double max = d->upperBound;
 
-    if(newMin < min || d_ptr->minMaxUnset)
+    if(newMin < min || d->minMaxUnset)
         min = newMin;
-    if(newMax > max || d_ptr->minMaxUnset)
+    if(newMax > max || d->minMaxUnset)
         max = newMax;
-    d_ptr->minMaxUnset = false;
-    if(d_ptr->lowerBound != min || d_ptr->upperBound != max)
+    d->minMaxUnset = false;
+    if(d->lowerBound != min || d->upperBound != max)
         setBounds(min, max); /* updates tick step len and labels cache */
 }
 
 void ScaleItem::affectingBoundsPointsRemoved()
 {
-    if(d_ptr->autoScale && !d_ptr->plot_item->inZoom())
+    if(d->autoScale && !d->plot_item->inZoom())
     {
         printf("\e[0;32maffectingBoundsPointsRemoved().....\e[0m\n");
         /* must obtain again all maximum and minimum values from each curve */
@@ -739,31 +744,7 @@ void ScaleItem::affectingBoundsPointsRemoved()
     }
 }
 
-void ScaleItem::fullVectorUpdate()
-{
-
-}
-
-void ScaleItem::plotRectChanged(const QRectF &newRect)
-{
-    QGraphicsView *view = NULL;
-    if(scene()->views().size() > 0)
-        view = scene()->views().first();
-    //    QTransform tran = view->transform();
-    /* initialize canvas rect, width and height to plot rect */
-    //    qreal rectLeft, rectTop ,rectRight, rectBottom;
-
-    //    rectLeft = tran.m11() * newRect.left() + tran.m21() * newRect.top() + tran.dx();
-    //    rectTop = tran.m22() * newRect.top() + tran.m12() * newRect.left() + tran.dy();
-    //    rectRight = tran.m11() * newRect.right() + tran.m21() * newRect.bottom() + tran.dx();
-    //    rectBottom =  tran.m22() * newRect.bottom() + tran.m12() * newRect.right() + tran.dy();
-
-    //   d_ptr->plotRect = QRectF:(QPointF(rectLeft, rectTop), QPointF(rectRight, rectBottom));
-
-    //  qDebug() << this<<  "newRect " << newRect << " current rect " << d_ptr->plotRect;
-
-    d_ptr->plotRect = newRect;
-
+void ScaleItem::plotRectChanged(const QRectF &newRect) {
     redraw();
 }
 
@@ -790,7 +771,7 @@ void ScaleItem::plotAreaChanged(const QSizeF &)
  */
 void ScaleItem::plotZoomLevelChanged(int level)
 {
-    d_ptr->plotZoomLevel = level;
+    d->plotZoomLevel = level;
     updateStepLen();
     updateLabelsCache();
     prepareGeometryChange();
@@ -806,7 +787,7 @@ void ScaleItem::scrollBarChanged(Qt::Orientation , int )
 
 void ScaleItem::itemsAboutToBeDrawn()
 {
-    d_ptr->minMaxUnset = true;
+    d->minMaxUnset = true;
 }
 
 int ScaleItem::mGetDecimals(double q)
@@ -822,9 +803,9 @@ int ScaleItem::mGetDecimals(double q)
 
 void ScaleItem::mRecalculateAxisTitleSize()
 {
-    QFontMetrics fm(d_ptr->axisTitleFont);
-    d_ptr->mAxisTitleHeight = fm.height();
-    d_ptr->mAxisTitleWidth = fm.width(d_ptr->axisTitle);
+    QFontMetrics fm(d->axisTitleFont);
+    d->mAxisTitleHeight = fm.height();
+    d->mAxisTitleWidth = fm.horizontalAdvance(d->axisTitle);
 }
 
 /* updates the actualLabelsFormat private variable.
@@ -835,30 +816,32 @@ void ScaleItem::mRecalculateAxisTitleSize()
  */
 void ScaleItem::updateLabelsFormat(const QString& desiredFormat)
 {
-    QString previousFormat = d_ptr->actualLabelsFormat;
+    QString previousFormat = d->actualLabelsFormat;
     if(!desiredFormat.isEmpty())
-        d_ptr->actualLabelsFormat = desiredFormat;
+        d->actualLabelsFormat = desiredFormat;
     else
     {
         double x1, x2;
-        x1 = d_ptr->lowerBound;
-        x2 = d_ptr->upperBound;
+        x1 = d->lowerBound;
+        x2 = d->upperBound;
 
         if(x2 >= x1)
         {
-            qreal q = d_ptr->actualTickStepLen;
+            qreal q = d->actualTickStepLen;
             if(q > 1 || q == 0)
-                d_ptr->actualLabelsFormat = "%.0f";
+                d->actualLabelsFormat = "%.0f";
             else
-                d_ptr->actualLabelsFormat = QString("%.%1f").arg(mGetDecimals(q));
+                d->actualLabelsFormat = QString("%.%1f").arg(mGetDecimals(q));
+            qDebug() << __PRETTY_FUNCTION__ << q << "devvicmals" << mGetDecimals(q);
         }
     }
     /* notify axis label format has changed */
-    if(previousFormat != d_ptr->actualLabelsFormat)
+    if(previousFormat != d->actualLabelsFormat)
     {
-        foreach(AxisChangeListener *l, d_ptr->axisChangeListeners)
-            l->labelsFormatChanged(d_ptr->actualLabelsFormat);
+        foreach(AxisChangeListener *l, d->axisChangeListeners)
+            l->labelsFormatChanged(d->actualLabelsFormat);
     }
+    qDebug() << __PRETTY_FUNCTION__ << "desired format " << desiredFormat << "actual" << d->actualLabelsFormat;
 }
 
 /* This method rebuilds the labels cache hash.
@@ -871,24 +854,24 @@ void ScaleItem::updateLabelsCache()
     double x, x0 = 0;
     double max = 0.0;
     double width;
-    double x1 = d_ptr->lowerBound;
-    double x2 = d_ptr->upperBound;
+    double x1 = d->lowerBound;
+    double x2 = d->upperBound;
     /* assume that d_ptr->actualTickStepLen is up to date */
-    double tickDist = d_ptr->actualTickStepLen;
+    double tickDist = d->actualTickStepLen;
     double originPercent;
     bool ok;
     QPair<double, double> originPosPercent;
 
     QString textLabel;
-    QFontMetrics fm(d_ptr->font);
+    QFontMetrics fm(d->font);
     /* clear the labels cache */
-    d_ptr->labelsCacheHash.clear();
+    d->labelsCacheHash.clear();
 
-    ScaleItem *associatedAxis = d_ptr->plot_item->associatedAxis(this->axisId());
+    ScaleItem *associatedAxis = d->plot_item->associatedAxis(this->axisId());
     if(associatedAxis)
-        originPosPercent = d_ptr->plot_item->associatedOriginPosPercentage(associatedAxis->axisId(), d_ptr->axisId, &ok);
+        originPosPercent = d->plot_item->associatedOriginPosPercentage(associatedAxis->axisId(), d->axisId, &ok);
 
-    if(d_ptr->orientation == Horizontal)
+    if(d->orientation == Horizontal)
         originPercent = originPosPercent.first;
     else
         originPercent = originPosPercent.second;
@@ -899,18 +882,18 @@ void ScaleItem::updateLabelsCache()
     x = x0;
     while(x <= x2)
     {
-        if(d_ptr->scaleLabelInterface)
-            textLabel = d_ptr->scaleLabelInterface->label(x);
+        if(d->scaleLabelInterface)
+            textLabel = d->scaleLabelInterface->label(x);
         else /* no, just return the number */
-            textLabel.sprintf(qstoc(d_ptr->actualLabelsFormat), x);
+            textLabel.sprintf(qstoc(d->actualLabelsFormat), x);
         /* add item to cache */
-        d_ptr->labelsCacheHash.insert(x, textLabel);
+        d->labelsCacheHash.insert(x, textLabel);
 
-        width = fm.width(textLabel);
+        width = fm.horizontalAdvance(textLabel);
         if(max < width)
         {
             max = width;
-            d_ptr->longestLabel = textLabel;
+            d->longestLabel = textLabel;
         }
         x += tickDist;
     }
@@ -918,27 +901,28 @@ void ScaleItem::updateLabelsCache()
     x = x0 - tickDist;
     while(x >= x1)
     {
-        if(d_ptr->scaleLabelInterface)
-            textLabel = d_ptr->scaleLabelInterface->label(x);
+        if(d->scaleLabelInterface)
+            textLabel = d->scaleLabelInterface->label(x);
         else /* no, just return the number */
-            textLabel.sprintf(qstoc(d_ptr->actualLabelsFormat), x);
+            textLabel.sprintf(qstoc(d->actualLabelsFormat), x);
         /* add item to cache */
-        d_ptr->labelsCacheHash.insert(x, textLabel);
+        d->labelsCacheHash.insert(x, textLabel);
 
-        width = fm.width(textLabel);
+        width = fm.horizontalAdvance(textLabel);
         if(max < width)
         {
             max = width;
-            d_ptr->longestLabel = textLabel;
+            d->longestLabel = textLabel;
         }
         x -= tickDist;
     }
-    d_ptr->maxLabelWidth = max;
+    qDebug() << __PRETTY_FUNCTION__ << "max label width" << max << "for longest label " << d->longestLabel << "font size" << d->font.pointSize();
+    d->maxLabelWidth = max + 1;
 }
 
 void ScaleItem::redraw()
 {
-    d_ptr->mNeedFullRedraw = true;
+    d->mNeedFullRedraw = true;
     update();
 }
 
@@ -949,26 +933,13 @@ void ScaleItem::redraw()
 double ScaleItem::updateStepLen()
 {
     double sLen;
-    if(d_ptr->tickStepLen != -1)
-    {
-
-        sLen = d_ptr->tickStepLen;
+    if(d->tickStepLen != -1) {
+        sLen = d->tickStepLen;
     }
     else
     {
-        printf("%s \e[1;31m check here\e[0m\n", __PRETTY_FUNCTION__);
-        double span = d_ptr->upperBound - d_ptr->lowerBound;
+        double span = d->upperBound - d->lowerBound;
         double scale = 1.0, factor, x;
-        switch(d_ptr->orientation)
-        {
-        case ScaleItem::Horizontal:
-//            scale = d_ptr->view->QGraphicsView::transform().m11();
-            break;
-        default:
-//            scale = d_ptr->view->QGraphicsView::transform().m22();
-            break;
-        }
-
         span /= scale;
         double magnitude = floor(log10(span));
         factor = span / pow(10,magnitude);
@@ -983,30 +954,27 @@ double ScaleItem::updateStepLen()
         sLen = x * pow(10, (magnitude - 1));
     }
 
-    if(d_ptr->actualTickStepLen != sLen)
-    {
-        d_ptr->actualTickStepLen = sLen;
-        foreach(AxisChangeListener* l, d_ptr->axisChangeListeners)
-        {
+    if(d->actualTickStepLen != sLen) {
+        d->actualTickStepLen = sLen;
+        foreach(AxisChangeListener* l, d->axisChangeListeners) {
             l->tickStepLenChanged(sLen);
         }
     }
-
     return sLen;
 }
 
 void ScaleItem::setBoundsFromCurves()
 {
-    d_ptr->minMaxUnset = true;
-    QList<SceneCurve *> curves = d_ptr->plot_item->curvesForAxes(d_ptr->axisId, d_ptr->orientation);
+    d->minMaxUnset = true;
+    QList<SceneCurve *> curves = d->plot_item->curvesForAxes(d->axisId, d->orientation);
     if(!curves.size())
         return;
     int i;
     double min = 0.0, max = 0.0, span;
     SceneCurve *c;
-    Data *d ;
+    Data *da ;
     unsigned int visibleCurvesCnt = 0;
-    switch(d_ptr->orientation)
+    switch(d->orientation)
     {
     case Horizontal:
         for(i = 0; i < curves.size(); i++)
@@ -1014,11 +982,11 @@ void ScaleItem::setBoundsFromCurves()
             c = curves[i];
             if(c->curveItem() && c->curveItem()->isVisible())
             {
-                d = c->data();
-                if(visibleCurvesCnt == 0 || d->xMin < min)
-                    min = d->xMin;
-                if(visibleCurvesCnt == 0 || d->xMax > max)
-                    max = d->xMax;
+                da = c->data();
+                if(visibleCurvesCnt == 0 || da->xMin < min)
+                    min = da->xMin;
+                if(visibleCurvesCnt == 0 || da->xMax > max)
+                    max = da->xMax;
                 visibleCurvesCnt++;
             }
         }
@@ -1029,11 +997,11 @@ void ScaleItem::setBoundsFromCurves()
             c = curves[i];
             if(c->curveItem() && c->curveItem()->isVisible())
             {
-                d = c->data();
-                if(visibleCurvesCnt == 0 || d->yMin < min)
-                    min = d->yMin;
-                if(visibleCurvesCnt == 0 || d->yMax > max)
-                    max = d->yMax;
+                da = c->data();
+                if(visibleCurvesCnt == 0 || da->yMin < min)
+                    min = da->yMin;
+                if(visibleCurvesCnt == 0 || da->yMax > max)
+                    max = da->yMax;
                 visibleCurvesCnt++;
             }
         }
@@ -1043,8 +1011,8 @@ void ScaleItem::setBoundsFromCurves()
     {
         /* apply scale span adjustment (default is 2 % ) */
         span = max - min;
-        max += span * d_ptr->autoscaleMargin / 2;
-        min -= span * d_ptr->autoscaleMargin / 2;
+        max += span * d->autoscaleMargin / 2;
+        min -= span * d->autoscaleMargin / 2;
 
         if(max == min) /* only one value in the curve */
         {
@@ -1059,10 +1027,10 @@ void ScaleItem::setBoundsFromCurves()
                 min = -1;
             }
         }
-        if(d_ptr->lowerBound != min || d_ptr->upperBound != max)
+        if(d->lowerBound != min || d->upperBound != max)
         {
-            d_ptr->lowerBound = min;
-            d_ptr->upperBound = max;
+            d->lowerBound = min;
+            d->upperBound = max;
 
             /* needs to be called before mUpdateLabelsFormat */
             updateStepLen();
@@ -1072,14 +1040,14 @@ void ScaleItem::setBoundsFromCurves()
             //                       qstoc(objectName()), d_ptr->actualTickStepLen);
 
             /* once the tick step len is up to date, update labels format */
-            if(d_ptr->axisLabelsFormat.isEmpty()) /* avoid a function call if not needed */
-                updateLabelsFormat(d_ptr->axisLabelsFormat);
+            if(d->axisLabelsFormat.isEmpty()) /* avoid a function call if not needed */
+                updateLabelsFormat(d->axisLabelsFormat);
 
             updateLabelsCache();
 
-            foreach(AxisChangeListener* l, d_ptr->axisChangeListeners)
+            foreach(AxisChangeListener* l, d->axisChangeListeners)
             {
-                if(d_ptr->orientation == Horizontal)
+                if(d->orientation == Horizontal)
                     l->xAxisBoundsChanged(min, max);
                 else
                     l->yAxisBoundsChanged(min, max);
@@ -1094,48 +1062,28 @@ void ScaleItem::setBoundsFromCurves()
 
 void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option, QWidget *  )
 {
-    QPen axisPen(d_ptr->axisColor), gridPen(d_ptr->gridColor);
+    printf("scale item paint\n");
+    QPen axisPen(d->axisColor), gridPen(d->gridColor);
     axisPen.setWidthF(0.0);
     gridPen.setWidthF(0.0);
 
-
-    QGraphicsView *view = NULL;
-    if(scene()->views().size() > 0)
-        view = scene()->views().first();
-//    QTransform tran = view->transform();
-
-
-    painter->setClipRect(option->exposedRect.toRect());
-    //    if(d_ptr->orientation == ScaleItem::Vertical)
-    //        printf("\e[1;36mpaint [vertical](%s) z value %f\e[0m\n", qstoc(objectName()), zValue());
+//    painter->setClipRect(option->exposedRect.toRect());
     double x1, x2, y1, y2, x, y, x0, y0;
     qreal px,  py, px0, py0;
     /* initialize canvas rect, width and height to plot rect */
 
     bool canvasRectChanged = false;
-    QRectF rect = d_ptr->plotRect;
-    QRectF scaledRect = rect; // tran.mapRect(rect);
+    QRectF rect = d->plot_item->boundingRect();
+
+    qDebug() << __PRETTY_FUNCTION__  << "plot Rect" << d->plotRect << "clip rect " << option->exposedRect.toRect()
+             << "option.rect" << option->rect;
 
     canvasWidth = rect.width();
     canvasHeight = rect.height();
-    qreal mappedRectLeft = scaledRect.left();
-    qreal mappedRectTop = scaledRect.top();
-    qreal mappedRectRight = mappedRectLeft + scaledRect.width();
-    qreal mappedRectBottom = mappedRectTop + scaledRect.height();
-
-
-    //  painter->fillRect(tran.mapRect(rect), QBrush(Qt::blue));
-    //    painter->setPen(Qt::red);
-    //    painter->drawEllipse(transformedRect.center(), 10, 10);
-    //    painter->drawEllipse(transformedRect.topLeft(), 10, 10);
-    //    painter->drawEllipse(transformedRect.bottomRight(), 10, 10);
-
-    //    painter->setPen(Qt::green);
-    //    painter->drawRect(d_ptr->plotRect);
-
-    //    qDebug() << __FUNCTION__ << "plot rect: " << d_ptr->plotRect << "rect" << rect
-    //             << " transformeth " << tran.mapRect(rect)
-    //             << "m11" << tran.m11() << " m22 " << tran.m22() << tran.m21() << tran.m21();
+    qreal rLeft = rect.left();
+    qreal rTop = rect.top();
+    qreal rRight = rLeft + rect.width();
+    qreal rBottom = rTop + rect.height();
 
     qreal labelPos;
     qreal yZoomLabel = 0, xZoomLabel = 0;
@@ -1143,18 +1091,18 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
     bool axisOutsideViewport = false;
     qreal xMaxLabelSpace = 0.0, yMaxLabelSpace = 0.0;
     qreal tickStepLen;
-    bool inZoom = d_ptr->plot_item->inZoom();
+    bool inZoom = d->plot_item->inZoom();
     QString textLabel;
     QRectF txtRect(0, 0, 0, 0);
-    painter->setFont(d_ptr->font);
+    painter->setFont(d->font);
     QFontMetrics fm(painter->font());
     labelHeight = fm.height();
 
     bool ok;
     QPair<double, double> originPosPercent;
-    ScaleItem *associatedAxis = d_ptr->plot_item->associatedAxis(this->axisId());
+    ScaleItem *associatedAxis = d->plot_item->associatedAxis(this->axisId());
     if(associatedAxis)
-        originPosPercent = d_ptr->plot_item->associatedOriginPosPercentage(associatedAxis->axisId(), d_ptr->axisId, &ok);
+        originPosPercent = d->plot_item->associatedOriginPosPercentage(associatedAxis->axisId(), d->axisId, &ok);
 
     // printf("\e[1;36m origin of %d: %f\e[0m\n", axisId(), originPosPercent);
 
@@ -1167,8 +1115,10 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
     }
 
     /* setBoundsFromCurves updates d_ptr->actualTickStepLen */
-    if(d_ptr->autoScale && !inZoom)
+    if(d->autoScale && !inZoom) {
+        printf("scale item %s calling setBoundsFromCurves\n", d->orientation == ScaleItem::Horizontal ? "hor" : "ver");
         setBoundsFromCurves();
+    }
     /* else:
      * no need to recalculate tick step len at each paint event, because tick step length
      * only changes in one of the following cases:
@@ -1179,32 +1129,32 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
      * In all these cases, the tick step len is recalculated and stored in d_ptr->actualTickStepLen
      */
 
-    tickStepLen = d_ptr->actualTickStepLen;
+    tickStepLen = d->actualTickStepLen;
 
     /* if actual x and/or y labels format is not initialized, calculate it */
-    if(d_ptr->actualLabelsFormat.isEmpty())
-        updateLabelsFormat(d_ptr->axisLabelsFormat);
+    if(d->actualLabelsFormat.isEmpty())
+        updateLabelsFormat(d->axisLabelsFormat);
 
-    switch(d_ptr->orientation)
+    switch(d->orientation)
     {
     case ScaleItem::Horizontal:
-        x1 = d_ptr->lowerBound;
-        x2 = d_ptr->upperBound;
+        x1 = d->lowerBound;
+        x2 = d->upperBound;
         y1 = associatedAxis->lowerBound();
         y2 = associatedAxis->upperBound();
 
-        xMaxLabelSpace = d_ptr->maxLabelWidth + d_ptr->tickWidth + d_ptr->labelMargin;
-        yMaxLabelSpace = associatedAxis->maxLabelWidth() + d_ptr->tickWidth/2.0;
+        xMaxLabelSpace = d->maxLabelWidth + d->tickWidth + d->labelMargin;
+        yMaxLabelSpace = associatedAxis->maxLabelWidth() + d->tickWidth/2.0;
         break;
 
     default:
         x1 = associatedAxis->lowerBound();
         x2 = associatedAxis->upperBound();
-        y1 = d_ptr->lowerBound;
-        y2 = d_ptr->upperBound;/* x tick len: if set to -1 then automatically choose 20 steps */
+        y1 = d->lowerBound;
+        y2 = d->upperBound;/* x tick len: if set to -1 then automatically choose 20 steps */
 
-        xMaxLabelSpace = associatedAxis->maxLabelWidth() + d_ptr->tickWidth + d_ptr->labelMargin;
-        yMaxLabelSpace = d_ptr->maxLabelWidth + d_ptr->tickWidth/2.0;
+        xMaxLabelSpace = associatedAxis->maxLabelWidth() + d->tickWidth + d->labelMargin;
+        yMaxLabelSpace = d->maxLabelWidth + d->tickWidth/2.0;
         break;
     }
 
@@ -1214,33 +1164,33 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
     x0 = x1 + (x2 - x1) * originPosPercent.first;
     y0 = y1 + (y2 - y1) * originPosPercent.second;
 
-    px0 = (scaledRect.width() - 1) * (x0 - x1) / (x2 - x1) + mappedRectLeft;
-    py0 = scaledRect.height() - 1 - ((scaledRect.height() - 1) * (y0 - y1) / (y2 - y1) + mappedRectTop);
+    px0 = (rect.width() - 1) * (x0 - x1) / (x2 - x1) + rLeft;
+    py0 = rect.height() - 1 - ((rect.height() - 1) * (y0 - y1) / (y2 - y1) + rTop);
 
-    if(px0 - yMaxLabelSpace < mappedRectLeft ||
-            ((d_ptr->orientation == Vertical && d_ptr->axisLabelsOutsideCanvas)
-             || (d_ptr->orientation == Horizontal && associatedAxis->axisLabelsOutsideCanvas())))
+    if(px0 - yMaxLabelSpace < rLeft ||
+            ((d->orientation == Vertical && d->axisLabelsOutsideCanvas)
+             || (d->orientation == Horizontal && associatedAxis->axisLabelsOutsideCanvas())))
 
     {
         //        printf("\e[1;31m scene should be scaled axis lab %f scene left %f  px0 %f rect left %f\e[0m\n",
         //               px0 - yMaxLabelWidth, d_ptr->canvasRect.left(), px0, txtRect.left());
 
         //        qDebug() << " plot rect efor " << plotRect;
-        mappedRectLeft = yMaxLabelSpace;
+        rLeft = yMaxLabelSpace;
         rect.setLeft(yMaxLabelSpace /*/ tran.m22()*/);
-        scaledRect.setLeft(mappedRectLeft);
+        rect.setLeft(rLeft);
         canvasRectChanged = true;
         //     qDebug() << "plotRectAdter " << plotRect;
     }
-    if(py0 + xMaxLabelSpace > mappedRectBottom ||
-            ( (d_ptr->orientation == Horizontal && d_ptr->axisLabelsOutsideCanvas)
-              || (d_ptr->orientation == Vertical && associatedAxis->axisLabelsOutsideCanvas()) ) )
+    if(py0 + xMaxLabelSpace > rBottom ||
+            ( (d->orientation == Horizontal && d->axisLabelsOutsideCanvas)
+              || (d->orientation == Vertical && associatedAxis->axisLabelsOutsideCanvas()) ) )
     {
-        mappedRectBottom = mappedRectBottom - xMaxLabelSpace;
-        scaledRect.setBottom(mappedRectBottom);
+        rBottom = rBottom - xMaxLabelSpace;
+        rect.setBottom(rBottom);
         //        qDebug() << __FUNCTION__ << "changing rect bottom of " << xMaxLabelSpace << tran.m11() << tran.m12() << tran.m21()
         //                 << tran.dx()
-        //                 << (py0 + xMaxLabelSpace > mappedRectBottom);
+        //                 << (py0 + xMaxLabelSpace > rBottom);
         qreal mappedXLabelSpace = xMaxLabelSpace /*/ tran.m11()*/;
         rect.setBottom(rect.bottom() - mappedXLabelSpace);
         canvasRectChanged = true;
@@ -1250,13 +1200,13 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
      * (canvas rect), then the canvas rect must be recalculated.
      * Let's use the inverted transform to calculate it.
      */
-    if(canvasRectChanged || d_ptr->canvasRect != rect)
+    if(canvasRectChanged || d->canvasRect != rect)
     {
-        if(d_ptr->canvasRect != rect)
+        if(d->canvasRect != rect)
         {
-            foreach(AxisChangeListener* l, d_ptr->axisChangeListeners)
+            foreach(AxisChangeListener* l, d->axisChangeListeners)
                 l->canvasRectChanged(rect);
-            d_ptr->canvasRect = rect;
+            d->canvasRect = rect;
         }
         //        else
         //            printf("\e[1;31mno worries, canvas rect not changed\e[0m\n");
@@ -1264,16 +1214,16 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
         canvasHeight = rect.height();
     }
 
-    switch(d_ptr->orientation)
+    switch(d->orientation)
     {
     case ScaleItem::Horizontal:
 
-        py0 = scaledRect.height() - 1 - ((scaledRect.height() - 1) * (y0 - y1) / (y2 - y1) + mappedRectTop);
+        py0 = rect.height() - 1 - ((rect.height() - 1) * (y0 - y1) / (y2 - y1) + rTop);
 
-        if(d_ptr->axisLabelsOutsideCanvas)
-            labelPos = mappedRectBottom - py0 + d_ptr->tickWidth/2.0 + d_ptr->labelMargin;
+        if(d->axisLabelsOutsideCanvas)
+            labelPos = rBottom - py0 + d->tickWidth/2.0 + d->labelMargin;
         else
-            labelPos = d_ptr->axisLabelDist;
+            labelPos = d->axisLabelDist;
         /// printf("\e[1;32mdraw() scale item\e[0m \"%s\" y %.2f\n", qstoc(objectName()), py);
 
         ///        if(inZoom)
@@ -1291,109 +1241,111 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
         //            axisOutsideViewport = (yLab1 > yZoom1 || yLab2 < yZoom2);
         ///        }
         painter->setPen(axisPen);
-        painter->drawLine(mappedRectLeft, py0 , mappedRectRight, py0);
+        painter->drawLine(rLeft, py0 , rRight, py0);
 
         /* draw ticks starting from origin */
-        d_ptr->mLastTickPos = (scaledRect.height() - 1) * (x0 - x1) / (x2 - x1) + mappedRectLeft;
+        d->mLastTickPos = (rect.height() - 1) * (x0 - x1) / (x2 - x1) + rLeft;
 
         x = x0;
 
         while(x <= x2)
         {
-            px = (scaledRect.width() - 1) * (x - x1) / (x2 - x1) + mappedRectLeft;
+            px = (rect.width() - 1) * (x - x1) / (x2 - x1) + rLeft;
 
             //            printf("\e[1;32m dist from prev %.10f\e[0m, ", px - prevx);
-            if(d_ptr->gridEnabled && x != x0)/* x != x0 not to draw grid over axes */
+            if(d->gridEnabled && x != x0)/* x != x0 not to draw grid over axes */
             {
                 painter->setPen(gridPen);
-                painter->drawLine(px, mappedRectTop, px, mappedRectBottom);
+                painter->drawLine(px, rTop, px, rBottom);
             }
-            if(d_ptr->labelsEnabled)
+            if(d->labelsEnabled)
             {
                 /* ScaleLabelInterface installed ? */
-                textLabel = d_ptr->labelsCacheHash.value(x);
-                if(px - fm.height() > d_ptr->mLastTickPos || x == x0)
+                textLabel = d->labelsCacheHash.value(x);
+                if(px - fm.height() > d->mLastTickPos || x == x0)
                 {
                     painter->setPen(axisPen);
-                    txtRect.setRect(0, 0, d_ptr->maxLabelWidth, labelHeight);
+                    txtRect.setRect(0, 0, d->maxLabelWidth, labelHeight);
                     painter->translate(px + labelHeight/2, labelPos + py0);
-                    painter->rotate(d_ptr->axisLabelRotation);
+                    painter->rotate(d->axisLabelRotation);
+                    painter->drawRect(txtRect);
                     painter->drawText(txtRect, textLabel);
-                    painter->rotate(-d_ptr->axisLabelRotation);
+                    painter->rotate(-d->axisLabelRotation);
                     painter->translate(-px - labelHeight/2, -labelPos - py0);
-                    d_ptr->mLastTickPos = px;
+                    d->mLastTickPos = px;
                 }
                 if(axisOutsideViewport) /* draw the labels on the border */
                 {
-                    painter->setPen(d_ptr->gridColor.darker());
+                    painter->setPen(d->gridColor.darker());
                     painter->translate(px + labelHeight/2, yZoomLabel);
-                    painter->rotate(d_ptr->axisLabelRotation);
-                    txtRect.setRect(0, 0, d_ptr->maxLabelWidth, labelHeight);
+                    painter->rotate(d->axisLabelRotation);
+                    txtRect.setRect(0, 0, d->maxLabelWidth, labelHeight);
                     painter->drawText(txtRect, textLabel);
-                    painter->rotate(-d_ptr->axisLabelRotation);
+                    painter->rotate(-d->axisLabelRotation);
                     painter->translate(-px - labelHeight/2, -yZoomLabel);
                 }
             }
             painter->setPen(axisPen);
-            painter->drawLine(px, py0 - d_ptr->tickWidth/2.0, px, py0 + d_ptr->tickWidth/2.0);
+            painter->drawLine(px, py0 - d->tickWidth/2.0, px, py0 + d->tickWidth/2.0);
             x = x + tickStepLen;
         }
         //        printf("\e[0m\n");
 
         /* draw ticks from origin backwards */
-        d_ptr->mLastTickPos = (scaledRect.width() - 1) * (x0 - x1) / (x2 - x1) + mappedRectLeft;
+        d->mLastTickPos = (rect.width() - 1) * (x0 - x1) / (x2 - x1) + rLeft;
         x = x0 - tickStepLen;
         while( x >= x1)
         {
-            px = (scaledRect.width() - 1) * (x - x1)/ (x2 - x1) + mappedRectLeft;
+            px = (rect.width() - 1) * (x - x1)/ (x2 - x1) + rLeft;
 
             //            printf("\e[0;32m dist from prev %f\e[0m, ",  prevx - px);
             /* 1. draw grid */
-            if(d_ptr->gridEnabled)
+            if(d->gridEnabled)
             {
                 painter->setPen(gridPen);
-                painter->drawLine(px, mappedRectTop, px, mappedRectBottom);
+                painter->drawLine(px, rTop, px, rBottom);
             }
 
             /* 2. draw labels */
-            if(d_ptr->labelsEnabled)
+            if(d->labelsEnabled)
             {
-                textLabel = d_ptr->labelsCacheHash.value(x);
-                if(px + fm.height() < d_ptr->mLastTickPos)
+                textLabel = d->labelsCacheHash.value(x);
+                if(px + fm.height() < d->mLastTickPos)
                 {
                     painter->setPen(axisPen);
-                    txtRect.setRect(0, 0, fm.width(textLabel), labelHeight);
+                    txtRect.setRect(0, 0, fm.horizontalAdvance(textLabel), labelHeight);
                     painter->translate(px + labelHeight/2.0, py0 + labelPos);
-                    painter->rotate(d_ptr->axisLabelRotation);
+                    painter->rotate(d->axisLabelRotation);
                     painter->drawText(txtRect, textLabel);
-                    painter->rotate(-d_ptr->axisLabelRotation);
+                    painter->drawRect(txtRect);
+                    painter->rotate(-d->axisLabelRotation);
                     painter->translate(-px - labelHeight/2.0, -py0 - labelPos);
-                    d_ptr->mLastTickPos = px;
+                    d->mLastTickPos = px;
                 }
                 if(axisOutsideViewport) /* draw the labels on the border */
                 {
-                    painter->setPen(d_ptr->gridColor.darker());
+                    painter->setPen(d->gridColor.darker());
                     painter->translate(px + labelHeight/2.0, yZoomLabel);
-                    txtRect.setRect(0, 0, d_ptr->maxLabelWidth, labelHeight);
-                    painter->rotate(d_ptr->axisLabelRotation);
+                    txtRect.setRect(0, 0, d->maxLabelWidth, labelHeight);
+                    painter->rotate(d->axisLabelRotation);
                     painter->drawText(txtRect, textLabel);
-                    painter->rotate(-d_ptr->axisLabelRotation);
+                    painter->rotate(-d->axisLabelRotation);
                     painter->translate(-px - labelHeight/2.0, -yZoomLabel);
                 }
             }
             /* 3. draw ticks */
             painter->setPen(axisPen);
-            painter->drawLine(px, py0 -d_ptr->tickWidth/2.0, px, py0 + d_ptr->tickWidth/2.0);
+            painter->drawLine(px, py0 -d->tickWidth/2.0, px, py0 + d->tickWidth/2.0);
 
             x = x - tickStepLen;
         }
 
         /* Draw axis title */
-        if(!d_ptr->axisTitle.isEmpty())
+        if(!d->axisTitle.isEmpty())
         {
-            painter->setFont(d_ptr->axisTitleFont);
-            painter->setPen(QPen(d_ptr->axisTitleColor));
-            painter->drawText(mappedRectRight - d_ptr->mAxisTitleWidth - 4, py0 - d_ptr->tickWidth/2 - 1, d_ptr->axisTitle);
+            painter->setFont(d->axisTitleFont);
+            painter->setPen(QPen(d->axisTitleColor));
+            painter->drawText(rRight - d->mAxisTitleWidth - 4, py0 - d->tickWidth/2 - 1, d->axisTitle);
         }
         //        printf("\e[0m\n");
 
@@ -1405,12 +1357,12 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
     case Vertical:
     default:
         y = y1;
-        px0 = (scaledRect.width() - 1) * (x0 - x1) / (x2 - x1) + mappedRectLeft;
+        px0 = (rect.width() - 1) * (x0 - x1) / (x2 - x1) + rLeft;
 
-        if(d_ptr->axisLabelsOutsideCanvas)
-            labelPos = -px0 - d_ptr->maxLabelWidth +mappedRectLeft - d_ptr->tickWidth/2.0; /* margin */
+        if(d->axisLabelsOutsideCanvas)
+            labelPos = -px0 - d->maxLabelWidth +rLeft - d->tickWidth/2.0; /* margin */
         else
-            labelPos =  -d_ptr->axisLabelDist- d_ptr->maxLabelWidth;
+            labelPos =  -d->axisLabelDist- d->maxLabelWidth;
 
         ///        if(inZoom)
         //        {
@@ -1426,56 +1378,56 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
         ///        }
 
         painter->setPen(axisPen);
-        painter->drawLine(px0, mappedRectTop , px0, mappedRectBottom);
+        painter->drawLine(px0, rTop , px0, rBottom);
 
-        d_ptr->mLastTickPos = scaledRect.height() - 1 - ((scaledRect.height() - 1) * (y0 - y1) / (y2 - y1) + mappedRectTop);
+        d->mLastTickPos = rect.height() - 1 - ((rect.height() - 1) * (y0 - y1) / (y2 - y1) + rTop);
 
         /* draw ticks starting from origin */
         y = y0;
         while(y <= y2)
         {
-            py = (scaledRect.height() - 1) - ((scaledRect.height() - 1) * (y - y1) / (y2 - y1) + mappedRectTop);
+            py = (rect.height() - 1) - ((rect.height() - 1) * (y - y1) / (y2 - y1) + rTop);
 
-            if(d_ptr->gridEnabled && y != y0) /* y != y0 not to draw grid over axes */
+            if(d->gridEnabled && y != y0) /* y != y0 not to draw grid over axes */
             {
                 painter->setPen(gridPen);
-                painter->drawLine(mappedRectLeft, py, mappedRectRight, py);
+                painter->drawLine(rLeft, py, rRight, py);
             }
 
             painter->setPen(axisPen);
-            painter->drawLine(px0 - d_ptr->tickWidth/2.0, py, px0 + d_ptr->tickWidth/2.0, py);
+            painter->drawLine(px0 - d->tickWidth/2.0, py, px0 + d->tickWidth/2.0, py);
 
-            if(d_ptr->labelsEnabled)
+            if(d->labelsEnabled)
             {
-                textLabel = d_ptr->labelsCacheHash.value(y);
-                txtRect.setRect(labelPos, -labelHeight/2, d_ptr->maxLabelWidth, fm.height());
+                textLabel = d->labelsCacheHash.value(y);
+                txtRect.setRect(labelPos, -labelHeight/2, d->maxLabelWidth, fm.height());
 
                 /* less than when  y positive, due to inverted Qt coordinate system for y axis */
-                if(py + fm.height() < d_ptr->mLastTickPos || y == y0)
+                if(py + fm.height() < d->mLastTickPos || y == y0)
                 {
                     painter->translate(px0, py);
-                    painter->rotate(d_ptr->axisLabelRotation);
+                    painter->rotate(d->axisLabelRotation);
                     painter->drawText(txtRect, textLabel);
-                    painter->rotate(-d_ptr->axisLabelRotation);
+                    painter->rotate(-d->axisLabelRotation);
                     painter->translate(-px0, -py);
-                    d_ptr->mLastTickPos = py;
+                    d->mLastTickPos = py;
                 }
             }
             if(axisOutsideViewport) /* draw the labels on the border */
             {
-                painter->setPen(d_ptr->gridColor.darker());
+                painter->setPen(d->gridColor.darker());
                 painter->translate(xZoomLabel, py);
-                painter->rotate(d_ptr->axisLabelRotation);
-                txtRect.setRect(0, 0, d_ptr->maxLabelWidth, labelHeight);
+                painter->rotate(d->axisLabelRotation);
+                txtRect.setRect(0, 0, d->maxLabelWidth, labelHeight);
                 painter->drawText(txtRect, textLabel);
-                painter->rotate(-d_ptr->axisLabelRotation);
+                painter->rotate(-d->axisLabelRotation);
                 painter->translate(-xZoomLabel, -py);
             }
 
             y = y + tickStepLen;
         }
 
-        d_ptr->mLastTickPos = scaledRect.height() - 1 - ((scaledRect.height() - 1) * (y0 - y1) / (y2 - y1) + mappedRectTop);
+        d->mLastTickPos = rect.height() - 1 - ((rect.height() - 1) * (y0 - y1) / (y2 - y1) + rTop);
         /* draw ticks from origin backwards */
         y = y0 - tickStepLen;
         while(y >= y1)
@@ -1483,38 +1435,38 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
             /* y axis direction is inverted with respect to Qt coordinates system.
              * So sceneR.height() - ....
              */
-            py = scaledRect.height() - 1 - ((scaledRect.height() - 1) * (y - y1)/ (y2 - y1) + mappedRectTop);
+            py = rect.height() - 1 - ((rect.height() - 1) * (y - y1)/ (y2 - y1) + rTop);
 
-            if(d_ptr->gridEnabled)
+            if(d->gridEnabled)
             {
                 painter->setPen(gridPen);
-                painter->drawLine(mappedRectLeft, py, mappedRectRight, py);
+                painter->drawLine(rLeft, py, rRight, py);
             }
 
             painter->setPen(axisPen);
-            painter->drawLine(px0 - d_ptr->tickWidth/2.0, py, px0 + d_ptr->tickWidth/2.0, py);
+            painter->drawLine(px0 - d->tickWidth/2.0, py, px0 + d->tickWidth/2.0, py);
 
-            if(d_ptr->labelsEnabled)
+            if(d->labelsEnabled)
             {
-                textLabel = d_ptr->labelsCacheHash.value(y);
-                txtRect.setRect(labelPos, -labelHeight/2, fm.width(textLabel), labelHeight);
+                textLabel = d->labelsCacheHash.value(y);
+                txtRect.setRect(labelPos, -labelHeight/2, fm.horizontalAdvance(textLabel), labelHeight);
                 /* > due to inverted Qt coordinate system for y axis
                  */
-                if(py - labelHeight > d_ptr->mLastTickPos)
+                if(py - labelHeight > d->mLastTickPos)
                 {
                     painter->translate(px0, py);
-                    painter->rotate(d_ptr->axisLabelRotation);
+                    painter->rotate(d->axisLabelRotation);
                     painter->drawText(txtRect, textLabel);
-                    painter->rotate(-d_ptr->axisLabelRotation);
+                    painter->rotate(-d->axisLabelRotation);
                     painter->translate(-px0, -py);
-                    d_ptr->mLastTickPos = py;
+                    d->mLastTickPos = py;
                 }
             }
             if(axisOutsideViewport) /* draw the labels on the border */
             {
-                painter->setPen(d_ptr->gridColor.darker());
+                painter->setPen(d->gridColor.darker());
                 painter->translate(xZoomLabel, py);
-                txtRect.setRect(0, 0, d_ptr->maxLabelWidth, labelHeight);
+                txtRect.setRect(0, 0, d->maxLabelWidth, labelHeight);
                 painter->drawText(txtRect, textLabel);
                 painter->translate(-xZoomLabel, -py);
 
@@ -1523,13 +1475,13 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
         }
 
         /* Draw axis title */
-        if(!d_ptr->axisTitle.isEmpty())
+        if(!d->axisTitle.isEmpty())
         {
-            painter->setFont(d_ptr->axisTitleFont);
-            QPen axisTitlePen(d_ptr->axisTitleColor);
+            painter->setFont(d->axisTitleFont);
+            QPen axisTitlePen(d->axisTitleColor);
             axisTitlePen.setWidthF(0.0);
             painter->setPen(axisTitlePen);
-            painter->drawText(px0 + d_ptr->tickWidth/2.0 + 3, mappedRectTop + d_ptr->mAxisTitleHeight + 2,  d_ptr->axisTitle);
+            painter->drawText(px0 + d->tickWidth/2.0 + 3, rTop + d->mAxisTitleHeight + 2,  d->axisTitle);
         }
         //        painter->setPen(Qt::blue);
         //                QPen p = painter->pen();
@@ -1549,57 +1501,49 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
 
     /// DEBUG STUFF
     ///
-    /*
+
     QPen canvasPen(Qt::green);
     canvasPen.setWidthF(2.5);
     painter->setPen(canvasPen);
-    painter->drawRect(d_ptr->canvasRect);
-    painter->setPen(Qt::blue);
-    painter->drawRect(tran.mapRect(d_ptr->canvasRect));
+    painter->drawRect(d->canvasRect);
+//    painter->setPen(Qt::blue);
+//    painter->drawRect(/*tran.mapRect*/(d->canvasRect));
     QPen pp(Qt::cyan);
     pp.setStyle(Qt::DashLine);
     painter->setPen(pp);
-    painter->drawRect(scaledRect);
+    painter->drawRect(rect);
+    qDebug() << __PRETTY_FUNCTION__ << "canvas rect" << d->canvasRect << "rect" << rect;
 
-    */
 }
 
 QRectF ScaleItem::boundingRect () const
 {
-    QGraphicsView *view = NULL;
-    if(scene()->views().size() > 0)
-        view = scene()->views().first();
-    if(!view)
-        return QRectF();
-
-//    QTransform tran = view->transform();
-
-
-    if(d_ptr->mNeedFullRedraw ||d_ptr->gridEnabled )
-    {
-        if(d_ptr->mNeedFullRedraw)
-            d_ptr->mNeedFullRedraw = false;
-        //        if(d_ptr->orientation == ScaleItem::Vertical)
-        //            printf("\e[1;32m returning sceneReact() \"%s\"\e[0m\n", qstoc(objectName()));
-//        return tran.mapRect(scene()->sceneRect());
-        return d_ptr->plot_item->plotRect();
-    }
+//    if(d->mNeedFullRedraw ||d->gridEnabled )
+//    {
+//        if(d->mNeedFullRedraw)
+//            d->mNeedFullRedraw = false;
+//        //        if(d_ptr->orientation == ScaleItem::Vertical)
+//        //            printf("\e[1;32m returning sceneReact() \"%s\"\e[0m\n", qstoc(objectName()));
+////        return tran.mapRect(scene()->sceneRect());
+//        qDebug() << __PRETTY_FUNCTION__ << "Scale item bounding rect" << d->plot_item->plotRect();
+//        return d->plot_item->boundingRect();
+//    }
     //    else
     //        printf("\e[1;31m not returning scene rect!\e[0m\n");
 
-    QRectF plotR = d_ptr->plot_item->plotRect();
+    QRectF plotR = d->plot_item->boundingRect();
     qreal x = 0, w, y = 0, h;
-    double x1 = d_ptr->lowerBound;
-    double x2 = d_ptr->upperBound;
-    double y1 = d_ptr->lowerBound;
-    double y2 = d_ptr->upperBound;
+    double x1 = d->lowerBound;
+    double x2 = d->upperBound;
+    double y1 = d->lowerBound;
+    double y2 = d->upperBound;
 
     qreal px0, py0;
     bool ok;
     QPair<double, double> originPosPercent;
-    ScaleItem *associatedAxis = d_ptr->plot_item->associatedAxis(this->axisId());
+    ScaleItem *associatedAxis = d->plot_item->associatedAxis(this->axisId());
     if(associatedAxis)
-        originPosPercent = d_ptr->plot_item->associatedOriginPosPercentage(associatedAxis->axisId(), d_ptr->axisId, &ok);
+        originPosPercent = d->plot_item->associatedOriginPosPercentage(associatedAxis->axisId(), d->axisId, &ok);
 
     if(!associatedAxis || !ok)
     {
@@ -1612,24 +1556,24 @@ QRectF ScaleItem::boundingRect () const
     qreal x0 = x1 + (x2 - x1) * originPosPercent.first;
     qreal y0 = y1 + (y2 - y1) * originPosPercent.second;
 
-    switch(d_ptr->orientation)
+    switch(d->orientation)
     {
     case ScaleItem::Horizontal:
         py0 = plotR.height() - (plotR.height() * (y0 - y1) / (y2 - y1) + plotR.top());
         w = plotR.width();
-        h = d_ptr->tickWidth + 100;
-        y = py0 - d_ptr->tickWidth;
+        h = d->tickWidth + 100;
+        y = py0 - d->tickWidth;
         break;
     default:
         px0 = plotR.width() * (x0 - x1) / (x2 - x1) + plotR.left();
         h = plotR.height();
-        w = d_ptr->tickWidth + 100;
-        x = px0 -d_ptr->tickWidth;
+        w = d->tickWidth + 100;
+        x = px0 -d->tickWidth;
 
         break;
     }
     QRectF bounding(x, y, w, h);
-    //    qDebug() << "scaleItem" << objectName() << "boundingRect() " << bounding <<
-    //                "toSceneRect:" << this->mapToScene(bounding).boundingRect();
+        qDebug() << "scaleItem" << objectName() << "boundingRect() " << bounding <<
+                    "toSceneRect:" << this->mapToScene(bounding).boundingRect();
     return bounding;
 }

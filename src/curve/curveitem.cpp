@@ -72,11 +72,10 @@ void CurveItem::removeItemPainterInterface(ItemPainterInterface *itemPainterInte
  * when the item position is determined, minimum and maximum bounds have been updated
  * the buffer size has been checked and the item is added to the scene.
  */
-void CurveItem::itemAdded(const Point &)
-{
-
+QRectF CurveItem::itemAdded(const Point &) {
     if(!isVisible())
         setVisible(true);
+    d_ptr->updateRect = QRectF();
 
     Data *data = d_ptr->curve->data();
     //    /* recalculate the bounding rect only if bounds have changed */
@@ -85,14 +84,12 @@ void CurveItem::itemAdded(const Point &)
     int itemCnt = data->size();
 
     if(itemCnt < 2)
-        return;
+        return QRectF();
 
-//    update();
-//    return;
     ScaleItem *xScale = d_ptr->curve->getXAxis();
     ScaleItem *yScale =d_ptr->curve->getYAxis();
 
-    if(data->xData.last() < xScale->upperBound() &&
+    if(itemCnt > 2 && data->xData.last() < xScale->upperBound() &&
             data->yData.last() < yScale->upperBound() &&
             data->yData.last() > yScale->lowerBound())
     {
@@ -114,17 +111,15 @@ void CurveItem::itemAdded(const Point &)
         y2 = d_ptr->curve->plot()->transform(data->yData[itemCnt - 1], yScale) + extraY;
         QPointF topLeft(qMin(x1, x2), qMin(y1, y2));
         QPointF botRight(qMax(x1, x2), qMax(y1, y2));
-        QRectF updateRect(topLeft, botRight);
-        d_ptr->updateRect = updateRect;
-        update(updateRect);
-
-//        qDebug() << __FUNCTION__ << ":-) partial update possible";
+        d_ptr->updateRect = QRectF(topLeft, botRight);;
+        qDebug() << __FUNCTION__ << ":-) partial update possible on rect" << d_ptr->updateRect;
     }
     else if(itemCnt > 1)
     {
-//        qDebug() << __FUNCTION__ << ":-( partial update NOT possible";
-        update();
+        qDebug() << __FUNCTION__ << ":-( partial update NOT possible";
+
     }
+    return d_ptr->updateRect;
 }
 
 void CurveItem::itemAboutToBeRemoved(const Point &)
@@ -164,6 +159,10 @@ void CurveItem::itemAboutToBeRemoved(const Point &)
     }
 }
 
+QRectF CurveItem::itemRemoved(const Point &) {
+    return QRectF();
+}
+
 void CurveItem::fullVectorUpdate()
 {
     update();
@@ -186,6 +185,7 @@ void CurveItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
      * Great comments on
      * http://thesmithfam.org/blog/2007/02/03/qt-improving-qgraphicsview-performance/comment-page-1
      */
+    qDebug() << __PRETTY_FUNCTION__ << "exposed rect is " << option->exposedRect << "rect is " << option->rect;
     painter->setClipRect(option->exposedRect.toRect());
 
     if(d_ptr->itemPainters.size())

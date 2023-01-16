@@ -91,7 +91,7 @@ public:
 
     virtual ~ScaleItem();
 
-    ScaleItem(Orientation o, QGraphicsObject *parent, Id id);
+    ScaleItem(Orientation o, QGraphicsPlotItem *parent, Id id);
 
     void setOrientation(Orientation o);
 
@@ -274,15 +274,11 @@ protected:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem * option, QWidget * widget = 0);
 
 private:
-    ScaleItemPrivate* d_ptr;
-
+    ScaleItemPrivate* d;
 
     int mGetDecimals(double q);
 
     void mRecalculateAxisTitleSize();
-
-
-    Q_DECLARE_PRIVATE(ScaleItem)
 };
 
 #endif // SCALEITEM_H

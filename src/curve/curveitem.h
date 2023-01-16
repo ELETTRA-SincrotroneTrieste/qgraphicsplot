@@ -66,11 +66,11 @@ public:
 
     virtual void itemAboutToBeAdded(const Point &) {}
 
-    virtual void itemAdded(const Point &pt);
+    virtual QRectF itemAdded(const Point &pt);
 
     virtual void itemAboutToBeRemoved(const Point &pt);
 
-    virtual void itemRemoved(const Point &) {}
+    virtual QRectF itemRemoved(const Point &);
 
     virtual void bufferSizeChanged(int ) {}
 

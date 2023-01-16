@@ -113,8 +113,14 @@ XYSceneTest::XYSceneTest(QWidget *parent) :
 //    ui->graphicsPlot->loadConfigurationProperties();
 
 
-   // ui->graphicsPlot->yScaleItem()->setAxisAutoscaleEnabled(false);
-   // ui->graphicsPlot->xScaleItem()->setAxisAutoscaleEnabled(false);
+
+
+    ui->graphicsPlot->yScaleItem()->setAxisAutoscaleEnabled(false);
+    ui->graphicsPlot->xScaleItem()->setAxisAutoscaleEnabled(false);
+    ui->graphicsPlot->xScaleItem()->setLowerBound(0.0);
+    ui->graphicsPlot->xScaleItem()->setUpperBound(1.0);
+    ui->graphicsPlot->yScaleItem()->setLowerBound(0.0);
+    ui->graphicsPlot->yScaleItem()->setUpperBound(1.0);
 }
 
 XYSceneTest::~XYSceneTest()
@@ -136,7 +142,8 @@ void XYSceneTest::createData()
         amplitude = qrand() / (double) RAND_MAX * maxAmplitude - maxAmplitude/2.0;
         x1 += 3 / (double) ui->sbPrecision->value();
         y = sin(x1) * maxAmplitude;
-        c->addPoint(x1, y);
+        ui->graphicsPlot->plot()->appendData(c->name(), x1, y); // should update
+//        c->addPoint(x1, y);
     }
     mCnt++;
 }

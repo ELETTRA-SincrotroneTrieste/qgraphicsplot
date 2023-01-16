@@ -36,6 +36,7 @@
 #include <QScrollBar>
 #include <math.h>
 #include <QGraphicsSceneMouseEvent>
+#include <QStyleOptionGraphicsItem>
 
 #include "properties/propertydialog.h"
 
@@ -250,6 +251,7 @@ ScaleItem* QGraphicsPlotItem::addAxis(ScaleItem::Orientation o, ScaleItem::Id id
     connect(scaleItem, SIGNAL(destroyed(QObject*)), this, SLOT(removeAxis(QObject*)));
     if(d->zoomer)
         d->zoomer->addScale(scaleItem);
+    printf("add axis done scale item %p\n", scaleItem);
     return scaleItem;
 }
 
@@ -980,7 +982,9 @@ void QGraphicsPlotItem::appendData(const QString& curveName, double x, double y)
     if(d->curveHash.contains(curveName))
     {
         SceneCurve *c = d->curveHash.value(curveName);
-        c->addPoint(x, y);
+        QRectF r = c->addPoint(x, y);
+        qDebug() << __PRETTY_FUNCTION__ << "updating area " << r;
+        update(r);
     }
     else
         perr("PlotSceneWidget: appendData: no curve with name \"%s\"", qstoc(curveName));
@@ -993,7 +997,8 @@ void QGraphicsPlotItem::appendData(const QString& curveName,
     if(d->curveHash.contains(curveName))
     {
         SceneCurve *c = d->curveHash.value(curveName);
-        c->addPoints(xData, yData);
+        QRectF r = c->addPoints(xData, yData);
+        update(r);
     }
     else
         perr("PlotSceneWidget: appendData (vector version): no curve with name \"%s\"", qstoc(curveName));
@@ -1306,8 +1311,19 @@ void QGraphicsPlotItem::notifyPlotAreaChanged()
 //        l->plotAreaChanged(area);
 }
 
-void QGraphicsPlotItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+void QGraphicsPlotItem::update(const QRectF& area) {
+    qDebug() << __PRETTY_FUNCTION__ << "updagint area " << area;
+    QGraphicsObject::update(area);
+}
 
+void QGraphicsPlotItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    printf("\e[1;33mpainting graphics plot item\e[0m\n");
+    qDebug() << __PRETTY_FUNCTION__ << "painting on rect " << painter->viewport();
+    painter->setPen(QPen(Qt::darkCyan));
+    painter->drawRect(option->rect);
+    painter->setPen(Qt::darkMagenta);
+    painter->drawRect(option->exposedRect);
+//    QGraphicsObject::paint(painter, option, widget);
 }
 
 /** \brief notifies PlotChangeListeners that the scrollbar has changed its
@@ -1343,54 +1359,11 @@ void QGraphicsPlotItem::sceneRectChanged(const QRectF &)
 //    return QGraphicsView::event(event);
 //}
 
-//void QGraphicsPlotItem::wheelEvent(QWheelEvent *e)
-//{
-//    /* propagates the event to scene and items */
-//    QGraphicsView::wheelEvent(e);
-//    /* if an item accepts the event, do not process the wheel event */
-//    if(d_ptr->scaleOnScroll)
-//    {
-//        /* With version 2.3.0, zoom is managed changing the axes bounds
-//         */
-//        //        if(d_ptr->zoomer && d_ptr->zoomer->stackSize() > 1)
-//        //        {
-//        //            QRectF zoomRect = d_ptr->zoomer->unzoom();
-//        //            if(zoomRect.isValid())
-//        //            {
-//        //                fitInView(zoomRect, Qt::KeepAspectRatio);
-//        //                notifyPlotAreaChanged();
-//        //            }
-//        //        }
-//        //        else
-//        {
-//            float dx, dy;
-//            int d = e->delta();
-//            /* save the first value of m11 and m22 transform matrix */
-//            if(d_ptr->firstScrollM11 < 0)
-//            {
-//                QTransform t = QGraphicsView::transform();
-//                d_ptr->firstScrollM11 = t.m11();
-//                d_ptr->firstScrollM12 = t.m22();
-//            }
-//            if(d > 0)
-//            {
-//                dx = 1.25;
-//                dy = 1.25;
-//            }
-//            else
-//            {
-//                dx = 1.0/1.25;
-//                dy = 1.0/1.25;
-//            }
-//            this->centerOn(e->pos());
-//            scale(dx, dy);
-
-//        }
-//    }
-//}
 
 double QGraphicsPlotItem::transform(const double x, ScaleItem* scaleItem) const
 {
+    qDebug() << __PRETTY_FUNCTION__ << "transforming " << x << "canvas r" << scaleItem->canvasRect()
+             << scaleItem->canvasWidth << "x" << scaleItem->canvasHeight;
     double coord = 0.0;
     if(scaleItem)
     {
@@ -1402,7 +1375,7 @@ double QGraphicsPlotItem::transform(const double x, ScaleItem* scaleItem) const
             if(scaleItem->orientation() == ScaleItem::Horizontal)
             {
                 len = scaleItem->canvasWidth - 1;
-                coord = (x - start) * len / (end - start);
+                coord = (x - start) * len / (end - start) + scaleItem->canvasRect().x();
             }
             else
             {
@@ -1676,5 +1649,5 @@ void QGraphicsPlotItem::saveData()
 }
 
 QRectF QGraphicsPlotItem::boundingRect() const {
-    return QRectF(0, 0, 100, 100);
+    return QRectF(0, 0, 400, 400);
 }

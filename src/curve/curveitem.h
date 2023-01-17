@@ -56,7 +56,7 @@ class CurveItem : public QGraphicsObject, public CurveChangeListener
     Q_OBJECT
 public:
 
-    CurveItem(SceneCurve *curve);
+    CurveItem(SceneCurve *curve, QGraphicsItem *parent);
 
     virtual ~CurveItem();
 

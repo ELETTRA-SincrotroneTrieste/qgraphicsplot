@@ -1075,7 +1075,7 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
     bool canvasRectChanged = false;
     QRectF rect = d->plot_item->boundingRect();
 
-    qDebug() << __PRETTY_FUNCTION__  << "plot Rect" << d->plotRect << "clip rect " << option->exposedRect.toRect()
+    qDebug() << __PRETTY_FUNCTION__  << "plot Rect" << rect << "exposeed rect " << option->exposedRect.toRect()
              << "option.rect" << option->rect;
 
     canvasWidth = rect.width();
@@ -1268,7 +1268,6 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
                     txtRect.setRect(0, 0, d->maxLabelWidth, labelHeight);
                     painter->translate(px + labelHeight/2, labelPos + py0);
                     painter->rotate(d->axisLabelRotation);
-                    painter->drawRect(txtRect);
                     painter->drawText(txtRect, textLabel);
                     painter->rotate(-d->axisLabelRotation);
                     painter->translate(-px - labelHeight/2, -labelPos - py0);
@@ -1317,7 +1316,6 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
                     painter->translate(px + labelHeight/2.0, py0 + labelPos);
                     painter->rotate(d->axisLabelRotation);
                     painter->drawText(txtRect, textLabel);
-                    painter->drawRect(txtRect);
                     painter->rotate(-d->axisLabelRotation);
                     painter->translate(-px - labelHeight/2.0, -py0 - labelPos);
                     d->mLastTickPos = px;
@@ -1518,6 +1516,8 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
 
 QRectF ScaleItem::boundingRect () const
 {
+    return d->plot_item->boundingRect();
+
 //    if(d->mNeedFullRedraw ||d->gridEnabled )
 //    {
 //        if(d->mNeedFullRedraw)
@@ -1531,49 +1531,49 @@ QRectF ScaleItem::boundingRect () const
     //    else
     //        printf("\e[1;31m not returning scene rect!\e[0m\n");
 
-    QRectF plotR = d->plot_item->boundingRect();
-    qreal x = 0, w, y = 0, h;
-    double x1 = d->lowerBound;
-    double x2 = d->upperBound;
-    double y1 = d->lowerBound;
-    double y2 = d->upperBound;
+//    QRectF plotR = d->plot_item->boundingRect();
+//    qreal x = 0, w, y = 0, h;
+//    double x1 = d->lowerBound;
+//    double x2 = d->upperBound;
+//    double y1 = d->lowerBound;
+//    double y2 = d->upperBound;
 
-    qreal px0, py0;
-    bool ok;
-    QPair<double, double> originPosPercent;
-    ScaleItem *associatedAxis = d->plot_item->associatedAxis(this->axisId());
-    if(associatedAxis)
-        originPosPercent = d->plot_item->associatedOriginPosPercentage(associatedAxis->axisId(), d->axisId, &ok);
+//    qreal px0, py0;
+//    bool ok;
+//    QPair<double, double> originPosPercent;
+//    ScaleItem *associatedAxis = d->plot_item->associatedAxis(this->axisId());
+//    if(associatedAxis)
+//        originPosPercent = d->plot_item->associatedOriginPosPercentage(associatedAxis->axisId(), d->axisId, &ok);
 
-    if(!associatedAxis || !ok)
-    {
-        perr("ScaleItem::boundingRect: no other axis is associated to \"%s\" (id %d)"
-             " or origin undefined between the current and associated axis", qstoc(objectName()),
-             axisId());
-        return plotR;
-    }
+//    if(!associatedAxis || !ok)
+//    {
+//        perr("ScaleItem::boundingRect: no other axis is associated to \"%s\" (id %d)"
+//             " or origin undefined between the current and associated axis", qstoc(objectName()),
+//             axisId());
+//        return plotR;
+//    }
 
-    qreal x0 = x1 + (x2 - x1) * originPosPercent.first;
-    qreal y0 = y1 + (y2 - y1) * originPosPercent.second;
+//    qreal x0 = x1 + (x2 - x1) * originPosPercent.first;
+//    qreal y0 = y1 + (y2 - y1) * originPosPercent.second;
 
-    switch(d->orientation)
-    {
-    case ScaleItem::Horizontal:
-        py0 = plotR.height() - (plotR.height() * (y0 - y1) / (y2 - y1) + plotR.top());
-        w = plotR.width();
-        h = d->tickWidth + 100;
-        y = py0 - d->tickWidth;
-        break;
-    default:
-        px0 = plotR.width() * (x0 - x1) / (x2 - x1) + plotR.left();
-        h = plotR.height();
-        w = d->tickWidth + 100;
-        x = px0 -d->tickWidth;
+//    switch(d->orientation)
+//    {
+//    case ScaleItem::Horizontal:
+//        py0 = plotR.height() - (plotR.height() * (y0 - y1) / (y2 - y1) + plotR.top());
+//        w = plotR.width();
+//        h = d->tickWidth + 100;
+//        y = py0 - d->tickWidth;
+//        break;
+//    default:
+//        px0 = plotR.width() * (x0 - x1) / (x2 - x1) + plotR.left();
+//        h = plotR.height();
+//        w = d->tickWidth + 100;
+//        x = px0 -d->tickWidth;
 
-        break;
-    }
-    QRectF bounding(x, y, w, h);
-        qDebug() << "scaleItem" << objectName() << "boundingRect() " << bounding <<
-                    "toSceneRect:" << this->mapToScene(bounding).boundingRect();
-    return bounding;
+//        break;
+//    }
+//    QRectF bounding(x, y, w, h);
+//        qDebug() << "scaleItem" << objectName() << "boundingRect() " << bounding <<
+//                    "toSceneRect:" << this->mapToScene(bounding).boundingRect();
+//    return bounding;
 }

@@ -225,18 +225,6 @@ inc.path = $${INC_DIR}
 target.path=$${LIB_DIR}
 
 
-lib.path = $${LIB_DIR}
-lib.files = libQGraphicsPlot$${QTVER_SUFFIX}.so.$${VERSION}
-lib.commands = ln \
-    -sf \
-    libQGraphicsPlot$${QTVER_SUFFIX}.so.$${VERSION} \
-    $${LIB_DIR}/libQGraphicsPlot$${QTVER_SUFFIX}.so.$${VER_MAJ} \
-    && \
-    ln \
-    -sf \
-    libQGraphicsPlot$${QTVER_SUFFIX}.so.$${VER_MAJ} \
-    $${LIB_DIR}/libQGraphicsPlot$${QTVER_SUFFIX}.so
-
 doc.commands = \
     doxygen \
     Doxyfile;
@@ -265,7 +253,7 @@ pkgconfig_f.files = pkgconfig/$${libname}.pc
 
 # INSTALLS = inc lib doc data
 
-INSTALLS = inc lib data pkgconfig_f
+INSTALLS = inc target data pkgconfig_f
 
 OTHER_FILES += \
     INSTALL.txt

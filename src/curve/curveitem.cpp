@@ -17,7 +17,7 @@
   *
   * @see SceneCurve
   */
-CurveItem::CurveItem(SceneCurve *curve) : QGraphicsObject(), CurveChangeListener()
+CurveItem::CurveItem(SceneCurve *curve, QGraphicsItem *parent) : QGraphicsObject(parent), CurveChangeListener()
 {
     d_ptr = new CurveItemPrivate();
     d_ptr->curve = curve;
@@ -168,17 +168,13 @@ void CurveItem::fullVectorUpdate()
     update();
 }
 
-QRectF CurveItem::boundingRect() const
-{
-//    QRectF br;
+QRectF CurveItem::boundingRect() const {
     return d_ptr->curve->plot()->boundingRect();
-//    br = scene()->sceneRect();
-//    return br;
 }
 
 void CurveItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-//    printf("\e[1;34mCurveItem %s: paint zValue %f\e[0m\n", qstoc(objectName()), zValue());
+    printf("\e[1;34mCurveItem %s: paint zValue %f\e[0m\n", qstoc(objectName()), zValue());
 
     /* setting clipRegion freezes app when using Open-GL */
     /* setting a clip on the painter saves PlotSceneWidget's LIFE!!
@@ -186,7 +182,7 @@ void CurveItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
      * http://thesmithfam.org/blog/2007/02/03/qt-improving-qgraphicsview-performance/comment-page-1
      */
     qDebug() << __PRETTY_FUNCTION__ << "exposed rect is " << option->exposedRect << "rect is " << option->rect;
-    painter->setClipRect(option->exposedRect.toRect());
+//    painter->setClipRect(option->exposedRect.toRect());
 
     if(d_ptr->itemPainters.size())
     {

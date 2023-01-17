@@ -163,13 +163,11 @@ class QGraphicsZoomer;
   * and when the plot rect changes.
   *
   */
-class  QGraphicsPlotItem : public QGraphicsObject, public XYPlotInterface
-{
+class  QGraphicsPlotItem : public QGraphicsObject, public XYPlotInterface {
     Q_OBJECT
     Q_PROPERTY(bool xScaleEnabled READ xScaleEnabled WRITE setXScaleEnabled)
     Q_PROPERTY(bool yScaleEnabled READ yScaleEnabled WRITE setYScaleEnabled)
     Q_PROPERTY(bool mouseZoomEnabled READ mouseZoomEnabled WRITE setMouseZoomEnabled)
-    Q_PROPERTY(bool scaleSceneOnResizeEnabled READ scaleSceneOnResizeEnabled WRITE setScaleSceneOnResizeEnabled)
     Q_PROPERTY(int refreshPeriod READ refreshPeriod WRITE setRefreshPeriod)
     Q_PROPERTY(double defaultXAxisOriginPosPercentage READ defaultXAxisOriginPosPercentage WRITE setDefaultXAxisOriginPosPercentage)
     Q_PROPERTY(double defaultYAxisOriginPosPercentage READ defaultYAxisOriginPosPercentage WRITE setDefaultYAxisOriginPosPercentage)
@@ -177,7 +175,6 @@ class  QGraphicsPlotItem : public QGraphicsObject, public XYPlotInterface
     Q_PROPERTY(QColor backgroundColor READ backgroundColor WRITE setBackgroundColor)
 
 public:
-
     enum Axis { xBottom, yLeft, xTop, yRight, User = 100 };
 
     explicit QGraphicsPlotItem(QGraphicsItem *parent = nullptr);
@@ -186,10 +183,7 @@ public:
 
     bool xScaleEnabled() const;
     bool yScaleEnabled() const;
-    bool scaleSceneOnMouseScroll() const;
-    bool sceneRectToWidgetGeometry() const;
     bool mouseZoomEnabled() const;
-    bool modifiedPaintEvent() const;
     bool smoothPixmapTransform() const;
     bool legendVisible() const;
 
@@ -456,51 +450,17 @@ signals:
      * when the signal is emitted.
      */
     void curveAdded(SceneCurve *curve);
-
-    /** \brief Notifies that the scale factors have changed.
-     *
-     * Signal notifying that the scale factors of the view have changed
-     *
-     * @param dx the m11 transform matrix value
-     * @param dy the m22 transform matrix value
-     *
-     */
-    void viewScaleChanged(double dx, double dy);
-
-    /** \brief Notifies that the scale factors have changed. The operations
-     *         performed by the QGraphicsPlotItem and its zoomer scale the view
-     *         by the same factor in order to keep the aspect ratio.
-     *
-     * Notifies that the scale factors have changed. The operations
-     * performed by the QGraphicsPlotItem and its zoomer scale the view
-     * by the same factor in order to keep the aspect ratio.
-     * So this method is provided, with a single scale parameter.
-     *
-     * \note If m11 differs from m22, then their mean is calculated and the mean
-     * value is emitted.
-     *
-     */
-    void viewScaleChanged(double scale);
     
 public slots:
+
+    void resize(const QSizeF &s);
+    void setGeometry(const QRectF& r);
 
     void setXScaleEnabled(bool en);
     void setYScaleEnabled(bool en);
 
-    void setScaleSceneOnResizeEnabled(bool en);
-
     void setMouseZoomEnabled(bool en);
 
-    bool scaleSceneOnResizeEnabled() const;
-
-
-
-    /** \brief enable or disable the scene scaling feature when the wheel mouse is scrolled
-      *
-      * @param en true enable scene scaling
-      * @param en false disable scene scaling
-      */
-    void setScaleSceneOnMouseScroll(bool en);
 
     /** \brief This is an important optimization that acts on the QGraphicsView::ViewportUpdateMode
       *        that comes into relevance when you have several items that must be fastly drawn.
@@ -587,19 +547,12 @@ public slots:
     void setLegendVisible(bool visible);
 
     void setXAxisLowerBound(double xlb);
-
     void setYAxisLowerBound(double ylb);
-
     void setXAxisUpperBound(double xub);
-
     void setYAxisUpperBound(double yub);
-
     void setXAxisAutoscaleEnabled(bool en);
-
     void setYAxisAutoscaleEnabled(bool en);
-
     void setXAxisLabelsOutsideCanvas(bool outside);
-
     void setYAxisLabelsOutsideCanvas(bool outside);
 
     void setBackgroundColor(const QColor&) const;
@@ -635,30 +588,9 @@ protected:
 
     void mSwitchAxesCurvesForeground();
 
-    /** \brief Recalculates the plot rect and caches it.
-      *
-      * The cached plot rect must be recalculated when
-      * <ul><li>the scene rect changes</li>
-      * <li>the top left percent (x or y) values change</li>
-      * <li>the width or height percentage of the plot area change</li>
-      * </ul>
-      */
-    void recalculatePlotRect();
-
-//    void resizeEvent(QResizeEvent *event);
-
-    void notifyPlotAreaChanged();
-
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr);
 
     void update(const QRectF &area= QRectF());
-protected slots:
-
-    void sceneRectChanged(const QRectF &);
-
-    void hScrollBarValueChanged(int value);
-
-    void vScrollBarValueChanged(int value);
 
 private:
     QGraphicsPlotItemPrivate *d;

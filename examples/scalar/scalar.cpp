@@ -78,8 +78,7 @@ XYSceneTest::XYSceneTest(QWidget *parent) :
 //        ui->graphicsPlot->addConfigurableObjects(c->name(), c);
 
         /* do we want the curves be represented by lines? */
-        CurveItem *curveItem = new CurveItem(c);
-        ui->graphicsPlot->scene()->addItem(curveItem);
+        CurveItem *curveItem = new CurveItem(c, ui->graphicsPlot->plot());
         c->installCurveChangeListener(curveItem);
         LinePainter *lp = new LinePainter(curveItem);
         lp->setLineColor(palette.at(i % palette.size()));

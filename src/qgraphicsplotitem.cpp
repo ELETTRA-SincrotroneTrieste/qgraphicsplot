@@ -183,6 +183,7 @@ void QGraphicsPlotItem::initPlot()
 {
     qRegisterMetaType<PointData>("PointData");
     qRegisterMetaType<QVector<PointData> >("QVector<PointData>&");
+    d->plotRect = QRectF(0, 0, 400, 300);
     d->axesManager = NULL;
 
     /* zoom manager */
@@ -281,6 +282,18 @@ void QGraphicsPlotItem::clear()
     d->zoomer->clear();
     d->configurableObjectsMap.clear();
     clearAxes(false, ScaleItem::Vertical);
+}
+
+void QGraphicsPlotItem::resize(const QSizeF &s) {
+    prepareGeometryChange();
+    d->plotRect.setSize(s);
+    update();
+}
+
+void QGraphicsPlotItem::setGeometry(const QRectF &r) {
+    prepareGeometryChange();
+    d->plotRect = r;
+    update();
 }
 
 AxesManager *QGraphicsPlotItem::axesManager() const
@@ -402,86 +415,6 @@ int QGraphicsPlotItem::zoomLevel() const
     return d->zoomer->stackSize();
 }
 
-/** \brief Changes the scaleSceneOnResizeEnabled property value
-  *
-  * Read setScaleSceneOnResizeEnabled documentation for details.
-  *
-  * @param en true the scene is resized when the PlotSceneWidget is resized, until
-  *        the user scrolls on the plot to scale the scene or the scene is scaled
-  *        programmatically.
-  *
-  * @param en false the scene is not fitted in the view when the view (i.e. PlotSceneWidget)
-  *        is resized.
-  *
-  * @see scaleSceneOnResizeEnabled
-  */
-void QGraphicsPlotItem::setScaleSceneOnResizeEnabled(bool en)
-{
-    d->scaleOnResize = en;
-}
-
-/** \brief returns the boolean value of the scaleSceneOnResizeEnabled property.
-  *
-  * If this property is set to true, then the plot is fitted on the view each time
-  * the PlotSceneWidget is resized.
-  * In other words, the scene rect is set to the viewport rect each time the widget is
-  * resized.
-  *
-  * \par Note
-  * The behaviour describe above stops being applied after that the user zooms on the plot
-  * or uses the mouse wheel to alter the view transform (scales the view).
-  * After a zoom or a manual scaling, the user manages the scaling of the view manually
-  * until next application restart.
-  *
-  * \par Note
-  * When part of a QTabWidget, it is recommended that this property is enabled, since
-  * the geometry of the QTabWidget children is not correctly provided on the first show
-  * event.
-  *
-  * \par Note
-  * By default, this property is enabled in releases following the  2.2.1.
-  *
-  * @see setScaleSceneOnResizeEnabled
-  */
-bool QGraphicsPlotItem::scaleSceneOnResizeEnabled() const
-{
-    return d->scaleOnResize;
-}
-
-void QGraphicsPlotItem::setScaleSceneOnMouseScroll(bool en)
-{
-    d->scaleOnScroll    = en;
-}
-
-bool QGraphicsPlotItem::scaleSceneOnMouseScroll() const
-{
-    return d->scaleOnScroll;
-}
-
-void QGraphicsPlotItem::recalculatePlotRect()
-{
-    printf("%s \e[1;31m verify verify!!\e[0m\n", __PRETTY_FUNCTION__);
-    return;
-
-    double x, y, w, h;
-    QRectF sr = scene()->sceneRect();
-    x = sr.left() + sr.width() * d->topLeftXPercent;
-    y = sr.top() + sr.height() * d->topLeftYPercent;
-    w = sr.width() * d->widthPercent;
-    h = sr.height() * d->heightPercent;
-    d->plotRect = QRectF(x, y, w, h);
-
-    foreach(PlotGeometryEventListener *listener, d->plotGeometryEventListeners)
-        listener->plotRectChanged(d->plotRect);
-
-    /* emit signals to notify rect and size change
-     */
-    emit plotRectChanged(d->plotRect);
-    /* this takes into account the plotRect and the QTransform
-     * currently applied to emit a size changed signal.
-     */
-    notifyPlotAreaChanged();
-}
 
 void QGraphicsPlotItem::setManualUpdate(bool manual) {
     QTimer *t = findChild<QTimer *>("refreshTimer");
@@ -496,8 +429,7 @@ void QGraphicsPlotItem::setManualUpdate(bool manual) {
     }
 }
 
-QRectF QGraphicsPlotItem::plotRect() const
-{
+QRectF QGraphicsPlotItem::plotRect() const {
     return d->plotRect;
 }
 
@@ -785,8 +717,6 @@ void QGraphicsPlotItem::setYAxisLabelsOutsideCanvas(bool outside)
     yScaleItem()->setAxisLabelsOutsideCanvas(outside);
 }
 
-
-
 void QGraphicsPlotItem::setRefreshPeriod(int period)
 {
     if(period > 0)
@@ -850,7 +780,7 @@ SceneCurve *QGraphicsPlotItem::addLineCurve(const QString& name, ScaleItem *xSca
     xScaleI->installAxisChangeListener(sceneCurve);
     yScaleI->installAxisChangeListener(sceneCurve);
     /* curve item */
-    CurveItem *curveItem = new CurveItem(sceneCurve);
+    CurveItem *curveItem = new CurveItem(sceneCurve, this);
     scene()->addItem(curveItem);
     curveItem->setObjectName(name);
     sceneCurve->installCurveChangeListener(curveItem);
@@ -998,6 +928,7 @@ void QGraphicsPlotItem::appendData(const QString& curveName,
     {
         SceneCurve *c = d->curveHash.value(curveName);
         QRectF r = c->addPoints(xData, yData);
+        qDebug() << __PRETTY_FUNCTION__ << "updating rect area " << r;
         update(r);
     }
     else
@@ -1036,11 +967,8 @@ ScaleItem *QGraphicsPlotItem::xScaleItem() const
 
 ScaleItem *QGraphicsPlotItem::yScaleItem() const
 {
-//    printf("\e[1;31mPlotSceneWidget.yScaleItem: axesManager has axes:\n");
     QList<ScaleItem *> allAxes = d->axesManager->getAllAxes();
     ScaleItem *y = d->axesManager->getAxis(ScaleItem::yLeft);
- //   if(!y)
- //       y = d_ptr->axesManager->getAssociatedAxis(ScaleItem::xBottom);
     return y;
 }
 
@@ -1084,19 +1012,6 @@ void QGraphicsPlotItem::boundsChanged()
     foreach(ScaleItem* scaleItem, d->axesManager->getAllAxes())
         scaleItem->redraw();
 }
-
-//void PlotSceneWidget::paintEvent(QPaintEvent *event)
-//{
-//    if(d_ptr->modifiedPaintEvent)
-//    {
-//        QPaintEvent *newEvent=new QPaintEvent(event->region().boundingRect());
-//        QGraphicsView::paintEvent(newEvent);
-//        delete newEvent;
-//    }
-//    else
-//        QGraphicsView::paintEvent(event);
-//}
-
 
 QVariant QGraphicsPlotItem::itemChange(GraphicsItemChange change, const QVariant &value) {
     switch(change) {
@@ -1185,14 +1100,12 @@ void QGraphicsPlotItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         }
     }
 //    setDragMode(QGraphicsView::NoDrag);
-//    QGraphicsView::mouseReleaseEvent(event);
 }
 
 void QGraphicsPlotItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 {
     foreach(MouseEventListener *l, d->mouseEventListeners)
         l->mouseDoubleClickEvent(this, event);
-//    QGraphicsView::mouseDoubleClickEvent(event);
 }
 
 void QGraphicsPlotItem::mSwitchAxesCurvesForeground()
@@ -1254,116 +1167,19 @@ void QGraphicsPlotItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 //    QGraphicsView::mouseMoveEvent(event);
 }
 
-//void QGraphicsPlotItem::resizeEvent(QResizeEvent *event)
-//{
-//    QGraphicsView::resizeEvent(event);
-//   // qDebug() << __FUNCTION__ << objectName() << "rezize" << event->oldSize() << event->size()
-//   //          << "viewportRect" << this->viewport()->rect() << "Spontaneus" << event->spontaneous();
-
-//    bool inZoom = false;
-//    //    bool needNotify = true;
-//    if(d_ptr->zoomer->inZoom())
-//        inZoom = true;
-
-//    QTransform t = QGraphicsView::transform();
-//    if(d_ptr->scaleOnResize && !inZoom &&
-//            ((t.m11() == d_ptr->firstScrollM11 && t.m22() == d_ptr->firstScrollM12)
-//             || d_ptr->firstScrollM11 < 0 /* never scrolled before */ ))
-//    {
-//        /* sceneRectChanged signal will be emitted, so recalculatePlotRect will be invoked
-//         * and notifyPlotAreaChanged too.
-//         */
-//        scene()->setSceneRect(this->viewport()->rect());
-//    }
-
-//    //    qDebug() << !inZoom  << d_ptr->scaleOnResize  <<  !d_ptr->neverShown;
-//    //    if(!inZoom && d_ptr->scaleOnResize && !d_ptr->neverShown)
-//    //    {
-//    //        qDebug() << "resizeEvent (never shown)" << objectName();
-//    //        QTransform t = QGraphicsView::transform();
-//    //        if((t.m11() == d_ptr->firstScrollM11 && t.m22() == d_ptr->firstScrollM12)
-//    //                || d_ptr->firstScrollM11 < 0 /* never scrolled before */ )
-//    //        {
-//    //            fitIn();
-//    //            needNotify = false;
-//    //        }
-//    //    }
-//    //    if(needNotify)
-//    //        notifyPlotAreaChanged();
-//}
-
-void QGraphicsPlotItem::notifyPlotAreaChanged()
-{
-//    QSizeF area = d_ptr->plotRect.size();
-//    QTransform tr = QGraphicsView::transform();
-//    area.setWidth(area.width() * tr.m11());
-//    area.setHeight(area.height() * tr.m22());
-////    qDebug() << __FUNCTION__ << objectName() << "plotRect"
-////             << d_ptr->plotRect << "area" << area;
-
-//    emit plotAreaChanged(area);
-//    emit viewScaleChanged(tr.m11(), tr.m22());
-//    emit viewScaleChanged((tr.m11() + tr.m22())/2.0);
-
-//    //  printf("\e[1;32m m11: %f m22 %f\e[0m\n", tr.m11(), tr.m22());
-
-//    foreach(PlotGeometryEventListener *l, d_ptr->plotGeometryEventListeners)
-//        l->plotAreaChanged(area);
-}
-
 void QGraphicsPlotItem::update(const QRectF& area) {
-    qDebug() << __PRETTY_FUNCTION__ << "updagint area " << area;
+    d->updateRect = area;
     QGraphicsObject::update(area);
 }
 
 void QGraphicsPlotItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
     printf("\e[1;33mpainting graphics plot item\e[0m\n");
-    qDebug() << __PRETTY_FUNCTION__ << "painting on rect " << painter->viewport();
-    painter->setPen(QPen(Qt::darkCyan));
-    painter->drawRect(option->rect);
+    qDebug() << __PRETTY_FUNCTION__ << boundingRect();
     painter->setPen(Qt::darkMagenta);
-    painter->drawRect(option->exposedRect);
-//    QGraphicsObject::paint(painter, option, widget);
+    painter->drawRect(boundingRect());
 }
 
-/** \brief notifies PlotChangeListeners that the scrollbar has changed its
- *         value
- *
- * @param value the value of the scrollbar as provided by the horizontalScrollBar
- */
-void QGraphicsPlotItem::hScrollBarValueChanged(int value)
-{
-    foreach(PlotGeometryEventListener *l, d->plotGeometryEventListeners)
-        l->scrollBarChanged(Qt::Horizontal, value);
-}
-
-/** \brief notifies PlotChangeListeners that the scrollbar has changed its
- *         value
- *
- * @param value the value of the scrollbar as provided by the verticalScrollBar
- */
-void QGraphicsPlotItem::vScrollBarValueChanged(int value)
-{
-    foreach(PlotGeometryEventListener *l, d->plotGeometryEventListeners)
-        l->scrollBarChanged(Qt::Vertical, value);
-}
-
-void QGraphicsPlotItem::sceneRectChanged(const QRectF &)
-{
-    /* recalculatePlotRect() notifies listeners */
-    recalculatePlotRect();
-}
-
-//bool QGraphicsPlotItem::event(QEvent *event)
-//{
-//    return QGraphicsView::event(event);
-//}
-
-
-double QGraphicsPlotItem::transform(const double x, ScaleItem* scaleItem) const
-{
-    qDebug() << __PRETTY_FUNCTION__ << "transforming " << x << "canvas r" << scaleItem->canvasRect()
-             << scaleItem->canvasWidth << "x" << scaleItem->canvasHeight;
+double QGraphicsPlotItem::transform(const double x, ScaleItem* scaleItem) const {
     double coord = 0.0;
     if(scaleItem)
     {
@@ -1649,5 +1465,5 @@ void QGraphicsPlotItem::saveData()
 }
 
 QRectF QGraphicsPlotItem::boundingRect() const {
-    return QRectF(0, 0, 400, 400);
+    return d->plotRect;
 }

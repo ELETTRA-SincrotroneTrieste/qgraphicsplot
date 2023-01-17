@@ -248,8 +248,7 @@ void SceneCurve::removeCurveItem()
  * An internal list of CurveItem objects is kept in order to be able to provide to
  * the users of SceneCurve a list of associated CurveItems.
  */
-void SceneCurve::setCurveItem(CurveItem *curveItem)
-{
+void SceneCurve::setCurveItem(CurveItem *curveItem) {
     d_ptr->curveItem = curveItem;
 }
 

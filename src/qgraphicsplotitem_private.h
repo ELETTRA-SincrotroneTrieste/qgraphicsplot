@@ -58,6 +58,9 @@ public:
 
     QMenu *menu;
 
+    /// TEST
+    QRectF updateRect;
+
 private:
     QGraphicsPlotItem *mView;
 

@@ -111,10 +111,13 @@ QRectF CurveItem::itemAdded(const Point &) {
         y2 = d_ptr->curve->plot()->transform(data->yData[itemCnt - 1], yScale) + extraY;
         QPointF topLeft(qMin(x1, x2), qMin(y1, y2));
         QPointF botRight(qMax(x1, x2), qMax(y1, y2));
-        d_ptr->updateRect = QRectF(topLeft, botRight);;
-        printf("\e[1;32m:-) partial update possible because last x < x ub %f < %f\e[0m \n",
-               data->xData.last() , xScale->upperBound());
-        qDebug() << "         on rect" << d_ptr->updateRect;
+        QRectF r(topLeft, botRight);
+//        if(d_ptr->curve->plot()->boundingRect().contains(r)) {
+            printf("\e[1;32m:-) partial update possible because last x < x ub %f < %f\e[0m \n",
+                   data->xData.last() , xScale->upperBound());
+            qDebug() << "         on rect" << d_ptr->updateRect;
+            d_ptr->updateRect = r;
+//        }
     }
     else if(itemCnt > 1)
     {

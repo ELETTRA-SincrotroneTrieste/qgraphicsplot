@@ -29,7 +29,7 @@ public:
 
     int stackSize() const;
 
-    void canvasRectChanged(const QRectF &newRect);
+    void plotAreaChanged(const QRectF &newRect);
 
     void xAxisBoundsChanged(double , double ) {}
 

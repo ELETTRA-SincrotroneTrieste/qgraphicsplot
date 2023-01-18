@@ -106,7 +106,7 @@ void ExternalScaleWidget::labelsFormatChanged(const QString& format)
         setFormat(format);
 }
 
-void ExternalScaleWidget::canvasRectChanged(const QRectF& )
+void ExternalScaleWidget::plotAreaChanged(const QRectF& )
 {
 
 }

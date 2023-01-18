@@ -178,7 +178,7 @@ SceneCurve::SceneCurve(QGraphicsPlotItem *sceneWidget,
 
     /* curves may be added after canvas rect change notification has arrived
      */
-    canvasRectChanged(d_ptr->plot->plotRect());
+    plotAreaChanged(d_ptr->plot->plotRect());
 }
 
 SceneCurve::~SceneCurve() {
@@ -349,7 +349,7 @@ double  SceneCurve::getMaxY() const
     return d_ptr->data->yMax;
 }
 
-void SceneCurve::canvasRectChanged(const QRectF& r)
+void SceneCurve::plotAreaChanged(const QRectF& r)
 {
     d_ptr->canvasRectTop = r.top();
     d_ptr->canvasRectW = r.width();

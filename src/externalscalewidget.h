@@ -249,7 +249,7 @@ public:
 
     virtual void axisAutoscaleChanged(ScaleItem::Orientation o, bool autoscale);
 
-    virtual void canvasRectChanged(const QRectF& newRect);
+    virtual void plotAreaChanged(const QRectF& newRect);
 
     virtual void tickStepLenChanged(double  len);
 

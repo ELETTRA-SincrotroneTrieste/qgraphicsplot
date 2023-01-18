@@ -19,7 +19,6 @@ class PlotSceneWidget : public QGraphicsView
     Q_PROPERTY(bool dontAdjustForAntialiasing READ dontAdjustForAntialiasing WRITE setDontAdjustForAntialiasing)
     Q_PROPERTY(bool cacheBackground READ cacheBackground WRITE setCacheBackground)
     Q_PROPERTY(bool manualSceneUpdate READ  manualSceneUpdate WRITE setManualSceneUpdate)
-//    Q_PROPERTY(bool modifiedPaintEvent READ modifiedPaintEvent WRITE setModifiedPaintEvent)
     Q_PROPERTY(bool scrollBarsEnabled READ scrollBarsEnabled WRITE setScrollBarsEnabled)
 
 public:
@@ -40,6 +39,8 @@ public:
     bool scrollBarsEnabled() const;
     void showEvent(QShowEvent *event);
 
+    bool mouseZoomEnabled() const;
+
 public slots:
     SceneCurve *addCurve(const QString& name);
     void addCurve(SceneCurve *c);
@@ -56,6 +57,8 @@ public slots:
     void fitIn();
     void setSceneRectToWidgetGeometry(bool en);
     void resetTransformMatrix();
+
+    void setMouseZoomEnabled(bool en);
 
 private slots:
     void sceneRectChanged(const QRectF &r);

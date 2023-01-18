@@ -42,7 +42,7 @@ public:
     double firstScrollM11, firstScrollM12;
 
     /* cache the plot rect for efficiency */
-    QRectF plotRect;
+    QRectF plotRect, zoomArea;
 
     QList<PlotGeometryEventListener *> plotGeometryEventListeners;
 

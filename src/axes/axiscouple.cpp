@@ -12,7 +12,7 @@ AxisCouple::AxisCouple()
 {
     xAxis = NULL;
     yAxis = NULL;
-    xOriginPosPercentage = yOriginPosPercentage = 0.5;
+    xOriginPosPercentage = yOriginPosPercentage = 0.0;
 }
 
 AxisCouple::AxisCouple(const AxisCouple &other) {

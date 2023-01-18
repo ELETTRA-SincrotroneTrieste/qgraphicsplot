@@ -148,7 +148,7 @@ public:
       */
     const QPointF* points();
 
-    virtual void canvasRectChanged(const QRectF& newRect);
+    virtual void plotAreaChanged(const QRectF& newRect);
 
 signals:
     

@@ -156,7 +156,7 @@ void TargetItem::paint(QPainter *painter,
   *
   *
   */
-void  TargetItem::canvasRectChanged(const QRectF &newRect)
+void  TargetItem::plotAreaChanged(const QRectF &newRect)
 {
     Q_UNUSED(newRect)
     updatePosition();

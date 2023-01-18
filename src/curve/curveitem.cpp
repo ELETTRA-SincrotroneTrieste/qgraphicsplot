@@ -112,7 +112,9 @@ QRectF CurveItem::itemAdded(const Point &) {
         QPointF topLeft(qMin(x1, x2), qMin(y1, y2));
         QPointF botRight(qMax(x1, x2), qMax(y1, y2));
         d_ptr->updateRect = QRectF(topLeft, botRight);;
-        qDebug() << __FUNCTION__ << ":-) partial update possible on rect" << d_ptr->updateRect;
+        printf("\e[1;32m:-) partial update possible because last x < x ub %f < %f\e[0m \n",
+               data->xData.last() , xScale->upperBound());
+        qDebug() << "         on rect" << d_ptr->updateRect;
     }
     else if(itemCnt > 1)
     {

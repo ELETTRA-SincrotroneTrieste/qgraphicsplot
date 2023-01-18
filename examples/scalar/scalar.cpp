@@ -3,6 +3,7 @@
 #include "../../src/colors.h"
 #include "curve/painters/linepainter.h"
 #include "curve/curveitem.h"
+#include  "../../src/items/markeritem.h"
 #include "ui_scalar.h"
 
 #include <QTimer>
@@ -111,15 +112,17 @@ XYSceneTest::XYSceneTest(QWidget *parent) :
     printf("%s \e[1;31m loadConfigurationProperties is not called\e[0m\n", __PRETTY_FUNCTION__);
 //    ui->graphicsPlot->loadConfigurationProperties();
 
-
-
-
-    ui->graphicsPlot->yScaleItem()->setAxisAutoscaleEnabled(false);
-    ui->graphicsPlot->xScaleItem()->setAxisAutoscaleEnabled(false);
+    ui->graphicsPlot->yScaleItem()->setAxisAutoscaleEnabled(true);
+    ui->graphicsPlot->xScaleItem()->setAxisAutoscaleEnabled(true);
     ui->graphicsPlot->xScaleItem()->setLowerBound(0.0);
     ui->graphicsPlot->xScaleItem()->setUpperBound(1.0);
     ui->graphicsPlot->yScaleItem()->setLowerBound(0.0);
     ui->graphicsPlot->yScaleItem()->setUpperBound(1.0);
+
+    ui->graphicsPlot->plot()->setMouseZoomEnabled(true);
+
+    MarkerItem* marker = new MarkerItem(ui->graphicsPlot->plot());
+    ui->graphicsPlot->plot()->installMouseEventListener(marker);
 }
 
 XYSceneTest::~XYSceneTest()

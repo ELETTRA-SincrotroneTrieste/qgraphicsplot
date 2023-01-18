@@ -76,7 +76,7 @@ public:
 
     ItemMoveListener *itemMoveListener() const;
 
-    void canvasRectChanged(const QRectF &newRect);
+    void plotAreaChanged(const QRectF &newRect);
 
     /** \brief This must be implemented from AxisChangeListener interface, but they do nothing.
      *

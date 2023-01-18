@@ -28,8 +28,6 @@ public:
 
     qreal axisLabelRotation;
 
-    QGraphicsPlotItem *plot_item;
-
     qreal mLastTickPos;
 
     QString axisLabelsFormat,  actualLabelsFormat, axisTitle;
@@ -50,13 +48,11 @@ public:
 
     bool minMaxUnset;
 
-    bool axisLabelsOutsideCanvas;
-
     QList<AxisChangeListener* > axisChangeListeners;
 
     ScaleLabelInterface *scaleLabelInterface;
 
-    QRectF plotRect, canvasRect;
+    QRectF plotRect, plotArea;
 
     double maxLabelWidth, labelMargin, labelHeight;
 

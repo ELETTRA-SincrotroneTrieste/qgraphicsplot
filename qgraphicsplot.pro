@@ -187,7 +187,6 @@ SOURCES += \
     src/curve/point.cpp \
     src/curve/pointprivate.cpp \
     src/curve/data.cpp \
-    src/graphicsscene.cpp \
     src/curve/curveitem.cpp \
     src/curve/curveitemprivate.cpp \
     src/items/markeritem.cpp \

@@ -64,7 +64,6 @@ Q_OBJECT
     Q_PROPERTY(QDateTime upperBoundDateTime READ upperBoundDateTime WRITE setUpperBoundDateTime)
     Q_PROPERTY(bool axisAutoscaleEnabled READ axisAutoscaleEnabled WRITE setAxisAutoscaleEnabled)
     Q_PROPERTY(double axisLabelDist READ axisLabelDist WRITE setAxisLabelDist)
-    Q_PROPERTY(bool axisLabelsOutsideCanvas READ axisLabelsOutsideCanvas WRITE setAxisLabelsOutsideCanvas)
     Q_PROPERTY(QFont font READ font WRITE setFont)
     Q_PROPERTY(qreal zValue READ zValue WRITE setZValue)
 
@@ -131,8 +130,6 @@ public:
 
     double axisLabelDist() const;
 
-    bool axisLabelsOutsideCanvas() const;
-
     QFont font() const;
 
     QFont axisTitleFont() const;
@@ -178,11 +175,11 @@ public:
 
     double maxLabelWidth() const;
 
-    double canvasWidth, scaledCanvasWidth;
+    double plotAreaW, scaledCanvasWidth;
 
-    double canvasHeight, scaledCanvasHeight;
+    double plotAreaH, scaledCanvasHeight;
 
-    QRectF canvasRect() const;
+    QRectF plotArea() const;
 
     void setAutoscaleMargin(double spanPercent);
 
@@ -216,13 +213,9 @@ public slots:
 
     void setBounds(double lowerBound, double upperBound);
 
-    virtual void redraw();
-
     void setBoundsFromCurves();
 
     void setAxisLabelDist(double d);
-
-    void setAxisLabelsOutsideCanvas(bool outside);
 
     void setFont(const QFont& f);
 

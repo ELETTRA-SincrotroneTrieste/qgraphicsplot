@@ -65,7 +65,7 @@ ScaleItem *QGraphicsZoomer::yAxis() const
     return NULL;
 }
 
-void QGraphicsZoomer::canvasRectChanged(const QRectF &newRect)
+void QGraphicsZoomer::plotAreaChanged(const QRectF &)
 {
     /// d_ptr->zoomStack[0] = newRect;
 }

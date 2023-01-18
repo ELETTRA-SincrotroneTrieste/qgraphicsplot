@@ -3,7 +3,6 @@
 #include "scaleitem.h"
 #include <QApplication>
 #include <QGLWidget>
-#include <graphicsscene.h>
 #include <QScrollBar>
 #include <QTimer>
 #include <QWheelEvent>
@@ -34,7 +33,7 @@ PlotSceneWidget::PlotSceneWidget(QWidget *parent, bool useGl) : QGraphicsView(pa
     /* set a scene rect because ScaleItem needs a fixed scene rect.
      * The scene rect will be updated on showEvent
      */
-    GraphicsScene *scene = new GraphicsScene(this);
+    QGraphicsScene *scene = new QGraphicsScene(this);
     scene->setSceneRect(0, 0, 500, 400);
     setScene(scene);
     setMouseTracking(true);
@@ -47,7 +46,7 @@ PlotSceneWidget::PlotSceneWidget(QWidget *parent, bool useGl) : QGraphicsView(pa
     d->ploti = new QGraphicsPlotItem(nullptr);
     d->ploti->setOriginPosPercentage(d->ploti->xScaleItem(), 0.0);
     d->ploti->setOriginPosPercentage(d->ploti->yScaleItem(), 0.0);
-    d->ploti->setYAxisLabelsOutsideCanvas(true);
+//    d->ploti->setYAxisLabelsOutsideCanvas(true);
     scene->addItem(d->ploti);
 
     connect(scene, SIGNAL(sceneRectChanged(QRectF)), this, SLOT(sceneRectChanged(QRectF)));
@@ -277,6 +276,14 @@ void PlotSceneWidget::showEvent(QShowEvent *event)
 
 }
 
+bool PlotSceneWidget::mouseZoomEnabled() const {
+    return d->ploti->mouseZoomEnabled();
+}
+
+void PlotSceneWidget::setMouseZoomEnabled(bool en) {
+    d->ploti->setMouseZoomEnabled(en);
+}
+
 SceneCurve * PlotSceneWidget::addCurve(const QString &name) {
    return d->ploti->addCurve(name);
 }
@@ -285,7 +292,6 @@ void PlotSceneWidget::addCurve(SceneCurve *c) {
     d->ploti->addCurve(c);
 }
 
-void PlotSceneWidget::setManualSceneUpdate(bool manual)
-{
+void PlotSceneWidget::setManualSceneUpdate(bool manual) {
     setViewportUpdateMode(manual ? QGraphicsView::NoViewportUpdate : QGraphicsView::FullViewportUpdate);
 }

@@ -48,7 +48,7 @@ public:
       *
       * @param newRect the new rectangle
       */
-    virtual void canvasRectChanged(const QRectF& newRect) = 0;
+    virtual void plotAreaChanged(const QRectF& newRect) = 0;
 
     /** \brief notifies listeners about tick step len changes.
      *

@@ -321,8 +321,6 @@ public:
 
     bool xAxisAutoscaleEnabled() const;
     bool yAxisAutoscaleEnabled() const;
-    bool xAxisLabelsOutsideCanvas() const;
-    bool yAxisLabelsOutsideCanvas() const;
 
     /** \brief returns the refresh period of the internal timer used to refresh
       *        the scene when manualSceneUpdate is turned on.
@@ -552,8 +550,6 @@ public slots:
     void setYAxisUpperBound(double yub);
     void setXAxisAutoscaleEnabled(bool en);
     void setYAxisAutoscaleEnabled(bool en);
-    void setXAxisLabelsOutsideCanvas(bool outside);
-    void setYAxisLabelsOutsideCanvas(bool outside);
 
     void setBackgroundColor(const QColor&) const;
 

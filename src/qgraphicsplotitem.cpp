@@ -13,7 +13,6 @@
 #include "axesmanager.h"
 #include "axiscouple.h"
 #include "mouseeventlistener.h"
-#include "graphicsscene.h"
 #include "qgraphicszoomer.h"
 #include "colorpalette.h"
 #include "scalelabelinterface.h"
@@ -192,7 +191,7 @@ void QGraphicsPlotItem::initPlot()
     /* for each key of the map, create a tab page with all the widgets properties */
     addConfigurableObjects("Plot", this);
 
-//    connect(scene, SIGNAL(sceneRectChanged(QRectF)), this, SLOT(sceneRectChanged(QRectF)));
+    //    connect(scene, SIGNAL(sceneRectChanged(QRectF)), this, SLOT(sceneRectChanged(QRectF)));
 
     /* legend */
     d->legendItem = new LegendItem(this);
@@ -202,7 +201,7 @@ void QGraphicsPlotItem::initPlot()
     connect(this, SIGNAL(curveAboutToBeRemoved(SceneCurve*)), d->legendItem, SLOT(curveRemoved(SceneCurve*)));
     d->legendItem->setVisible(false);
     d->legendItem->setObjectName("PlotSceneWidgetLegendItem");
-//    scene->addItem(d_ptr->legendItem);
+    //    scene->addItem(d_ptr->legendItem);
     addConfigurableObjects("Legend", d->legendItem);
 }
 
@@ -679,44 +678,6 @@ void QGraphicsPlotItem::setYAxisAutoscaleEnabled(bool en)
     yScaleItem()->setAxisAutoscaleEnabled(en);
 }
 
-/** \brief Shortcut for ScaleItem::axisLabelsOutsideCanvas
- *
- * If set to true, draws the axis labels outside the rectangle where the curves are drawn.
- */
-bool QGraphicsPlotItem::xAxisLabelsOutsideCanvas() const
-{
-    return xScaleItem()->axisLabelsOutsideCanvas();
-}
-
-/** \brief Shortcut for ScaleItem::axisLabelsOutsideCanvas
- *
- * If set to true, draws the axis labels outside the rectangle where the curves are drawn.
- */
-bool QGraphicsPlotItem::yAxisLabelsOutsideCanvas() const
-{
-    return yScaleItem()->axisLabelsOutsideCanvas();
-}
-
-/** \brief Tells the plot to draw the axis labels outside the area
- *         where the curves are drawn.
- *
- * This is useful when the x axis is placed at the bottom.
- */
-void QGraphicsPlotItem::setXAxisLabelsOutsideCanvas(bool outside)
-{
-    xScaleItem()->setAxisLabelsOutsideCanvas(outside);
-}
-
-/** \brief Tells the plot to draw the axis labels outside the area
- *         where the curves are drawn.
- *
- * This is useful when the y axis is placed at the left.
- */
-void QGraphicsPlotItem::setYAxisLabelsOutsideCanvas(bool outside)
-{
-    yScaleItem()->setAxisLabelsOutsideCanvas(outside);
-}
-
 void QGraphicsPlotItem::setRefreshPeriod(int period)
 {
     if(period > 0)
@@ -811,8 +772,8 @@ SceneCurve *QGraphicsPlotItem::addCurve(const QString& name)
 }
 
 SceneCurve *QGraphicsPlotItem::addCurve(const QString &name,
-                                      ScaleItem* xScaleItem,
-                                      ScaleItem* yScaleItem)
+                                        ScaleItem* xScaleItem,
+                                        ScaleItem* yScaleItem)
 {
     if(xScaleItem && yScaleItem)
     {
@@ -921,8 +882,8 @@ void QGraphicsPlotItem::appendData(const QString& curveName, double x, double y)
 }
 
 void QGraphicsPlotItem::appendData(const QString& curveName,
-                                 const QVector<double>& xData,
-                                 const QVector<double> &yData)
+                                   const QVector<double>& xData,
+                                   const QVector<double> &yData)
 {
     if(d->curveHash.contains(curveName))
     {
@@ -936,8 +897,8 @@ void QGraphicsPlotItem::appendData(const QString& curveName,
 }
 
 void QGraphicsPlotItem::setData(const QString& curveName,
-                              const QVector< double > &xData,
-                              const QVector< double > &yData)
+                                const QVector< double > &xData,
+                                const QVector< double > &yData)
 {
     if(d->curveHash.contains(curveName))
     {
@@ -949,7 +910,7 @@ void QGraphicsPlotItem::setData(const QString& curveName,
 }
 
 void QGraphicsPlotItem::setData(const QString& curveName,
-                              const QVector< double > &yData)
+                                const QVector< double > &yData)
 {
     if(d->curveHash.contains(curveName))
     {
@@ -1010,7 +971,7 @@ void QGraphicsPlotItem::boundsChanged()
         sc->invalidateCache();
     /* redraw all the axis */
     foreach(ScaleItem* scaleItem, d->axesManager->getAllAxes())
-        scaleItem->redraw();
+        scaleItem->update();
 }
 
 QVariant QGraphicsPlotItem::itemChange(GraphicsItemChange change, const QVariant &value) {
@@ -1087,8 +1048,7 @@ void QGraphicsPlotItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
             }
             QRectF selectionRect = QRectF(mP1, mP2);
             d->zoomer->zoom(selectionRect);
-            /* clear the rect drawn during mouse move + left click */
-            qobject_cast<GraphicsScene* >(scene())->setZoomRect(QRectF());
+            d->zoomArea = QRectF();
         }
         //update(); /* shouldn't be necessary */
     }
@@ -1099,7 +1059,6 @@ void QGraphicsPlotItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
             d->zoomer->unzoom();
         }
     }
-//    setDragMode(QGraphicsView::NoDrag);
 }
 
 void QGraphicsPlotItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
@@ -1110,18 +1069,18 @@ void QGraphicsPlotItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 
 void QGraphicsPlotItem::mSwitchAxesCurvesForeground()
 {
-//    double xZVal = xScaleItem()->zValue();
-//    double yZVal = yScaleItem()->zValue();
-//    if(xZVal < 1000 && yZVal < 1000)
-//    {
-//        xScaleItem()->setZValue(1000);
-//        yScaleItem()->setZValue(1000);
-//    }
-//    else
-//    {
-//        xScaleItem()->setZValue(0);
-//        yScaleItem()->setZValue(0);
-//    }
+    //    double xZVal = xScaleItem()->zValue();
+    //    double yZVal = yScaleItem()->zValue();
+    //    if(xZVal < 1000 && yZVal < 1000)
+    //    {
+    //        xScaleItem()->setZValue(1000);
+    //        yScaleItem()->setZValue(1000);
+    //    }
+    //    else
+    //    {
+    //        xScaleItem()->setZValue(0);
+    //        yScaleItem()->setZValue(0);
+    //    }
 
 }
 
@@ -1158,13 +1117,11 @@ void QGraphicsPlotItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
             topLeft.setY(d->mouseMovingPoint.y());
             botRight.setY(d->mousePressedPoint.y());
         }
-        QRectF zoomR(topLeft, botRight);
-        qobject_cast<GraphicsScene* >(scene())->setZoomRect(this->mapToScene(zoomR.toRect()).boundingRect());
-        scene()->update(); /* shouldn't be necessary */
+        d->zoomArea = QRectF(topLeft, botRight);
+        update();
     }
     if(d->mousePressed)
         d->mousePressed = false;
-//    QGraphicsView::mouseMoveEvent(event);
 }
 
 void QGraphicsPlotItem::update(const QRectF& area) {
@@ -1173,10 +1130,12 @@ void QGraphicsPlotItem::update(const QRectF& area) {
 }
 
 void QGraphicsPlotItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
-    printf("\e[1;33mpainting graphics plot item\e[0m\n");
-    qDebug() << __PRETTY_FUNCTION__ << boundingRect();
-    painter->setPen(Qt::darkMagenta);
-    painter->drawRect(boundingRect());
+    if(d->zoomArea.isValid()) {
+        QPen zoomAreaPen(Qt::gray);
+        zoomAreaPen.setStyle(Qt::DashLine);
+        painter->setPen(zoomAreaPen);
+        painter->drawRect(d->zoomArea);
+    }
 }
 
 double QGraphicsPlotItem::transform(const double x, ScaleItem* scaleItem) const {
@@ -1190,8 +1149,10 @@ double QGraphicsPlotItem::transform(const double x, ScaleItem* scaleItem) const 
         {
             if(scaleItem->orientation() == ScaleItem::Horizontal)
             {
-                len = scaleItem->canvasWidth - 1;
-                coord = (x - start) * len / (end - start) + scaleItem->canvasRect().x();
+                len = scaleItem->plotAreaW - 1;
+                coord = (x - start) * len / (end - start) + scaleItem->plotArea().x();
+                printf("\e[1;33mcoord of value %f is %f \e[0m\n", x, coord);
+                qDebug() << "          plot area " << scaleItem->plotArea();
             }
             else
             {
@@ -1200,10 +1161,10 @@ double QGraphicsPlotItem::transform(const double x, ScaleItem* scaleItem) const 
                  * When x == end the coordinate is 0, which is correct.
                  * In practise, the extension must be [0 - scaleItem->canvasHeight - 1].
                  */
-                len = scaleItem->canvasHeight - 1;
+                len = scaleItem->plotAreaH - 1;
                 coord = len - (x - start) * len / (end - start);
-//                qDebug() << __FUNCTION__ << coord << " len " << len << " x " << x << "start" <<
-//                            start << "end" << end << " end - start" << end - start;
+                //                qDebug() << __FUNCTION__ << coord << " len " << len << " x " << x << "start" <<
+                //                            start << "end" << end << " end - start" << end - start;
             }
         }
     }
@@ -1246,9 +1207,9 @@ QPointF QGraphicsPlotItem::invTransform(const QPointF& pSceneCoord)
 double QGraphicsPlotItem::invTransform(const double pt, ScaleItem* scaleItem) const
 {
     if(scaleItem && scaleItem->orientation() == ScaleItem::Horizontal)
-        return scaleItem->lowerBound() + pt * (scaleItem->upperBound() - scaleItem->lowerBound()) / scaleItem->canvasWidth;
+        return scaleItem->lowerBound() + pt * (scaleItem->upperBound() - scaleItem->lowerBound()) / scaleItem->plotAreaW;
     else if(scaleItem && scaleItem->orientation() == ScaleItem::Vertical)
-        return scaleItem->upperBound() - pt * (scaleItem->upperBound() - scaleItem->lowerBound()) / scaleItem->canvasHeight;
+        return scaleItem->upperBound() - pt * (scaleItem->upperBound() - scaleItem->lowerBound()) / scaleItem->plotAreaH;
 
     perr("PlotSceneWidget::invTransform: invalid scale item (NULL)");
     return 0;
@@ -1263,11 +1224,11 @@ QPointF QGraphicsPlotItem::invTransform(const QPointF& pSceneCoord, ScaleItem* x
         qreal px = pSceneCoord.x();
         qreal py = pSceneCoord.y();
 
-        qreal x = xScI->lowerBound() + px * (xScI->upperBound() - xScI->lowerBound()) / xScaleItem->canvasWidth;
-        qreal y = yScI->upperBound() - py * (yScI->upperBound() - yScI->lowerBound()) / yScaleItem->canvasHeight;
+        qreal x = xScI->lowerBound() + px * (xScI->upperBound() - xScI->lowerBound()) / xScaleItem->plotAreaW;
+        qreal y = yScI->upperBound() - py * (yScI->upperBound() - yScI->lowerBound()) / yScaleItem->plotAreaH;
 
-//        qDebug() << __FUNCTION__ << xScaleItem << yScaleItem << px << py <<xScaleItem->canvasWidth
-//                 << yScaleItem->canvasHeight << x << y;
+        //        qDebug() << __FUNCTION__ << xScaleItem << yScaleItem << px << py <<xScaleItem->canvasWidth
+        //                 << yScaleItem->canvasHeight << x << y;
 
         return QPointF(x, y);
     }
@@ -1297,7 +1258,7 @@ QList<SceneCurve*> QGraphicsPlotItem::getClosest(
             xp = scenePos.x();
             yp = scenePos.y();
             dist = sqrt(pow(xp - xc, 2) + pow(yp - yc, 2));
-         //   qDebug() << "dist " << dist << "min dist" << minDist;
+            //   qDebug() << "dist " << dist << "min dist" << minDist;
             if(dist < minDist)
             {
                 minDist = dist;

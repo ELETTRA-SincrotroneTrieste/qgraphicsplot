@@ -868,14 +868,28 @@ SceneCurve *QGraphicsPlotItem::findCurve(const QString& name)
     return NULL;
 }
 
+// return true if axis bounds changed
+bool QGraphicsPlotItem::m_check_axis_bounds(SceneCurve *c) {
+    bool bounds_changed = false;
+    ScaleItem * xi = d->axesManager->getAxis(c->associatedXAxisId());
+    ScaleItem * yi = d->axesManager->getAxis(c->associatedYAxisId());
+    if(xi->axisAutoscaleEnabled())
+        bounds_changed |= xi->setBoundsFromCurves();
+    if(yi->axisAutoscaleEnabled())
+        bounds_changed |= yi->setBoundsFromCurves();
+    return bounds_changed;
+}
+
+
 void QGraphicsPlotItem::appendData(const QString& curveName, double x, double y)
 {
     if(d->curveHash.contains(curveName))
     {
         SceneCurve *c = d->curveHash.value(curveName);
-        QRectF r = c->addPoint(x, y);
-        qDebug() << __PRETTY_FUNCTION__ << "updating area " << r;
-        update(r);
+        QRectF r = c->addPoint(x, y); // scalar mode: updates max and min
+        bool bch = m_check_axis_bounds(c); // bch -> bounds changed
+        qDebug() << __PRETTY_FUNCTION__ << "updating area " << r << "bounds changed ?" << bch;
+        update(bch ? QRectF() : r);
     }
     else
         perr("PlotSceneWidget: appendData: no curve with name \"%s\"", qstoc(curveName));
@@ -890,7 +904,8 @@ void QGraphicsPlotItem::appendData(const QString& curveName,
         SceneCurve *c = d->curveHash.value(curveName);
         QRectF r = c->addPoints(xData, yData);
         qDebug() << __PRETTY_FUNCTION__ << "updating rect area " << r;
-        update(r);
+        bool fu = m_check_axis_bounds(c); // full update
+        update(fu ? QRectF() : r);
     }
     else
         perr("PlotSceneWidget: appendData (vector version): no curve with name \"%s\"", qstoc(curveName));
@@ -904,6 +919,7 @@ void QGraphicsPlotItem::setData(const QString& curveName,
     {
         SceneCurve *c = d->curveHash.value(curveName);
         c->setData(xData, yData);
+        update();
     }
     else
         perr("PlotSceneWidget: setData(): no curve with name \"%s\"", qstoc(curveName));
@@ -916,6 +932,7 @@ void QGraphicsPlotItem::setData(const QString& curveName,
     {
         SceneCurve *c = d->curveHash.value(curveName);
         c->setData(yData);
+        update();
     }
     else
         perr("PlotSceneWidget: setData(yData): no curve with name \"%s\"", qstoc(curveName));
@@ -1136,6 +1153,11 @@ void QGraphicsPlotItem::paint(QPainter *painter, const QStyleOptionGraphicsItem 
         painter->setPen(zoomAreaPen);
         painter->drawRect(d->zoomArea);
     }
+    QPen p(Qt::darkYellow);
+    QBrush b(Qt::yellow);
+    painter->setBrush(b);
+    painter->setPen(p);
+    painter->drawRect(d->updateRect);
 }
 
 double QGraphicsPlotItem::transform(const double x, ScaleItem* scaleItem) const {

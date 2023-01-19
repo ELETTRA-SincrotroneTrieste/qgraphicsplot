@@ -127,7 +127,6 @@ PUBLICHEADERS= src/qgraphicsplotitem.h \
            src/properties/propertydialog.h \
            src/properties/settingsloader.h \
            src/axischangelistener.h \
-           src/graphicsscene.h \
            src/mouseeventlistener.h \
            src/items/markeritem.h \
            src/items/targetitem.h \
@@ -151,7 +150,6 @@ PUBLICHEADERS= src/qgraphicsplotitem.h \
     src/extscaleplotscenewidget/curvesmap.h
 
 HPRIVATES = src/qgraphicsplotitem_private.h \
-           src/plotscenewidget_private.h \
            src/axes/scaleitemprivate.h \
            src/curve/curveitemprivate.h \
            src/curve/scenecurveprivate.h \
@@ -163,7 +161,6 @@ HEADERS += $${HPRIVATES} \
     src/curve/painters/dotspainterprivate.h \
     src/items/targetitemprivate.h \
     src/curve/painters/histogrampainterprivate.h \
-    src/graphicsscene_private.h \
     src/colorpalette.h \
     src/plotsaver/plotscenewidgetsaver.h \
     src/extscaleplotscenewidget/extscaleplotscenewidgetprivate.h \
@@ -205,7 +202,6 @@ SOURCES += \
     src/qgraphicsplotitem_private.cpp \
     src/scalelabelinterface.cpp \
     src/scalelabels/timescalelabel.cpp \
-    src/graphicsscene_private.cpp \
     src/qgraphicszoomer.cpp \
     src/externalscalewidget.cpp \
     src/horizontalscalewidget.cpp \
@@ -236,8 +232,6 @@ data.files = src/plotsaver/saveDataFormatHelp.html
 
 # generate pkg config file
 CONFIG += create_pc create_prl no_install_prl
-
-message("pkgconfig name $${libname} ")
 
 QMAKE_PKGCONFIG_NAME = $${libname}
 QMAKE_PKGCONFIG_DESCRIPTION = plot items to use in QGraphicsView

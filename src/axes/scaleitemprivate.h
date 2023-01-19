@@ -38,8 +38,6 @@ public:
 
     double mAxisTitleWidth, mAxisTitleHeight;
 
-    bool mNeedFullRedraw;
-
     ScaleItem::Id axisId;
 
     double upperBound, lowerBound, autoscaleMargin;

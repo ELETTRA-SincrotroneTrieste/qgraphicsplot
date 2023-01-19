@@ -595,6 +595,8 @@ private:
 
     void initDefaultAxes();
 
+    bool m_check_axis_bounds(SceneCurve *c);
+
 };
 
 #endif // XYSCENE_H

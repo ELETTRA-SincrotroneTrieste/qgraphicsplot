@@ -213,7 +213,7 @@ public slots:
 
     void setBounds(double lowerBound, double upperBound);
 
-    void setBoundsFromCurves();
+    bool setBoundsFromCurves();
 
     void setAxisLabelDist(double d);
 

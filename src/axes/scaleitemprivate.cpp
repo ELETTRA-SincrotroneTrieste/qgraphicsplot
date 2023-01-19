@@ -24,10 +24,8 @@ ScaleItemPrivate::ScaleItemPrivate()
 
     upperBound = 1000;
     lowerBound = -1000;
-    autoscaleMargin = 0.02; /* 2 % */
+    autoscaleMargin = 0.2; /* 2 % */
 
     autoScale = true;
-
-    mNeedFullRedraw = false;
     minMaxUnset = true;
 }

@@ -30,29 +30,17 @@ void LinePainter::draw(SceneCurve *curve,
                   QPainter *painter,
                   const QStyleOptionGraphicsItem * ,
                   QWidget * ) {
-    qDebug() << __PRETTY_FUNCTION__ << "paint rect" << painter->viewport() << "window" << painter->window();
-    QPen pen = painter->pen();
-    painter->drawRect(painter->viewport());
-    painter->setPen(Qt::red);
-    painter->drawRect(painter->window());
-    painter->setPen(pen);
     int dataSiz = curve->dataSize();
     painter->setPen(d_ptr->pen);
     const QPointF *points = curve->points();
-    if(dataSiz <= 2)
-    {
+    if(dataSiz <= 2) {
         painter->setBrush(QBrush(d_ptr->pen.color()));
-        for(int i = 0; i < dataSiz; i++)
-        {
+        for(int i = 0; i < dataSiz; i++) {
             painter->drawEllipse(points[i], 3, 2.5);
         }
     }
-    if(points)
-    {
+    if(points) {
         painter->drawPolyline(points, dataSiz);
-//        for(int i = 0; i < dataSiz; i++)
-//            printf("\e[1;33m(%f,%f), ", points[i].x(), points[i].y());
-//        printf("\e[0m\n\n");
     }
     /* draw NaNs (invalid data */
     QVector<double> xInvalid = curve->data()->invalidDataPoints();

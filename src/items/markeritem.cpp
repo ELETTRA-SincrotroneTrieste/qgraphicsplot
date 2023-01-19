@@ -143,7 +143,7 @@ void MarkerItem::removeCurve(SceneCurve *c)
 
 void MarkerItem::mouseReleaseEvent(QGraphicsPlotItem* plot, QGraphicsSceneMouseEvent* e)
 {
-    if(e->button() == Qt::MidButton) {
+    if(e->button() == Qt::MiddleButton) {
         setVisible(false);
     }
 }
@@ -174,7 +174,7 @@ void MarkerItem::mouseClickEvent(QGraphicsPlotItem *plot, const QPointF &pos)
      */
     QTransform tran = transform();
     QPointF topLeft(0, 0); //  = plot->mapToScene(0, 0);
-    QPointF botRight = plot->mapToScene(plot->boundingRect().bottom(), plot->boundingRect().right());
+    QPointF botRight = plot->mapFromParent(plot->boundingRect().bottom(), plot->boundingRect().right());
     double x = topLeft.x();
     double y = topLeft.y();
     x = tran.m11() * x + tran.m21() * y + tran.dx();
@@ -193,6 +193,7 @@ void MarkerItem::mouseClickEvent(QGraphicsPlotItem *plot, const QPointF &pos)
 
 //    plot->scene()->update();
     setZValue(plot->getCurves().size() + 1);
+    update();
 }
 
 void MarkerItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *w)

@@ -260,6 +260,7 @@ void ScaleItem::setBounds(double lowerBound, double upperBound)
 
             /* update */
             prepareGeometryChange();
+            update();
         }
     }
     else
@@ -298,6 +299,8 @@ void ScaleItem::setUpperBound(double ub)
         emit upperBoundChanged(ub);
 
         prepareGeometryChange();
+
+        update();
     }
     else
         perr("ScaleItem::setUpperBound: upper bound must be greater than lower bound (which is %f)",
@@ -334,6 +337,7 @@ void ScaleItem::setLowerBound(double lb)
         updateLabelsCache();
         emit lowerBoundChanged(lb);
         prepareGeometryChange();
+        update();
     }
     else
         perr("ScaleItem::setLowerBound: lower bound must be less than upper bound (which is %f)",
@@ -769,7 +773,6 @@ void ScaleItem::updateLabelsFormat(const QString& desiredFormat)
         foreach(AxisChangeListener *l, d->axisChangeListeners)
             l->labelsFormatChanged(d->actualLabelsFormat);
     }
-    qDebug() << __PRETTY_FUNCTION__ << "desired format " << desiredFormat << "actual" << d->actualLabelsFormat;
 }
 
 /* This method rebuilds the labels cache hash.
@@ -844,7 +847,6 @@ void ScaleItem::updateLabelsCache()
         }
         x -= tickDist;
     }
-    qDebug() << __PRETTY_FUNCTION__ << "max label width" << max << "for longest label " << d->longestLabel << "font size" << d->font.pointSize();
     d->maxLabelWidth = max + 1;
 }
 
@@ -885,12 +887,13 @@ double ScaleItem::updateStepLen()
     return sLen;
 }
 
-void ScaleItem::setBoundsFromCurves()
+// returns true if bounds have changed
+bool ScaleItem::setBoundsFromCurves()
 {
     d->minMaxUnset = true;
     QList<SceneCurve *> curves = static_cast<QGraphicsPlotItem *>(parentItem())->curvesForAxes(d->axisId, d->orientation);
     if(!curves.size())
-        return;
+        return false;
     int i;
     double min = 0.0, max = 0.0, span;
     SceneCurve *c;
@@ -931,11 +934,6 @@ void ScaleItem::setBoundsFromCurves()
     }
     if(max >= min)
     {
-        /* apply scale span adjustment (default is 2 % ) */
-        span = max - min;
-        max += span * d->autoscaleMargin / 2;
-        min -= span * d->autoscaleMargin / 2;
-
         if(max == min) /* only one value in the curve */
         {
             if(max != 0)
@@ -949,11 +947,18 @@ void ScaleItem::setBoundsFromCurves()
                 min = -1;
             }
         }
-        if(d->lowerBound != min || d->upperBound != max)
+        if(d->lowerBound > min || d->upperBound < max)
         {
-            d->lowerBound = min;
-            d->upperBound = max;
-
+            /* apply scale span adjustment (default is 2 % ) */
+            span = max - min;
+            if(d->lowerBound > min) { // min value can expand to the left
+                min -= span * d->autoscaleMargin / 2;
+                d->lowerBound = min;
+            }
+            if(d->upperBound < max) {
+                max += span * d->autoscaleMargin / 2;
+                d->upperBound = max;
+            }
             /* needs to be called before mUpdateLabelsFormat */
             updateStepLen();
             /* once the tick step len is up to date, update labels format */
@@ -971,10 +976,12 @@ void ScaleItem::setBoundsFromCurves()
             }
             emit upperBoundChanged(max);
             emit lowerBoundChanged(min);
+            return true;
         }
     }
     else
         perr("ScaleItem::setBoundsFromCurves: max %f < min %f", max, min);
+    return false;
 }
 
 void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option, QWidget *  )
@@ -1020,10 +1027,10 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
     }
 
     /* setBoundsFromCurves updates d_ptr->actualTickStepLen */
-    if(d->autoScale && !inZoom) {
-        printf("scale item %s calling setBoundsFromCurves\n", d->orientation == ScaleItem::Horizontal ? "hor" : "ver");
-        setBoundsFromCurves();
-    }
+//    if(d->autoScale && !inZoom) {
+//        printf("scale item %s calling setBoundsFromCurves\n", d->orientation == ScaleItem::Horizontal ? "hor" : "ver");
+//        setBoundsFromCurves();
+//    }
     /* else:
      * no need to recalculate tick step len at each paint event, because tick step length
      * only changes in one of the following cases:
@@ -1063,10 +1070,10 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
         break;
     }
 
-    if(xMaxLabelSpace > plotAreaH / 5)
-        xMaxLabelSpace = 0;
-    if(yMaxLabelSpace > plotAreaW / 5)
-        yMaxLabelSpace = 0;
+//    if(fm.height() > plotAreaH / 8)
+//        xMaxLabelSpace = 0;
+//    if(d->maxLabelWidth > plotAreaW / 8)
+//        yMaxLabelSpace = 0;
 
     if(x1 == x2 || y1 == y2)
         return;

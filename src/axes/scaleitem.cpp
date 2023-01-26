@@ -345,22 +345,40 @@ void ScaleItem::setLowerBound(double lb)
 
 }
 
-/** \brief When in auto scale mode, the autoscaleMargin property defines a margin
- *  to apply to the span, expressed as percentage from 0 to 1 (0.1 is 10%).
- *
- * For example, if the scale range goes from 0 to 1000 and the autoscaleMargin is set to
- * 0.02 (2% is by the way the default setting), then the scale will start from -10 and end at 1010.
- * In this way, points that would be drawn in the very border of the plot will be more clearly
- * visible.
- */
-void ScaleItem::setAutoscaleMargin(double spanPercent)
-{
-    d->autoscaleMargin = spanPercent;
+double ScaleItem::xlbAutoscaleMargin() const {
+    return d->xlbMargin;
 }
 
-double ScaleItem::autoscaleMargin() const
+/** \brief When in auto scale mode, the autoscaleMargin property defines a margin
+ *  to apply to the span. Factor between 0 and 1
+ */
+void ScaleItem::setXlbAutoscaleMargin(double spanPercent) {
+    d->xlbMargin = spanPercent;
+}
+
+double ScaleItem::xubAutoscaleMargin() const {
+    return d->xubMargin;
+}
+
+void ScaleItem::setXubAutoscaleMargin(double m)
 {
-    return d->autoscaleMargin;
+    d->xubMargin = m;
+}
+
+double ScaleItem::ylbAutoscaleMargin() const {
+    return d->ylbMargin;
+}
+
+void ScaleItem::setYlbAutoscaleMargin(double m) {
+    d->ylbMargin = m;
+}
+
+double ScaleItem::yubAutoscaleMargin() const {
+    return d->yubMargin;
+}
+
+void ScaleItem::setYubAutoscaleMargin(double m) {
+    d->yubMargin = m;
 }
 
 void ScaleItem::mNotifyBoundsChanged()
@@ -709,14 +727,6 @@ void ScaleItem::plotZoomLevelChanged(int level)
     prepareGeometryChange();
 }
 
-/** \brief Empty body. We are not interested scroll bar changes.
- *
- */
-void ScaleItem::scrollBarChanged(Qt::Orientation , int )
-{
-
-}
-
 void ScaleItem::itemsAboutToBeDrawn()
 {
     d->minMaxUnset = true;
@@ -947,16 +957,18 @@ bool ScaleItem::setBoundsFromCurves()
                 min = -1;
             }
         }
-        if(d->lowerBound > min || d->upperBound < max)
+        if(d->lowerBound != min || d->upperBound != max)
         {
+            double lbmargin = d->orientation == ScaleItem::Horizontal ? d->xlbMargin : d->ylbMargin;
+            double ubmargin = d->orientation == ScaleItem::Horizontal ? d->xubMargin : d->yubMargin;
             /* apply scale span adjustment (default is 2 % ) */
             span = max - min;
-            if(d->lowerBound > min) { // min value can expand to the left
-                min -= span * d->autoscaleMargin / 2;
+            if(d->lowerBound != min) { // min value can expand to the left
+                min -= span * lbmargin;
                 d->lowerBound = min;
             }
-            if(d->upperBound < max) {
-                max += span * d->autoscaleMargin / 2;
+            if(d->upperBound != max) {
+                max += span * ubmargin;
                 d->upperBound = max;
             }
             /* needs to be called before mUpdateLabelsFormat */
@@ -1397,3 +1409,5 @@ QRectF ScaleItem::boundingRect () const
     //                    "toSceneRect:" << this->mapToScene(bounding).boundingRect();
     //    return bounding;
 }
+
+

@@ -115,13 +115,10 @@ public:
     QRectF boundingRect () const;
 
     double upperBound() const;
-
     double lowerBound() const;
 
     QDateTime lowerBoundDateTime() const;
-
     QDateTime upperBoundDateTime() const;
-
     QDateTime doubleToDateTime(double d) const;
 
     bool axisAutoscaleEnabled() const;
@@ -130,12 +127,14 @@ public:
 
     double axisLabelDist() const;
 
+    double xlbAutoscaleMargin() const;
+    double xubAutoscaleMargin() const;
+    double ylbAutoscaleMargin() const;
+    double yubAutoscaleMargin() const;
+
     QFont font() const;
-
     QFont axisTitleFont() const;
-
     QColor axisTitleColor() const;
-
     QString axisTitle() const;
 
     /* implementation of ItemChangeListener
@@ -151,8 +150,6 @@ public:
     virtual void plotRectChanged(const QRectF &newRect);
 
     virtual void plotAreaChanged(const QSizeF &area);
-
-    virtual void scrollBarChanged(Qt::Orientation orientation, int value);
 
     virtual void plotZoomLevelChanged(int level);
 
@@ -180,10 +177,6 @@ public:
     double plotAreaH, scaledCanvasHeight;
 
     QRectF plotArea() const;
-
-    void setAutoscaleMargin(double spanPercent);
-
-    double autoscaleMargin() const;
 
 public slots:
 
@@ -214,6 +207,12 @@ public slots:
     void setBounds(double lowerBound, double upperBound);
 
     bool setBoundsFromCurves();
+
+    void setXlbAutoscaleMargin(double spanPercent);
+    void setXubAutoscaleMargin(double spanPercent);
+
+    void setYlbAutoscaleMargin(double spanPercent);
+    void setYubAutoscaleMargin(double spanPercent);
 
     void setAxisLabelDist(double d);
 

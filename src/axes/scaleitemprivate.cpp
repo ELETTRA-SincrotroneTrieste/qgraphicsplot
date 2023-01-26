@@ -24,7 +24,9 @@ ScaleItemPrivate::ScaleItemPrivate()
 
     upperBound = 1000;
     lowerBound = -1000;
-    autoscaleMargin = 0.2; /* 2 % */
+    xlbMargin = 0.01; /* 2 % */
+    xubMargin = 0.05;
+    ylbMargin = yubMargin = 0.01;
 
     autoScale = true;
     minMaxUnset = true;

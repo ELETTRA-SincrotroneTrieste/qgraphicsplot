@@ -68,7 +68,7 @@ public:
 
     virtual QRectF itemAdded(const Point &pt);
 
-    virtual void itemAboutToBeRemoved(const Point &pt);
+    virtual int itemAboutToBeRemoved(const Point &pt);
 
     virtual QRectF itemRemoved(const Point &);
 

@@ -43,16 +43,6 @@ public:
       */
     virtual void plotAreaChanged(const QSizeF &area) = 0;
 
-    /** \brief pure virtual method that needs to be reimplemented in order to be
-      *        notified when the value of one of the two scrollbars changes.
-      *
-      * @param orientation one of the two possible Qt::Orientation values: Qt::Horizontal
-      *        or Qt::Vertical
-      *
-      * @param value the value of the scrollbar
-      */
-    virtual void scrollBarChanged(Qt::Orientation orientation, int value) = 0;
-
     virtual void plotZoomLevelChanged(int level ) = 0;
 };
 

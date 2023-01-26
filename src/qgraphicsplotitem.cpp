@@ -1171,9 +1171,16 @@ double QGraphicsPlotItem::transform(const double x, ScaleItem* scaleItem) const 
         {
             if(scaleItem->orientation() == ScaleItem::Horizontal)
             {
-                len = scaleItem->plotAreaW - 1;
-                coord = (x - start) * len / (end - start) + scaleItem->plotArea().x();
+                double pas = scaleItem->plotArea().x(); // plot area start, x
+                len = scaleItem->plotAreaW - 1 ;
+                coord = (x - start) * len / (end - start) + pas;
+                double x1 = start * len / (end - start) + pas;
+                double x2 = end * len / (end - start) + pas;
+
                 printf("\e[1;33mcoord of value %f is %f \e[0m\n", x, coord);
+                printf("\e[1;36mlb %f maps to %f ub %f maps to %f -- plot area starts at %f\e[0m\n",
+                       start, x1, end, x2, pas);
+                printf("\e[1;32m [ %f < %f < %f ]\e[0m\n", x1, coord, x2);
                 qDebug() << "          plot area " << scaleItem->plotArea();
             }
             else

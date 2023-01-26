@@ -40,7 +40,7 @@ public:
 
     ScaleItem::Id axisId;
 
-    double upperBound, lowerBound, autoscaleMargin;
+    double upperBound, lowerBound, xlbMargin, xubMargin, ylbMargin, yubMargin;
 
     double axisLabelDist;
 

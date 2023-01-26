@@ -400,15 +400,15 @@ Data *SceneCurve::data() const
 QRectF SceneCurve::addPoint(double x, double y)
 {
     QRectF updateArea;
-    /* remove items if the size is about to be greater than bufferSize */
-    mCheckBufferSize();
+    /* remove items if the size is >= bufferSize */
+    int removed = mCheckBufferSize();
     /* addPoint updates max and min of the curve */
     d_ptr->data->addPoint(x, y);
     d_ptr->data->scalarMode = true;
     foreach(CurveChangeListener *listener, d_ptr->itemChangeListeners) {
         updateArea = updateArea.united(listener->itemAdded(Point(x, y)));
     }
-    return updateArea;
+    return removed == 0 ? updateArea : QRectF();
 }
 
 void SceneCurve::setData(const QVector<double>& xData, const QVector<double> &yData)
@@ -507,7 +507,6 @@ const QPointF *SceneCurve::points()
             if(d_ptr->xub == d_ptr->xlb)
                 return NULL;
             xp = (d_ptr->canvasRectW - 1) * (x - d_ptr->xlb) / (d_ptr->xextension) + d_ptr->canvasRectLeft;
-
         }
         else
             printf("Data::xpos: index %d outside bounds (%d)\n", index, d_ptr->data->size());
@@ -568,14 +567,12 @@ int SceneCurve::mCheckBufferSize()
     QList<Point> itemsRemoved;
     int itemCount = d_ptr->data->size();
     bool removedItemAffectsBounds = false;
-    if(d_ptr->bufferSize > -1)
-    {
+    if(d_ptr->bufferSize > -1) {
         /* +1 because this is called before adding a new item
          */
         while(itemCount + 1 - d_ptr->bufferSize > 0)
         {
             Point firstPoint = d_ptr->data->point(0);
-
             /* notify to the listener if installed */
             foreach(CurveChangeListener *listener, d_ptr->itemChangeListeners)
                 listener->itemAboutToBeRemoved(firstPoint);
@@ -620,5 +617,5 @@ int SceneCurve::mCheckBufferSize()
                 listener->affectingBoundsPointsRemoved();
         }
     }
-    return itemCount;
+    return itemsRemoved.size();
 }

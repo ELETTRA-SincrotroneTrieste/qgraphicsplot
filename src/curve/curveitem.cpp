@@ -112,12 +112,14 @@ QRectF CurveItem::itemAdded(const Point &) {
         QPointF topLeft(qMin(x1, x2), qMin(y1, y2));
         QPointF botRight(qMax(x1, x2), qMax(y1, y2));
         QRectF r(topLeft, botRight);
-//        if(d_ptr->curve->plot()->boundingRect().contains(r)) {
-            printf("\e[1;32m:-) partial update possible because last x < x ub %f < %f\e[0m \n",
-                   data->xData.last() , xScale->upperBound());
-            qDebug() << "         on rect" << d_ptr->updateRect;
-            d_ptr->updateRect = r;
-//        }
+        if(r.width() < 10)
+            r.setWidth(10.0);
+        if(r.height() < 10.0)
+            r.setHeight(10.0);
+        printf("\e[1;32m:-) partial update possible because last x < x ub %f < %f\e[0m EXTRA X %f \n",
+                   data->xData.last() , xScale->upperBound(), extraX);
+        qDebug() << "         on rect" << r;
+        d_ptr->updateRect = r;
     }
     else if(itemCnt > 1)
     {
@@ -127,8 +129,7 @@ QRectF CurveItem::itemAdded(const Point &) {
     return d_ptr->updateRect;
 }
 
-void CurveItem::itemAboutToBeRemoved(const Point &)
-{
+int CurveItem::itemAboutToBeRemoved(const Point &) {
     if(d_ptr->curve->dataSize() == 0)
         setVisible(false);
 
@@ -157,11 +158,13 @@ void CurveItem::itemAboutToBeRemoved(const Point &)
 
         QPointF topLeft(qMin(x1, x2), qMin(y1, y2));
         QPointF botRight(qMax(x1, x2), qMax(y1, y2));
-        QRectF updateRect(topLeft, botRight);
-        d_ptr->updateRectDelete = updateRect;
-//        qDebug() << __FUNCTION__ << " updating a rect in REMOVAL " << updateRect;
+        QRectF rect(topLeft, botRight);
+        d_ptr->updateRectDelete = rect;
+        printf("\e[1;31m ITEM TO BE REMOVED\e[0m\n");
+        qDebug() << __FUNCTION__ << " updating a rect in REMOVAL " << rect;
         // update(updateRect);
     }
+    return itemCnt;
 }
 
 QRectF CurveItem::itemRemoved(const Point &) {

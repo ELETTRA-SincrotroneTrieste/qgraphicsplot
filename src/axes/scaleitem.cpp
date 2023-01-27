@@ -860,6 +860,13 @@ void ScaleItem::updateLabelsCache()
     d->maxLabelWidth = max + 1;
 }
 
+void ScaleItem::setVisible(bool visible) {
+    if(!visible) {
+        d->plotArea = d->plotRect = static_cast<QGraphicsPlotItem *>(parentItem())->boundingRect();
+    }
+    QGraphicsObject::setVisible(visible);
+}
+
 /* recalculates the step len.
  * This method needs to be called when upper or lower bound changes or
  * when the plot zoom level changes.
@@ -1037,21 +1044,6 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
              axisId());
         return;
     }
-
-    /* setBoundsFromCurves updates d_ptr->actualTickStepLen */
-//    if(d->autoScale && !inZoom) {
-//        printf("scale item %s calling setBoundsFromCurves\n", d->orientation == ScaleItem::Horizontal ? "hor" : "ver");
-//        setBoundsFromCurves();
-//    }
-    /* else:
-     * no need to recalculate tick step len at each paint event, because tick step length
-     * only changes in one of the following cases:
-     * - bounds change
-     * - user sets a custom tick step len
-     * - plot zoom level changes
-     *
-     * In all these cases, the tick step len is recalculated and stored in d_ptr->actualTickStepLen
-     */
 
     tickStepLen = d->actualTickStepLen;
 
@@ -1332,17 +1324,17 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem * option
     /// DEBUG STUFF
     ///
 
-    QPen canvasPen(Qt::green);
-    canvasPen.setWidthF(1.1);
-    painter->setPen(canvasPen);
-    painter->drawRect(d->plotArea);
-    //    painter->setPen(Qt::blue);
-    //    painter->drawRect(/*tran.mapRect*/(d->canvasRect));
-    QPen pp(Qt::black);
-    pp.setStyle(Qt::DashLine);
-    painter->setPen(pp);
-    painter->drawRect(plot_i->boundingRect());
-    qDebug() << __PRETTY_FUNCTION__ << "canvas rect" << d->plotArea << "rect" << plotarea;
+//    QPen canvasPen(Qt::green);
+//    canvasPen.setWidthF(1.1);
+//    painter->setPen(canvasPen);
+//    painter->drawRect(d->plotArea);
+//    //    painter->setPen(Qt::blue);
+//    //    painter->drawRect(/*tran.mapRect*/(d->canvasRect));
+//    QPen pp(Qt::black);
+//    pp.setStyle(Qt::DashLine);
+//    painter->setPen(pp);
+//    painter->drawRect(plot_i->boundingRect());
+//    qDebug() << __PRETTY_FUNCTION__ << "canvas rect" << d->plotArea << "rect" << plotarea;
 
 }
 

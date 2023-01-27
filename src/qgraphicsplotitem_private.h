@@ -6,6 +6,7 @@
 #include <QPointF>
 #include <QRectF>
 #include <QString>
+#include <QColor>
 
 class QObject;
 class Point;
@@ -57,6 +58,8 @@ public:
     LegendItem *legendItem;
 
     QMenu *menu;
+
+    QColor backgroundColor;
 
     /// TEST
     QRectF updateRect;

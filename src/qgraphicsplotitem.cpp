@@ -1158,6 +1158,10 @@ void QGraphicsPlotItem::paint(QPainter *painter, const QStyleOptionGraphicsItem 
     painter->setBrush(b);
     painter->setPen(p);
     painter->drawRect(d->updateRect);
+    if(d->backgroundColor.isValid()) {
+        painter->setBrush(QBrush(d->backgroundColor));
+        painter->drawRect(d->plotRect);
+    }
 }
 
 double QGraphicsPlotItem::transform(const double x, ScaleItem* scaleItem) const {
@@ -1429,14 +1433,13 @@ bool QGraphicsPlotItem::legendVisible() const
     return d->legendItem->isVisible();
 }
 
-void QGraphicsPlotItem::setBackgroundColor(const QColor& c) const
-{
-    scene()->setBackgroundBrush(QBrush(c));
+void QGraphicsPlotItem::setBackgroundColor(const QColor& c) const {
+    d->backgroundColor = c;
 }
 
 QColor QGraphicsPlotItem::backgroundColor() const
 {
-    return scene()->backgroundBrush().color();
+    return d->backgroundColor;
 }
 
 void QGraphicsPlotItem::saveData()

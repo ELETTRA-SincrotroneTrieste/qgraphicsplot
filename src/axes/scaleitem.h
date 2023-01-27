@@ -226,6 +226,8 @@ public slots:
 
     void updateLabelsCache();
 
+    void setVisible(bool visible);
+
 signals:
 
     /** \brief this signal is emitted when the axis upper bound changes

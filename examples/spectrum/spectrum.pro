@@ -10,6 +10,8 @@ TARGET = spectrum
 DEPENDPATH += .
 INCLUDEPATH += . ../../src ../../src/curve ../../src/axes
 
+QT += widgets
+
 QMAKE_CXXFLAGS += -O2
 
 # Input

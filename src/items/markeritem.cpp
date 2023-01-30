@@ -14,6 +14,7 @@ MarkerItem::MarkerItem(QGraphicsObject *parent) : QGraphicsObject(parent),
     MouseEventListener()
 {
     d_ptr = new MarkerItemPrivate();
+    d_ptr->plot = nullptr;
     d_ptr->decorationEnabled = true;
 
     d_ptr->borderColor = KDARKGRAY;
@@ -167,38 +168,36 @@ void MarkerItem::mouseClickEvent(QGraphicsPlotItem *plot, const QPointF &pos)
 //    setPos(curvePoint);
     setVisible(d_ptr->closestCurves.size());
 
-    /* must reset the bounding rect to the whole visible area.
-     * This fixes the condition where you show marker, hide it, zoom
-     * and then show again. The bounding rect optimized in paint upon first
-     * show may fall outside the new zoomed area.
-     */
-    QTransform tran = transform();
-    QPointF topLeft(0, 0); //  = plot->mapToScene(0, 0);
-    QPointF botRight = plot->mapFromParent(plot->boundingRect().bottom(), plot->boundingRect().right());
-    double x = topLeft.x();
-    double y = topLeft.y();
-    x = tran.m11() * x + tran.m21() * y + tran.dx();
-    y = tran.m22() * y + tran.m12() * x + tran.dy();
-    QPointF newTopLeft(x, y);
-    x = botRight.x();
-    y = botRight.y();
-    x = tran.m11() * x + tran.m21() * y + tran.dx();
-    y = tran.m22() * y + tran.m12() * x + tran.dy();
-    QPointF newBotRight(x, y);
-    /* reset bounding rect so that the update that follows works even in the case
-     * described in the comment above
-     */
-    d_ptr->boundingRect = QRectF(newTopLeft, newBotRight);
-//    qDebug() << __FUNCTION__ << d_ptr->boundingRect;
+//    /* must reset the bounding rect to the whole visible area.
+//     * This fixes the condition where you show marker, hide it, zoom
+//     * and then show again. The bounding rect optimized in paint upon first
+//     * show may fall outside the new zoomed area.
+//     */
+//    QTransform tran = transform();
+//    QPointF topLeft(0, 0); //  = plot->mapToScene(0, 0);
+//    QPointF botRight = plot->mapFromParent(plot->boundingRect().bottom(), plot->boundingRect().right());
+//    double x = topLeft.x();
+//    double y = topLeft.y();
+//    x = tran.m11() * x + tran.m21() * y + tran.dx();
+//    y = tran.m22() * y + tran.m12() * x + tran.dy();
+//    QPointF newTopLeft(x, y);
+//    x = botRight.x();
+//    y = botRight.y();
+//    x = tran.m11() * x + tran.m21() * y + tran.dx();
+//    y = tran.m22() * y + tran.m12() * x + tran.dy();
+//    QPointF newBotRight(x, y);
+//    /* reset bounding rect so that the update that follows works even in the case
+//     * described in the comment above
+//     */
+//    d_ptr->boundingRect = QRectF(newTopLeft, newBotRight);
+////    qDebug() << __FUNCTION__ << d_ptr->boundingRect;
 
-//    plot->scene()->update();
+////    plot->scene()->update();
     setZValue(plot->getCurves().size() + 1);
     update();
 }
 
-void MarkerItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *w)
-{
-   // painter->setClipRect(option->exposedRect.toRect());
+void MarkerItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *w) {
     QFont f = painter->font();
     f.setBold(true);
     painter->save();
@@ -293,14 +292,13 @@ void MarkerItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
         }
         d_ptr->boundingRect =  (txtRSum.united(dotRect));
     }
-
-   painter->drawRect(d_ptr->boundingRect);
-
     painter->restore();
 }
 
 /* optimized in paint, reset in mouse press */
 QRectF MarkerItem::boundingRect() const
 {
-   return d_ptr->boundingRect;
+    if(d_ptr->plot)
+        return d_ptr->plot->boundingRect();
+    return QRectF();
 }

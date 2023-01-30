@@ -17,8 +17,7 @@
   *
   * @see SceneCurve
   */
-CurveItem::CurveItem(SceneCurve *curve, QGraphicsItem *parent) : QGraphicsObject(parent), CurveChangeListener()
-{
+CurveItem::CurveItem(SceneCurve *curve, QGraphicsItem *parent) : QGraphicsObject(parent), CurveChangeListener() {
     d_ptr = new CurveItemPrivate();
     d_ptr->curve = curve;
     d_ptr->curve->setCurveItem(this);
@@ -26,8 +25,7 @@ CurveItem::CurveItem(SceneCurve *curve, QGraphicsItem *parent) : QGraphicsObject
     setObjectName(curve->objectName() + " Item");
 }
 
-CurveItem::~CurveItem()
-{
+CurveItem::~CurveItem() {
     qDebug() << __FUNCTION__ << "deleting curve item " << this->objectName();
     foreach(ItemPainterInterface *p, d_ptr->itemPainters)
         delete p;
@@ -89,6 +87,7 @@ QRectF CurveItem::itemAdded(const Point &) {
     ScaleItem *xScale = d_ptr->curve->getXAxis();
     ScaleItem *yScale =d_ptr->curve->getYAxis();
 
+    printf("CurveItem.itemAdded: y ub %f y lb %f\n", yScale->upperBound(), yScale->lowerBound());
     if(itemCnt > 2 && data->xData.last() < xScale->upperBound() &&
             data->yData.last() < yScale->upperBound() &&
             data->yData.last() > yScale->lowerBound())

@@ -127,7 +127,8 @@ QString ScaleItem::label(double value) const
         return d->scaleLabelInterface->label(value);
 
     QString l;
-    l.asprintf(qstoc(d->actualLabelsFormat), value);
+    l = QString::asprintf(d->actualLabelsFormat.toStdString().c_str(), value);
+    printf("ScaleItem::label value %f maps to %s accorgin\n", value, qstoc(l));
     return l;
 }
 
@@ -863,6 +864,10 @@ void ScaleItem::updateLabelsCache()
 void ScaleItem::setVisible(bool visible) {
     if(!visible) {
         d->plotArea = d->plotRect = static_cast<QGraphicsPlotItem *>(parentItem())->boundingRect();
+        plotAreaW = d->plotArea.width();
+        plotAreaH = d->plotArea.height();
+        foreach(AxisChangeListener* l, d->axisChangeListeners)
+            l->plotAreaChanged(d->plotArea);
     }
     QGraphicsObject::setVisible(visible);
 }

@@ -53,8 +53,11 @@ XYSceneTest::XYSceneTest(QWidget *parent) :
                                                    KDARKPINK << KVERYDARKVIOLET;
 
     /* x axis will have at most bufsiz points */
-    ui->graphicsPlot->xScaleItem()->setBounds(0, bufsiz / (double) ui->sbPrecision->value());
-    ui->graphicsPlot->yScaleItem()->setBounds(-10, 10.0);
+//    ui->graphicsPlot->xScaleItem()->setBounds(0, bufsiz / (double) ui->sbPrecision->value());
+//    ui->graphicsPlot->yScaleItem()->setBounds(-10, 10.0);
+
+    ui->graphicsPlot->xScaleItem()->setAxisAutoscaleEnabled(true);
+    ui->graphicsPlot->yScaleItem()->setAxisAutoscaleEnabled(true);
 
     /* create the curves */
     for(int i = 0; i < nCurves; i++)

@@ -29,7 +29,7 @@ LinePainter::~LinePainter()
 
 void LinePainter::draw(SceneCurve *curve,
                   QPainter *painter,
-                  const QStyleOptionGraphicsItem * ,
+                  const QStyleOptionGraphicsItem * option,
                   QWidget * w) {
     int dataSiz = curve->dataSize();
     painter->setClipRect(option->rect);

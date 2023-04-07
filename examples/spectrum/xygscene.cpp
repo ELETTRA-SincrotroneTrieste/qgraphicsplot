@@ -46,14 +46,14 @@ XYSceneTest::XYSceneTest(QWidget *parent) :
      * of the plot and of the related objects.
      */
     qDebug() << "setto settings key " << qApp->applicationName();
-    ui->graphicsPlot->setSettingsKey(qApp->applicationName());
+//    ui->graphicsPlot->setSettingsKey(qApp->applicationName());
 
     QList<QColor> palette = QList<QColor> () << KDARKWATER << KDARKBLUE << KGRAY <<
                                                  KYELLOW << KCAMEL << KDARKCYAN <<
                                                    KDARKPINK << KVERYDARKVIOLET;
 
     /* x axis will have at most bufsiz points */
-    ui->graphicsPlot->xScaleItem()->setBounds(0, bufsiz);
+    ui->graphicsPlot->xScaleItem()->setBounds(0, bufsiz / (double) ui->sbPrecision->value());
     ui->graphicsPlot->yScaleItem()->setBounds(-10, 10.0);
 
     /* create the curves */
@@ -75,7 +75,7 @@ XYSceneTest::XYSceneTest(QWidget *parent) :
        // ui->graphicsPlot->addConfigurableObjects(c->name(), c);
 
         /* do we want the curves be represented by lines? */
-        CurveItem *curveItem = new CurveItem(c);
+        CurveItem *curveItem = new CurveItem(c, ui->graphicsPlot->plot());
         ui->graphicsPlot->scene()->addItem(curveItem);
         c->installCurveChangeListener(curveItem);
         LinePainter *lp = new LinePainter(curveItem);
@@ -101,8 +101,8 @@ XYSceneTest::XYSceneTest(QWidget *parent) :
 
     mCnt = 0;
 
-    MarkerItem* marker = new MarkerItem(0);
-    ui->graphicsPlot->installMouseEventListener(marker);
+    MarkerItem* marker = new MarkerItem(ui->graphicsPlot->plot());
+    ui->graphicsPlot->plot()->installMouseEventListener(marker);
     ui->graphicsPlot->scene()->addItem(marker);
 
     x1 = 0.0;
@@ -116,9 +116,9 @@ XYSceneTest::XYSceneTest(QWidget *parent) :
     ///  ui->graphicsView->addConfigurableObjects("Circle Painter", circleItemSet);
 
     /* load from configuration files (QSettings managed) */
-    ui->graphicsPlot->loadConfigurationProperties();
+//    ui->graphicsPlot->loadConfigurationProperties();
 
-
+    ui->graphicsPlot->plot()->setMouseZoomEnabled(true);
    // ui->graphicsPlot->yScaleItem()->setAxisAutoscaleEnabled(false);
    // ui->graphicsPlot->xScaleItem()->setAxisAutoscaleEnabled(false);
 }
@@ -154,7 +154,8 @@ void XYSceneTest::createData()
             yData << y;
 
         }
-        c->setData(xData, yData);
+        ui->graphicsPlot->plot()->setData(QString("Curve %1").arg(i + 1), xData, yData);
+//        c->setData(xData, yData);
     }
 }
 

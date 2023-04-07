@@ -32,6 +32,7 @@ void LinePainter::draw(SceneCurve *curve,
                   const QStyleOptionGraphicsItem * ,
                   QWidget * w) {
     int dataSiz = curve->dataSize();
+    painter->setClipRect(option->rect);
     painter->setPen(d_ptr->pen);
     const QPointF *points = curve->points();
     if(dataSiz <= 2) {
@@ -51,6 +52,10 @@ void LinePainter::draw(SceneCurve *curve,
         painter->drawPolyline(points, dataSiz);
 
     }
+    printf("LinePainter.draw: ");
+    for(int i = 0 ; i < curve->dataSize(); i++)
+        printf("(%f,%f),", points[i].x(), points[i].y());
+    printf("\n");
     /* draw NaNs (invalid data */
     QVector<double> xInvalid = curve->data()->invalidDataPoints();
     if(xInvalid.size() > 0)

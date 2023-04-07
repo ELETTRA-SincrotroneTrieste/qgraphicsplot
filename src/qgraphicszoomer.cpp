@@ -128,13 +128,13 @@ void QGraphicsZoomer::zoom(const QRectF& zoomRect)
     {
         if(si->orientation() == ScaleItem::Horizontal)
         {
-            lb = d_ptr->plot->invTransform(d_ptr->plot->mapToScene(mP1.toPoint()).x(), si);
-            ub = d_ptr->plot->invTransform(d_ptr->plot->mapToScene(mP2.toPoint()).x(), si);
+            lb = d_ptr->plot->invTransform(mP1.x(), si);
+            ub = d_ptr->plot->invTransform(mP2.x(), si);
         }
         else
         {
-            lb = d_ptr->plot->invTransform(d_ptr->plot->mapToScene(mP1.toPoint()).y(), si);
-            ub = d_ptr->plot->invTransform(d_ptr->plot->mapToScene(mP2.toPoint()).y(), si);
+            lb = d_ptr->plot->invTransform(mP1.y(), si);
+            ub = d_ptr->plot->invTransform(mP2.y(), si);
         }
         /* set zoomed bounds on axis */
         si->setBounds(lb, ub);

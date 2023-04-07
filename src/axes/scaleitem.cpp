@@ -127,7 +127,8 @@ QString ScaleItem::label(double value) const
         return d->scaleLabelInterface->label(value);
 
     QString l;
-    l.asprintf(qstoc(d->actualLabelsFormat), value);
+    l = QString::asprintf(d->actualLabelsFormat.toStdString().c_str(), value);
+    printf("ScaleItem::label value %f maps to %s accorgin\n", value, qstoc(l));
     return l;
 }
 

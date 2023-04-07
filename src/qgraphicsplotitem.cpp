@@ -873,9 +873,9 @@ bool QGraphicsPlotItem::m_check_axis_bounds(SceneCurve *c) {
     bool bounds_changed = false;
     ScaleItem * xi = d->axesManager->getAxis(c->associatedXAxisId());
     ScaleItem * yi = d->axesManager->getAxis(c->associatedYAxisId());
-    if(xi->axisAutoscaleEnabled())
+    if(xi->axisAutoscaleEnabled() && !inZoom())
         bounds_changed |= xi->setBoundsFromCurves();
-    if(yi->axisAutoscaleEnabled())
+    if(yi->axisAutoscaleEnabled() && !inZoom())
         bounds_changed |= yi->setBoundsFromCurves();
     return bounds_changed;
 }
@@ -1203,6 +1203,7 @@ double QGraphicsPlotItem::transform(const double x, ScaleItem* scaleItem) const 
     }
     else
         perr("PlotSceneWidget::transform: invalid axis (NULL)");
+    printf("QGraphicsPlotItem::transform \e[1;35m%f --> %f\e[0m\n", x, coord);
     return coord;
 }
 
@@ -1272,9 +1273,8 @@ QPointF QGraphicsPlotItem::invTransform(const QPointF& pSceneCoord, ScaleItem* x
 QList<SceneCurve*> QGraphicsPlotItem::getClosest(
         QPointF &closestPos,
         int *closestIndex,
-        const QPointF& viewPos)
+        const QPointF& pos)
 {
-    QPointF scenePos = mapToScene(viewPos.toPoint());
     QList<SceneCurve *> ret;
     closestPos = QPointF();
     SceneCurve *closestCurve = NULL;
@@ -1288,8 +1288,8 @@ QList<SceneCurve*> QGraphicsPlotItem::getClosest(
         {
             xc = points[i].x();
             yc = points[i].y();
-            xp = scenePos.x();
-            yp = scenePos.y();
+            xp = pos.x();
+            yp = pos.y();
             dist = sqrt(pow(xp - xc, 2) + pow(yp - yc, 2));
             //   qDebug() << "dist " << dist << "min dist" << minDist;
             if(dist < minDist)

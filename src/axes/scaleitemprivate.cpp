@@ -28,6 +28,6 @@ ScaleItemPrivate::ScaleItemPrivate()
     xubMargin = 0.05;
     ylbMargin = yubMargin = 0.01;
 
-    autoScale = true;
+    autoScale = axis_enabled = true;
     minMaxUnset = true;
 }

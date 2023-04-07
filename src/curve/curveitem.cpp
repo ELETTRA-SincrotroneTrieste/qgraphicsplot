@@ -123,7 +123,7 @@ QRectF CurveItem::itemAdded(const Point &) {
     }
     else if(itemCnt > 1)
     {
-        qDebug() << __FUNCTION__ << ":-( partial update NOT possible";
+        qDebug() << __FUNCTION__ << ":-( partial update NOT possible: updateRect: " << d_ptr->updateRect;
 
     }
     return d_ptr->updateRect;
@@ -182,8 +182,7 @@ QRectF CurveItem::boundingRect() const {
 
 void CurveItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    printf("\e[1;34mCurveItem %s: paint zValue %f\e[0m\n", qstoc(objectName()), zValue());
-
+    painter->setPen(Qt::green);
     /* setting clipRegion freezes app when using Open-GL */
     /* setting a clip on the painter saves PlotSceneWidget's LIFE!!
      * Great comments on

@@ -2,6 +2,7 @@
 #define LINEPAINTERPRIVATE_H
 
 #include <QPen>
+#include <QBrush>
 
 class CurveItem;
 
@@ -11,6 +12,7 @@ public:
     LinePainterPrivate();
 
     QPen pen;
+    QBrush brush;
 
     CurveItem* curveItem;
 };

@@ -84,6 +84,8 @@ public slots:
       */
     void setLinePen(const QPen& p);
 
+    void setFillArea(const QBrush& b);
+
 private:
     Q_DECLARE_PRIVATE(LinePainter)
 

@@ -14,6 +14,7 @@ LinePainter::LinePainter(CurveItem *curveItem) : QObject(curveItem)
     d_ptr = new LinePainterPrivate();
     d_ptr->curveItem = curveItem;
     d_ptr->pen.setWidthF(0.0);
+    d_ptr->brush = QBrush();
     curveItem->installItemPainterInterface(this);
     setObjectName("LinePainter");
 }
@@ -29,7 +30,7 @@ LinePainter::~LinePainter()
 void LinePainter::draw(SceneCurve *curve,
                   QPainter *painter,
                   const QStyleOptionGraphicsItem * ,
-                  QWidget * ) {
+                  QWidget * w) {
     int dataSiz = curve->dataSize();
     painter->setPen(d_ptr->pen);
     const QPointF *points = curve->points();
@@ -39,8 +40,16 @@ void LinePainter::draw(SceneCurve *curve,
             painter->drawEllipse(points[i], 3, 2.5);
         }
     }
-    if(points) {
+    if(points && d_ptr->brush != QBrush()) {
+        if(painter->brush() != d_ptr->brush)
+            painter->setBrush(d_ptr->brush);
+        painter->drawPolygon(points, dataSiz);
+    }
+    else if(points) {
+        printf("LinePainter.draw calling painter->drawPolyline\n");
+
         painter->drawPolyline(points, dataSiz);
+
     }
     /* draw NaNs (invalid data */
     QVector<double> xInvalid = curve->data()->invalidDataPoints();
@@ -112,4 +121,8 @@ void LinePainter::setLinePen(const QPen& p)
 {
     d_ptr->pen = p;
     d_ptr->curveItem->update();
+}
+
+void LinePainter::setFillArea(const QBrush &b) {
+    d_ptr->brush = b;
 }

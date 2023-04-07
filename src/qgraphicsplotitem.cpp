@@ -343,7 +343,7 @@ void QGraphicsPlotItem::setXScaleEnabled(bool en)
     ScaleItem *xS = d->axesManager->getAxis(ScaleItem::xBottom);
     if(xS)
         xS->setVisible(en);
-    if(en && xS)
+    if(/*en && */xS)
         boundsChanged();
 }
 
@@ -352,7 +352,7 @@ void QGraphicsPlotItem::setYScaleEnabled(bool en)
     ScaleItem *yS = d->axesManager->getAxis(ScaleItem::yLeft);
     if(yS)
         yS->setVisible(en);
-    if(en && yS)
+    if(/*en && */yS)
         boundsChanged();
 }
 
@@ -888,8 +888,8 @@ void QGraphicsPlotItem::appendData(const QString& curveName, double x, double y)
         SceneCurve *c = d->curveHash.value(curveName);
         QRectF r = c->addPoint(x, y); // scalar mode: updates max and min
         bool bch = m_check_axis_bounds(c); // bch -> bounds changed
-        qDebug() << __PRETTY_FUNCTION__ << "updating area " << r << "bounds changed ?" << bch;
-        update(bch ? QRectF() : r);
+        qDebug() << __PRETTY_FUNCTION__ << "updating area " << r << "bounds changed ?" << bch << "QRectF is" << QRectF();
+        update(bch || r.isNull() ? QRectF() : r);
     }
     else
         perr("PlotSceneWidget: appendData: no curve with name \"%s\"", qstoc(curveName));

@@ -1,6 +1,5 @@
 #include "axesmanager.h"
 #include "scaleitem.h"
-#include "qgraphicsplotmacros.h"
 #include <QSet>
 #include <QtDebug>
 
@@ -145,9 +144,9 @@ QPair<double, double> AxesManager::getOriginPosPercentage(ScaleItem::Id oneAxisI
     for(int i = 0; i < axes.size(); i++)
     {
         AxisCouple ac = axes.at(i);
-  //      printf("axes %i : x: %d y %d one %d other %d [%f,%f]\e[0m\n", i, ac.xAxis->axisId(),
-  //             ac.yAxis->axisId() , oneAxisId, otherAxisId,
-  //             ac.xOriginPosPercentage, ac.yOriginPosPercentage);
+//        printf("axes %i : x: %d y %d one %d other %d [%f,%f]\e[0m\n", i, ac.xAxis->axisId(),
+//               ac.yAxis->axisId() , oneAxisId, otherAxisId,
+//               ac.xOriginPosPercentage, ac.yOriginPosPercentage);
         /* no importance is given to the order of the parameters */
         if((ac.xAxis->axisId() == oneAxisId && ac.yAxis->axisId() == otherAxisId) ||
                 (ac.xAxis->axisId() == otherAxisId && ac.yAxis->axisId() == oneAxisId))
@@ -159,7 +158,6 @@ QPair<double, double> AxesManager::getOriginPosPercentage(ScaleItem::Id oneAxisI
 
     }
     *ok = false;
-  //  perr("AxesManager::getOrigin: the two axis id do not represent coupled axes");
     return oPosPercent;
 }
 

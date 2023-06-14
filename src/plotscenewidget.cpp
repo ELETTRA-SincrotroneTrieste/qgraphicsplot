@@ -44,6 +44,7 @@ PlotSceneWidget::PlotSceneWidget(QWidget *parent, bool useGl) : QGraphicsView(pa
 
     d->scrollBarsEnabled = true;
     d->ploti = new QGraphicsPlotItem(nullptr);
+    d->ploti->setObjectName("graphicsPlotItem");
     d->ploti->setOriginPosPercentage(d->ploti->xScaleItem(), 0.0);
     d->ploti->setOriginPosPercentage(d->ploti->yScaleItem(), 0.0);
 //    d->ploti->setYAxisLabelsOutsideCanvas(true);

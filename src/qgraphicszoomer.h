@@ -35,7 +35,7 @@ public:
 
     void yAxisBoundsChanged(double , double ) {}
 
-    void axisAutoscaleChanged(ScaleItem::Orientation , bool ) {}
+    void axisAutoscaleChanged(ScaleItem::Orientation o, bool as);
 
     virtual void tickStepLenChanged(double  ) {}
 

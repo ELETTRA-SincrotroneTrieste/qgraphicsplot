@@ -236,12 +236,12 @@ ScaleItem* QGraphicsPlotItem::addAxis(ScaleItem::Orientation o, ScaleItem::Id id
     else if(!co && o == ScaleItem::Horizontal
             && (associatedAxis == NULL || associatedAxis->orientation() == ScaleItem::Vertical)) /* add a new axis couple */
     {
-        d->axesManager->addCouple(AxisCouple(scaleItem, associatedAxis, 0.5, 0.5));
+        d->axesManager->addCouple(AxisCouple(scaleItem, associatedAxis, 0.0,  0.0));
     }
     else if(!co && o == ScaleItem::Vertical
             && (associatedAxis == NULL || associatedAxis->orientation() == ScaleItem::Horizontal)) /* add a new axis couple */
     {
-        d->axesManager->addCouple(AxisCouple(associatedAxis, scaleItem, 0.5, 0.5));
+        d->axesManager->addCouple(AxisCouple(associatedAxis, scaleItem, 0.0, 0.0));
     }
     else
         perr("PlotSceneWidget::addAxis: cannot add two horizontal or two vertical axes to a couple!");
@@ -473,8 +473,7 @@ double QGraphicsPlotItem::originPosPercentage(ScaleItem *scaleIt) const
   *
   * Axes are placed with a position with respect to each other defined by this value,
   * expressed in percentage from 0.0 to 1.0.
-  * By default, the axes have both 0.5 as position percentage value, meaning that
-  * they intersect in the middle of each other.
+  * By default, the axes have both 0.0 as position percentage value
   *
   * @see originPosPercentage
   * @see defaultYAxisOriginPosPercentage
@@ -877,6 +876,8 @@ bool QGraphicsPlotItem::m_check_axis_bounds(SceneCurve *c) {
         bounds_changed |= xi->setBoundsFromCurves();
     if(yi->axisAutoscaleEnabled() && !inZoom())
         bounds_changed |= yi->setBoundsFromCurves();
+    printf("QGraphicsPlotItem::m_check_axis_bounds x autoscale %d y autoscale %d in zoom %d bounds changed %d\n", xi->axisAutoscaleEnabled(),
+           yi->axisAutoscaleEnabled(), inZoom(), bounds_changed);
     return bounds_changed;
 }
 
@@ -919,6 +920,7 @@ void QGraphicsPlotItem::setData(const QString& curveName,
     {
         SceneCurve *c = d->curveHash.value(curveName);
         c->setData(xData, yData);
+        m_check_axis_bounds(c);
         update();
     }
     else
@@ -932,6 +934,7 @@ void QGraphicsPlotItem::setData(const QString& curveName,
     {
         SceneCurve *c = d->curveHash.value(curveName);
         c->setData(yData);
+        m_check_axis_bounds(c);
         update();
     }
     else

@@ -32,7 +32,7 @@ public:
 
     QString axisLabelsFormat,  actualLabelsFormat, axisTitle;
 
-    bool gridEnabled, autoScale, axis_enabled;
+    bool gridEnabled, autoScale, enabled;
 
     QColor gridColor, axisColor, axisTitleColor;
 
@@ -52,7 +52,7 @@ public:
 
     QRectF plotRect, plotArea;
 
-    double maxLabelWidth, labelMargin, labelHeight;
+    double maxlabelw, labelMargin, labelHeight;
 
     QString longestLabel;
 

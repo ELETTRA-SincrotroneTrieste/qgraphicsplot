@@ -70,6 +70,10 @@ void QGraphicsZoomer::plotAreaChanged(const QRectF &)
     /// d_ptr->zoomStack[0] = newRect;
 }
 
+void QGraphicsZoomer::axisAutoscaleChanged(ScaleItem::Orientation , bool ) {
+
+}
+
 int QGraphicsZoomer::stackSize() const
 {
     if(d_ptr->zoomStackMap.size() > 0)
@@ -77,24 +81,21 @@ int QGraphicsZoomer::stackSize() const
     return 0;
 }
 
-void QGraphicsZoomer::unzoom()
-{
-    if(d_ptr->inZoom && stackSize() > 0)
-    {
-        foreach(ScaleItem *si, d_ptr->zoomStackMap.keys())
-        {
+void QGraphicsZoomer::unzoom() {
+    printf("\e[1;35m IN QGraphicsZoomer::unzoom stack size %d in zoom %d\e[0m\n", stackSize(), d_ptr->inZoom);
+    if(d_ptr->inZoom && stackSize() > 0) {
+        foreach(ScaleItem *si, d_ptr->zoomStackMap.keys()) {
             QList<QPointF> &zoomIntervals = d_ptr->zoomStackMap[si];
-   //         qDebug() << "zoom out from " << oldRect << "to " << rect;
             if(zoomIntervals.size() > 1)
                 zoomIntervals.removeLast();
             else if(zoomIntervals.size() == 1)
                 d_ptr->inZoom = false;
             if(zoomIntervals.size() > 0)
-            {
                 si->setBounds(zoomIntervals.last().x(), zoomIntervals.last().y());
-            }
         }
     }
+    printf("\e[0;35m OUT QGraphicsZoomer::unzoom stack size %d in zoom %d\e[0m\n", zoomIntervals.size(), d_ptr->inZoom);
+
 }
 
 void QGraphicsZoomer::clear()
@@ -107,8 +108,7 @@ void QGraphicsZoomer::clear()
  *
  * @param zoomRect rectangle in view coordinates
  */
-void QGraphicsZoomer::zoom(const QRectF& zoomRect)
-{
+void QGraphicsZoomer::zoom(const QRectF& zoomRect) {
     QPointF mP1 = zoomRect.topLeft();
     QPointF mP2 = zoomRect.bottomRight();
     double lb, ub; /* lower and upper bounds */
@@ -120,7 +120,6 @@ void QGraphicsZoomer::zoom(const QRectF& zoomRect)
             QList<QPointF> &zoomIntervals = d_ptr->zoomStackMap[si];
             QPointF initialInterval = QPointF(si->lowerBound(), si->upperBound());
             zoomIntervals.append(initialInterval);
-            qDebug() << __FUNCTION__ << "initialized axis " << si->axisId() << " to axes bounds " << initialInterval;
         }
     }
     /* zoom axes. NOTE: with QMap, the items are always sorted bt key */

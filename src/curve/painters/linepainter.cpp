@@ -29,7 +29,7 @@ LinePainter::~LinePainter()
 
 void LinePainter::draw(SceneCurve *curve,
                   QPainter *painter,
-                  const QStyleOptionGraphicsItem * ,
+                  const QStyleOptionGraphicsItem * option,
                   QWidget * w) {
     int dataSiz = curve->dataSize();
     painter->setClipRect(option->rect);
@@ -47,15 +47,8 @@ void LinePainter::draw(SceneCurve *curve,
         painter->drawPolygon(points, dataSiz);
     }
     else if(points) {
-        printf("LinePainter.draw calling painter->drawPolyline\n");
-
         painter->drawPolyline(points, dataSiz);
-
     }
-    printf("LinePainter.draw: ");
-    for(int i = 0 ; i < curve->dataSize(); i++)
-        printf("(%f,%f),", points[i].x(), points[i].y());
-    printf("\n");
     /* draw NaNs (invalid data */
     QVector<double> xInvalid = curve->data()->invalidDataPoints();
     if(xInvalid.size() > 0)

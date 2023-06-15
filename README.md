@@ -4,6 +4,6 @@ The new version has been merged into the [cumbia-qtcontrols-ng](https://github.c
 
 
 
-# Library to draw curves on a QGraphicsView/QGraphicsScene canvas
+### Library to draw curves on a QGraphicsView/QGraphicsScene canvas
 
-# See INSTALL.txt
+### See INSTALL.txt

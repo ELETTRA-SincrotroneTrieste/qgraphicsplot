@@ -82,20 +82,17 @@ int QGraphicsZoomer::stackSize() const
 }
 
 void QGraphicsZoomer::unzoom() {
-    printf("\e[1;35m IN QGraphicsZoomer::unzoom stack size %d in zoom %d\e[0m\n", stackSize(), d_ptr->inZoom);
-    if(d_ptr->inZoom && stackSize() > 0) {
+    if(d_ptr->inZoom && d_ptr->zoomStackMap.size() > 0) {
         foreach(ScaleItem *si, d_ptr->zoomStackMap.keys()) {
             QList<QPointF> &zoomIntervals = d_ptr->zoomStackMap[si];
             if(zoomIntervals.size() > 1)
                 zoomIntervals.removeLast();
-            else if(zoomIntervals.size() == 1)
+            if(zoomIntervals.size() == 1)
                 d_ptr->inZoom = false;
             if(zoomIntervals.size() > 0)
                 si->setBounds(zoomIntervals.last().x(), zoomIntervals.last().y());
         }
     }
-    printf("\e[0;35m OUT QGraphicsZoomer::unzoom stack size %d in zoom %d\e[0m\n", zoomIntervals.size(), d_ptr->inZoom);
-
 }
 
 void QGraphicsZoomer::clear()
@@ -142,9 +139,6 @@ void QGraphicsZoomer::zoom(const QRectF& zoomRect) {
         QPointF interval = QPointF(si->lowerBound(), si->upperBound());
         zoomIntervals.append(interval);
     }
-
-    //d_ptr->zoomStackMap
-    qDebug() << "zoom in" << zoomRect;
     d_ptr->inZoom = true;
 }
 

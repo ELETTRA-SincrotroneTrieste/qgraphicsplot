@@ -1046,9 +1046,6 @@ void ScaleItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidg
         return;
     }
 
-    if(d->autoScale && !inZoom)
-        setBoundsFromCurves();
-
     tickStepLen = d->actualTickStepLen;
 
     /* if actual x and/or y labels format is not initialized, calculate it */
